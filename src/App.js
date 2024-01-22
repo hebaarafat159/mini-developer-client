@@ -21,9 +21,9 @@ function App() {
         <Route path="/about/ourvision" element={<OurVisionComponent />} />
         <Route path="/about/whyus" element={<WhyUsComponent />} />
         <Route path="/courses" element={<Courses />} />
+        <Route path="/courses/:id" element={<CourseDetails />} />
         <Route path="/contactus" element={<ContactUs />} />
         <Route path="/register" element={<Register />} />
-        <Route path="/coursedetails" element={<CourseDetails />} />
       </Routes>
       <Footer />
     </BrowserRouter>

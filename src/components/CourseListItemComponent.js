@@ -13,7 +13,7 @@ export default function CourseListComponent({ course }) {
           borderRadius: 10,
           background: 'linear-gradient(to bottom, #ffb093, #ed7d45)',
           fontSize: "2.5vmin"
-        }} LinkComponent={'a'} href={'/coursedetails'}>View Details</Button>
+        }} LinkComponent={'a'} href={`/courses/${course._id}`}>View Details</Button>
       </div>
 
       <Stack className={cssStyle.course_card_details}>

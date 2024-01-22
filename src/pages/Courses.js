@@ -75,7 +75,7 @@ export default function Courses() {
 
     return (
         <Card className={cssStyle.page}>
-            {courses ? courses.map((course) => <CourseListComponent course={course} />) : null}
+            {courses ? courses.map((course) => <CourseListComponent course={course} key={course._id}/>) : null}
         </Card>
     )
 }
