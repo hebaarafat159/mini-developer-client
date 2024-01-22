@@ -1,0 +1,184 @@
+.page {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    align-items: center;
+    padding: 15vmin 5vmin;
+}
+
+.Footer {
+    position: fixed;
+    bottom: 0;
+    height: auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    background-color: white;
+    color: #333440;
+    width: 100vw;
+    padding: .5vmin;
+}
+
+.Header {
+    position: fixed;
+    height: auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    background-color: white;
+    color: #333440;
+    width: 100vw;
+    padding: .5vmin;
+}
+
+.link_text {
+    font-weight: bold;
+    font-size: 1.5vw;
+    color: #333440;
+    padding: 2vmin 0;
+    text-decoration: none;
+}
+
+.link_text::after {
+    font-weight: bold;
+    font-size: 1.5vw;
+    color: red;
+    text-decoration: none;
+}
+
+.link_text:hover {
+    font-weight: bold;
+    font-size: 1.5vw;
+    color: #ed7d45;
+    text-decoration: none;
+}
+
+.menuIcon {
+    color: #333440;
+    margin-left: auto;
+}
+
+.page_content {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    align-items: center;
+    padding: 5vmin 15vmin;
+    background-color: white;
+}
+
+.page_content_dark {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    align-items: center;
+    padding: 5vmin 15vmin;
+    background-color: #333440;
+}
+
+.page_content_title {
+    font-weight: bold;
+    font-size: 2vw;
+}
+
+.page_content_text {
+    font-weight: normal;
+    font-size: 1.5vw;
+}
+
+.page_content_text_bold {
+    font-weight: bold;
+    font-size: 1.5vw;
+}
+
+.logo {
+    width: 20vw;
+    height: 15vh;
+}
+
+.icon {
+    width: 10vw;
+    height: 10vh;
+}
+
+.contentImage {
+    width: 20vw;
+    height: 50vh;
+}
+
+.subContentImage {
+    width: 10vw;
+    height: 20vh;
+}
+
+.miniDeveloperText {
+    color: #ed7d45;
+    font-weight: bold;
+}
+
+.course_card {
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+    width: 22vw;
+    height: auto;
+    margin: 2vmin;
+}
+
+.course_card_details {
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
+    padding: 5vmin;
+    background-color: white;
+    width: 22vw;
+    height: auto;
+}
+
+.course_card:hover {
+    transform: scale(1.05);
+    transition: transform 0.2s ease-in-out
+}
+
+.course_card_image {
+    width: 22vw;
+    height: 50vh;
+    padding-bottom: 5vmin;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+}
+
+.course_card_bold_text {
+    color: #333440;
+    font-weight: bold;
+}
+
+.register_form_component {
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 5vmin;
+    background-color: white;
+    width: 40vw;
+}
+
+.register_form_subcomponent {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    align-items: center;
+    background-color: white;
+    width: 30vw;
+}
+
+.register_form_text_field {
+    display: flex;
+    width: 30vw;
+}
