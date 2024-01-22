@@ -7,7 +7,7 @@ export default function CourseListComponent({ course }) {
     <Card className={cssStyle.course_card}>
       <div
         className={cssStyle.course_card_image}
-        style={{ backgroundImage: `url("${course.image}")` }}>
+        style={{ backgroundImage: `url("${course.cover_image}")` }}>
 
         <Button variant="contained" style={{
           borderRadius: 10,
