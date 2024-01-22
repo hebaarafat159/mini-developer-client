@@ -1,8 +1,7 @@
 import React from 'react'
 import { Button, Card, Stack, Typography } from '@mui/material'
-import HomeFreeTrialButton from '../components/FreeTrialButton'
+import FreeTrialButton from '../components/FreeTrialButton'
 import ExploreButtonComponent from '../components/ExploreButtonComponent'
-import image from '../assets/mini-developer-logo.png'
 import cssStyle from '../css/styles.module.css'
 import home_first_paragraphe_img from '../assets/home_first_paragraphe_img.jpg'
 import news_img from '../assets/news_img.png'
@@ -25,7 +24,7 @@ export default function Home() {
                         <Typography style={{ fontSize: '1.5vw', color: '#333440' }}> Empower your child with creativity & logical thinking through our Fun & Interactive </Typography>
                         <Typography style={{ fontWeight: 'bold', fontSize: '1.5vw', color: '#333440' }} > Coding Classes </Typography>
                         <Stack direction="row" spacing={2} sx={{ display: { xs: 'flex', padding: '5vmin' } }} >
-                            <HomeFreeTrialButton />
+                            <FreeTrialButton course={null} />
                             <Button variant="contained" style={{
                                 borderRadius: 10,
                                 background: 'linear-gradient(to bottom, #d6d7de, #b2b2b2)',
@@ -52,7 +51,7 @@ export default function Home() {
                         <Typography style={{ fontWeight: 'bold', fontSize: '1.5vw', color: 'white' }}> Mini Developer partners with Ealing Council Libraries  starting from September term 2023.
                             Proud to work together to spread the knowledge, benefit the community and prepare children for the digital future. </Typography>
                         <Stack direction="row" spacing={2} >
-                            <HomeFreeTrialButton />
+                            <FreeTrialButton course={null} />
                         </Stack>
                     </Stack>
 
@@ -109,7 +108,7 @@ export default function Home() {
                             to different paths you can take as a professional developer.
                             Become a Coding Maestro!</Typography>
                         <Stack direction="row" spacing={2} >
-                            <HomeFreeTrialButton />
+                            <FreeTrialButton course={null} />
                             <ExploreButtonComponent />
                         </Stack>
                         <img src={roadmap} loading="lazy" alt="" width={'800vw'} />

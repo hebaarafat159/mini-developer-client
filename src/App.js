@@ -23,7 +23,7 @@ function App() {
         <Route path="/courses" element={<Courses />} />
         <Route path="/courses/:id" element={<CourseDetails />} />
         <Route path="/contactus" element={<ContactUs />} />
-        <Route path="/register" element={<Register />} />
+        <Route path="/register/:courseId" element={<Register />} />
       </Routes>
       <Footer />
     </BrowserRouter>

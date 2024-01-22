@@ -97,8 +97,8 @@
 }
 
 .icon {
-    width: 10vw;
-    height: 10vh;
+    width: 5vw;
+    height: 5vh;
 }
 
 .contentImage {
@@ -181,4 +181,20 @@
 .register_form_text_field {
     display: flex;
     width: 30vw;
+}
+
+
+.course_details_content{
+    display: flex;
+    flex-flow: row wrap;
+    align-items: flex-start;
+    justify-content: space-evenly;
+}
+
+.course_details_content_item{
+    display: flex;
+    flex-flow: row wrap;
+    align-items: center;
+    justify-content: center;
+    padding: 5vmin;
 }
