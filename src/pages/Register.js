@@ -92,6 +92,7 @@ export default function Register() {
             required
             id="outlined-required"
             label="Email"
+            type='email'
             defaultValue={email}
             className={cssStyle.register_form_text_field}
             onChange={(event) => setEmail(event.target.value)}
@@ -103,6 +104,7 @@ export default function Register() {
             required
             id="outlined-required"
             label="Mobile Number"
+            type='tel'
             defaultValue={mobileNumber}
             className={cssStyle.register_form_text_field}
             onChange={(event) => setMobileNumber(event.target.value)}
