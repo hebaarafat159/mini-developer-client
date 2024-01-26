@@ -34,6 +34,10 @@ export default function Register() {
     }));
   };
 
+  function addToChildren(newChild) {
+    setChildren(...children, child)
+  }
+
   function removeChildComponent(index) {
     alert(`delete child ${index}`)
     if (index !== null && index !== undefined) {
@@ -53,7 +57,7 @@ export default function Register() {
         LOcation: ${location},
         child: ${child.firstName} ${child.lastName} , age: ${child.age}, Has Computer: ${child.hasComputer},
         Hear About Us : ${hearAboutUs},
-        'Questions' : ${questions}`
+        Questions : ${questions}`
       )
   }
 
@@ -113,12 +117,21 @@ export default function Register() {
           {/* add new child layout */}
           <Typography style={{ fontSize: '1.5vw', color: '#333440' }}> Children </Typography>
 
+          {children && children.length > 0
+            && children.map((child, index) => < StudentRegisterComponent
+              child={child}
+              key={index}
+              updateChildProperty={updateChildProperty}
+              removeChildComponent={removeChildComponent}
+              addToChildren={addToChildren} />)}
+
           {/* case of add new child after having children */}
           < StudentRegisterComponent
             child={child}
             key={-1}
             updateChildProperty={updateChildProperty}
-            removeChildComponent={removeChildComponent} />
+            removeChildComponent={removeChildComponent}
+            addToChildren={addToChildren} />
 
           {/* program type In=person or Online */}
           <ProgrameTypeComponent location={location} setLocation={setLocation} programType={programType} setProgramType={setProgramType} />

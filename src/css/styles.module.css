@@ -178,6 +178,16 @@
     width: 30vw;
 }
 
+.register_form_subcomponent_withborder {
+    display: flex;
+    direction: row;
+    background-color: white;
+    width: 30vw;
+    border-radius: 30;
+    border: gray .3vmin solid;
+    padding: 1vmin;
+}
+
 .register_form_text_field {
     display: flex;
     width: 30vw;
