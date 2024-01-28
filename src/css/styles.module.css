@@ -194,17 +194,106 @@
 }
 
 
-.course_details_content{
+.course_details_content {
     display: flex;
     flex-flow: row wrap;
     align-items: flex-start;
     justify-content: space-evenly;
 }
 
-.course_details_content_item{
+.course_details_content_item {
     display: flex;
     flex-flow: row wrap;
     align-items: center;
     justify-content: center;
     padding: 5vmin;
+}
+
+@media only screen and (max-width: 767px) {
+
+    /* Your styles for small screens go here */
+    body {
+        font-size: 14px;
+    }
+
+    .page {
+        display: flex;
+        flex-flow: column wrap;
+        justify-content: center;
+        align-items: center;
+
+    }
+
+    .page_content {
+        display: flex;
+        flex-flow: column wrap;
+        justify-content: center;
+        align-items: center;
+        /* padding: 5vmin 15vmin; */
+        background-color: white;
+    }
+
+    .page_content_dark {
+        display: flex;
+        flex-flow: column wrap;
+        justify-content: center;
+        align-items: center;
+        /* padding: 5vmin 15vmin; */
+        background-color: #333440;
+    }
+
+    .logo {
+        width: 15vw;
+        height: 5vh;
+    }
+
+    .icon {
+        width: 5vw;
+        height: 5vh;
+    }
+
+    .contentImage {
+        width: 10vw;
+        height: 25vh;
+    }
+
+    .subContentImage {
+        width: 5vw;
+        height: 10vh;
+    }
+
+    .course_card {
+        display: flex;
+        flex-flow: column;
+        justify-content: center;
+        align-items: center;
+        background-color: white;
+        width: 70vw;
+        height: auto;
+        margin: 2vmin;
+    }
+    
+    .course_card_details {
+        display: flex;
+        flex-flow: column;
+        justify-content: center;
+        align-items: center;
+        padding: 5vmin;
+        background-color: white;
+        width: 70vw;
+        height: auto;
+    }
+    
+    .course_card_image {
+        width: 70vw;
+        height: 50vh;
+        padding-bottom: 5vmin;
+        background-size: cover;
+        background-position: center;
+        display: flex;
+        align-items: flex-end;
+        justify-content: center;
+    }
+    
+    /* Add more styles as needed */
 }
