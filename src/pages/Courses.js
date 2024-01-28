@@ -64,18 +64,16 @@ export default function Courses() {
     // ]);
 
     useEffect(() => {
-        fetch('http://localhost:4000/courses')//(`${process.env.APP_URL_APP_PATH}/courses`)
+        // fetch('http://localhost:4000/courses')
+        fetch(`${process.env.REACT_APP_URL_APP_PATH}/courses`)
             .then(response => response.json())
             .then(result => {
-                // console.log(`All Categories: ${JSON.stringify(result.body)}`);
                 setCourses(result.body);
             })
     }, []);
-
-
     return (
         <Card className={cssStyle.page}>
-            {courses ? courses.map((course) => <CourseListComponent course={course} key={course._id}/>) : null}
+            {courses ? courses.map((course) => <CourseListComponent course={course} key={course._id} />) : null}
         </Card>
     )
 }

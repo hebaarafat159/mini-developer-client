@@ -15,7 +15,8 @@ export default function CourseDetails() {
   const [courseObject, setCourseObject] = useState({})
 
   useEffect(() => {
-    fetch(`http://localhost:4000/courses/65ae00d254af1ac02b422ad3`) //${this.props.id}`)
+    // fetch(`http://localhost:4000/courses/65ae00d254af1ac02b422ad3`) //${this.props.id}`)
+    fetch(`${process.env.REACT_APP_URL_APP_PATH}/courses/65ae00d254af1ac02b422ad3`) //${this.props.id}`)
       .then(response => response.json())
       .then(result => {
         setCourseObject(result.body);

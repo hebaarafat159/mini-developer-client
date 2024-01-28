@@ -62,8 +62,8 @@ export default function Register() {
     children.push(child)
     const childrenStr = JSON.stringify(children)
     console.log(`childrenStr : ${childrenStr}`)
-    // fetch(`${process.env.VUE_APP_URL_APP_PATH}/shoppingLists/${list_id}/listItems/add`, {
-    fetch(`http://localhost:4000/classrooms/register`,
+    // fetch(`http://localhost:4000/classrooms/register`,
+    fetch(`${process.env.REACT_APP_URL_APP_PATH}/classrooms/register`,
       {
         method: "POST",
         headers: {

@@ -56,6 +56,7 @@ export default function HeaderComponent() {
         }
     ]
 
+    // eslint-disable-next-line
     const [selectedTab, setSelectedTab] = useState(0);
     function handleSelected(selectedItem) {
         setSelectedTab(selectedItem)
