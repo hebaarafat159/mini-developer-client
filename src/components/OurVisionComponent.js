@@ -1,5 +1,5 @@
 import React from 'react'
-import { Card, Typography, Stack } from '@mui/material'
+import { Typography, Stack } from '@mui/material'
 import ExploreButtonComponent from './ExploreButtonComponent'
 import cssStyle from '../css/styles.module.css'
 

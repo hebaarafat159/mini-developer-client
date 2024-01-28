@@ -1,5 +1,5 @@
 import React from 'react'
-import { Card, Stack, Typography } from '@mui/material'
+import { Stack, Typography } from '@mui/material'
 import FreeTrialButton from './FreeTrialButton'
 import cssStyle from '../css/styles.module.css'
 
