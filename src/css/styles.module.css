@@ -271,7 +271,7 @@
         height: auto;
         margin: 2vmin;
     }
-    
+
     .course_card_details {
         display: flex;
         flex-flow: column;
@@ -282,7 +282,7 @@
         width: 70vw;
         height: auto;
     }
-    
+
     .course_card_image {
         width: 70vw;
         height: 50vh;
@@ -293,6 +293,25 @@
         align-items: flex-end;
         justify-content: center;
     }
-    
+
+    .register_form_subcomponent {
+        display: flex;
+        flex-flow: column;
+        justify-content: space-between;
+        align-items: center;
+        background-color: white;
+        width: 30vw;
+    }
+
+    .register_form_subcomponent_withborder {
+        display: flex;
+        direction: column;
+        background-color: white;
+        width: 30vw;
+        border-radius: 30;
+        border: gray .3vmin solid;
+        padding: 1vmin;
+    }
+
     /* Add more styles as needed */
 }
