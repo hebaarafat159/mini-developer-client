@@ -21,8 +21,8 @@ export default function Register() {
   const [addNewChild, setAddNewChild] = useState(false)
 
   const [child, setChild] = useState({
-    firstName: '',
-    lastName: '',
+    first_name: '',
+    last_name: '',
     age: 0,
     hasComputer: false
   });
@@ -59,10 +59,41 @@ export default function Register() {
         Hear About Us : ${hearAboutUs},
         Questions : ${questions}`
       )
+    children.push(child)
+    const childrenStr = JSON.stringify(children)
+    console.log(`childrenStr : ${childrenStr}`)
+    // fetch(`${process.env.VUE_APP_URL_APP_PATH}/shoppingLists/${list_id}/listItems/add`, {
+    fetch(`http://localhost:4000/classrooms/register`,
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+          "first_name": parentFirstName,
+          "last_name": parentLastName,
+          "email": email,
+          "mobile": mobileNumber,
+          "hear_about_us": hearAboutUs,
+          "questions": questions,
+          "children": children,
+          "location": location,
+          "program_type": programType,
+          "course_id": ""
+        })
+      })
+      .then(response => response.json())
+      .then(result => {
+        if (result.status === 200) {
+          console.log(`YOur Registration has been send to MINI developer, one of our team memeber will answer you shortly`);
+        }
+      })
+      .catch(error => {
+        console.log(error);
+      })
   }
 
   return (
-
     <Card className={cssStyle.page}>
       <Stack spacing={1} className={cssStyle.register_form_component} >
         <Typography style={{ fontWeight: 'bold', fontSize: '2vw', color: '#ed7d45' }}> Coding is the Language of the Future!</Typography>
