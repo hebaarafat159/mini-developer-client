@@ -218,7 +218,7 @@ export default function Register() {
             defaultValue={mobileNumber}
             className={cssStyle.register_form_text_field}
             onChange={(event) => setMobileNumber(event.target.value)}
-            error={Boolean(errors.email)}
+            error={Boolean(errors.mobileNumber)}
             helperText={errors.mobileNumber}
           />
 
