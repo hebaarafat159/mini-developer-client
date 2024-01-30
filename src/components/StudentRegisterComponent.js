@@ -5,12 +5,14 @@ import IconButton from '@mui/material/IconButton';
 import DeleteIcon from '@mui/icons-material/Delete';
 import YesOrNoComponent from './YesOrNoComponent';
 
-export default function StudentRegisterComponent({ key, child, updateChildProperty, addChild, removeChildComponent }) {
+export default function StudentRegisterComponent({ index, child, updateChildProperty, errors, removeChildComponent }) {
+    // alert(`Key: ${index}`)
     const minAge = 0
     const maxAge = 14
     function handleHasComputerSelection(selection) {
         updateChildProperty(Object.keys(child)[3], selection)
     }
+
     return (
         <Stack direction={"column"} spacing={1} className={cssStyle.register_form_subcomponent_withborder} >
             <Stack direction={"row"} spacing={1} className={cssStyle.register_form_subcomponent} >
@@ -19,16 +21,20 @@ export default function StudentRegisterComponent({ key, child, updateChildProper
                     id="outlined-required"
                     label="First Name"
                     style={{ width: '30%' }}
-                    value={child.firstName}
-                    onChange={(event) => updateChildProperty(Object.keys(child)[0], event.target.value)}
+                    value={child.first_name}
+                    onChange={(event) => updateChildProperty(index, Object.keys(child)[0], event.target.value)}
+                    error={Boolean(errors.childFirstName)}
+                    helperText={errors.childFirstName}
                 />
                 <TextField
                     required
                     id="outlined-required"
                     label="Last Name"
                     style={{ width: '30%' }}
-                    value={child.lastName}
-                    onChange={(event) => updateChildProperty(Object.keys(child)[1], event.target.value)}
+                    value={child.last_name}
+                    onChange={(event) => updateChildProperty(index, Object.keys(child)[1], event.target.value)}
+                    error={Boolean(errors.childLastName)}
+                    helperText={errors.childLastName}
                 />
                 <TextField
                     required
@@ -42,11 +48,13 @@ export default function StudentRegisterComponent({ key, child, updateChildProper
                     style={{ width: '20%' }}
                     value={child.age}
                     defaultValue={minAge}
-                    onChange={(event) => updateChildProperty(Object.keys(child)[2], event.target.value)}
+                    onChange={(event) => updateChildProperty(index, Object.keys(child)[2], event.target.value)}
+                    error={Boolean(errors.age)}
+                    helperText={errors.age}
                 />
                 {
-                    (key === -1) ?
-                        < IconButton aria-label="delete" size="small" onClick={() => removeChildComponent(key)}>
+                    (index !== -1) ?
+                        < IconButton aria-label="delete" size="small" onClick={() => removeChildComponent(index)}>
                             <DeleteIcon fontSize="inherit" />
                         </IconButton> :
                         null
