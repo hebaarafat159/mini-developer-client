@@ -23,6 +23,7 @@ export default function Register() {
         age: '',
         hasComputer: ''
     }])
+    // eslint-disable-next-line 
     const [child, setChild] = useState({
         first_name: '',
         last_name: '',
@@ -198,6 +199,7 @@ export default function Register() {
         }
     };
 
+    // eslint-disable-next-line
     function addNewChild() {
         if (addChild && children && children.length > 0) {
             const valid = validateChildren(children[children.length - 1])
@@ -300,7 +302,7 @@ export default function Register() {
                     {/* add new child layout */}
                     <Typography style={{ fontSize: '1.5vw', color: '#333440' }}> Children </Typography>
                     {/* Submit Button */}
-                    <Button
+                    {/* <Button
                         variant="contained"
                         onClick={addNewChild}
                         style={{
@@ -309,7 +311,7 @@ export default function Register() {
                             fontSize: "2.5vmin",
                             display: 'flex',
                             width: '30vw'
-                        }}> Add Child </Button>
+                        }}> Add Child </Button> */}
                     {/* case of add new child after having children */}
                     {
                         (children && children.length > 0) ?

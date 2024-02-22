@@ -1,7 +1,9 @@
 import React from 'react'
 import { TextField, Stack, } from '@mui/material'
 import cssStyle from '../css/styles.module.css'
+// eslint-disable-next-line
 import IconButton from '@mui/material/IconButton';
+// eslint-disable-next-line
 import DeleteIcon from '@mui/icons-material/Delete';
 import YesOrNoComponent from './YesOrNoComponent';
 
@@ -52,13 +54,13 @@ export default function StudentRegisterComponent({ index, child, updateChildProp
                     error={Boolean(errors.age)}
                     helperText={errors.age}
                 />
-                {
+                {/* {
                     (index !== -1) ?
                         < IconButton aria-label="delete" size="small" onClick={() => removeChildComponent(index)}>
                             <DeleteIcon fontSize="inherit" />
                         </IconButton> :
                         null
-                }
+                } */}
             </Stack>
             <YesOrNoComponent displayText={'Does your child have a Computer?'} handleSelection={handleHasComputerSelection} />
 
