@@ -7,6 +7,7 @@ import cssStyle from '../css/styles.module.css'
 
 import Home from '../pages/Home'
 // import About from '../pages/About'
+// eslint-disable-next-line
 import ContactUs from '../pages/ContactUs'
 import Courses from '../pages/Courses'
 import HeaderDrawerComponent from './HeaderDrawerComponent'
@@ -48,12 +49,12 @@ export default function HeaderComponent() {
             link: '/courses',
             component: <Courses />
         },
-        {
-            position: 4,
-            label: 'Contact Us',
-            link: '/contactus',
-            component: <ContactUs />
-        }
+        // {
+        //     position: 4,
+        //     label: 'Contact Us',
+        //     link: '/contactus',
+        //     component: <ContactUs />
+        // }
     ]
 
     // eslint-disable-next-line
