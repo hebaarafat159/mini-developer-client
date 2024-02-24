@@ -11,12 +11,12 @@ import course_details_type from '../assets/course_details_type.png'
 import course_details_content_img from '../assets/course_details_content_img.png'
 import { useParams } from 'react-router-dom'
 
-export default function CourseDetails(props) {
+export default function CourseDetails() {
   const { id } = useParams();
   const [courseObject, setCourseObject] = useState({})
 
   useEffect(() => {
-    fetch(`${process.env.REACT_APP_URL_APP_PATH}/courses/${id}}`)
+    fetch(`${process.env.REACT_APP_URL_APP_PATH}/courses/${id}`)
       .then(response => response.json())
       .then(result => {
         setCourseObject(result.body);
