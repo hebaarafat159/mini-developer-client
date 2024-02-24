@@ -1,6 +1,7 @@
 import React from 'react'
 import cssStyle from '../css/styles.module.css'
 import { Card, Stack, Typography, Button } from '@mui/material'
+import { Link } from 'react-router-dom'
 
 export default function CourseListComponent({ course }) {
   return (
@@ -8,12 +9,16 @@ export default function CourseListComponent({ course }) {
       <div
         className={cssStyle.course_card_image}
         style={{ backgroundImage: `url("${course.cover_image}")` }}>
-
-        <Button variant="contained" style={{
-          borderRadius: 10,
-          background: 'linear-gradient(to bottom, #ffb093, #ed7d45)',
-          fontSize: "2.5vmin"
-        }} LinkComponent={'a'} href={`/courses/${course._id}`}>View Details</Button>
+        <Link to={{ pathname: `/courses/${course._id}`}}>
+          <Button variant="contained" style={{
+            borderRadius: 10,
+            background: 'linear-gradient(to bottom, #ffb093, #ed7d45)',
+            fontSize: "2.5vmin"
+          }}>
+            {/* LinkComponent={'a'} href={`/courses/${course._id}`}> */}
+            View Details
+          </Button>
+        </Link>
       </div>
 
       <Stack className={cssStyle.course_card_details}>
