@@ -17,6 +17,7 @@
     color: #333440;
     width: 100vw;
     padding: .5vmin;
+    z-index: 1000;
 }
 
 .Header {
@@ -29,6 +30,7 @@
     color: #333440;
     width: 100vw;
     padding: .5vmin;
+    z-index: 1000;
 }
 
 .link_text {
@@ -207,6 +209,29 @@
     align-items: center;
     justify-content: center;
     padding: 5vmin;
+}
+
+.orage_btn {
+    border-radius: 10;
+    background: linear-gradient(to bottom, #ffb093, #ed7d45);
+    font-size: 2.5vmin;
+    font-weight: bold;
+}
+
+.gray_btn {
+    border-radius: 10;
+    background: linear-gradient(to bottom, #d6d7de, #b2b2b2);
+    font-size: 2.5vmin;
+    /* color: #5f6276; */
+    font-weight: bold;
+}
+
+.brawn_btn {
+    border-radius: 10;
+    background: linear-gradient(to bottom, #e09b79, #9e532d);
+    font-size: 2.5vmin;
+    /* color: #5f6276; */
+    font-weight: bold;
 }
 
 @media only screen and (max-width: 600px) {

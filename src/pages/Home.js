@@ -25,12 +25,9 @@ export default function Home() {
                         <Typography style={{ fontWeight: 'bold', fontSize: '1.5vw', color: '#333440' }} > Coding Classes </Typography>
                         <Stack direction="row" spacing={2} sx={{ display: { xs: 'flex', padding: '5vmin' } }} >
                             <FreeTrialButton course={null} />
-                            <Button variant="contained" style={{
-                                borderRadius: 10,
-                                background: 'linear-gradient(to bottom, #d6d7de, #b2b2b2)',
-                                fontSize: "2.5vmin",
-                                color: "#5f6276"
-                            }}
+                            <Button
+                                variant="contained"
+                                className={cssStyle.gray_btn}
                                 onClick={() => window.scroll({
                                     top: document.body.offsetHeight,
                                     left: 0,
