@@ -26,13 +26,13 @@ export default function CourseDetails() {
 
   return (
     <Card className={cssStyle.page}>
-      <Stack direction="column" spacing={2}>
-        <img src={courseObject.cover_image} loading="lazy" alt="" width={'500vw'} />
+      <Stack direction="column" spacing={2} className={cssStyle.page_content}>
+        <img src={courseObject.cover_image} loading="lazy" alt="" width={'700vw'} />
 
         <Typography style={{ fontWeight: 'bold', fontSize: '3vw', color: '#ed7d45' }}> {courseObject.title} </Typography>
         <Typography style={{ fontWeight: 'bold', fontSize: '2vw', color: '#333440', borderBottom: '#333440 3px solid' }}> Course Details </Typography>
 
-        <Stack className={cssStyle.course_details_content}>
+        <Stack direction="row" spacing={2} className={cssStyle.course_details_content}>
           {/* Language */}
           <Stack direction="row" spacing={1} className={cssStyle.course_details_content_item}>
             <img src={course_details_language_icon} className={cssStyle.icon} loading="lazy" alt="" />
