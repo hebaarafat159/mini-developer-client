@@ -25,7 +25,7 @@ export default function ProgrameTypeComponent({ registerData, updateRegistration
                 row
                 aria-labelledby="demo-form-control-label-placement"
                 name="position"
-                value={registerData.programType}
+                value={registerData.program_type}
                 onChange={(event) => updateRegistrationDataProperty(Object.keys(registerData)[4], event.target.value)}>
                 {programTypes && programTypes.map(
                     (type, index) =>
@@ -33,7 +33,7 @@ export default function ProgrameTypeComponent({ registerData, updateRegistration
 
             </RadioGroup>
             {
-                registerData.programType === programTypes[0] &&
+                registerData.program_type === programTypes[0] &&
                 <>
                     {errors.preffered_location !== '' && <Typography variant='danger' style={{ fontSize: '1.5vw', color: 'red' }}>{errors.preffered_location}</Typography>}
 

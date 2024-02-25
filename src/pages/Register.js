@@ -1,31 +1,45 @@
 import React, { useState } from 'react'
 import { Card, TextField, Stack, Typography, Button } from '@mui/material'
 import cssStyle from '../css/styles.module.css'
-// eslint-disable-next-line 
 import StudentRegisterComponent from '../components/StudentRegisterComponent'
-// eslint-disable-next-line 
 import ProgrameTypeComponent from '../components/ProgrameTypeComponent'
 import validator from "validator";
+import { useParams } from 'react-router-dom'
 
 export default function RegisterForm() {
     const minAge = 4
     const maxAge = 14
+    const { courseId } = useParams();
+    const childObject = {
+        first_name: '',
+        last_name: '',
+        age: '',
+        hasComputer: true
+    }
+
+    const childErrorObject = {
+        childFirstName: '',
+        childLastName: '',
+        age: '',
+        hasComputer: ''
+    }
 
     const [registerData, setRegisterData] = useState({
-        parentFirstName: '',
-        parentLastName: '',
+        first_name: '',
+        last_name: '',
         email: '',
-        mobileNumber: '',
-        programType: '',
+        mobile: '',
+        program_type: '',
         preffered_location: '',
-        hearAboutUs: '',
+        hear_about_us: '',
         questions: '',
         children: [{
-            childFirstName: '',
-            childLastName: '',
+            first_name: '',
+            last_name: '',
             age: '',
             hasComputer: true
-        }]
+        }],
+        course_id: ''
     })
 
     const [errors, setErrors] = useState({
@@ -55,7 +69,7 @@ export default function RegisterForm() {
         const newErrors = { ...errors };
 
         // Validate parent first name
-        if (validator.isEmpty(registerData.parentFirstName)) {
+        if (validator.isEmpty(registerData.first_name)) {
             newErrors.parentFirstName = 'Parent first name is required';
             valid = false;
         } else {
@@ -63,7 +77,7 @@ export default function RegisterForm() {
         }
 
         // Validate parent last name
-        if (validator.isEmpty(registerData.parentLastName)) {
+        if (validator.isEmpty(registerData.last_name)) {
             newErrors.parentLastName = 'Parent Last name is required';
             valid = false;
         } else {
@@ -82,10 +96,10 @@ export default function RegisterForm() {
         }
 
         // Validate mobile number
-        if (validator.isEmpty(registerData.mobileNumber)) {
+        if (validator.isEmpty(registerData.mobile)) {
             newErrors.mobileNumber = 'Mobile is required';
             valid = false;
-        } else if (!validator.isMobilePhone(registerData.mobileNumber)) {
+        } else if (!validator.isMobilePhone(registerData.mobile)) {
             newErrors.mobileNumber = 'Invalid mobile number';
             valid = false;
         } else {
@@ -93,12 +107,12 @@ export default function RegisterForm() {
         }
 
         // Validate program type 
-        if (validator.isEmpty(registerData.programType)) {
+        if (validator.isEmpty(registerData.program_type)) {
             newErrors.programType = 'Please Select your preffered Program';
             valid = false;
         } else {
             // Validate preffered location type 
-            if (registerData.programType === 'In Person' && validator.isEmpty(registerData.preffered_location)) {
+            if (registerData.program_type === 'In Person' && validator.isEmpty(registerData.preffered_location)) {
                 newErrors.preffered_location = 'Please Select your preffered location';
                 valid = false;
             } else {
@@ -112,7 +126,7 @@ export default function RegisterForm() {
             // eslint-disable-next-line
             registerData.children.map((childObject, index) => {
                 // check child first name
-                if (validator.isEmpty(childObject.childFirstName)) {
+                if (validator.isEmpty(childObject.first_name)) {
                     newErrors.children[index].childFirstName = 'This field is required'
                     valid = false;
                 } else {
@@ -120,7 +134,7 @@ export default function RegisterForm() {
                 }
 
                 // check child last name
-                if (validator.isEmpty(childObject.childLastName)) {
+                if (validator.isEmpty(childObject.last_name)) {
                     newErrors.children[index].childLastName = 'This field is required'
                     valid = false;
                 } else {
@@ -146,18 +160,14 @@ export default function RegisterForm() {
     }
 
     function addNewChild() {
-        // registerData.children.push({
-        //     first_name: '',
-        //     last_name: '',
-        //     age: '',
-        //     hasComputer: ''
-        // })
-        // updateRegistrationDataProperty(Object.keys(registerData)[8], registerData.children);
-
+        registerData.children.push(childObject)
+        errors.children.push(childErrorObject)
+        updateRegistrationDataProperty(Object.keys(registerData)[8], registerData.children);
     };
 
     function submit() {
         if (validateForm()) {
+            if ((!validator.isEmpty(courseId)) && courseId !== '0') registerData.course_id = courseId
             alert(JSON.stringify(registerData));
             // const childrenStr = JSON.stringify(children)
             // console.log(`childrenStr : ${childrenStr}`)
@@ -211,7 +221,7 @@ export default function RegisterForm() {
                             required
                             id="outlined-required"
                             label="First Name"
-                            defaultValue={registerData.parentFirstName}
+                            defaultValue={registerData.first_name}
                             onChange={(event) => updateRegistrationDataProperty(Object.keys(registerData)[0], event.target.value)}
                             error={Boolean(errors.parentFirstName)}
                             helperText={errors.parentFirstName}
@@ -220,7 +230,8 @@ export default function RegisterForm() {
                             required
                             id="outlined-required"
                             label="Last Name"
-                            defaultValue={registerData.parentLastName}
+                            defaultValue={registerData.last_name}
+                            value={registerData.last_name}
                             onChange={(event) => updateRegistrationDataProperty(Object.keys(registerData)[1], event.target.value)}
                             error={Boolean(errors.parentLastName)}
                             helperText={errors.parentLastName}
@@ -234,6 +245,7 @@ export default function RegisterForm() {
                         id="outlined-required"
                         type='email'
                         defaultValue={registerData.email}
+                        value={registerData.email}
                         className={cssStyle.register_form_text_field}
                         onChange={(event) => updateRegistrationDataProperty(Object.keys(registerData)[2], event.target.value)}
                         error={Boolean(errors.email)}
@@ -248,6 +260,7 @@ export default function RegisterForm() {
                         id="outlined-required"
                         type='tel'
                         defaultValue={registerData.mobileNumber}
+                        value={registerData.mobileNumber}
                         className={cssStyle.register_form_text_field}
                         onChange={(event) => updateRegistrationDataProperty(Object.keys(registerData)[3], event.target.value)}
                         error={Boolean(errors.mobileNumber)}
@@ -286,7 +299,7 @@ export default function RegisterForm() {
                     <TextField
                         required
                         id="outlined-required"
-                        defaultValue={registerData.hearAboutUs}
+                        defaultValue={registerData.hear_about_us}
                         className={cssStyle.register_form_text_field}
                         onChange={(event) => updateRegistrationDataProperty(Object.keys(registerData)[6], event.target.value)}
                     />
