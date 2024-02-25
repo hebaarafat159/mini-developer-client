@@ -7,12 +7,29 @@ import IconButton from '@mui/material/IconButton';
 import DeleteIcon from '@mui/icons-material/Delete';
 import YesOrNoComponent from './YesOrNoComponent';
 
-export default function StudentRegisterComponent({ index, child, updateChildProperty, errors, removeChildComponent }) {
-    // alert(`Key: ${index}`)
+export default function StudentRegisterComponent({ index, registerData, errors, updateRegistrationDataProperty }) {
     const minAge = 0
     const maxAge = 14
+
+    function updateChildProperty(index, propertyName, newValue) {
+        if (index !== -1) {
+            const updatedChildren = [...registerData.children];
+            updatedChildren[index] = {
+                ...updatedChildren[index],
+                [propertyName]: newValue,
+            };
+            updateRegistrationDataProperty(Object.keys(registerData)[8], updatedChildren);
+        }
+    };
+
+    function removeChildComponent(childIndex) {
+        alert(`delete child ${childIndex}`)
+        const updatedChildren = registerData.children.filter((child, index) => index !== childIndex);
+        updateRegistrationDataProperty(Object.keys(registerData)[8], updatedChildren);
+    }
+
     function handleHasComputerSelection(selection) {
-        updateChildProperty(Object.keys(child)[3], selection)
+        updateChildProperty(Object.keys(registerData.children[index])[3], selection)
     }
 
     return (
@@ -23,20 +40,20 @@ export default function StudentRegisterComponent({ index, child, updateChildProp
                     id="outlined-required"
                     label="First Name"
                     style={{ width: '30%' }}
-                    value={child.first_name}
-                    onChange={(event) => updateChildProperty(index, Object.keys(child)[0], event.target.value)}
-                    error={Boolean(errors.childFirstName)}
-                    helperText={errors.childFirstName}
+                    value={registerData.children[index].first_name}
+                    onChange={(event) => updateChildProperty(index, Object.keys(registerData.children[index])[0], event.target.value)}
+                    error={Boolean(errors.children[index].childFirstName)}
+                    helperText={errors.children[index].childFirstName}
                 />
                 <TextField
                     required
                     id="outlined-required"
                     label="Last Name"
                     style={{ width: '30%' }}
-                    value={child.last_name}
-                    onChange={(event) => updateChildProperty(index, Object.keys(child)[1], event.target.value)}
-                    error={Boolean(errors.childLastName)}
-                    helperText={errors.childLastName}
+                    value={registerData.children[index].last_name}
+                    onChange={(event) => updateChildProperty(index, Object.keys(registerData.children[index])[1], event.target.value)}
+                    error={Boolean(errors.children[index].childLastName)}
+                    helperText={errors.children[index].childLastName}
                 />
                 <TextField
                     required
@@ -48,19 +65,19 @@ export default function StudentRegisterComponent({ index, child, updateChildProp
                     }}
                     inputProps={{ min: minAge, max: maxAge }}
                     style={{ width: '20%' }}
-                    value={child.age}
+                    value={registerData.children[index].age}
                     defaultValue={minAge}
-                    onChange={(event) => updateChildProperty(index, Object.keys(child)[2], event.target.value)}
-                    error={Boolean(errors.age)}
-                    helperText={errors.age}
+                    onChange={(event) => updateChildProperty(index, Object.keys(registerData.children[index])[2], event.target.value)}
+                    error={Boolean(errors.children[index].age)}
+                    helperText={errors.children[index].age}
                 />
-                {/* {
-                    (index !== -1) ?
+                {
+                    (registerData.children && registerData.children.length > 1) ?
                         < IconButton aria-label="delete" size="small" onClick={() => removeChildComponent(index)}>
                             <DeleteIcon fontSize="inherit" />
                         </IconButton> :
                         null
-                } */}
+                }
             </Stack>
             <YesOrNoComponent displayText={'Does your child have a Computer?'} handleSelection={handleHasComputerSelection} />
 
