@@ -173,41 +173,41 @@ export default function RegisterForm() {
             // console.log(`childrenStr : ${childrenStr}`)
 
             // fetch(`http://localhost:4000/classrooms/register`,
-            // fetch(`${process.env.REACT_APP_URL_APP_PATH}/classrooms/register`,
-            //   {
-            //     method: "POST",
-            //     headers: {
-            //       "Content-Type": "application/json"
-            //     },
-            //     body: JSON.stringify({
-            //       "first_name": parentFirstName,
-            //       "last_name": parentLastName,
-            //       "email": email,
-            //       "mobile": mobileNumber,
-            //       "hear_about_us": hearAboutUs,
-            //       "questions": questions,
-            //       "children": children,
-            //       "preffered_location": preffered_location,
-            //       "program_type": program_type,
-            //       "course_id": ""
-            //     })
-            //   })
-            //   .then(response => response.json())
-            //   .then(result => {
-            //     if (result.status === 200) {
-            //       console.log(`YOur Registration has been send to MINI developer, one of our team memeber will answer you shortly`);
-            //     }
-            //   })
-            //   .catch(error => {
-            //     console.log(error);
-            //   })
+
+            fetch(`${process.env.REACT_APP_URL_APP_PATH}/classrooms/register`,
+                {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json"
+                    },
+                    body: JSON.stringify(registerData)
+                    // JSON.stringify({
+                    //   "first_name": parentFirstName,
+                    //   "last_name": parentLastName,
+                    //   "email": email,
+                    //   "mobile": mobileNumber,
+                    //   "hear_about_us": hearAboutUs,
+                    //   "questions": questions,
+                    //   "children": children,
+                    //   "preffered_location": preffered_location,
+                    //   "program_type": program_type,
+                    //   "course_id": ""})
+                })
+                .then(response => response.json())
+                .then(result => {
+                    if (result.status === 200) {
+                        console.log(`YOur Registration has been send to MINI developer, one of our team memeber will answer you shortly`);
+                    }
+                })
+                .catch(error => {
+                    console.log(error);
+                })
         } else {
             // Form is not valid, display error messages or take other actions
             console.log('Form validation failed');
         }
     }
     return (
-
         <Card className={cssStyle.page}>
             <Stack spacing={1} className={cssStyle.register_form_component} >
                 <Typography style={{ fontWeight: 'bold', fontSize: '2vw', color: '#ed7d45' }}> Coding is the Language of the Future!</Typography>
