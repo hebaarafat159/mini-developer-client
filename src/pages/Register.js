@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { Card, TextField, Stack, Typography, Button } from '@mui/material'
 import cssStyle from '../css/styles.module.css'
 import StudentRegisterComponent from '../components/StudentRegisterComponent'
@@ -10,6 +10,19 @@ export default function RegisterForm() {
     const minAge = 4
     const maxAge = 14
     const { courseId } = useParams();
+    const [courseObject, setCourseObject] = useState({})
+
+    useEffect(() => {
+        if ((!validator.isEmpty(courseId)) && courseId !== '0') {
+            fetch(`${process.env.REACT_APP_URL_APP_PATH}/courses/${courseId}`)
+                .then(response => response.json())
+                .then(result => {
+                    setCourseObject(result.body);
+                    console.log(`Course Object : ${result.body}`)
+                })
+        }
+    }, [courseId]);
+
     const childObject = {
         first_name: '',
         last_name: '',
@@ -169,11 +182,7 @@ export default function RegisterForm() {
         if (validateForm()) {
             if ((!validator.isEmpty(courseId)) && courseId !== '0') registerData.course_id = courseId
             alert(JSON.stringify(registerData));
-            // const childrenStr = JSON.stringify(children)
-            // console.log(`childrenStr : ${childrenStr}`)
-
-            // fetch(`http://localhost:4000/classrooms/register`,
-
+          
             fetch(`${process.env.REACT_APP_URL_APP_PATH}/classrooms/register`,
                 {
                     method: "POST",
@@ -181,17 +190,6 @@ export default function RegisterForm() {
                         "Content-Type": "application/json"
                     },
                     body: JSON.stringify(registerData)
-                    // JSON.stringify({
-                    //   "first_name": parentFirstName,
-                    //   "last_name": parentLastName,
-                    //   "email": email,
-                    //   "mobile": mobileNumber,
-                    //   "hear_about_us": hearAboutUs,
-                    //   "questions": questions,
-                    //   "children": children,
-                    //   "preffered_location": preffered_location,
-                    //   "program_type": program_type,
-                    //   "course_id": ""})
                 })
                 .then(response => response.json())
                 .then(result => {
@@ -266,6 +264,11 @@ export default function RegisterForm() {
                         error={Boolean(errors.mobileNumber)}
                         helperText={errors.mobileNumber}
                     />
+
+                    {
+                        ((!validator.isEmpty(courseId)) && courseId !== '0') ?
+                            <Typography style={{ fontSize: '1.5vw', color: '#333440' }}> Your Children will be registers in {courseObject.title} </Typography> : null
+                    }
 
                     {/* add new child layout */}
                     <Typography style={{ fontSize: '1.5vw', color: '#333440' }}> Children </Typography>
