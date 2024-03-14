@@ -10,6 +10,7 @@ import Register from './pages/Register';
 import CourseDetails from './pages/CourseDetails';
 import WhyUsComponent from './components/WhyUsComponent';
 import OurVisionComponent from './components/OurVisionComponent';
+import ConfirmationPage from './pages/ConfirmationPage';
 
 function App() {
   return (
@@ -24,6 +25,7 @@ function App() {
         <Route path="/courses/:id" element={<CourseDetails />} />
         <Route path="/contactus" element={<ContactUs />} />
         <Route path="/register/:courseId" element={<Register />} />
+        <Route path="/confirmation" element={<ConfirmationPage />} />
       </Routes>
       <Footer />
     </BrowserRouter>

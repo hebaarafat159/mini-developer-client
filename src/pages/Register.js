@@ -4,14 +4,15 @@ import cssStyle from '../css/styles.module.css'
 import StudentRegisterComponent from '../components/StudentRegisterComponent'
 import ProgrameTypeComponent from '../components/ProgrameTypeComponent'
 import validator from "validator";
-import { useParams } from 'react-router-dom'
+import { useNavigate, useParams } from 'react-router-dom'
 
 export default function RegisterForm() {
     const minAge = 4
     const maxAge = 14
     const { courseId } = useParams();
     const [courseObject, setCourseObject] = useState({})
-
+    const navigate = useNavigate(); 
+    
     useEffect(() => {
         if ((!validator.isEmpty(courseId)) && courseId !== '0') {
             fetch(`${process.env.REACT_APP_URL_APP_PATH}/courses/${courseId}`)
@@ -182,7 +183,7 @@ export default function RegisterForm() {
         if (validateForm()) {
             if ((!validator.isEmpty(courseId)) && courseId !== '0') registerData.course_id = courseId
             alert(JSON.stringify(registerData));
-          
+
             fetch(`${process.env.REACT_APP_URL_APP_PATH}/classrooms/register`,
                 {
                     method: "POST",
@@ -194,7 +195,10 @@ export default function RegisterForm() {
                 .then(response => response.json())
                 .then(result => {
                     if (result.status === 200) {
-                        console.log(`YOur Registration has been send to MINI developer, one of our team memeber will answer you shortly`);
+                        console.log(`Your Registration has been send to MINI developer, one of our team memeber will answer you shortly`);
+                        // TODO redirect to confirmation page
+                        // this.props.history.push('/confirmation')
+                        navigate('/confirmation')
                     }
                 })
                 .catch(error => {
@@ -267,7 +271,8 @@ export default function RegisterForm() {
 
                     {
                         ((!validator.isEmpty(courseId)) && courseId !== '0') ?
-                            <Typography style={{ fontSize: '1.5vw', color: '#333440' }}> Your Children will be registers in {courseObject.title} </Typography> : null
+                            <Typography style={{ fontSize: '1.5vw', color: '#ed7d45' }}> Your Children will be registered in "<span style={{ fontSize: '1.5vw', color: 'red' }}>{courseObject.title}</span>" Course </Typography> : null
+
                     }
 
                     {/* add new child layout */}
