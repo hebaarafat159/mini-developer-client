@@ -69,7 +69,7 @@ export default function HeaderComponent() {
         PAGES.forEach(page => {
             // alert(`Page selected : ${page.label}`)
             if (page === selectedItem) {
-                alert(selectedItem.label)
+                // alert(selectedItem.label)
                 page.isSelected = true
             } else {
                 page.isSelected = false
