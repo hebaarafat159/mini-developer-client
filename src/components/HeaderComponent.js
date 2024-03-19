@@ -18,7 +18,7 @@ import WhyUsComponent from '../components/WhyUsComponent';
 export default function HeaderComponent() {
     const theme = useTheme();
     const isMatch = useMediaQuery(theme.breakpoints.down('md'));
-    const PAGES = [
+    const [pages, setPages] = useState([
         {
             position: 0,
             label: 'Home',
@@ -59,14 +59,11 @@ export default function HeaderComponent() {
         //     link: '/contactus',
         //     component: <ContactUs />
         // }
-    ]
+    ])
 
-    // eslint-disable-next-line
-    const [selectedTab, setSelectedTab] = useState(0);
     function handleSelected(selectedItem) {
-        setSelectedTab(selectedItem)
         // alert(`Item selected : ${selectedItem.position}`)
-        PAGES.forEach(page => {
+        pages.forEach(page => {
             // alert(`Page selected : ${page.label}`)
             if (page === selectedItem) {
                 // alert(selectedItem.label)
@@ -75,6 +72,10 @@ export default function HeaderComponent() {
                 page.isSelected = false
             }
         });
+        setPages(pages)
+        // pages.forEach(page => {
+        //     alert(`Page selected : ${page.label} : ${page.isSelected}`)
+        // });
     }
     return (
         <React.Fragment>
@@ -86,8 +87,8 @@ export default function HeaderComponent() {
                 </Box>
                 <Box sx={{ display: 'flex', flexDirection: 'row', alignItems: 'center', paddingRight: '5vmin' }}>
                     {
-                        isMatch ? (<HeaderDrawerComponent pages={PAGES} handleSelected={handleSelected} sx={{ marginLeft: 'auto' }} />)
-                            : (<HeaderMenuTabs pages={PAGES} handleSelected={handleSelected} />)
+                        isMatch ? (<HeaderDrawerComponent pages={pages} handleSelected={handleSelected} sx={{ marginLeft: 'auto' }} />)
+                            : (<HeaderMenuTabs pages={pages} handleSelected={handleSelected} />)
                     }
                 </Box>
             </Box>
