@@ -23,19 +23,22 @@ export default function HeaderComponent() {
             position: 0,
             label: 'Home',
             link: '/',
-            component: <Home />
+            component: <Home />,
+            isSelected: true
         },
         {
             position: 1,
             label: 'Our Vision',
             link: '/about/ourvision',
-            component: <OurVisionComponent />
+            component: <OurVisionComponent />,
+            isSelected: false
         },
         {
             position: 2,
             label: 'Why Us',
             link: '/about/whyus',
-            component: <WhyUsComponent />
+            component: <WhyUsComponent />,
+            isSelected: false
         },
         // {
         //     position: 1,
@@ -47,7 +50,8 @@ export default function HeaderComponent() {
             position: 3,
             label: 'Our Courses',
             link: '/courses',
-            component: <Courses />
+            component: <Courses />,
+            isSelected: false
         },
         // {
         //     position: 4,
@@ -61,6 +65,16 @@ export default function HeaderComponent() {
     const [selectedTab, setSelectedTab] = useState(0);
     function handleSelected(selectedItem) {
         setSelectedTab(selectedItem)
+        // alert(`Item selected : ${selectedItem.position}`)
+        PAGES.forEach(page => {
+            // alert(`Page selected : ${page.label}`)
+            if (page === selectedItem) {
+                alert(selectedItem.label)
+                page.isSelected = true
+            } else {
+                page.isSelected = false
+            }
+        });
     }
     return (
         <React.Fragment>

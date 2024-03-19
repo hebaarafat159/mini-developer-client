@@ -7,7 +7,15 @@ export default function HeaderMenuTabs({ pages, handleSelected }) {
         <Box sx={{ display: 'flex', flexDirection: 'row', alignItems: 'center', gap: 1.5, paddingRight: '5vmin' }}>
             {
                 pages.map((page, index) => (
-                    <Link className={cssStyle.link_text} color='#333440' href={page.link} style={{ textDecoration: 'none', fontWeight: 'bold', fontSize: '1.2vw' }}>{page.label}</Link>
+                    <Link key={page.position}
+                        className={cssStyle.link_text}
+                        color={(page.isSelected) ? '#ed7d45' : '#333440'}
+                        href={page.link} style={{ textDecoration: 'none', fontWeight: 'bold', fontSize: '1.2vw' }}
+                        onClick={() => {
+                            handleSelected(page)
+                        }}>
+                        {page.label}
+                    </Link>
                 ))
             }
         </Box>
