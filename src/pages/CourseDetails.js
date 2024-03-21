@@ -111,7 +111,7 @@ export default function CourseDetails() {
                   <>
                     <Typography style={{ fontWeight: 'bold', fontSize: '1.5vw', color: '#ed7d45' }}> This course boosts paramount skills: </Typography>
                     <ul>
-                      {courseObject.course_skills.map((skill) => <li style={{ fontWeight: 'normal', fontSize: '1.5vw', color: '#333440' }}> skill </li>)}
+                      {courseObject.course_skills.map((skill) => <li style={{ fontWeight: 'normal', fontSize: '1.5vw', color: '#333440' }}> {skill} </li>)}
                     </ul>
                   </> : null
               }

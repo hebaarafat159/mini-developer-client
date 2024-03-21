@@ -9,7 +9,8 @@ export default function HeaderMenuTabs({ pages, handleSelected }) {
                 pages.map((page, index) => (
                     <Link key={page.position}
                         className={cssStyle.link_text}
-                        color={(page.isSelected) ? '#ed7d45' : '#333440'}
+                        // color={(page.isSelected) ? '#ed7d45' : '#333440'}
+                        color='#333440'
                         href={page.link} style={{ textDecoration: 'none', fontWeight: 'bold', fontSize: '1.2vw' }}
                         onClick={() => {
                             handleSelected(page)
