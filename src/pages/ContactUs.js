@@ -27,11 +27,10 @@ export default function ContactUs() {
                         <a className={cssStyle.link_text} href='https://www.facebook.com/MiniDeveloperUK' target="_blank" rel="noopener noreferrer">MiniDeveloperUK</a>
                     </Stack>
 
-                    {/* whatsapp */}
                     <Stack direction="row" spacing={2}
                         style={{ display: 'flex', flexFlow: 'row wrap', alignItems: 'center' }}>
-                        <SocialIcon network="whatsapp" url='+447851496016' />
-                        <a className={cssStyle.link_text} href='+447851496016' target="_blank" rel="noopener noreferrer">+447851496016</a>
+                        <SocialIcon network="whatsapp" url='https://api.whatsapp.com/send?phone=+447851496016' />
+                        <a className={cssStyle.link_text} href='https://api.whatsapp.com/send?phone=+447851496016' target="_blank" rel="noopener noreferrer">+447851496016</a>
                     </Stack>
 
                     {/* instagram */}
