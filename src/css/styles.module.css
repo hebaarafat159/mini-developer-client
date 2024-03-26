@@ -95,18 +95,22 @@
 
 .logo {
     width: 20vw;
+    height: 15vh;
 }
 
 .icon {
     width: 5vw;
+    height: 5vh;
 }
 
 .contentImage {
     width: 20vw;
+    height: 50vh;
 }
 
 .subContentImage {
-    width: 20vw;
+    width: 10vw;
+    height: 20vh;
 }
 
 .miniDeveloperText {
@@ -143,6 +147,7 @@
 
 .course_card_image {
     width: 22vw;
+    height: 50vh;
     padding-bottom: 5vmin;
     background-size: cover;
     background-position: center;
@@ -269,18 +274,22 @@
 
     .logo {
         width: 15vw;
+        height: 5vh;
     }
 
     .icon {
         width: 5vw;
+        height: 5vh;
     }
 
     .contentImage {
         width: 10vw;
+        height: 25vh;
     }
 
     .subContentImage {
         width: 5vw;
+        height: 10vh;
     }
 
     .course_card {
@@ -307,6 +316,7 @@
 
     .course_card_image {
         width: 70vw;
+        height: 50vh;
         padding-bottom: 5vmin;
         background-size: cover;
         background-position: center;
