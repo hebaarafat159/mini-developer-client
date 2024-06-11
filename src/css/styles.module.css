@@ -214,14 +214,15 @@
 .orage_btn {
     border-radius: 10;
     background: linear-gradient(to bottom, #ffb093, #ed7d45);
-    font-size: 2.5vmin;
+    font-size: 1.5vmin;
     font-weight: bold;
 }
 
 .gray_btn {
     border-radius: 10;
     background: linear-gradient(to bottom, #d6d7de, #b2b2b2);
-    font-size: 2.5vmin;
+    font-size: 1.5vmin;
+    margin: '2vw';
     /* color: #5f6276; */
     font-weight: bold;
 }
@@ -229,7 +230,7 @@
 .brawn_btn {
     border-radius: 10;
     background: linear-gradient(to bottom, #e09b79, #9e532d);
-    font-size: 2.5vmin;
+    font-size: 1.5vmin;
     /* color: #5f6276; */
     font-weight: bold;
 }
