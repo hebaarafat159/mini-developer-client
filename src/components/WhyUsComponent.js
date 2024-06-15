@@ -1,9 +1,9 @@
 import React from 'react'
 import { Stack, Typography } from '@mui/material'
 import FreeTrialButton from './FreeTrialButton'
-import cssStyle from '../css/styles.module.css'
+// import cssStyle from '../css/styles.module.css'
 
-import why_img from '../assets/why-learn-coding-at-a-young-age-mini-coding-coding-for-kids-life-fun.gif'
+// import why_img from '../assets/why-learn-coding-at-a-young-age-mini-coding-coding-for-kids-life-fun.gif'
 export default function WhyUsComponent() {
     return (
         <Stack direction="row" spacing={2} sx={{ justifyContent: 'space-evenly', alignItems: 'center', background: '#333440', padding: '2vw' }} >
