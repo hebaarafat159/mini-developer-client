@@ -9,22 +9,22 @@ export default function CourseListComponent({ course }) {
       <div
         className={cssStyle.course_card_image}
         style={{ backgroundImage: `url("${course.cover_image}")` }}>
-        <Link to={{ pathname: `/courses/${course._id}`}}>
+        <Link to={{ pathname: `/courses/${course._id}` }}>
           <Button variant="contained" style={{
             borderRadius: 10,
             background: 'linear-gradient(to bottom, #ffb093, #ed7d45)',
-            fontSize: "2.5vmin"
+            fontSize: "2.5vmin",
+            marginBottom:0
           }}>
-            {/* LinkComponent={'a'} href={`/courses/${course._id}`}> */}
             View Details
           </Button>
         </Link>
       </div>
 
       <Stack className={cssStyle.course_card_details}>
-        <Typography style={{ fontWeight: 'bolder', fontSize: '1.2vw', color: '#333440' }}>{course.title}</Typography>
-        <Typography style={{ fontSize: '1vw', color: '#333440' }}> <span className={cssStyle.course_card_bold_text}>Age:</span> {course.age} </Typography>
-        <Typography style={{ fontSize: '1vw', color: '#333440' }}> <span className={cssStyle.course_card_bold_text}>Language:</span> {course.language}</Typography>
+        <Typography component="p" variant='p' style={{ color: '#333440', fontWeight:'bolder' }}>{course.title}</Typography>
+        <Typography component="p" variant='p' style={{ color: '#333440' }}> <span className={cssStyle.course_card_bold_text}>Age:</span> {course.age} </Typography>
+        <Typography component="p" variant='p' style={{ color: '#333440' }}> <span className={cssStyle.course_card_bold_text}>Language:</span> {course.language}</Typography>
       </Stack>
     </Card >
   )
