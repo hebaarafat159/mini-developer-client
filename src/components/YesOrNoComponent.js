@@ -1,11 +1,12 @@
 import React from 'react'
-import { Typography, RadioGroup, FormControlLabel, Radio } from '@mui/material'
+import { Typography, RadioGroup, FormControlLabel, Radio, Stack } from '@mui/material'
 
 export default function YesOrNoComponent({ displayText, handleSelection }) {
 
     return (
-        <>
-            <Typography style={{ fontSize: '1.5vw', color: '#333440' }}> {displayText} </Typography>
+        <Stack direction="column" sx={{ justifyContent: 'space-evenly', padding: '2vw' }} >
+
+            <Typography component="p" variant='p' style={{ color: '#333440' }}> {displayText}</Typography>
             <RadioGroup
                 row
                 aria-labelledby="demo-form-control-label-placement"
@@ -17,6 +18,6 @@ export default function YesOrNoComponent({ displayText, handleSelection }) {
                 <FormControlLabel value={false} control={<Radio />} label={'No'} />
 
             </RadioGroup>
-        </>
+        </Stack>
     )
 }

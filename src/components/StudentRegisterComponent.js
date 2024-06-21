@@ -1,11 +1,10 @@
 import React from 'react'
-import { TextField, Stack, } from '@mui/material'
-import cssStyle from '../css/styles.module.css'
-// eslint-disable-next-line
+import { TextField, Stack, Grid } from '@mui/material'
 import IconButton from '@mui/material/IconButton';
-// eslint-disable-next-line
 import DeleteIcon from '@mui/icons-material/Delete';
 import YesOrNoComponent from './YesOrNoComponent';
+import { experimentalStyled as styled } from '@mui/material/styles';
+import Paper from '@mui/material/Paper';
 
 export default function StudentRegisterComponent({ index, registerData, errors, updateRegistrationDataProperty }) {
     const minAge = 0
@@ -23,7 +22,7 @@ export default function StudentRegisterComponent({ index, registerData, errors, 
     };
 
     function removeChildComponent(childIndex) {
-        alert(`delete child ${childIndex}`)
+        // alert(`delete child ${childIndex}`)
         const updatedChildren = registerData.children.filter((child, index) => index !== childIndex);
         updateRegistrationDataProperty(Object.keys(registerData)[8], updatedChildren);
     }
@@ -32,55 +31,76 @@ export default function StudentRegisterComponent({ index, registerData, errors, 
         updateChildProperty(Object.keys(registerData.children[index])[3], selection)
     }
 
-    return (
-        <Stack direction={"column"} spacing={1} className={cssStyle.register_form_subcomponent_withborder} >
-            <Stack direction={"row"} spacing={1} className={cssStyle.register_form_subcomponent} >
-                <TextField
-                    required
-                    id="outlined-required"
-                    label="First Name"
-                    style={{ width: '30%' }}
-                    value={registerData.children[index].first_name}
-                    onChange={(event) => updateChildProperty(index, Object.keys(registerData.children[index])[0], event.target.value)}
-                    error={Boolean(errors.children[index].childFirstName)}
-                    helperText={errors.children[index].childFirstName}
-                />
-                <TextField
-                    required
-                    id="outlined-required"
-                    label="Last Name"
-                    style={{ width: '30%' }}
-                    value={registerData.children[index].last_name}
-                    onChange={(event) => updateChildProperty(index, Object.keys(registerData.children[index])[1], event.target.value)}
-                    error={Boolean(errors.children[index].childLastName)}
-                    helperText={errors.children[index].childLastName}
-                />
-                <TextField
-                    required
-                    id="outlined-required"
-                    label="Age"
-                    type="number"
-                    InputLabelProps={{
-                        shrink: true,
-                    }}
-                    inputProps={{ min: minAge, max: maxAge }}
-                    style={{ width: '20%' }}
-                    value={registerData.children[index].age}
-                    defaultValue={minAge}
-                    onChange={(event) => updateChildProperty(index, Object.keys(registerData.children[index])[2], event.target.value)}
-                    error={Boolean(errors.children[index].age)}
-                    helperText={errors.children[index].age}
-                />
-                {
-                    (registerData.children && registerData.children.length > 1) ?
-                        < IconButton aria-label="delete" size="small" onClick={() => removeChildComponent(index)}>
-                            <DeleteIcon fontSize="inherit" />
-                        </IconButton> :
-                        null
-                }
-            </Stack>
-            <YesOrNoComponent displayText={'Does your child have a Computer?'} handleSelection={handleHasComputerSelection} />
+    const Item = styled(Paper)(({ theme }) => ({
+        // margin: theme.spacing(1),
+        display: 'flex',
+        alignItems: 'center'
+    }));
 
-        </Stack >
+    return (
+        <Stack direction="column" spacing={2} sx={{ justifyContent: 'space-evenly', border: 'gray .3vmin solid', padding: '1vmin' }}>
+            <Grid container spacing={1} >
+                {/* First Name */}
+                <Grid item xs={8} md={4}>
+                    <Item>
+                        <TextField
+                            required
+                            id="outlined-required"
+                            label="First Name"
+                            value={registerData.children[index].first_name}
+                            onChange={(event) => updateChildProperty(index, Object.keys(registerData.children[index])[0], event.target.value)}
+                            error={Boolean(errors.children[index].childFirstName)}
+                            helperText={errors.children[index].childFirstName}
+                            fullWidth />
+                    </Item>
+                </Grid>
+
+                {/* last Name */}
+                <Grid item xs={8} md={4}>
+                    <Item>
+                        <TextField
+                            required
+                            id="outlined-required"
+                            label="Last Name"
+                            value={registerData.children[index].last_name}
+                            onChange={(event) => updateChildProperty(index, Object.keys(registerData.children[index])[1], event.target.value)}
+                            error={Boolean(errors.children[index].childLastName)}
+                            helperText={errors.children[index].childLastName}
+                            fullWidth />
+                    </Item>
+                </Grid>
+
+                {/* Age */}
+                <Grid item xs={2} md={2}>
+                    <Item>
+                        <TextField
+                            required
+                            id="outlined-required"
+                            label="Age"
+                            type="number"
+                            InputLabelProps={{
+                                shrink: true,
+                            }}
+                            inputProps={{ min: minAge, max: maxAge }}
+                            value={registerData.children[index].age}
+                            defaultValue={minAge}
+                            onChange={(event) => updateChildProperty(index, Object.keys(registerData.children[index])[2], event.target.value)}
+                            error={Boolean(errors.children[index].age)}
+                            helperText={errors.children[index].age}
+                            fullWidth />
+                        {
+                            (registerData.children && registerData.children.length > 1) ?
+                                < IconButton aria-label="delete" size="small" onClick={() => removeChildComponent(index)}>
+                                    <DeleteIcon fontSize="inherit" />
+                                </IconButton> :
+                                null
+                        }
+                    </Item>
+                </Grid>
+                <Grid item xs={12}>
+                    <YesOrNoComponent displayText={'Does your child have a Computer?'} handleSelection={handleHasComputerSelection} />
+                </Grid>
+            </Grid>
+        </Stack>
     )
 }

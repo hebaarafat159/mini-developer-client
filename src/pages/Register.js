@@ -1,18 +1,20 @@
 import React, { useState, useEffect } from 'react'
-import { Card, TextField, Stack, Typography, Button } from '@mui/material'
+import { Card, TextField, Stack, Typography, Button, Grid } from '@mui/material'
 import cssStyle from '../css/styles.module.css'
 import StudentRegisterComponent from '../components/StudentRegisterComponent'
 import ProgrameTypeComponent from '../components/ProgrameTypeComponent'
 import validator from "validator";
 import { useNavigate, useParams } from 'react-router-dom'
+import { experimentalStyled as styled } from '@mui/material/styles';
+import Paper from '@mui/material/Paper';
 
 export default function RegisterForm() {
     const minAge = 4
     const maxAge = 14
     const { courseId } = useParams();
     const [courseObject, setCourseObject] = useState({})
-    const navigate = useNavigate(); 
-    
+    const navigate = useNavigate();
+
     useEffect(() => {
         if ((!validator.isEmpty(courseId)) && courseId !== '0') {
             fetch(`${process.env.REACT_APP_URL_APP_PATH}/courses/${courseId}`)
@@ -182,7 +184,7 @@ export default function RegisterForm() {
     function submit() {
         if (validateForm()) {
             if ((!validator.isEmpty(courseId)) && courseId !== '0') registerData.course_id = courseId
-            alert(JSON.stringify(registerData));
+            // alert(JSON.stringify(registerData));
 
             fetch(`${process.env.REACT_APP_URL_APP_PATH}/classrooms/register`,
                 {
@@ -209,126 +211,167 @@ export default function RegisterForm() {
             console.log('Form validation failed');
         }
     }
+
+    const Item = styled(Paper)(({ theme }) => ({
+        // margin: theme.spacing(1),
+        display: 'flex',
+        alignItems: 'center'
+    }));
+
     return (
-        <Card className={cssStyle.page}>
-            <Stack spacing={1} className={cssStyle.register_form_component} >
-                <Typography style={{ fontWeight: 'bold', fontSize: '2vw', color: '#ed7d45' }}> Coding is the Language of the Future!</Typography>
+        <Card className='recent-blogs d-block'>
+            <Stack direction="column" spacing={2} sx={{ justifyContent: 'space-evenly', padding: '10vw' }} >
+                {/* page title */}
+                <Typography component="h5" variant='h5' style={{ color: '#ed7d45', alignItems: 'center' }}> Coding is the Language of the Future! </Typography>
+                {/* parent name */}
+                <Typography component="p" variant='p' style={{ color: '#333440', fontWeight: 'bold', alignItems: 'flex-start' }}> Parent Name </Typography>
+                <Grid container spacing={1} >
+                    <Grid item xs={8} md={6}>
+                        <Item>
+                            <TextField
+                                required
+                                id="outlined-required"
+                                label="First Name"
+                                defaultValue={registerData.first_name}
+                                onChange={(event) => updateRegistrationDataProperty(Object.keys(registerData)[0], event.target.value)}
+                                error={Boolean(errors.parentFirstName)}
+                                helperText={errors.parentFirstName}
+                                fullWidth />
+                        </Item>
+                    </Grid>
 
-                <Stack spacing={1} className={cssStyle.register_form_component} >
-                    {/* Parent Name */}
-                    <Typography style={{ fontSize: '1.5vw', color: '#333440' }}> Parent </Typography>
-                    <Stack direction={"row"} spacing={1} className={cssStyle.register_form_subcomponent} >
+                    <Grid item xs={8} md={6}>
+                        <Item>
+                            <TextField
+                                required
+                                id="outlined-required"
+                                label="Last Name"
+                                defaultValue={registerData.last_name}
+                                value={registerData.last_name}
+                                onChange={(event) => updateRegistrationDataProperty(Object.keys(registerData)[1], event.target.value)}
+                                error={Boolean(errors.parentLastName)}
+                                helperText={errors.parentLastName}
+                                fullWidth />
+                        </Item>
+                    </Grid>
+                </Grid>
 
-                        <TextField
-                            required
-                            id="outlined-required"
-                            label="First Name"
-                            defaultValue={registerData.first_name}
-                            onChange={(event) => updateRegistrationDataProperty(Object.keys(registerData)[0], event.target.value)}
-                            error={Boolean(errors.parentFirstName)}
-                            helperText={errors.parentFirstName}
-                        />
-                        <TextField
-                            required
-                            id="outlined-required"
-                            label="Last Name"
-                            defaultValue={registerData.last_name}
-                            value={registerData.last_name}
-                            onChange={(event) => updateRegistrationDataProperty(Object.keys(registerData)[1], event.target.value)}
-                            error={Boolean(errors.parentLastName)}
-                            helperText={errors.parentLastName}
-                        />
-                    </Stack>
+                {/* email */}
+                <Typography component="p" variant='p' style={{ color: '#333440', fontWeight: 'bold', alignItems: 'flex-start' }}> Email </Typography>
+                <Grid container spacing={1} >
+                    <Grid item xs={8} md={12}>
+                        <Item>
+                            <TextField
+                                required
+                                id="outlined-required"
+                                type='email'
+                                defaultValue={registerData.email}
+                                value={registerData.email}
+                                className={Item}
+                                onChange={(event) => updateRegistrationDataProperty(Object.keys(registerData)[2], event.target.value)}
+                                error={Boolean(errors.email)}
+                                helperText={errors.email}
+                                fullWidth />
+                        </Item>
+                    </Grid>
+                </Grid>
 
-                    {/* Email */}
-                    <Typography style={{ fontSize: '1.5vw', color: '#333440' }}> Email </Typography>
-                    <TextField
-                        required
-                        id="outlined-required"
-                        type='email'
-                        defaultValue={registerData.email}
-                        value={registerData.email}
-                        className={cssStyle.register_form_text_field}
-                        onChange={(event) => updateRegistrationDataProperty(Object.keys(registerData)[2], event.target.value)}
-                        error={Boolean(errors.email)}
-                        helperText={errors.email}
-                    />
+                {/* Mobile Number */}
+                <Typography component="p" variant='p' style={{ color: '#333440', fontWeight: 'bold', alignItems: 'flex-start' }}> Mobile </Typography>
+                <Grid container spacing={1} >
+                    <Grid item xs={8} md={12}>
+                        <Item>
+                            <TextField
+                                required
+                                id="outlined-required"
+                                type='tel'
+                                defaultValue={registerData.mobileNumber}
+                                value={registerData.mobileNumber}
+                                className={cssStyle.register_form_text_field}
+                                onChange={(event) => updateRegistrationDataProperty(Object.keys(registerData)[3], event.target.value)}
+                                error={Boolean(errors.mobileNumber)}
+                                helperText={errors.mobileNumber}
+                                fullWidth />
 
+                            {
+                                ((!validator.isEmpty(courseId)) && courseId !== '0') ?
+                                    <Typography style={{ fontSize: '1.5vw', color: '#ed7d45' }}> Your Children will be registered in "<span style={{ fontSize: '1.5vw', color: 'red' }}>{courseObject.title}</span>" Course </Typography> : null
+                            }
+                        </Item>
+                    </Grid>
+                </Grid>
 
-                    {/* Mobile Number */}
-                    <Typography style={{ fontSize: '1.5vw', color: '#333440' }}> Mobile </Typography>
-                    <TextField
-                        required
-                        id="outlined-required"
-                        type='tel'
-                        defaultValue={registerData.mobileNumber}
-                        value={registerData.mobileNumber}
-                        className={cssStyle.register_form_text_field}
-                        onChange={(event) => updateRegistrationDataProperty(Object.keys(registerData)[3], event.target.value)}
-                        error={Boolean(errors.mobileNumber)}
-                        helperText={errors.mobileNumber}
-                    />
+                {/* add new child layout */}
+                <Grid container spacing={1}>
+                    <Grid item xs={6} md={8}>
+                        <Typography component="p" variant='p' style={{ color: '#333440', fontWeight: 'bold', justifyContent: 'center', alignItems: 'flex-start' }}> Children </Typography>
+                    </Grid>
+                    <Grid item xs={2}>
+                        <Button
+                            variant="contained"
+                            onClick={addNewChild}
+                            style={{
+                                borderRadius: 10,
+                                background: 'linear-gradient(to bottom, #ffb093, #ed7d45)',
+                                fontSize: "2.5vmin",
+                                display: 'flex',
+                                width: '30vw'
+                            }}> Add Child </Button>
+                    </Grid>
+                </Grid>
 
-                    {
-                        ((!validator.isEmpty(courseId)) && courseId !== '0') ?
-                            <Typography style={{ fontSize: '1.5vw', color: '#ed7d45' }}> Your Children will be registered in "<span style={{ fontSize: '1.5vw', color: 'red' }}>{courseObject.title}</span>" Course </Typography> : null
+                {/* case of add new child after having children */}
+                {
+                    (registerData.children && registerData.children.length > 0) ?
+                        registerData.children.map((childObject, index) =>
+                            < StudentRegisterComponent
+                                index={index}
+                                registerData={registerData}
+                                errors={errors}
+                                updateRegistrationDataProperty={updateRegistrationDataProperty} />)
+                        : null
+                }
 
-                    }
+                {/* program type In=person or Online */}
+                <ProgrameTypeComponent registerData={registerData} updateRegistrationDataProperty={updateRegistrationDataProperty} errors={errors} />
 
-                    {/* add new child layout */}
-                    <Typography style={{ fontSize: '1.5vw', color: '#333440' }}> Children </Typography>
-                    <Button
-                        variant="contained"
-                        onClick={addNewChild}
-                        style={{
-                            borderRadius: 10,
-                            background: 'linear-gradient(to bottom, #ffb093, #ed7d45)',
-                            fontSize: "2.5vmin",
-                            display: 'flex',
-                            width: '30vw'
-                        }}> Add Child </Button>
-                    {/* case of add new child after having children */}
-                    {
-                        (registerData.children && registerData.children.length > 0) ?
-                            registerData.children.map((childObject, index) =>
-                                < StudentRegisterComponent
-                                    index={index}
-                                    registerData={registerData}
-                                    errors={errors}
-                                    updateRegistrationDataProperty={updateRegistrationDataProperty} />)
-                            : null
-                    }
+                {/* hear about us */}
+                <Typography component="p" variant='p' style={{ color: '#333440', fontWeight: 'bold', alignItems: 'flex-start' }}> How did you hear about us? </Typography>
+                <Grid container spacing={1} >
+                    <Grid item xs={8} md={12}>
+                        <Item>
+                            <TextField
+                                required
+                                id="outlined-required"
+                                defaultValue={registerData.hear_about_us}
+                                className={cssStyle.register_form_text_field}
+                                fullWidth
+                                onChange={(event) => updateRegistrationDataProperty(Object.keys(registerData)[6], event.target.value)} />
+                        </Item>
+                    </Grid>
+                </Grid>
 
-                    {/* program type In=person or Online */}
-                    <ProgrameTypeComponent registerData={registerData} updateRegistrationDataProperty={updateRegistrationDataProperty} errors={errors} />
+                {/* Any Questions */}
+                <Typography component="p" variant='p' style={{ color: '#333440', fontWeight: 'bold', alignItems: 'flex-start' }}>  Do you have any questions or comments?</Typography>
+                <Grid container spacing={1} >
+                    <Grid item xs={8} md={12}>
+                        <Item>
+                            <TextField
+                                required
+                                id="outlined-required"
+                                defaultValue={registerData.questions}
+                                className={cssStyle.register_form_text_field}
+                                fullWidth
+                                onChange={(event) => updateRegistrationDataProperty(Object.keys(registerData)[7], event.target.value)} />
+                        </Item>
+                    </Grid>
+                </Grid>
 
-                    {/* hear about us */}
-                    <Typography style={{ fontSize: '1.5vw', color: '#333440' }}> How did you hear about us? </Typography>
-                    <TextField
-                        required
-                        id="outlined-required"
-                        defaultValue={registerData.hear_about_us}
-                        className={cssStyle.register_form_text_field}
-                        onChange={(event) => updateRegistrationDataProperty(Object.keys(registerData)[6], event.target.value)}
-                    />
-
-                    {/* Any Questions */}
-                    <Typography style={{ fontSize: '1.5vw', color: '#333440' }}> Do you have any questions or comments? </Typography>
-                    <TextField
-                        required
-                        id="outlined-required"
-                        defaultValue={registerData.questions}
-                        className={cssStyle.register_form_text_field}
-                        onChange={(event) => updateRegistrationDataProperty(Object.keys(registerData)[7], event.target.value)}
-                    />
-
-                </Stack>
                 {/* Submit Button */}
                 <Button
                     variant="contained"
                     onClick={() => submit()}
-                    className={cssStyle.orage_btn}
-                > Submit </Button>
+                    className={cssStyle.orage_btn}> Submit </Button>
             </Stack>
         </Card>
     )

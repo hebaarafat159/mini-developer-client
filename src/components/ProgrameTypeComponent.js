@@ -1,11 +1,10 @@
 import React from 'react'
-import cssStyle from '../css/styles.module.css'
 import { Radio, RadioGroup, FormControlLabel, Typography, Stack, FormControl, MenuItem, InputLabel, Select } from '@mui/material'
 
 export default function ProgrameTypeComponent({ registerData, updateRegistrationDataProperty, errors }) {
 
     const programTypes = ['In Person', 'Online']
-    const locations = ['Ealing', 'Northolt', 'Acton']
+    const locations = ['Ealing', 'Acton']
 
     // function handleSelectedTypeChange(event) {
     //     setProgramType(event.target.value)
@@ -17,21 +16,22 @@ export default function ProgrameTypeComponent({ registerData, updateRegistration
     // }
 
     return (
-        <Stack direction={"row"} spacing={1} className={cssStyle.register_form_subcomponent} >
-            <Typography style={{ fontSize: '1.5vw', color: '#333440' }}> Select Type of Coding Program:  </Typography>
+        <Stack direction="column" sx={{ justifyContent: 'space-evenly', padding: '2vw' }} >
 
-            {errors.programType !== '' && <Typography variant='danger' style={{ fontSize: '1.5vw', color: '#333440' }}>{errors.programType}</Typography>}
+            <Typography component="p" variant='p' style={{ color: '#333440', fontWeight: 'bold' }}>  Select Type of Coding Program: </Typography>
+            {errors.programType !== '' && <Typography component="p" variant='p' style={{ color: '#333440' }}>{errors.programType}</Typography>}
             <RadioGroup
                 row
                 aria-labelledby="demo-form-control-label-placement"
                 name="position"
                 value={registerData.program_type}
                 onChange={(event) => updateRegistrationDataProperty(Object.keys(registerData)[4], event.target.value)}>
-                {programTypes && programTypes.map(
-                    (type, index) =>
+                {
+                    programTypes && programTypes.map((type, index) =>
                         (<FormControlLabel value={type} control={<Radio />} label={type} />))}
 
             </RadioGroup>
+
             {
                 registerData.program_type === programTypes[0] &&
                 <>
@@ -52,7 +52,6 @@ export default function ProgrameTypeComponent({ registerData, updateRegistration
                     </FormControl>
                 </>
             }
-
-        </Stack>
+        </Stack >
     )
 }
