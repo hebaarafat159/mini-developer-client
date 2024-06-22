@@ -14,6 +14,7 @@ export default function RegisterForm() {
     const { courseId } = useParams();
     const [courseObject, setCourseObject] = useState({})
     const navigate = useNavigate();
+    const [locations, setLocations] = useState([])
 
     useEffect(() => {
         if ((!validator.isEmpty(courseId)) && courseId !== '0') {
@@ -24,7 +25,17 @@ export default function RegisterForm() {
                     console.log(`Course Object : ${result.body}`)
                 })
         }
-    }, [courseId]);
+
+        // fetch(`${process.env.REACT_APP_URL_APP_PATH}/locations/regions`)
+        fetch('http://localhost:4000/locations/regions')
+            .then(response => response.json())
+            .then(result => {
+                console.log(`Regions: ${JSON.stringify(result)}`);
+
+                setLocations(result.body);
+
+            })
+    }, [courseId, locations]);
 
     const childObject = {
         first_name: '',

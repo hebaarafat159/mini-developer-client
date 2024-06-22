@@ -1,11 +1,21 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { Radio, RadioGroup, FormControlLabel, Typography, Stack, FormControl, MenuItem, InputLabel, Select } from '@mui/material'
 
 export default function ProgrameTypeComponent({ registerData, updateRegistrationDataProperty, errors }) {
 
     const programTypes = ['In Person', 'Online']
-    const locations = ['Ealing', 'Acton']
+    // const locations = ['Ealing', 'Acton']
 
+    const [locations, setLocations] = useState([])
+
+    useEffect(() => {
+        fetch(`${process.env.REACT_APP_URL_APP_PATH}/locations/regions`)
+            .then(response => response.json())
+            .then(result => {
+                console.log(`Regions: ${JSON.stringify(result)}`);
+                setLocations(result.body);
+            })
+    }, []);
     // function handleSelectedTypeChange(event) {
     //     setProgramType(event.target.value)
     //     setLocation('')
@@ -47,7 +57,7 @@ export default function ProgrameTypeComponent({ registerData, updateRegistration
                             onChange={(event) => updateRegistrationDataProperty(Object.keys(registerData)[5], event.target.value)}>
                             {locations && locations.map(
                                 (location, index) =>
-                                    (<MenuItem value={location}>{location}</MenuItem>))}
+                                    (<MenuItem value={location}>{location.name}</MenuItem>))}
                         </Select>
                     </FormControl>
                 </>
