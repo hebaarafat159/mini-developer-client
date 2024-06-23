@@ -303,10 +303,17 @@ export default function RegisterForm() {
                                 error={Boolean(errors.mobileNumber)}
                                 helperText={errors.mobileNumber}
                                 fullWidth />
+                        </Item>
+                    </Grid>
+                </Grid>
 
+                <Grid container spacing={1} >
+                    <Grid item xs={8} md={12}>
+                        <Item>
                             {
                                 ((!validator.isEmpty(courseId)) && courseId !== '0') ?
-                                    <Typography style={{ fontSize: '1.5vw', color: '#ed7d45' }}> Your Children will be registered in "<span style={{ fontSize: '1.5vw', color: 'red' }}>{courseObject.title}</span>" Course </Typography> : null
+                                    <Typography component="p" variant='p' style={{ color: '#ed7d45', fontWeight: 'bold', justifyContent: 'center', alignItems: 'flex-start', padding: '2vmin' }}>
+                                        Your Children will be registered in "<span style={{ color: 'red' }}>{courseObject.title}</span>" Course </Typography> : null
                             }
                         </Item>
                     </Grid>
@@ -344,7 +351,7 @@ export default function RegisterForm() {
                 }
 
                 {/* program type In=person or Online */}
-                <ProgrameTypeComponent registerData={registerData} updateRegistrationDataProperty={updateRegistrationDataProperty} errors={errors} />
+                <ProgrameTypeComponent registerData={registerData} updateRegistrationDataProperty={updateRegistrationDataProperty} errors={errors} courseId={courseId} />
 
                 {/* hear about us */}
                 <Typography component="p" variant='p' style={{ color: '#333440', fontWeight: 'bold', alignItems: 'flex-start' }}> How did you hear about us? </Typography>
