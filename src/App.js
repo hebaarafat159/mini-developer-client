@@ -16,17 +16,19 @@ function App() {
   return (
     <BrowserRouter>
       <HeaderComponent />
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/about" element={<About />} />
-        <Route path="/about/ourvision" element={<OurVisionComponent />} />
-        <Route path="/about/whyus" element={<WhyUsComponent />} />
-        <Route path="/courses" element={<Courses />} />
-        <Route path="/courses/:id" element={<CourseDetails />} />
-        <Route path="/contactus" element={<ContactUs />} />
-        <Route path="/register/:courseId" element={<Register />} />
-        <Route path="/confirmation" element={<ConfirmationPage />} />
-      </Routes>
+      <div className="routes-container">
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/about/ourvision" element={<OurVisionComponent />} />
+          <Route path="/about/whyus" element={<WhyUsComponent />} />
+          <Route path="/courses" element={<Courses />} />
+          <Route path="/courses/:id" element={<CourseDetails />} />
+          <Route path="/contactus" element={<ContactUs />} />
+          <Route path="/register/:courseId" element={<Register />} />
+          <Route path="/confirmation" element={<ConfirmationPage />} />
+        </Routes>
+      </div>
       <Footer />
     </BrowserRouter>
   );

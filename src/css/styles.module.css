@@ -9,7 +9,7 @@
 .Footer {
     position: fixed;
     bottom: 0;
-    height: auto;
+    height: 15%;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
@@ -22,7 +22,7 @@
 
 .Header {
     position: fixed;
-    height: auto;
+    height: 15%;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;

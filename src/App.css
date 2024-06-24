@@ -69,3 +69,7 @@
   color: '#333440';
   padding: '2vmin auto';
 }
+
+.routes-container {
+  padding: 23vmin 5vmin;
+}
