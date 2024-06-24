@@ -73,3 +73,27 @@
 .routes-container {
   padding: 23vmin 5vmin;
 }
+
+.link_text {
+  color: #4F8DB9;
+  /* Default color */
+  text-decoration: none;
+  font-weight: bold;
+  font-style: italic;
+  /* font-size: 1.2vw; */
+}
+
+.link_text.selected {
+  color: #ed7d45;
+  text-decoration: none;
+  font-style: italic;
+  font-weight: bold;
+  /* Selected color */
+}
+
+.link_text:hover {
+  font-weight: bold;
+  /* font-size: 1.5vw; */
+  color: #ed7d45;
+  text-decoration: none;
+}

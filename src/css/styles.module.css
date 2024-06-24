@@ -35,23 +35,26 @@
 
 .link_text {
     font-weight: bold;
-    font-size: 1.5vw;
-    color: #333440;
+    /* font-size: 1.5vw; */
+    color: #4F8DB9;
     padding: 2vmin 0;
+    font-style: italic;
     text-decoration: none;
 }
 
 .link_text::after {
     font-weight: bold;
-    font-size: 1.5vw;
+    /* font-size: 1.5vw; */
     color: red;
+    font-style: italic;
     text-decoration: none;
 }
 
 .link_text:hover {
     font-weight: bold;
-    font-size: 1.5vw;
+    /* font-size: 1.5vw; */
     color: #ed7d45;
+    font-style: italic;
     text-decoration: none;
 }
 
