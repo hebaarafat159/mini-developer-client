@@ -253,6 +253,7 @@ export default function RegisterForm() {
 
     function updateChildrenArray(childArray) {
         requestData.children = [...childArray]
+        updateRegistrationDataProperty(Object.keys(requestData)[1], requestData.children);
         // alert(`Student Array: ${JSON.stringify(Object.keys(requestData)[1])}, Values: ${JSON.stringify(childArray)}`);
     }
     function submit() {
