@@ -16,6 +16,113 @@ export default function RegisterForm() {
     const navigate = useNavigate();
     const [locations, setLocations] = useState([])
 
+
+    const childObject = {
+        first_name: '',
+        last_name: '',
+        age: '',
+        has_computer: true,
+        email: ''
+    }
+
+    const childErrorObject = {
+        first_name: '',
+        last_name: '',
+        age: '',
+        has_computer: '',
+        email: ''
+    }
+
+    const [requestData, setRequestData] = useState(
+        {
+            parentData:
+            {
+                first_name: '',
+                last_name: '',
+                email: '',
+                mobile: '',
+                hear_about_us: '',
+                questions: ''
+            },
+            children: [
+                {
+                    first_name: '',
+                    last_name: '',
+                    age: '',
+                    hasComputer: true,
+                    email: ''
+                }
+            ],
+            course: {},
+            region: {},
+            classroom: {},
+            program_type: ''
+        }
+    )
+
+    const [requestErrorMsgs, setRequestErrorMsgs] = useState(
+        {
+            parentData:
+            {
+                first_name: '',
+                last_name: '',
+                email: '',
+                mobile: '',
+                hear_about_us: '',
+                questions: ''
+            },
+            children: [
+                {
+                    first_name: '',
+                    last_name: '',
+                    age: '',
+                    has_computer: true,
+                    email: ''
+                }
+            ],
+            course: {},
+            region: {},
+            classroom: {},
+            program_type: ''
+
+        }
+    )
+
+    // const [registerData, setRegisterData] = useState({
+    //     first_name: '',
+    //     last_name: '',
+    //     email: '',
+    //     mobile: '',
+    //     program_type: '',
+    //     preffered_location: '',
+    //     hear_about_us: '',
+    //     questions: '',
+    //     children: [{
+    //         first_name: '',
+    //         last_name: '',
+    //         age: '',
+    //         hasComputer: true
+    //     }],
+    //     course_id: ''
+    // })
+
+    // const [errors, setErrors] = useState({
+    //     parentFirstName: '',
+    //     parentLastName: '',
+    //     email: '',
+    //     mobileNumber: '',
+    //     programType: '',
+    //     preffered_location: '',
+    //     hearAboutUs: '',
+    //     questions: '',
+    //     children: [{
+    //         childFirstName: '',
+    //         childLastName: '',
+    //         age: '',
+    //         hasComputer: ''
+    //     }]
+    // });
+
     useEffect(() => {
         if ((!validator.isEmpty(courseId)) && courseId !== '0') {
             fetch(`${process.env.REACT_APP_URL_APP_PATH}/courses/${courseId}`)
@@ -27,175 +134,133 @@ export default function RegisterForm() {
         }
 
         // fetch(`${process.env.REACT_APP_URL_APP_PATH}/locations/regions`)
-        fetch('http://localhost:4000/locations/regions')
-            .then(response => response.json())
-            .then(result => {
-                console.log(`Regions: ${JSON.stringify(result)}`);
+        // fetch('http://localhost:4000/locations/regions')
+        //     .then(response => response.json())
+        //     .then(result => {
+        //         console.log(`Regions: ${JSON.stringify(result)}`);
 
-                setLocations(result.body);
+        //         setLocations(result.body);
 
-            })
-    }, [courseId, locations]);
-
-    const childObject = {
-        first_name: '',
-        last_name: '',
-        age: '',
-        hasComputer: true
-    }
-
-    const childErrorObject = {
-        childFirstName: '',
-        childLastName: '',
-        age: '',
-        hasComputer: ''
-    }
-
-    const [registerData, setRegisterData] = useState({
-        first_name: '',
-        last_name: '',
-        email: '',
-        mobile: '',
-        program_type: '',
-        preffered_location: '',
-        hear_about_us: '',
-        questions: '',
-        children: [{
-            first_name: '',
-            last_name: '',
-            age: '',
-            hasComputer: true
-        }],
-        course_id: ''
-    })
-
-    const [errors, setErrors] = useState({
-        parentFirstName: '',
-        parentLastName: '',
-        email: '',
-        mobileNumber: '',
-        programType: '',
-        preffered_location: '',
-        hearAboutUs: '',
-        questions: '',
-        children: [{
-            childFirstName: '',
-            childLastName: '',
-            age: '',
-            hasComputer: ''
-        }]
-    });
+        //     })
+        // }, [courseId, locations]);
+    }, [courseId]);
 
     function updateRegistrationDataProperty(propertyName, newValue) {
-        const regData = { ...registerData, [propertyName]: newValue }
-        setRegisterData(regData)
+        const regData = { ...requestData, [propertyName]: newValue }
+        // setRegisterData(regData)
+        setRequestData(regData)
     };
 
     const validateForm = () => {
         let valid = true;
-        const newErrors = { ...errors };
-
+        const errorMesgs = { ...requestErrorMsgs };
         // Validate parent first name
-        if (validator.isEmpty(registerData.first_name)) {
-            newErrors.parentFirstName = 'Parent first name is required';
+        if (validator.isEmpty(requestData.parentData.first_name)) {
+            errorMesgs.parentData.first_name = 'Parent first name is required';
             valid = false;
         } else {
-            newErrors.parentFirstName = '';
+            errorMesgs.parentData.first_name = '';
         }
 
         // Validate parent last name
-        if (validator.isEmpty(registerData.last_name)) {
-            newErrors.parentLastName = 'Parent Last name is required';
+        if (validator.isEmpty(requestData.parentData.last_name)) {
+            errorMesgs.parentData.last_name = 'Parent Last name is required';
             valid = false;
         } else {
-            newErrors.parentLastName = '';
+            errorMesgs.parentData.last_name = '';
         }
 
         // Validate email
-        if (validator.isEmpty(registerData.email)) {
-            newErrors.email = 'Email is required';
+        if (validator.isEmpty(requestData.parentData.email)) {
+            errorMesgs.parentData.email = 'Email is required';
             valid = false;
-        } else if (!validator.isEmail(registerData.email)) {
-            newErrors.email = 'Invalid email format';
+        } else if (!validator.isEmail(requestData.parentData.email)) {
+            errorMesgs.parentData.email = 'Invalid email format';
             valid = false;
         } else {
-            newErrors.email = '';
+            errorMesgs.parentData.email = '';
         }
 
         // Validate mobile number
-        if (validator.isEmpty(registerData.mobile)) {
-            newErrors.mobileNumber = 'Mobile is required';
+        if (validator.isEmpty(requestData.parentData.mobile)) {
+            errorMesgs.parentData.mobileNumber = 'Mobile is required';
             valid = false;
-        } else if (!validator.isMobilePhone(registerData.mobile)) {
-            newErrors.mobileNumber = 'Invalid mobile number';
+        } else if (!validator.isMobilePhone(requestData.parentData.mobile)) {
+            errorMesgs.parentData.mobile = 'Invalid mobile number';
             valid = false;
         } else {
-            newErrors.mobileNumber = '';
+            errorMesgs.parentData.mobile = '';
         }
 
         // Validate program type 
-        if (validator.isEmpty(registerData.program_type)) {
-            newErrors.programType = 'Please Select your preffered Program';
+        if (validator.isEmpty(requestData.program_type)) {
+            errorMesgs.program_type = 'Please Select your preffered Program';
             valid = false;
         } else {
             // Validate preffered location type 
-            if (registerData.program_type === 'In Person' && validator.isEmpty(registerData.preffered_location)) {
-                newErrors.preffered_location = 'Please Select your preffered location';
+            if (requestData.program_type === 'In Person' && validator.isEmpty(requestData.region)) {
+                errorMesgs.region = 'Please Select your preffered location';
                 valid = false;
             } else {
-                newErrors.preffered_location = '';
-                newErrors.programType = '';
+                errorMesgs.region = {};
+                errorMesgs.program_type = '';
             }
-            newErrors.mobileNumber = '';
         }
 
-        if (registerData.children && registerData.children.length > 0) {
+        if (requestData.children && requestData.children.length > 0) {
             // eslint-disable-next-line
-            registerData.children.map((childObject, index) => {
+            requestData.children.map((childObject, index) => {
                 // check child first name
                 if (validator.isEmpty(childObject.first_name)) {
-                    newErrors.children[index].childFirstName = 'This field is required'
+                    errorMesgs.children[index].first_name = 'This field is required'
                     valid = false;
                 } else {
-                    newErrors.children[index].childFirstName = ''
+                    errorMesgs.children[index].first_name = ''
                 }
 
                 // check child last name
                 if (validator.isEmpty(childObject.last_name)) {
-                    newErrors.children[index].childLastName = 'This field is required'
+                    errorMesgs.children[index].last_name = 'This field is required'
                     valid = false;
                 } else {
-                    newErrors.children[index].childLastName = ''
+                    errorMesgs.children[index].last_name = ''
                 }
 
                 // check child first name
                 if (validator.isEmpty(childObject.age)) {
-                    newErrors.children[index].age = 'This field is required'
+                    errorMesgs.children[index].age = 'This field is required'
                     valid = false;
                 } else if (childObject.age < minAge || childObject.age > maxAge) {
-                    newErrors.children[index].age = `Age should be between ${minAge}-${maxAge}`
+                    errorMesgs.children[index].age = `Age should be between ${minAge}-${maxAge}`
                     valid = false;
                 }
                 else {
-                    newErrors.children[index].age = ''
+                    errorMesgs.children[index].age = '0'
                 }
             })
         }
 
-        setErrors(newErrors)
+        // setErrors(errorMesgs)
+        setRequestErrorMsgs(errorMesgs)
         return valid
     }
 
     function addNewChild() {
-        registerData.children.push(childObject)
-        errors.children.push(childErrorObject)
-        updateRegistrationDataProperty(Object.keys(registerData)[8], registerData.children);
+        requestData.children.push(childObject)
+        requestErrorMsgs.children.push(childErrorObject)
+        updateChildrenArray(requestData.children)
     };
 
+    function updateChildrenArray(childArray) {
+        requestData.children = [...childArray]
+        // alert(`Student Array: ${JSON.stringify(Object.keys(requestData)[1])}, Values: ${JSON.stringify(childArray)}`);
+    }
     function submit() {
+        // alert(JSON.stringify(requestData));
+
         if (validateForm()) {
-            if ((!validator.isEmpty(courseId)) && courseId !== '0') registerData.course_id = courseId
-            // alert(JSON.stringify(registerData));
+            if ((!validator.isEmpty(courseId)) && courseId !== '0') requestData.course.course_id = courseId
+            alert(JSON.stringify(requestData));
 
             fetch(`${process.env.REACT_APP_URL_APP_PATH}/classrooms/register`,
                 {
@@ -203,7 +268,7 @@ export default function RegisterForm() {
                     headers: {
                         "Content-Type": "application/json"
                     },
-                    body: JSON.stringify(registerData)
+                    body: JSON.stringify(requestData)
                 })
                 .then(response => response.json())
                 .then(result => {
@@ -231,22 +296,28 @@ export default function RegisterForm() {
 
     return (
         <Card className='recent-blogs d-block'>
-            <Stack direction="column" spacing={2} sx={{ justifyContent: 'space-evenly', padding: '10vw' }} >
+            <Stack direction="column" spacing={2} sx={{ justifyContent: 'space-evenly', padding: '1.5vmin' }} >
                 {/* page title */}
-                <Typography component="h5" variant='h5' style={{ color: '#ed7d45', alignItems: 'center' }}> Coding is the Language of the Future! </Typography>
+                <Typography component="h5" variant='h5' style={{ color: 'black', fontWeight: 'bold', justifyContent: 'center', alignItems: 'center', textAlign: 'center' }}> Registration
+                    {
+                        ((!validator.isEmpty(courseId)) && courseId !== '0') ?
+                            <> in <span style={{ color: 'red' }}>  {courseObject.title}  </span> Course</> : null
+                    }
+                </Typography>
                 {/* parent name */}
-                <Typography component="p" variant='p' style={{ color: '#333440', fontWeight: 'bold', alignItems: 'flex-start' }}> Parent Name </Typography>
+                <Typography component="p" variant='p' style={{ color: '#333440', fontWeight: 'bold', alignItems: 'flex-start' }}> Parent Name <span style={{ color: 'red' }}> * </span></Typography>
                 <Grid container spacing={1} >
                     <Grid item xs={8} md={6}>
                         <Item>
                             <TextField
                                 required
-                                id="outlined-required"
                                 label="First Name"
-                                defaultValue={registerData.first_name}
-                                onChange={(event) => updateRegistrationDataProperty(Object.keys(registerData)[0], event.target.value)}
-                                error={Boolean(errors.parentFirstName)}
-                                helperText={errors.parentFirstName}
+                                defaultValue={requestData.parentData.first_name}
+                                onChange={(event) => {
+                                    requestData.parentData.first_name = event.target.value;
+                                }}
+                                error={Boolean(requestErrorMsgs.parentData.first_name)}
+                                helperText={requestErrorMsgs.parentData.first_name}
                                 fullWidth />
                         </Item>
                     </Grid>
@@ -255,59 +326,55 @@ export default function RegisterForm() {
                         <Item>
                             <TextField
                                 required
-                                id="outlined-required"
                                 label="Last Name"
-                                defaultValue={registerData.last_name}
-                                value={registerData.last_name}
-                                onChange={(event) => updateRegistrationDataProperty(Object.keys(registerData)[1], event.target.value)}
-                                error={Boolean(errors.parentLastName)}
-                                helperText={errors.parentLastName}
+                                defaultValue={requestData.parentData.last_name}
+                                onChange={(event) => {
+                                    requestData.parentData.last_name = event.target.value;
+                                }}
+                                error={Boolean(requestErrorMsgs.parentData.last_name)}
+                                helperText={requestErrorMsgs.parentData.last_name}
                                 fullWidth />
                         </Item>
                     </Grid>
                 </Grid>
 
                 {/* email */}
-                <Typography component="p" variant='p' style={{ color: '#333440', fontWeight: 'bold', alignItems: 'flex-start' }}> Email </Typography>
+                <Typography component="p" variant='p' style={{ color: '#333440', fontWeight: 'bold', alignItems: 'flex-start' }}> Email <span style={{ color: 'red' }}> * </span></Typography>
                 <Grid container spacing={1} >
                     <Grid item xs={8} md={12}>
                         <Item>
                             <TextField
                                 required
-                                id="outlined-required"
-                                type='email'
-                                defaultValue={registerData.email}
-                                value={registerData.email}
-                                className={Item}
-                                onChange={(event) => updateRegistrationDataProperty(Object.keys(registerData)[2], event.target.value)}
-                                error={Boolean(errors.email)}
-                                helperText={errors.email}
+                                defaultValue={requestData.parentData.email}
+                                onChange={(event) => {
+                                    requestData.parentData.email = event.target.value;
+                                }}
+                                error={Boolean(requestErrorMsgs.parentData.email)}
+                                helperText={requestErrorMsgs.parentData.email}
                                 fullWidth />
                         </Item>
                     </Grid>
                 </Grid>
 
                 {/* Mobile Number */}
-                <Typography component="p" variant='p' style={{ color: '#333440', fontWeight: 'bold', alignItems: 'flex-start' }}> Mobile </Typography>
+                <Typography component="p" variant='p' style={{ color: '#333440', fontWeight: 'bold', alignItems: 'flex-start' }}> Mobile <span style={{ color: 'red' }}> * </span> <span style={{ color: '#333440', fontWeight: 'lighter', fontStyle: 'italic' }}>(preferably number with WhatsApp)</span></Typography>
                 <Grid container spacing={1} >
                     <Grid item xs={8} md={12}>
                         <Item>
                             <TextField
                                 required
-                                id="outlined-required"
-                                type='tel'
-                                defaultValue={registerData.mobileNumber}
-                                value={registerData.mobileNumber}
-                                className={cssStyle.register_form_text_field}
-                                onChange={(event) => updateRegistrationDataProperty(Object.keys(registerData)[3], event.target.value)}
-                                error={Boolean(errors.mobileNumber)}
-                                helperText={errors.mobileNumber}
+                                defaultValue={requestData.parentData.mobile}
+                                onChange={(event) => {
+                                    requestData.parentData.mobile = event.target.value;
+                                }}
+                                error={Boolean(requestErrorMsgs.parentData.mobile)}
+                                helperText={requestErrorMsgs.parentData.mobile}
                                 fullWidth />
                         </Item>
                     </Grid>
                 </Grid>
 
-                <Grid container spacing={1} >
+                {/* <Grid container spacing={1} >
                     <Grid item xs={8} md={12}>
                         <Item>
                             {
@@ -317,41 +384,42 @@ export default function RegisterForm() {
                             }
                         </Item>
                     </Grid>
-                </Grid>
+                </Grid> */}
 
                 {/* add new child layout */}
-                <Grid container spacing={1}>
-                    <Grid item xs={6} md={8}>
-                        <Typography component="p" variant='p' style={{ color: '#333440', fontWeight: 'bold', justifyContent: 'center', alignItems: 'flex-start' }}> Children </Typography>
-                    </Grid>
-                    <Grid item xs={2}>
-                        <Button
-                            variant="contained"
-                            onClick={addNewChild}
-                            style={{
-                                borderRadius: 10,
-                                background: 'linear-gradient(to bottom, #ffb093, #ed7d45)',
-                                fontSize: "2.5vmin",
-                                display: 'flex',
-                                width: '30vw'
-                            }}> Add Child </Button>
-                    </Grid>
-                </Grid>
+                {/* <Grid container spacing={1}>
+                    <Grid item xs={6} md={8}> */}
+                <Typography component="p" variant='p' style={{ color: '#333440', fontWeight: 'bold', justifyContent: 'center', alignItems: 'flex-start' }}>
+                    Add Your Children <span style={{ color: 'red' }}> * </span> </Typography>
+                {/* </Grid>
+                    <Grid item xs={2}> */}
+                {/* </Grid>
+                </Grid> */}
 
                 {/* case of add new child after having children */}
                 {
-                    (registerData.children && registerData.children.length > 0) ?
-                        registerData.children.map((childObject, index) =>
+                    (requestData.children && requestData.children.length > 0) ?
+                        requestData.children.map((childObject, index) =>
                             < StudentRegisterComponent
                                 index={index}
-                                registerData={registerData}
-                                errors={errors}
-                                updateRegistrationDataProperty={updateRegistrationDataProperty} />)
+                                requestData={requestData}
+                                requestErrorMsgs={requestErrorMsgs}
+                                updateChildrenArray={updateChildrenArray} />)
                         : null
                 }
+                <Button
+                    variant="contained"
+                    onClick={addNewChild}
+                    style={{
+                        borderRadius: 5,
+                        background: 'linear-gradient(to bottom,#80AAC7, #4F8DB9 )',
+                        // fontSize: "2.5vmin",
+                        width: 'auto',
+                        padding: '1vmin'
+                    }}> Add Another Child </Button>
 
                 {/* program type In=person or Online */}
-                <ProgrameTypeComponent registerData={registerData} updateRegistrationDataProperty={updateRegistrationDataProperty} errors={errors} courseId={courseId} />
+                <ProgrameTypeComponent registerData={requestData} updateRegistrationDataProperty={updateRegistrationDataProperty} errors={requestErrorMsgs} courseId={courseId} />
 
                 {/* hear about us */}
                 <Typography component="p" variant='p' style={{ color: '#333440', fontWeight: 'bold', alignItems: 'flex-start' }}> How did you hear about us? </Typography>
@@ -360,11 +428,13 @@ export default function RegisterForm() {
                         <Item>
                             <TextField
                                 required
-                                id="outlined-required"
-                                defaultValue={registerData.hear_about_us}
-                                className={cssStyle.register_form_text_field}
-                                fullWidth
-                                onChange={(event) => updateRegistrationDataProperty(Object.keys(registerData)[6], event.target.value)} />
+                                defaultValue={requestData.parentData.hear_about_us}
+                                onChange={(event) => {
+                                    requestData.parentData.hear_about_us = event.target.value;
+                                }}
+                                error={Boolean(requestErrorMsgs.parentData.hear_about_us)}
+                                helperText={requestErrorMsgs.parentData.hear_about_us}
+                                fullWidth />
                         </Item>
                     </Grid>
                 </Grid>
@@ -376,11 +446,13 @@ export default function RegisterForm() {
                         <Item>
                             <TextField
                                 required
-                                id="outlined-required"
-                                defaultValue={registerData.questions}
-                                className={cssStyle.register_form_text_field}
-                                fullWidth
-                                onChange={(event) => updateRegistrationDataProperty(Object.keys(registerData)[7], event.target.value)} />
+                                defaultValue={requestData.parentData.questions}
+                                onChange={(event) => {
+                                    requestData.parentData.questions = event.target.value;
+                                }}
+                                error={Boolean(requestErrorMsgs.parentData.questions)}
+                                helperText={requestErrorMsgs.parentData.questions}
+                                fullWidth />
                         </Item>
                     </Grid>
                 </Grid>
