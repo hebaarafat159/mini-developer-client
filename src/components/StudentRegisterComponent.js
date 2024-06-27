@@ -18,16 +18,12 @@ export default function StudentRegisterComponent({ index, requestData, requestEr
                 [propertyName]: newValue,
             };
             updateChildrenArray(updatedChildren)
-            // updateRegistrationDataProperty(Object.keys(requestData)[1], updatedChildren);
         }
     };
 
     function removeChildComponent(childIndex) {
         const updatedChildren = requestData.children.filter((child, index) => index !== childIndex);
-        alert(`Deleted Array: ${JSON.stringify(updatedChildren)}`);
-
-        // requestData.children = updatedChildren;
-        // updateRegistrationDataProperty(Object.keys(requestData)[1], updatedChildren);
+        // alert(`Deleted Array: ${JSON.stringify(updatedChildren)}`);
         updateChildrenArray(updatedChildren)
     }
 
@@ -37,7 +33,6 @@ export default function StudentRegisterComponent({ index, requestData, requestEr
     }
 
     const Item = styled(Paper)(({ theme }) => ({
-        // margin: theme.spacing(1),
         display: 'flex',
         alignItems: 'center'
     }));
@@ -54,7 +49,7 @@ export default function StudentRegisterComponent({ index, requestData, requestEr
                         required
                         label="First Name"
                         defaultValue={requestData.children[index].first_name}
-                        // onChange={(event) => updateChildProperty(index, Object.keys(requestData.children[index])[0], event.target.value)}
+                        value={requestData.children[index].first_name}
                         onChange={(event) => updateChildProperty(index, Object.keys(requestData.children[index])[0], event.target.value)}
                         error={Boolean(requestErrorMsgs.children[index].first_name)}
                         helperText={requestErrorMsgs.children[index].first_name}
@@ -68,6 +63,7 @@ export default function StudentRegisterComponent({ index, requestData, requestEr
                         required
                         label="Last Name"
                         defaultValue={requestData.children[index].last_name}
+                        value={requestData.children[index].last_name}
                         onChange={(event) => updateChildProperty(index, Object.keys(requestData.children[index])[1], event.target.value)}
                         error={Boolean(requestErrorMsgs.children[index].last_name)}
                         helperText={requestErrorMsgs.children[index].last_name}
