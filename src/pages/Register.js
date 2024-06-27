@@ -14,8 +14,6 @@ export default function RegisterForm() {
     const { courseId } = useParams();
     const [courseObject, setCourseObject] = useState({})
     const navigate = useNavigate();
-    const [locations, setLocations] = useState([])
-
 
     const childObject = {
         first_name: '',
@@ -88,41 +86,6 @@ export default function RegisterForm() {
         }
     )
 
-    // const [registerData, setRegisterData] = useState({
-    //     first_name: '',
-    //     last_name: '',
-    //     email: '',
-    //     mobile: '',
-    //     program_type: '',
-    //     preffered_location: '',
-    //     hear_about_us: '',
-    //     questions: '',
-    //     children: [{
-    //         first_name: '',
-    //         last_name: '',
-    //         age: '',
-    //         hasComputer: true
-    //     }],
-    //     course_id: ''
-    // })
-
-    // const [errors, setErrors] = useState({
-    //     parentFirstName: '',
-    //     parentLastName: '',
-    //     email: '',
-    //     mobileNumber: '',
-    //     programType: '',
-    //     preffered_location: '',
-    //     hearAboutUs: '',
-    //     questions: '',
-    //     children: [{
-    //         childFirstName: '',
-    //         childLastName: '',
-    //         age: '',
-    //         hasComputer: ''
-    //     }]
-    // });
-
     useEffect(() => {
         if ((!validator.isEmpty(courseId)) && courseId !== '0') {
             fetch(`${process.env.REACT_APP_URL_APP_PATH}/courses/${courseId}`)
@@ -132,23 +95,12 @@ export default function RegisterForm() {
                     console.log(`Course Object : ${result.body}`)
                 })
         }
-
-        // fetch(`${process.env.REACT_APP_URL_APP_PATH}/locations/regions`)
-        // fetch('http://localhost:4000/locations/regions')
-        //     .then(response => response.json())
-        //     .then(result => {
-        //         console.log(`Regions: ${JSON.stringify(result)}`);
-
-        //         setLocations(result.body);
-
-        //     })
-        // }, [courseId, locations]);
     }, [courseId]);
 
     function updateRegistrationDataProperty(propertyName, newValue) {
         const regData = { ...requestData, [propertyName]: newValue }
-        // setRegisterData(regData)
         setRequestData(regData)
+        // alert(`all Data: ${JSON.stringify(regData)}`)
     };
 
     const validateForm = () => {
@@ -253,6 +205,7 @@ export default function RegisterForm() {
 
     function updateChildrenArray(childArray) {
         requestData.children = [...childArray]
+        // 1 is the index of children array in the requestData object                     
         updateRegistrationDataProperty(Object.keys(requestData)[1], requestData.children);
         // alert(`Student Array: ${JSON.stringify(Object.keys(requestData)[1])}, Values: ${JSON.stringify(childArray)}`);
     }
@@ -261,7 +214,7 @@ export default function RegisterForm() {
 
         if (validateForm()) {
             if ((!validator.isEmpty(courseId)) && courseId !== '0') requestData.course.course_id = courseId
-            alert(JSON.stringify(requestData));
+            // alert(JSON.stringify(requestData));
 
             fetch(`${process.env.REACT_APP_URL_APP_PATH}/classrooms/register`,
                 {
@@ -299,12 +252,15 @@ export default function RegisterForm() {
         <Card className='recent-blogs d-block'>
             <Stack direction="column" spacing={2} sx={{ justifyContent: 'space-evenly', padding: '1.5vmin' }} >
                 {/* page title */}
-                <Typography component="h5" variant='h5' style={{ color: 'black', fontWeight: 'bold', justifyContent: 'center', alignItems: 'center', textAlign: 'center' }}> Registration
-                    {
-                        ((!validator.isEmpty(courseId)) && courseId !== '0') ?
-                            <> in <span style={{ color: 'red' }}>  {courseObject.title}  </span> Course</> : null
-                    }
-                </Typography>
+                <Typography component="h5" variant='h5' style={{ color: 'black', fontWeight: 'bold', justifyContent: 'center', alignItems: 'center', textAlign: 'center' }}> Registration </Typography>
+                {
+                    ((!validator.isEmpty(courseId)) && courseId !== '0') ?
+                        <>
+                            <Typography component="h5" variant='h5' style={{ color: 'black', fontWeight: 'bold', justifyContent: 'center', alignItems: 'center', textAlign: 'center' }}> in <span style={{ color: 'red' }}>  {courseObject.title}  </span></Typography>
+                            <Typography component="h5" variant='h5' style={{ color: 'black', fontWeight: 'bold', justifyContent: 'center', alignItems: 'center', textAlign: 'center' }}> Course </Typography>
+                        </> : null
+                }
+
                 {/* parent name */}
                 <Typography component="p" variant='p' style={{ color: '#333440', fontWeight: 'bold', alignItems: 'flex-start' }}> Parent Name <span style={{ color: 'red' }}> * </span></Typography>
                 <Grid container spacing={1} >
@@ -420,7 +376,7 @@ export default function RegisterForm() {
                     }}> Add Another Child </Button>
 
                 {/* program type In=person or Online */}
-                <ProgrameTypeComponent registerData={requestData} updateRegistrationDataProperty={updateRegistrationDataProperty} errors={requestErrorMsgs} courseId={courseId} />
+                <ProgrameTypeComponent requestData={requestData} updateRegistrationDataProperty={updateRegistrationDataProperty} errors={requestErrorMsgs} courseId={courseId} />
 
                 {/* hear about us */}
                 <Typography component="p" variant='p' style={{ color: '#333440', fontWeight: 'bold', alignItems: 'flex-start' }}> How did you hear about us? </Typography>

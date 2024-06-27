@@ -24,6 +24,8 @@ export default function StudentRegisterComponent({ index, requestData, requestEr
 
     function removeChildComponent(childIndex) {
         const updatedChildren = requestData.children.filter((child, index) => index !== childIndex);
+        alert(`Deleted Array: ${JSON.stringify(updatedChildren)}`);
+
         // requestData.children = updatedChildren;
         // updateRegistrationDataProperty(Object.keys(requestData)[1], updatedChildren);
         updateChildrenArray(updatedChildren)

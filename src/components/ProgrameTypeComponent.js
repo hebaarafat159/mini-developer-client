@@ -1,21 +1,31 @@
 import React, { useEffect, useState } from 'react'
 import { Radio, RadioGroup, FormControlLabel, Typography, Stack, FormControl, MenuItem, InputLabel, Select } from '@mui/material'
 
-export default function ProgrameTypeComponent({ registerData, updateRegistrationDataProperty, errors, courseId }) {
+export default function ProgrameTypeComponent({ requestData, updateRegistrationDataProperty, errors, courseId }) {
 
     const programTypes = ['In Person', 'Online']
 
     // const [selectedRegion, setSelectedRegion] = useState({})
     const [regions, setRegions] = useState([])
     const [classrooms, setClassrooms] = useState([])
-
+    // const [locations, setLocations] = useState([])
     useEffect(() => {
         fetch(`${process.env.REACT_APP_URL_APP_PATH}/locations/regions/active`)
+            // fetch('http://localhost:4000/locations/regions')
             .then(response => response.json())
             .then(result => {
                 console.log(`Regions: ${JSON.stringify(result)}`);
+
                 setRegions(result.body);
+
             })
+
+        // fetch(`${process.env.REACT_APP_URL_APP_PATH}/locations/regions/active`)
+        // .then(response => response.json())
+        // .then(result => {
+        //     console.log(`Regions: ${JSON.stringify(result)}`);
+        //     setRegions(result.body);
+        // })
     }, []);
 
     // useEffect(() => {
@@ -41,31 +51,37 @@ export default function ProgrameTypeComponent({ registerData, updateRegistration
                 row
                 aria-labelledby="demo-form-control-label-placement"
                 name="position"
-                value={registerData.program_type}
-                onChange={(event) => updateRegistrationDataProperty(Object.keys(registerData)[4], event.target.value)}>
+                value={requestData.program_type}
+                onChange={(event) => {
+                    // alert(`Selected: ${JSON.stringify(event.target.value)}`)
+                    updateRegistrationDataProperty(Object.keys(requestData)[5], event.target.value)
+                }}>
                 {
                     programTypes && programTypes.map((type, index) =>
-                        (<FormControlLabel value={type} control={<Radio />} label={type} />))}
+                        (<FormControlLabel value={type} control={<Radio />} label={type} />))
+                }
 
             </RadioGroup>
 
             {/* Select Prefferred Region */}
             {
-                registerData.program_type === programTypes[0] &&
+                requestData.program_type === programTypes[0] &&
                 <>
-                    {errors.preffered_location !== '' && <Typography variant='danger' style={{ fontSize: '1.5vw', color: 'red' }}>{errors.preffered_location}</Typography>}
+                    {errors.region !== null && <Typography variant='danger' style={{ fontSize: '1.5vw', color: 'red' }}>{errors.region.name}</Typography>}
 
                     <FormControl fullWidth>
-                        <InputLabel id="demo-simple-select-label">Select prefferred area</InputLabel>
+                        <InputLabel id="active-regions-label">Select prefferred area</InputLabel>
                         {/* Regions  */}
                         <Select
-                            labelId="demo-simple-select-label"
-                            id="demo-simple-select"
-                            value={registerData.location}
+                            labelId="active-regions-label"
+                            id="region-select"
+                            defaultValue={requestData.region}
+                            value={requestData.region}
                             label="Select Your Prefferred Region: "
                             onChange={(event) => {
-                                updateRegistrationDataProperty(Object.keys(registerData)[5], event.target.value)
-                                console.log(`Selected region: ${JSON.stringify(event.target.value)}`);
+                                // alert(`Selected region: ${JSON.stringify(event.target.value)}`);
+                                // 3 is the index of region object in the requestData object
+                                updateRegistrationDataProperty(Object.keys(requestData)[3], event.target.value)
                                 if (event.target.value !== null && event.target.value !== undefined && courseId !== '0') {
                                     getCoursePalces(event.target.value._id, courseId)
                                 }
@@ -80,14 +96,19 @@ export default function ProgrameTypeComponent({ registerData, updateRegistration
                     {
                         (courseId !== '0') && (classrooms !== null && classrooms.length > 0) &&
                         < FormControl fullWidth>
-                            <InputLabel id="demo-simple-select-label">Select prefferred place</InputLabel>
+                            <InputLabel id="open-courses-label">Open Course Places: </InputLabel>
                             {/* Regions Places */}
                             <Select
-                                labelId="demo-simple-select-label"
-                                id="demo-simple-select"
-                                value={registerData.location}
-                                label="Select Your Prefferred Place:">
-                                {/* onChange={(event) => updateRegistrationDataProperty(Object.keys(registerData)[5], event.target.value)}> */}
+                                labelId="open-courses-label"
+                                id="place-select"
+                                value={requestData.classroom}
+                                label="Select Your Prefferred Place:"
+                                onChange={(event) => {
+                                    // alert(`Selected Place: ${JSON.stringify(event.target.value)}`);
+                                    // 4 is the index of classroom place object in the requestData object
+                                    updateRegistrationDataProperty(Object.keys(requestData)[4], event.target.value)
+                                }}>
+
                                 {classrooms && classrooms.map(
                                     (classroom, index) =>
                                         (<MenuItem value={classroom}>{classroom.place_id.name} - {classroom.days}</MenuItem>))}
