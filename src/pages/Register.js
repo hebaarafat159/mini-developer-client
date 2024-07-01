@@ -51,9 +51,9 @@ export default function RegisterForm() {
                     email: ''
                 }
             ],
-            course: {},
-            region: {},
-            classroom: {},
+            course: null,
+            region: null,
+            classroom: null,
             program_type: ''
         }
     )
@@ -78,9 +78,9 @@ export default function RegisterForm() {
                     email: ''
                 }
             ],
-            course: {},
-            region: {},
-            classroom: {},
+            course: '',
+            region: '',
+            classroom: '',
             program_type: ''
 
         }
@@ -135,7 +135,7 @@ export default function RegisterForm() {
 
         // Validate mobile number
         if (validator.isEmpty(requestData.parentData.mobile)) {
-            errorMesgs.parentData.mobileNumber = 'Mobile is required';
+            errorMesgs.parentData.mobile = 'Mobile is required';
             valid = false;
         } else if (!validator.isMobilePhone(requestData.parentData.mobile)) {
             errorMesgs.parentData.mobile = 'Invalid mobile number';
@@ -149,13 +149,21 @@ export default function RegisterForm() {
             errorMesgs.program_type = 'Please Select your preffered Program';
             valid = false;
         } else {
+            errorMesgs.program_type = '';
             // Validate preffered location type 
-            if (requestData.program_type === 'In Person' && validator.isEmpty(requestData.region)) {
+            if (requestData.program_type === 'In Person' && (requestData.region === null || requestData.region === undefined)) {
                 errorMesgs.region = 'Please Select your preffered location';
                 valid = false;
             } else {
-                errorMesgs.region = {};
-                errorMesgs.program_type = '';
+                errorMesgs.region = '';
+                // TODO validated courses places
+                if ((!validator.isEmpty(courseId)) && courseId !== '0') {
+                    if (requestData.classroom === null || requestData.classroom === undefined) {
+                        errorMesgs.classroom = 'Please Select your preffered course place';
+                    } else {
+                        errorMesgs.classroom = ''
+                    }
+                }
             }
         }
 
@@ -187,7 +195,7 @@ export default function RegisterForm() {
                     valid = false;
                 }
                 else {
-                    errorMesgs.children[index].age = '0'
+                    errorMesgs.children[index].age = ''
                 }
             })
         }
@@ -207,8 +215,8 @@ export default function RegisterForm() {
         requestData.children = [...childArray]
         // 1 is the index of children array in the requestData object                     
         updateRegistrationDataProperty(Object.keys(requestData)[1], requestData.children);
-        // alert(`Student Array: ${JSON.stringify(Object.keys(requestData)[1])}, Values: ${JSON.stringify(childArray)}`);
     }
+
     function submit() {
         // alert(JSON.stringify(requestData));
 
@@ -331,27 +339,9 @@ export default function RegisterForm() {
                     </Grid>
                 </Grid>
 
-                {/* <Grid container spacing={1} >
-                    <Grid item xs={8} md={12}>
-                        <Item>
-                            {
-                                ((!validator.isEmpty(courseId)) && courseId !== '0') ?
-                                    <Typography component="p" variant='p' style={{ color: '#ed7d45', fontWeight: 'bold', justifyContent: 'center', alignItems: 'flex-start', padding: '2vmin' }}>
-                                        Your Children will be registered in "<span style={{ color: 'red' }}>{courseObject.title}</span>" Course </Typography> : null
-                            }
-                        </Item>
-                    </Grid>
-                </Grid> */}
-
-                {/* add new child layout */}
-                {/* <Grid container spacing={1}>
-                    <Grid item xs={6} md={8}> */}
+                {/* children section */}
                 <Typography component="p" variant='p' style={{ color: '#333440', fontWeight: 'bold', justifyContent: 'center', alignItems: 'flex-start' }}>
                     Add Your Children <span style={{ color: 'red' }}> * </span> </Typography>
-                {/* </Grid>
-                    <Grid item xs={2}> */}
-                {/* </Grid>
-                </Grid> */}
 
                 {/* case of add new child after having children */}
                 {

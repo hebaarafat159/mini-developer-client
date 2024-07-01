@@ -8,10 +8,8 @@ export default function ProgrameTypeComponent({ requestData, updateRegistrationD
     // const [selectedRegion, setSelectedRegion] = useState({})
     const [regions, setRegions] = useState([])
     const [classrooms, setClassrooms] = useState([])
-    // const [locations, setLocations] = useState([])
     useEffect(() => {
         fetch(`${process.env.REACT_APP_URL_APP_PATH}/locations/regions/active`)
-            // fetch('http://localhost:4000/locations/regions')
             .then(response => response.json())
             .then(result => {
                 console.log(`Regions: ${JSON.stringify(result)}`);
@@ -19,20 +17,8 @@ export default function ProgrameTypeComponent({ requestData, updateRegistrationD
                 setRegions(result.body);
 
             })
-
-        // fetch(`${process.env.REACT_APP_URL_APP_PATH}/locations/regions/active`)
-        // .then(response => response.json())
-        // .then(result => {
-        //     console.log(`Regions: ${JSON.stringify(result)}`);
-        //     setRegions(result.body);
-        // })
     }, []);
 
-    // useEffect(() => {
-
-    // }, [Object.keys(registerData)[5]._id, courseId]);
-
-    // TODO
     function getCoursePalces(region, courseId) {
         fetch(`${process.env.REACT_APP_URL_APP_PATH}/classrooms/places/${region}/${courseId}`)
             .then(response => response.json())
@@ -45,15 +31,14 @@ export default function ProgrameTypeComponent({ requestData, updateRegistrationD
     return (
         <Stack direction="column" sx={{ justifyContent: 'space-evenly', padding: '2vw' }} >
 
-            <Typography component="p" variant='p' style={{ color: '#333440', fontWeight: 'bold' }}>  Select Type of Coding Program: </Typography>
-            {errors.programType !== '' && <Typography component="p" variant='p' style={{ color: '#333440' }}>{errors.programType}</Typography>}
+            <Typography component="p" variant='p' style={{ color: '#333440', fontWeight: 'bold' }}>  Select Type of Coding Program: <span style={{ color: 'red' }}> * </span> </Typography>
+            {errors.program_type !== '' && <Typography component="p" variant='p' style={{ color: 'red' }}>{errors.program_type}</Typography>}
             <RadioGroup
                 row
                 aria-labelledby="demo-form-control-label-placement"
                 name="position"
                 value={requestData.program_type}
                 onChange={(event) => {
-                    // alert(`Selected: ${JSON.stringify(event.target.value)}`)
                     updateRegistrationDataProperty(Object.keys(requestData)[5], event.target.value)
                 }}>
                 {
@@ -67,7 +52,7 @@ export default function ProgrameTypeComponent({ requestData, updateRegistrationD
             {
                 requestData.program_type === programTypes[0] &&
                 <>
-                    {errors.region !== null && <Typography variant='danger' style={{ fontSize: '1.5vw', color: 'red' }}>{errors.region.name}</Typography>}
+                    {errors.region !== '' && <Typography variant='danger' style={{ fontSize: '1.5vw', color: 'red' }}>{errors.region}</Typography>}
 
                     <FormControl fullWidth>
                         <InputLabel id="active-regions-label">Select prefferred area</InputLabel>
@@ -79,7 +64,6 @@ export default function ProgrameTypeComponent({ requestData, updateRegistrationD
                             value={requestData.region}
                             label="Select Your Prefferred Region: "
                             onChange={(event) => {
-                                // alert(`Selected region: ${JSON.stringify(event.target.value)}`);
                                 // 3 is the index of region object in the requestData object
                                 updateRegistrationDataProperty(Object.keys(requestData)[3], event.target.value)
                                 if (event.target.value !== null && event.target.value !== undefined && courseId !== '0') {
@@ -93,6 +77,7 @@ export default function ProgrameTypeComponent({ requestData, updateRegistrationD
                     </FormControl>
 
                     {/* Select Upcomming courses if exists */}
+                    {errors.classroom !== '' && <Typography variant='danger' style={{ fontSize: '1.5vw', color: 'red' }}>{errors.classroom}</Typography>}
                     {
                         (courseId !== '0') && (classrooms !== null && classrooms.length > 0) &&
                         < FormControl fullWidth>
