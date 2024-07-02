@@ -47,7 +47,7 @@ export default function RegisterForm() {
                     first_name: '',
                     last_name: '',
                     age: '',
-                    hasComputer: true,
+                    has_computer: true,
                     email: ''
                 }
             ],
@@ -156,7 +156,7 @@ export default function RegisterForm() {
                 valid = false;
             } else {
                 errorMesgs.region = '';
-                // TODO validated courses places
+                // validated courses places
                 if ((!validator.isEmpty(courseId)) && courseId !== '0') {
                     if (requestData.classroom === null || requestData.classroom === undefined) {
                         errorMesgs.classroom = 'Please Select your preffered course place';
@@ -221,8 +221,8 @@ export default function RegisterForm() {
         // alert(JSON.stringify(requestData));
 
         if (validateForm()) {
-            if ((!validator.isEmpty(courseId)) && courseId !== '0') requestData.course.course_id = courseId
-            // alert(JSON.stringify(requestData));
+            if ((!validator.isEmpty(courseId)) && courseId !== '0') requestData.course = { ...courseObject }
+            alert(JSON.stringify(requestData));
 
             fetch(`${process.env.REACT_APP_URL_APP_PATH}/classrooms/register`,
                 {
