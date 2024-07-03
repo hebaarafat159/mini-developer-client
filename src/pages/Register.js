@@ -27,7 +27,7 @@ export default function RegisterForm() {
         first_name: '',
         last_name: '',
         age: '',
-        has_computer: '',
+        has_computer: true,
         email: ''
     }
 
@@ -42,15 +42,7 @@ export default function RegisterForm() {
                 hear_about_us: '',
                 questions: ''
             },
-            children: [
-                {
-                    first_name: '',
-                    last_name: '',
-                    age: '',
-                    has_computer: true,
-                    email: ''
-                }
-            ],
+            children: [{ ...childObject }],
             course: null,
             region: null,
             classroom: null,
@@ -69,15 +61,7 @@ export default function RegisterForm() {
                 hear_about_us: '',
                 questions: ''
             },
-            children: [
-                {
-                    first_name: '',
-                    last_name: '',
-                    age: '',
-                    has_computer: true,
-                    email: ''
-                }
-            ],
+            children: [{ ...childErrorObject }],
             course: '',
             region: '',
             classroom: '',
