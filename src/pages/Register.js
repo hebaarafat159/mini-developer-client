@@ -84,7 +84,6 @@ export default function RegisterForm() {
     function updateRegistrationDataProperty(propertyName, newValue) {
         const regData = { ...requestData, [propertyName]: newValue }
         setRequestData(regData)
-        // alert(`all Data: ${JSON.stringify(regData)}`)
     };
 
     const validateForm = () => {
