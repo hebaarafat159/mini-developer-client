@@ -201,11 +201,9 @@ export default function RegisterForm() {
     }
 
     function submit() {
-        // alert(JSON.stringify(requestData));
 
         if (validateForm()) {
             if ((!validator.isEmpty(courseId)) && courseId !== '0') requestData.course = { ...courseObject }
-            alert(JSON.stringify(requestData));
 
             fetch(`${process.env.REACT_APP_URL_APP_PATH}/classrooms/register`,
                 {
