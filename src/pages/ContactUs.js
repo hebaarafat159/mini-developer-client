@@ -1,7 +1,8 @@
-import React,{ useState } from 'react'
-import { Card, Stack, Typography, FormControl, FormLabel, Button, Input } from '@mui/material'
+import React, { useState } from 'react'
+import { Stack, Typography, TextField, Grid, Button } from '@mui/material'
 import { SocialIcon } from 'react-social-icons'
-import cssStyle from '../css/styles.module.css'
+import validator from "validator";
+import { useNavigate } from 'react-router-dom'
 
 export default function ContactUs() {
     const [name, setName] = useState("");
@@ -9,120 +10,255 @@ export default function ContactUs() {
     const [phone, setPhone] = useState("");
     const [subject, setSubject] = useState("");
     const [message, setMessage] = useState("");
+    const navigate = useNavigate();
+    const [errorMessage, setErrorMessage] = useState({
+        nameError: '',
+        emailError: '',
+        phoneError: '',
+        subjectError: '',
+        messageError: ''
+    })
+
+    const textCss = {
+        textDecoration: 'none',
+        color: '#333440',
+        fontWeight: 'bold',
+        alignItems: 'center',
+        padding: '1vmin',
+        fontStyle: 'italic'
+    }
+
+    const formTitleCss = {
+        color: '#333440',
+        fontWeight: 'bold',
+        alignItems: 'flex-start',
+        padding: '1vmin'
+    }
+
+    const validateForm = () => {
+        let valid = true;
+        const errorMesgs = { ...errorMessage };
+        // Validate name
+        if (validator.isEmpty(name)) {
+            errorMesgs.nameError = 'Name is required';
+            valid = false;
+        } else {
+            errorMesgs.nameError = '';
+        }
+
+        // Validate email
+        if (validator.isEmpty(email)) {
+            errorMesgs.emailError = 'Email is required';
+            valid = false;
+        } else if (!validator.isEmail(email)) {
+            errorMesgs.emailError = 'Invalid email format';
+            valid = false;
+        } else {
+            errorMesgs.emailError = '';
+        }
+
+        // Validate phone
+        if (validator.isEmpty(phone)) {
+            errorMesgs.phoneError = 'Phone is required';
+            valid = false;
+        } else if (!validator.isMobilePhone(phone)) {
+            errorMesgs.phoneError = 'Invalid mobile number';
+            valid = false;
+        } else {
+            errorMesgs.phoneError = '';
+        }
+
+        // Validate subject
+        if (validator.isEmpty(subject)) {
+            errorMesgs.subjectError = 'Subject is required';
+            valid = false;
+        } else {
+            errorMesgs.subjectError = '';
+        }
+
+        // Validate subject
+        if (validator.isEmpty(message)) {
+            errorMesgs.messageError = 'Message is required';
+            valid = false;
+        } else {
+            errorMesgs.messageError = '';
+        }
+
+        setErrorMessage(errorMesgs)
+        return valid
+    }
+
 
     function submit() {
-        //TODO handle send message
+        if (validateForm()) {
+            const messageData = {
+                name: name,
+                phone: phone,
+                email: email,
+                subject: subject,
+                message: message
+            }
+            alert(JSON.stringify(messageData))
+            navigate('/')
+            // TODO handel send email from server side
+            // fetch(`${process.env.REACT_APP_URL_APP_PATH}/`,
+            //     {
+            //         method: "POST",
+            //         headers: {
+            //             "Content-Type": "application/json"
+            //         },
+            //         body: JSON.stringify(requestData)
+            //     })
+            //     .then(response => response.json())
+            //     .then(result => {
+            //         if (result.status === 200) {
+            //             console.log(`Your Registration has been send to MINI developer, one of our team memeber will answer you shortly`);
+            //             navigate('/')
+            //         }
+            //     })
+            //     .catch(error => {
+            //         console.log(error);
+            //     })
+        } else {
+            // Form is not valid, display error messages or take other actions
+            console.log('Form validation failed');
+        }
     }
+
     return (
-        <Stack direction="row" spacing={2} className={cssStyle.page_content_dark} >
-            <Card className={cssStyle.page_content}>
-                <Stack spacing={1} sx={{ flexGrow: 1 }}>
+        <Stack direction="column" spacing={2} sx={{ justifyContent: 'center', background: 'white', padding: '3vw' }} >
 
-                    <Typography style={{ fontWeight: 'bold', fontSize: '2vw', color: '#ed7d45', padding: '2vmin 0' }}> GET IN TOUCH</Typography>
+            <Stack direction="row" spacing={2} sx={{ justifyContent: 'space-evenly', alignItems: 'center' }} >
+                <Grid container columns={{ xs: 2, sm: 8, md: 12 }}>
+                    {/* contact us details */}
+                    <Grid item xs={6} sx={{ justifyContent: 'center', alignItems: 'center' }}>
+                        <Typography component="h4" variant='h6' style={{ color: '#333440', textAlign: 'center', fontWeight: 'bold' }}>
+                            GET IN TOUCH
+                        </Typography>
 
-                    {/* facebook */}
-                    <Stack direction="row" spacing={2}
-                        style={{ display: 'flex', flexFlow: 'row wrap', alignItems: 'center' }}>
-                        <SocialIcon network="facebook" url='https://www.facebook.com/MiniDeveloperUK' />
-                        <a className={cssStyle.link_text} href='https://www.facebook.com/MiniDeveloperUK' target="_blank" rel="noopener noreferrer">MiniDeveloperUK</a>
-                    </Stack>
+                        <ul style={{ listStyleType: 'none' }}>
+                            {/* Email */}
+                            <li spacing={1} style={{ listStyleType: 'none', display: 'flex', flexFlow: 'row wrap', alignItems: 'center', padding: '1vmin' }}>
+                                <SocialIcon network="email" url={`mailto:${process.env.REACT_APP_CONTACT_US_GMAIL}`} />
+                                <a style={textCss} href={`mailto:${process.env.REACT_APP_CONTACT_US_GMAIL}`} target="_blank" rel="noopener noreferrer"> {process.env.REACT_APP_CONTACT_US_GMAIL} </a>
+                            </li>
 
-                    <Stack direction="row" spacing={2}
-                        style={{ display: 'flex', flexFlow: 'row wrap', alignItems: 'center' }}>
-                        <SocialIcon network="whatsapp" url='https://api.whatsapp.com/send?phone=+447851496016' />
-                        <a className={cssStyle.link_text} href='https://api.whatsapp.com/send?phone=+447851496016' target="_blank" rel="noopener noreferrer">+447851496016</a>
-                    </Stack>
+                            {/* What's app */}
+                            <li spacing={1} style={{ listStyleType: 'none', display: 'flex', flexFlow: 'row wrap', alignItems: 'center', padding: '1vmin' }}>
+                                <SocialIcon network="whatsapp" url={process.env.REACT_APP_CONTACT_US_WHATS_APP} />
+                                <a style={textCss} href={process.env.REACT_APP_CONTACT_US_WHATS_APP} target="_blank" rel="noopener noreferrer"> {process.env.REACT_APP_CONTACT_US_WHATS_APP_NAME} </a>
+                            </li>
 
-                    {/* instagram */}
-                    <Stack direction="row" spacing={2}
-                        style={{ display: 'flex', flexFlow: 'row wrap', alignItems: 'center' }}>
-                        <SocialIcon network="instagram" url='https://www.instagram.com/minideveloperuk' />
-                        <a className={cssStyle.link_text} href='https://www.instagram.com/minideveloperuk' target="_blank" rel="noopener noreferrer">@minideveloperuk</a>
-                    </Stack>
+                            {/* Facebook */}
+                            <li spacing={1} style={{ listStyleType: 'none', display: 'flex', flexFlow: 'row wrap', alignItems: 'center', padding: '1vmin' }}>
+                                <SocialIcon network="facebook" url={process.env.REACT_APP_CONTACT_US_FACEBOOK} />
+                                <a style={textCss} href={process.env.REACT_APP_CONTACT_US_FACEBOOK} target="_blank" rel="noopener noreferrer">{process.env.REACT_APP_CONTACT_US_FACEBOOK_NAME}</a>
+                            </li>
 
-                    {/* Email */}
-                    <Stack direction="row" spacing={2}
-                        style={{ display: 'flex', flexFlow: 'row wrap', alignItems: 'center' }}>
-                        <SocialIcon network="email" url='mailto:mini.developer.info@gmail.com' />
-                        <a className={cssStyle.link_text} href='mailto:mini.developer.info@gmail.com' target="_blank" rel="noopener noreferrer">mini.developer.info@gmail.com</a>
-                    </Stack>
+                            {/* Instagram */}
+                            <li spacing={1} style={{ listStyleType: 'none', display: 'flex', flexFlow: 'row wrap', alignItems: 'center', padding: '1vmin' }}>
+                                <SocialIcon network="instagram" url={process.env.REACT_APP_CONTACT_US_INSTAGRAM} />
+                                <a variant='p' style={textCss} href={process.env.REACT_APP_CONTACT_US_INSTAGRAM} target="_blank" rel="noopener noreferrer">{process.env.REACT_APP_CONTACT_US_INSTAGRAM_NAME}</a>
+                            </li>
 
-                    {/* location */}
-                    <Stack direction="row" spacing={2}
-                        style={{ display: 'flex', flexFlow: 'row wrap', alignItems: 'center' }}>
-                        <SocialIcon network="email" url='mailto:mini.developer.info@gmail.com' />
-                        <p className={cssStyle.link_text} >Castlebar Rd, Ealing W5 2UP
-                            London, UK</p>
-                    </Stack>
-                </Stack>
-            </Card>
-
-            <Stack spacing={1} className={cssStyle.page_content} margin={'10%'}>
-                <Typography style={{ fontWeight: 'bold', fontSize: '1.5vw', color: '#ed7d45' }}> Send to Us</Typography>
-
-                <form onSubmit={submit} >
-                    <Stack
-                        direction="column"
-                        spacing={2} >
+                            {/*Location */}
+                            <li spacing={1} style={{ listStyleType: 'none', display: 'flex', flexFlow: 'row wrap', alignItems: 'center', padding: '1vmin' }}>
+                                <SocialIcon network="email" />
+                                <Typography component="p" variant='p' style={textCss}>{process.env.REACT_APP_CONTACT_US_LOCATION}</Typography>
+                            </li>
+                        </ul>
+                    </Grid>
+                    {/* Send an email form */}
+                    <Grid item xs={6} sx={{ justifyContent: 'center', alignItems: 'center' }}>
                         {/* Name */}
-                        <FormControl required>
-                            <FormLabel>Name</FormLabel>
-                            <Input
-                                type="text"
-                                name="name"
-                                value={name}
-                                onChange={(e) => setName(e.target.value)} />
-                        </FormControl>
+                        <Typography component="p" variant='p' style={formTitleCss}> Name <span style={{ color: 'red' }}> * </span> </Typography>
+                        <Grid container spacing={1} >
+                            <Grid item xs={8} md={12}>
+                                <TextField
+                                    required
+                                    defaultValue={name}
+                                    onChange={(event) => {
+                                        setName(event.target.value)
+                                    }}
+                                    error={Boolean(errorMessage.nameError)}
+                                    helperText={errorMessage.nameError}
+                                    fullWidth />
+                            </Grid>
+                        </Grid>
 
                         {/* Email */}
-                        <FormControl required>
-                            <FormLabel>Email</FormLabel>
-                            <Input
-                                type="email"
-                                name="email"
-                                value={email}
-                                onChange={(e) => setEmail(e.target.value)} />
-                        </FormControl>
+                        <Typography component="p" variant='p' style={formTitleCss}> Email <span style={{ color: 'red' }}> * </span> </Typography>
+                        <Grid container spacing={1} >
+                            <Grid item xs={8} md={12}>
+                                <TextField
+                                    required
+                                    defaultValue={email}
+                                    onChange={(event) => {
+                                        setEmail(event.target.value)
+                                    }}
+                                    error={Boolean(errorMessage.emailError)}
+                                    helperText={errorMessage.emailError}
+                                    fullWidth />
+                            </Grid>
+                        </Grid>
 
                         {/* Phone */}
-                        <FormControl required>
-                            <FormLabel>Phone</FormLabel>
-                            <Input
-                                type='phone'
-                                name="phone"
-                                value={phone}
-                                onChange={(e) => setPhone(e.target.value)} />
-                        </FormControl>
+                        <Typography component="p" variant='p' style={formTitleCss}> Phone <span style={{ color: 'red' }}> * </span> </Typography>
+                        <Grid container spacing={1} >
+                            <Grid item xs={8} md={12}>
+                                <TextField
+                                    required
+                                    defaultValue={phone}
+                                    onChange={(event) => {
+                                        setPhone(event.target.value)
+                                    }}
+                                    error={Boolean(errorMessage.phoneError)}
+                                    helperText={errorMessage.phoneError}
+                                    fullWidth />
+                            </Grid>
+                        </Grid>
 
                         {/* Subject */}
-                        <FormControl required>
-                            <FormLabel>Subject</FormLabel>
-                            <Input
-                                type='text'
-                                name="subject"
-                                value={subject}
-                                onChange={(e) => setSubject(e.target.value)} />
-                        </FormControl>
+                        <Typography component="p" variant='p' style={formTitleCss}> Subject <span style={{ color: 'red' }}> * </span> </Typography>
+                        <Grid container spacing={1} >
+                            <Grid item xs={8} md={12}>
+                                <TextField
+                                    required
+                                    defaultValue={subject}
+                                    onChange={(event) => {
+                                        setSubject(event.target.value)
+                                    }}
+                                    error={Boolean(errorMessage.subjectError)}
+                                    helperText={errorMessage.subjectError}
+                                    fullWidth />
+                            </Grid>
+                        </Grid>
+
                         {/* Message */}
-                        <FormControl required>
-                            <FormLabel>Message</FormLabel>
-                            <Input
-                                type='text'
-                                name="message"
-                                maxRows={3}
-                                value={message}
-                                onChange={(e) => setMessage(e.target.value)} />
-                        </FormControl>
-                        <Stack gap={4} sx={{ mt: 2 }}>
-                            <Button type="submit" fullWidth>
-                                Submit
-                            </Button>
-                        </Stack>
-                    </Stack>
-                </form>
+                        <Typography component="p" variant='p' style={formTitleCss}> Message <span style={{ color: 'red' }}> * </span> </Typography>
+                        <Grid container spacing={1} >
+                            <Grid item xs={8} md={12}>
+                                <TextField
+                                    required
+                                    defaultValue={message}
+                                    onChange={(event) => {
+                                        setMessage(event.target.value)
+                                    }}
+                                    error={Boolean(errorMessage.messageError)}
+                                    helperText={errorMessage.messageError}
+                                    fullWidth />
+                            </Grid>
+                        </Grid>
 
+                        {/* Submit Button */}
+                        <Button
+                            variant="contained"
+                            style={{ margin: '1vmin' }}
+                            onClick={() => submit()}
+                        > Submit </Button>
+                    </Grid>
+                </Grid>
             </Stack>
-
-        </Stack>
+        </Stack >
     )
 }

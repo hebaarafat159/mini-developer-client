@@ -53,12 +53,12 @@ export default function HeaderComponent() {
             component: <Courses />,
             isSelected: false
         },
-        // {
-        //     position: 4,
-        //     label: 'Contact Us',
-        //     link: '/contactus',
-        //     component: <ContactUs />
-        // }
+        {
+            position: 4,
+            label: 'Contact Us',
+            link: '/contactus',
+            component: <ContactUs />
+        }
     ])
 
     function handleSelected(selectedItem) {
