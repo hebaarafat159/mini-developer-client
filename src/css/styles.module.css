@@ -9,10 +9,10 @@
 .Footer {
     position: fixed;
     bottom: 0;
-    height: 15%;
+    height: 20%;
     display: flex;
-    flex-wrap: wrap;
     justify-content: center;
+    align-items: center;
     background-color: white;
     color: #333440;
     width: 100vw;

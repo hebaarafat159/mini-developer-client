@@ -7,7 +7,7 @@ export default function Footer() {
     return (
         <Stack direction="column" spacing={1} className={cssStyle.Footer}>
             <FooterContactUs />
-            <Typography style={{ display: 'flex', justifyContent: 'center' }}>©2023 by Mini Developer.</Typography>
+            {/* <Typography style={{ display: 'flex', justifyContent: 'center' }}>©2023 by Mini Developer.</Typography> */}
         </Stack>
     )
 }
