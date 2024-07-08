@@ -99,26 +99,24 @@ export default function ContactUs() {
                 message: message
             }
             alert(JSON.stringify(messageData))
-            navigate('/')
-            // TODO handel send email from server side
-            // fetch(`${process.env.REACT_APP_URL_APP_PATH}/`,
-            //     {
-            //         method: "POST",
-            //         headers: {
-            //             "Content-Type": "application/json"
-            //         },
-            //         body: JSON.stringify(requestData)
-            //     })
-            //     .then(response => response.json())
-            //     .then(result => {
-            //         if (result.status === 200) {
-            //             console.log(`Your Registration has been send to MINI developer, one of our team memeber will answer you shortly`);
-            //             navigate('/')
-            //         }
-            //     })
-            //     .catch(error => {
-            //         console.log(error);
-            //     })
+            fetch(`${process.env.REACT_APP_URL_APP_PATH}/users/sendMessage`,
+                {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json"
+                    },
+                    body: JSON.stringify(messageData)
+                })
+                .then(response => response.json())
+                .then(result => {
+                    if (result.status === 200) {
+                        console.log(`Your Registration has been send to MINI developer, one of our team memeber will answer you shortly`);
+                        navigate('/')
+                    }
+                })
+                .catch(error => {
+                    console.log(error);
+                })
         } else {
             // Form is not valid, display error messages or take other actions
             console.log('Form validation failed');
