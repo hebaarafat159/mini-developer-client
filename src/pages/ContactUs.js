@@ -98,7 +98,7 @@ export default function ContactUs() {
                 subject: subject,
                 message: message
             }
-            alert(JSON.stringify(messageData))
+            // alert(JSON.stringify(messageData))
             fetch(`${process.env.REACT_APP_URL_APP_PATH}/users/sendMessage`,
                 {
                     method: "POST",
