@@ -97,3 +97,18 @@
   color: #ed7d45;
   text-decoration: none;
 }
+
+@media (min-width: 600px) {
+  .Footer {
+    /* position: fixed; */
+    bottom: 0;
+    width: 100%;
+    height: auto;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    background-color: white;
+    padding: .5vmin;
+    color: #333440;
+  }
+}

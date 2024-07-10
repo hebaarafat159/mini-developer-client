@@ -14,6 +14,7 @@ import HeaderDrawerComponent from './HeaderDrawerComponent'
 import HeaderMenuTabs from './HeaderMenuTabs'
 import OurVisionComponent from '../components/OurVisionComponent';
 import WhyUsComponent from '../components/WhyUsComponent';
+import TermDates from '../pages/TermDates'
 
 export default function HeaderComponent() {
     const theme = useTheme();
@@ -58,6 +59,12 @@ export default function HeaderComponent() {
             label: 'Contact Us',
             link: '/contactus',
             component: <ContactUs />
+        },
+        {
+            position: 5,
+            label: 'Term Dates',
+            link: '/termdates',
+            component: <TermDates />
         }
     ])
 

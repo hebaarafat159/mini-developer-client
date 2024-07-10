@@ -11,6 +11,7 @@ import CourseDetails from './pages/CourseDetails';
 import WhyUsComponent from './components/WhyUsComponent';
 import OurVisionComponent from './components/OurVisionComponent';
 import ConfirmationPage from './pages/ConfirmationPage';
+import TermDates from './pages/TermDates';
 
 function App() {
   return (
@@ -27,6 +28,7 @@ function App() {
           <Route path="/contactus" element={<ContactUs />} />
           <Route path="/register/:courseId" element={<Register />} />
           <Route path="/confirmation" element={<ConfirmationPage />} />
+          <Route path="/termdates" element={<TermDates />} />
         </Routes>
       </div>
       <Footer />
