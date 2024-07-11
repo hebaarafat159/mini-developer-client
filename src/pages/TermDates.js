@@ -1,5 +1,6 @@
 import { Card, Stack, List, Divider, Typography, ListItemDecorator, ListItemContent } from "@mui/joy";
 import { Grid } from "@mui/material";
+import term_dates_img from '../assets/term_dates_img.png'
 
 const termDates = [
     {
@@ -46,6 +47,38 @@ const termDates = [
 export default function TermDates() {
     return (
         <Card className='recent-blogs d-block'>
+
+            <Stack direction="row" spacing={2} sx={{ justifyContent: 'spa', alignItems: 'center', padding: '2vw' }} >
+                <Grid container columns={{ xs: 2, sm: 8, md: 12 }} sx={{ justifyContent: 'center', alignItems: 'center', padding: '1vmin' }}>
+                    <Grid item xs={4} sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+                        <img src={term_dates_img} loading="lazy" alt="" width={'100%'} />
+                    </Grid>
+                    <Grid item xs={4} sx={{ justifyContent: 'center', alignItems: 'center', padding: '1vmin' }}>
+                        <Typography component="h2" variant='h2' style={{ color: '#333440', textAlign: 'center', fontWeight: 'bold' }}>
+                            Summer Term 2024
+                        </Typography>
+                        <Typography component="p" variant='p' style={{ color: '333440', textAlign: 'center' }}>Coding Classes Term Dates</Typography>
+
+                        <Typography component="h5" variant='h6' style={{ color: '#ed7d45', fontWeight: 'bold', textAlign: 'left' }}>Term Starts</Typography>
+                        <Typography component="p" variant='p' style={{ color: '#333440' }}> {termDates[0].dates[0]['startDate']}</Typography>
+
+                        <Typography component="p" variant='p' style={{ color: '#333440', fontWeight: 'bold', textAlign: 'left' }}>{termDates[0].dates[0]['lastHalfTermDate']}</Typography>
+                        <Typography component="p" variant='p' style={{ color: '#333440' }}>Last day of half-term for pupils</Typography>
+
+                        <Typography component="h5" variant='h6' style={{ color: '#ed7d45', fontWeight: 'bold' }}>Half Term Holiday</Typography>
+                        <Typography component="p" variant='p' style={{ color: '#333440' }}>{termDates[0].dates[0]['halfTermDuration']}</Typography>
+
+                        <Typography component="p" variant='p' style={{ color: '#333440', fontWeight: 'bold' }}>{termDates[0].dates[0]['startHalfTermDate']}</Typography>
+                        <Typography component="p" variant='p' style={{ color: '#333440' }}>Return to class for second half-term.</Typography>
+
+                        <Typography component="h5" variant='h6' style={{ color: '#ed7d45', fontWeight: 'bold', padding: '1vmin auto' }}>Term Ends</Typography>
+                        <Typography component="p" variant='p' style={{ color: '#333440', fontWeight: 'bold' }}>{termDates[0].dates[0]['endDate']}</Typography>
+
+                    </Grid>
+                </Grid>
+            </Stack>
+
+
             <Stack direction="column" spacing={2} sx={{ my: 1, padding: '2vw', flexGrow: 1 }}>
 
                 <Divider component="div" sx={{ my: 2 }} />
