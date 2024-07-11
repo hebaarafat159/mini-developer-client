@@ -48,7 +48,7 @@ export default function TermDates() {
     return (
         <Card className='recent-blogs d-block'>
 
-            <Stack direction="row" spacing={2} sx={{ justifyContent: 'spa', alignItems: 'center', padding: '2vw' }} >
+            <Stack direction="row" spacing={2} sx={{ justifyContent: 'space-around', alignItems: 'center', padding: '2vw' }} >
                 <Grid container columns={{ xs: 2, sm: 8, md: 12 }} sx={{ justifyContent: 'center', alignItems: 'center', padding: '1vmin' }}>
                     <Grid item xs={4} sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
                         <img src={term_dates_img} loading="lazy" alt="" width={'100%'} />
