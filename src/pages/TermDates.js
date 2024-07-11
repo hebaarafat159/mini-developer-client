@@ -143,47 +143,6 @@ export default function TermDates() {
                                 </Grid>
                             </Grid>
                         </Grid>
-                        // <Stack direction="row" spacing={2} sx={{ my: 1, padding: '2vw', flexGrow: 1 }}>
-
-                        //     <ListItemContent >
-                        //         <Typography level="title-sm">{termDate.title}</Typography>
-                        //         <Typography level="body-xs">{termDate.duration}</Typography>
-                        //     </ListItemContent>
-
-                        //     <ListItem key={index} sx={{ alignItems: 'baseline' }}>
-                        //         <ListItemDecorator
-                        //             sx={{
-                        //                 '&:before': {
-                        //                     content: '""',
-                        //                     position: 'absolute',
-                        //                     height: '100%',
-                        //                     width: '.2vmin',
-                        //                     bgcolor: 'divider',
-                        //                     left: 'calc(var(--ListItem-paddingLeft) + 1vmin)',
-                        //                     top: '10%',
-                        //                 },
-                        //             }}>
-                        //             <svg preserveAspectRatio="none" data-bbox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" width="5%" height="5%" viewBox="0 0 200 200" role="presentation" aria-hidden="true" aria-label="">
-                        //                 <g>
-                        //                     <path d="M200 100c0 55.228-44.772 100-100 100S0 155.228 0 100 44.772 0 100 0s100 44.772 100 100z"></path>
-                        //                 </g>
-                        //             </svg>
-                        //             {/* <Avatar
-                        //                 src={experience.logo ? experience.logo : 'buildings.png'}
-                        //                 sx={{ '--Avatar-size': '4vmin' }} */}
-                        //             {/* /> */}
-                        //         </ListItemDecorator>
-                        //         {termDate.dates.map((date, index) => (
-                        //             <ListItemContent>
-                        //                 <Typography level="title-sm">{date.startDate}</Typography>
-                        //                 <Typography level="title-sm">{date.lastHalfTermDate}</Typography>
-                        //                 <Typography level="title-sm">{date.halfTermDuration}</Typography>
-                        //                 <Typography level="title-sm">{date.startHalfTermDate}</Typography>
-                        //                 <Typography level="title-sm">{date.endDate}</Typography>
-                        //             </ListItemContent>
-                        //         ))}
-                        //     </ListItem>
-                        // </Stack>
                     ))}
                 </List>
 
