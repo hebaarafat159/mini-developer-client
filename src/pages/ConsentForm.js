@@ -40,16 +40,16 @@ export default function ConsentForm() {
         }
     )
 
-    // useEffect(() => {
-    //     if ((!validator.isEmpty(studentId)) && studentId !== '0') {
-    //         fetch(`${process.env.REACT_APP_URL_APP_PATH}/students/${studentId}`)
-    //             .then(response => response.json())
-    //             .then(result => {
-    //                 setStudentObject(result.body);
-    //                 console.log(`Student Object : ${result.body}`)
-    //             })
-    //     }
-    // }, [studentId]);
+    useEffect(() => {
+        if ((!validator.isEmpty(studentId)) && studentId !== '0') {
+            fetch(`${process.env.REACT_APP_URL_APP_PATH}/students/${studentId}`)
+                .then(response => response.json())
+                .then(result => {
+                    setStudentObject(result.body);
+                    console.log(`Student Object : ${JSON.stringify(result.body)}`)
+                })
+        }
+    }, [studentId]);
 
     function submit() {
         if (validateForm()) {
@@ -107,7 +107,7 @@ export default function ConsentForm() {
                             <TextField
                                 disabled={true}
                                 // required
-                                // defaultValue={`${studentObject.first_name} ${studentObject.last_name}`}
+                                defaultValue={`${studentObject.first_name} ${studentObject.last_name}`}
                                 // value={`${studentObject.first_name} ${studentObject.last_name}`}
                                 // onChange={(event) => {
                                 //     requestData.parentData.email = event.target.value;
@@ -128,7 +128,7 @@ export default function ConsentForm() {
                                 disabled={true}
                                 // required
                                 // defaultValue={`${studentObject.parent_id.first_name} ${studentObject.parent_id.last_name}`}
-                                // value={`${studentObject.parent_id.first_name} ${studentObject.parent_id.last_name}`}
+                                value={studentObject.parent_id !== undefined ? `${studentObject.parent_id.first_name} ${studentObject.parent_id.last_name}` : ''}
                                 // onChange={(event) => {
                                 //     requestData.parentData.email = event.target.value;
                                 // }}
@@ -147,7 +147,7 @@ export default function ConsentForm() {
                             <TextField
                                 disabled={true}
                                 // required
-                                // defaultValue={`${studentObject.parent_id.email}`}
+                                defaultValue={studentObject.parent_id !== undefined ? `${studentObject.parent_id.email}` : ''}
                                 // value={`${studentObject.parent_id.email}`}
                                 // onChange={(event) => {
                                 //     requestData.parentData.email = event.target.value;
