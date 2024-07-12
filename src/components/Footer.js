@@ -1,4 +1,5 @@
 import React from 'react'
+// eslint-disable-next-line
 import { Stack, Typography } from '@mui/material'
 import FooterContactUs from './FooterContactUs'
 import cssStyle from '../css/styles.module.css'

@@ -6,7 +6,7 @@ export default function YesOrNoComponent({ displayText, handleSelection }) {
     return (
         <Stack direction="column" sx={{ justifyContent: 'space-evenly', padding: '2vw' }} >
 
-            <Typography component="p" variant='p' style={{ color: '#333440' }}> {displayText}</Typography>
+            <Typography component="p" variant='p' style={{ color: '#333440' }}> {displayText} <span style={{ color: 'red' }}> * </span> </Typography>
             <RadioGroup
                 row
                 aria-labelledby="demo-form-control-label-placement"

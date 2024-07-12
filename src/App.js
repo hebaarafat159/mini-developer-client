@@ -12,6 +12,7 @@ import WhyUsComponent from './components/WhyUsComponent';
 import OurVisionComponent from './components/OurVisionComponent';
 import ConfirmationPage from './pages/ConfirmationPage';
 import TermDates from './pages/TermDates';
+import ConsentForm from './pages/ConsentForm';
 
 function App() {
   return (
@@ -29,6 +30,7 @@ function App() {
           <Route path="/register/:courseId" element={<Register />} />
           <Route path="/confirmation" element={<ConfirmationPage />} />
           <Route path="/termdates" element={<TermDates />} />
+          <Route path="/students/:studentId" element={<ConsentForm />} />
         </Routes>
       </div>
       <Footer />
