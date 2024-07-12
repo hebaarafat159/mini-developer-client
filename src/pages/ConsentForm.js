@@ -51,7 +51,7 @@ export default function ConsentForm() {
         if (validateForm()) {
             const student = { ...studentData, ...studentObject }
             alert(JSON.stringify(student))
-            fetch(`${process.env.REACT_APP_URL_APP_PATH}/students/:id`,
+            fetch(`${process.env.REACT_APP_URL_APP_PATH}/students/${student._id}`,
                 {
                     method: "PUT",
                     headers: {
@@ -62,7 +62,7 @@ export default function ConsentForm() {
                 .then(response => response.json())
                 .then(result => {
                     if (result.status === 200) {
-                        console.log(`Your Registration has been send to MINI developer, one of our team memeber will answer you shortly`);
+                        console.log(`Student Data Has been updated`);
                         navigate('/')
                     }
                 })
