@@ -170,13 +170,13 @@ export default function ConsentForm() {
                 </Grid>
 
                 {/* Medical Condition */}
-                <Typography component="p" variant='p' style={{ color: '#333440', fontWeight: 'bold', alignItems: 'flex-start' }}> Does your child have any medical condition or allergy? </Typography>
+                <Typography component="p" variant='p' style={{ color: '#333440', fontWeight: 'bold', alignItems: 'flex-start' }}> Does your child have any medical condition or allergy?
+                    <span style={{ color: '#333440', fontWeight: 'normal' }}> (if yes, then please provide details here) </span> </Typography>
                 <Grid container spacing={1} >
                     <Grid item xs={8} md={12}>
                         <Item>
                             <TextField
                                 defaultValue={`${studentData.medical_condition}`}
-                                value={`${studentData.medical_condition}`}
                                 onChange={(event) => {
                                     studentData.medical_condition = event.target.value;
                                 }}
@@ -192,7 +192,6 @@ export default function ConsentForm() {
                         <Item>
                             <TextField
                                 defaultValue={`${studentData.emergency_contact_name}`}
-                                value={`${studentData.emergency_contact_name}`}
                                 onChange={(event) => {
                                     studentData.emergency_contact_name = event.target.value;
                                 }}
@@ -208,7 +207,6 @@ export default function ConsentForm() {
                         <Item>
                             <TextField
                                 defaultValue={`${studentData.emergency_contact_phone_number}`}
-                                value={`${studentData.emergency_contact_phone_number}`}
                                 onChange={(event) => {
                                     studentData.emergency_contact_phone_number = event.target.value;
                                 }}
@@ -224,7 +222,6 @@ export default function ConsentForm() {
                         <Item>
                             <TextField
                                 defaultValue={`${studentData.comment}`}
-                                value={`${studentData.comment}`}
                                 onChange={(event) => {
                                     studentData.comment = event.target.value;
                                 }}
