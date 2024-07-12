@@ -1,7 +1,6 @@
-// eslint-disable-next-line
+
 import React, { useState, useEffect } from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
-// eslint-disable-next-line
 import validator from "validator";
 import { Card, TextField, Stack, Typography, Button, Grid } from '@mui/material'
 import { experimentalStyled as styled } from '@mui/material/styles';
@@ -10,9 +9,7 @@ import YesOrNoComponent from '../components/YesOrNoComponent';
 import cssStyle from '../css/styles.module.css'
 
 export default function ConsentForm() {
-    // eslint-disable-next-line
     const { studentId } = useParams();
-    // eslint-disable-next-line
     const [studentObject, setStudentObject] = useState({})
     const navigate = useNavigate();
 
@@ -28,7 +25,6 @@ export default function ConsentForm() {
         }
     )
 
-    // eslint-disable-next-line
     const [requestErrorMsgs, setRequestErrorMsgs] = useState(
         {
             is_social_allowed: '',
@@ -53,13 +49,15 @@ export default function ConsentForm() {
 
     function submit() {
         if (validateForm()) {
-            fetch(`${process.env.REACT_APP_URL_APP_PATH}/students/:id/update`,
+            const student = { ...studentData, ...studentObject }
+            alert(JSON.stringify(student))
+            fetch(`${process.env.REACT_APP_URL_APP_PATH}/students/:id`,
                 {
                     method: "PUT",
                     headers: {
                         "Content-Type": "application/json"
                     },
-                    body: JSON.stringify(studentData)
+                    body: JSON.stringify(student)
                 })
                 .then(response => response.json())
                 .then(result => {
@@ -77,7 +75,27 @@ export default function ConsentForm() {
         }
     }
 
-    function validateForm() { }
+    function validateForm() {
+        let valid = true;
+        const errorMesgs = { ...requestErrorMsgs };
+
+        if (validator.isEmpty(studentData.is_social_allowed)) {
+            errorMesgs.is_social_allowed = 'This Field is required'
+            valid = false
+        }
+        else
+            errorMesgs.is_social_allowed = ''
+
+        if (validator.isEmpty(studentData.is_local_allowed)) {
+            errorMesgs.is_local_allowed = 'This Field is required'
+            valid = false
+        }
+        else
+            errorMesgs.is_local_allowed = ''
+
+        setRequestErrorMsgs(errorMesgs)
+        return valid
+    }
 
     function handleIsSocialAllowed(selection) {
         studentData.is_social_allowed = selection;
@@ -92,9 +110,9 @@ export default function ConsentForm() {
         display: 'flex',
         alignItems: 'center'
     }));
+
     return (
         <Card className='recent-blogs d-block'>
-            {/* {studentObject ? */}
             <Stack direction="column" spacing={2} sx={{ justifyContent: 'space-evenly', padding: '1.5vmin' }} >
                 <Typography component="h5" variant='h5' style={{ color: 'black', fontWeight: 'bold', justifyContent: 'center', alignItems: 'center', textAlign: 'center' }}> Mini Developer Consent Form </Typography>
                 <Typography component="p" variant='p' style={{ color: '#333440', justifyContent: 'center', alignItems: 'center', textAlign: 'center' }}> You are requested to kindly fill this consent form before you begin your coding journey with us. </Typography>
@@ -106,14 +124,7 @@ export default function ConsentForm() {
                         <Item>
                             <TextField
                                 disabled={true}
-                                // required
                                 defaultValue={`${studentObject.first_name} ${studentObject.last_name}`}
-                                // value={`${studentObject.first_name} ${studentObject.last_name}`}
-                                // onChange={(event) => {
-                                //     requestData.parentData.email = event.target.value;
-                                // }}
-                                // error={Boolean(requestErrorMsgs.parentData.email)}
-                                // helperText={requestErrorMsgs.parentData.email}
                                 fullWidth />
                         </Item>
                     </Grid>
@@ -126,14 +137,7 @@ export default function ConsentForm() {
                         <Item>
                             <TextField
                                 disabled={true}
-                                // required
-                                // defaultValue={`${studentObject.parent_id.first_name} ${studentObject.parent_id.last_name}`}
-                                value={studentObject.parent_id !== undefined ? `${studentObject.parent_id.first_name} ${studentObject.parent_id.last_name}` : ''}
-                                // onChange={(event) => {
-                                //     requestData.parentData.email = event.target.value;
-                                // }}
-                                // error={Boolean(requestErrorMsgs.parentData.email)}
-                                // helperText={requestErrorMsgs.parentData.email}
+                                defaultValue={studentObject.parent_id !== undefined ? `${studentObject.parent_id.first_name} ${studentObject.parent_id.last_name}` : ''}
                                 fullWidth />
                         </Item>
                     </Grid>
@@ -146,14 +150,7 @@ export default function ConsentForm() {
                         <Item>
                             <TextField
                                 disabled={true}
-                                // required
                                 defaultValue={studentObject.parent_id !== undefined ? `${studentObject.parent_id.email}` : ''}
-                                // value={`${studentObject.parent_id.email}`}
-                                // onChange={(event) => {
-                                //     requestData.parentData.email = event.target.value;
-                                // }}
-                                // error={Boolean(requestErrorMsgs.parentData.email)}
-                                // helperText={requestErrorMsgs.parentData.email}
                                 fullWidth />
                         </Item>
                     </Grid>
@@ -236,7 +233,6 @@ export default function ConsentForm() {
                     onClick={() => submit()}
                     className={cssStyle.orage_btn}> Submit </Button>
             </Stack>
-            {/* : null} */}
         </Card>
     )
 }
