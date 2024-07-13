@@ -12,7 +12,7 @@ export default function FooterContactUs() {
                 </Grid>
                 <Grid item xs={6} sx={{ justifyContent: 'center', alignItems: 'center' }}>
                     <Stack direction="row" style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
-                        <Typography style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', margin: 'auto 1vmin' }}>Contact Us</Typography>
+                        <Typography variant='p' style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', margin: 'auto 1vmin' }}>Contact Us</Typography>
                         <SocialIcon network="facebook" url='https://www.facebook.com/MiniDeveloperUK' width={'50px'} />
                         <SocialIcon network="whatsapp" url='+447851496016' />
                         <SocialIcon network="instagram" url='https://www.instagram.com/minideveloperuk' />
