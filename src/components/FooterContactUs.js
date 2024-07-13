@@ -13,10 +13,10 @@ export default function FooterContactUs() {
                 <Grid item xs={6} sx={{ justifyContent: 'center', alignItems: 'center' }}>
                     <Stack direction="row" style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
                         <Typography variant='p' style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', margin: 'auto 1vmin' }}>Contact Us</Typography>
-                        <SocialIcon network="facebook" url='https://www.facebook.com/MiniDeveloperUK' width={'50px'} />
-                        <SocialIcon network="whatsapp" url='+447851496016' />
-                        <SocialIcon network="instagram" url='https://www.instagram.com/minideveloperuk' />
-                        <SocialIcon network="email" url='mailto:mini.developer.info@gmail.com' />
+                        <SocialIcon network="facebook" href={process.env.REACT_APP_CONTACT_US_FACEBOOK} />
+                        <SocialIcon network="whatsapp" href={process.env.REACT_APP_CONTACT_US_WHATS_APP} />
+                        <SocialIcon network="instagram" href={process.env.REACT_APP_CONTACT_US_INSTAGRAM} />
+                        <SocialIcon network="email" href={`mailto:${process.env.REACT_APP_CONTACT_US_GMAIL}`} />
                     </Stack>
                 </Grid>
             </Grid>
