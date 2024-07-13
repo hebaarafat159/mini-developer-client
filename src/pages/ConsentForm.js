@@ -11,7 +11,7 @@ import cssStyle from '../css/styles.module.css'
 export default function ConsentForm() {
 
     // set page title
-    document.title = ' Consent Form | Mini Developer';
+    document.title = ' Consent | Mini Developer';
 
     const { studentId } = useParams();
     const [studentObject, setStudentObject] = useState({})
