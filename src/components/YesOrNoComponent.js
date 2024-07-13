@@ -3,6 +3,7 @@ import { Typography, RadioGroup, FormControlLabel, Radio, Stack } from '@mui/mat
 
 export default function YesOrNoComponent({ displayText, handleSelection, selectedValue }) {
 
+    console.log(`Selected Value : ${selectedValue}`)
     return (
         <Stack direction="column" sx={{ justifyContent: 'space-evenly', padding: '2vw' }} >
 
@@ -11,8 +12,7 @@ export default function YesOrNoComponent({ displayText, handleSelection, selecte
                 row
                 aria-labelledby="demo-form-control-label-placement"
                 name="position"
-                defaultValue={selectedValue ? selectedValue : true}
-                // value={selectedValue ? selectedValue : true}
+                defaultValue={selectedValue ? selectedValue = true : selectedValue = false}
                 onChange={(event) => handleSelection(event.target.value)}>
 
                 <FormControlLabel value={true} control={<Radio />} label={'Yes'} />

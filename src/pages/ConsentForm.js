@@ -14,18 +14,6 @@ export default function ConsentForm() {
     const navigate = useNavigate();
 
     // eslint-disable-next-line
-    // const [studentData, setStudentData] = useState(
-    //     {
-    //         is_social_allowed: false,
-    //         is_local_allowed: false,
-    //         medical_condition: '',
-    //         emergency_contact_name: '',
-    //         emergency_contact_phone_number: '',
-    //         comment: ''
-    //     }
-    // )
-
-    // eslint-disable-next-line
     const [requestErrorMsgs, setRequestErrorMsgs] = useState(
         {
             is_social_allowed: '',
@@ -50,7 +38,6 @@ export default function ConsentForm() {
 
     function submit() {
         if (validateForm()) {
-            // const student = { ...studentData, ...studentObject }
             alert(JSON.stringify(studentObject))
             fetch(`${process.env.REACT_APP_URL_APP_PATH}/students/${studentObject._id}`,
                 {
