@@ -14,17 +14,18 @@ export default function ConsentForm() {
     const navigate = useNavigate();
 
     // eslint-disable-next-line
-    const [studentData, setStudentData] = useState(
-        {
-            is_social_allowed: false,
-            is_local_allowed: false,
-            medical_condition: '',
-            emergency_contact_name: '',
-            emergency_contact_phone_number: '',
-            comment: ''
-        }
-    )
+    // const [studentData, setStudentData] = useState(
+    //     {
+    //         is_social_allowed: false,
+    //         is_local_allowed: false,
+    //         medical_condition: '',
+    //         emergency_contact_name: '',
+    //         emergency_contact_phone_number: '',
+    //         comment: ''
+    //     }
+    // )
 
+    // eslint-disable-next-line
     const [requestErrorMsgs, setRequestErrorMsgs] = useState(
         {
             is_social_allowed: '',
@@ -49,15 +50,15 @@ export default function ConsentForm() {
 
     function submit() {
         if (validateForm()) {
-            const student = { ...studentData, ...studentObject }
-            alert(JSON.stringify(student))
-            fetch(`${process.env.REACT_APP_URL_APP_PATH}/students/${student._id}`,
+            // const student = { ...studentData, ...studentObject }
+            alert(JSON.stringify(studentObject))
+            fetch(`${process.env.REACT_APP_URL_APP_PATH}/students/${studentObject._id}`,
                 {
                     method: "PUT",
                     headers: {
                         "Content-Type": "application/json"
                     },
-                    body: JSON.stringify(student)
+                    body: JSON.stringify(studentObject)
                 })
                 .then(response => response.json())
                 .then(result => {
@@ -77,32 +78,32 @@ export default function ConsentForm() {
 
     function validateForm() {
         let valid = true;
-        const errorMesgs = { ...requestErrorMsgs };
+        // const errorMesgs = { ...requestErrorMsgs };
+        // console.log(studentData.is_social_allowed)
+        // if (validator.isEmpty(studentData.is_social_allowed)) {
+        //     errorMesgs.is_social_allowed = 'This Field is required'
+        //     valid = false
+        // }
+        // else
+        //     errorMesgs.is_social_allowed = ''
 
-        if (validator.isEmpty(studentData.is_social_allowed)) {
-            errorMesgs.is_social_allowed = 'This Field is required'
-            valid = false
-        }
-        else
-            errorMesgs.is_social_allowed = ''
+        // if (validator.isEmpty(studentData.is_local_allowed)) {
+        //     errorMesgs.is_local_allowed = 'This Field is required'
+        //     valid = false
+        // }
+        // else
+        //     errorMesgs.is_local_allowed = ''
 
-        if (validator.isEmpty(studentData.is_local_allowed)) {
-            errorMesgs.is_local_allowed = 'This Field is required'
-            valid = false
-        }
-        else
-            errorMesgs.is_local_allowed = ''
-
-        setRequestErrorMsgs(errorMesgs)
+        // setRequestErrorMsgs(errorMesgs)
         return valid
     }
 
     function handleIsSocialAllowed(selection) {
-        studentData.is_social_allowed = selection;
+        studentObject.is_social_allowed = selection;
     }
 
     function handleIsLocalAllowed(selection) {
-        studentData.is_local_allowed = selection;
+        studentObject.is_local_allowed = selection;
     }
 
     const Item = styled(Paper)(({ theme }) => ({
@@ -158,12 +159,12 @@ export default function ConsentForm() {
 
                 {/* Allow Social Media Images */}
                 <Grid item xs={12}>
-                    <YesOrNoComponent displayText={'I give permission for my child’s photograph to be used on the Mini Developer website, social media, digital marketing and publicity materials'} handleSelection={handleIsSocialAllowed} />
+                    <YesOrNoComponent displayText={'I give permission for my child’s photograph to be used on the Mini Developer website, social media, digital marketing and publicity materials'} handleSelection={handleIsSocialAllowed} selectedValue={studentObject.is_social_allowed} />
                 </Grid>
 
                 {/* is local photos allowed */}
                 <Grid item xs={12}>
-                    <YesOrNoComponent displayText={'I give my permission for my child’s image to be used to record their Learning Journey (both paper copies and online).'} handleSelection={handleIsLocalAllowed} />
+                    <YesOrNoComponent displayText={'I give my permission for my child’s image to be used to record their Learning Journey (both paper copies and online).'} handleSelection={handleIsLocalAllowed} selectedValue={studentObject.is_local_allowed} />
                 </Grid>
 
                 {/* Medical Condition */}
@@ -173,9 +174,9 @@ export default function ConsentForm() {
                     <Grid item xs={8} md={12}>
                         <Item>
                             <TextField
-                                defaultValue={`${studentData.medical_condition}`}
+                                defaultValue={`${studentObject.medical_condition}`}
                                 onChange={(event) => {
-                                    studentData.medical_condition = event.target.value;
+                                    studentObject.medical_condition = event.target.value;
                                 }}
                                 fullWidth />
                         </Item>
@@ -188,9 +189,9 @@ export default function ConsentForm() {
                     <Grid item xs={8} md={12}>
                         <Item>
                             <TextField
-                                defaultValue={`${studentData.emergency_contact_name}`}
+                                defaultValue={`${studentObject.emergency_contact_name}`}
                                 onChange={(event) => {
-                                    studentData.emergency_contact_name = event.target.value;
+                                    studentObject.emergency_contact_name = event.target.value;
                                 }}
                                 fullWidth />
                         </Item>
@@ -203,9 +204,9 @@ export default function ConsentForm() {
                     <Grid item xs={8} md={12}>
                         <Item>
                             <TextField
-                                defaultValue={`${studentData.emergency_contact_phone_number}`}
+                                defaultValue={`${studentObject.emergency_contact_phone_number}`}
                                 onChange={(event) => {
-                                    studentData.emergency_contact_phone_number = event.target.value;
+                                    studentObject.emergency_contact_phone_number = event.target.value;
                                 }}
                                 fullWidth />
                         </Item>
@@ -218,9 +219,9 @@ export default function ConsentForm() {
                     <Grid item xs={8} md={12}>
                         <Item>
                             <TextField
-                                defaultValue={`${studentData.comment}`}
+                                defaultValue={`${studentObject.comment}`}
                                 onChange={(event) => {
-                                    studentData.comment = event.target.value;
+                                    studentObject.comment = event.target.value;
                                 }}
                                 fullWidth />
                         </Item>
