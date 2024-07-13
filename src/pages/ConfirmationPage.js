@@ -3,6 +3,10 @@ import cssStyle from '../css/styles.module.css'
 import { Stack, Typography, Button, Card } from '@mui/material'
 
 export default function ConfirmationPage() {
+
+    // set page title
+    document.title = ' Confirmation | Mini Developer';
+
     return (
         <Card className='recent-blogs d-block'>
             <Stack direction="column" spacing={2} sx={{ justifyContent: 'center', background: 'white', padding: '3vw' }} >

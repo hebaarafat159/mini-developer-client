@@ -5,6 +5,10 @@ import validator from "validator";
 import { useNavigate } from 'react-router-dom'
 
 export default function ContactUs() {
+
+    // set page title
+    document.title = ' Contact Us | Mini Developer';
+
     const [name, setName] = useState("");
     const [email, setEmail] = useState("");
     const [phone, setPhone] = useState("");

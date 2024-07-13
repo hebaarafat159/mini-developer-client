@@ -4,6 +4,10 @@ import CourseListComponent from '../components/CourseListItemComponent'
 // import cssStyle from '../css/styles.module.css'
 
 export default function Courses() {
+
+    // set page title
+    document.title = ' Our Courses | Mini Developer';
+
     const [courses, setCourses] = useState([])
 
     useEffect(() => {

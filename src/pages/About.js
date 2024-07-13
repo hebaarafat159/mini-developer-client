@@ -5,6 +5,10 @@ import WhyUsComponent from '../components/WhyUsComponent';
 import cssStyle from '../css/styles.module.css'
 
 export default function About() {
+
+    // set page title
+    document.title = ' About Us | Mini Developer';
+
     const [value, setValue] = useState(0);
     const tabs = ["Our Vision", "Why Us"]
     return (

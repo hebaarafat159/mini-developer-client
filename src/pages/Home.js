@@ -14,6 +14,9 @@ import digital_literacy_img from '../assets/digital_literacy_img.png'
 
 export default function Home() {
 
+    // set page title
+    document.title = ' Home | Mini Developer';
+
     const teachingTopics = [
         {
             icon: creative_img,

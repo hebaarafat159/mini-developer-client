@@ -2,49 +2,53 @@ import { Card, Stack, List, Divider, Typography, ListItemDecorator, ListItemCont
 import { Grid } from "@mui/material";
 import term_dates_img from '../assets/term_dates_img.png'
 
-const termDates = [
-    {
-        title: 'Autumn Term',
-        duration: 'Sep 2024 - Dec 2024',
-        dates: [
-            {
-                startDate: 'Monday 9th of September 2024',
-                lastHalfTermDate: 'Friday 18th of October',
-                halfTermDuration: '21st of October to 25th of October',
-                startHalfTermDate: 'Monday 28th of October',
-                endDate: 'Friday 29th of November 2024'
-            }
-        ]
-    },
-    {
-        title: 'Spring Term',
-        duration: 'Jan 2025 - Apr 2025',
-        dates: [
-            {
-                startDate: 'Monday 13th of January 2025',
-                lastHalfTermDate: 'Friday 14th of February',
-                halfTermDuration: '17th of February to 21st of February',
-                startHalfTermDate: 'Monday 24th of February',
-                endDate: 'Friday 4th of April 2025'
-            }
-        ]
-    },
-    {
-        title: 'Summer Term',
-        duration: 'Apr 2025 - Jul 2025',
-        dates: [
-            {
-                startDate: 'Monday 28th of April 2025',
-                lastHalfTermDate: 'Friday 23rd of May',
-                halfTermDuration: '26th of May to 30th of May',
-                startHalfTermDate: 'Monday 2nd of June',
-                endDate: 'Friday 18th of July 2025'
-            }
-        ]
-    }
-]
-
 export default function TermDates() {
+    
+    // set page title
+    document.title = ' Term Dates | Mini Developer';
+
+    const termDates = [
+        {
+            title: 'Autumn Term',
+            duration: 'Sep 2024 - Dec 2024',
+            dates: [
+                {
+                    startDate: 'Monday 9th of September 2024',
+                    lastHalfTermDate: 'Friday 18th of October',
+                    halfTermDuration: '21st of October to 25th of October',
+                    startHalfTermDate: 'Monday 28th of October',
+                    endDate: 'Friday 29th of November 2024'
+                }
+            ]
+        },
+        {
+            title: 'Spring Term',
+            duration: 'Jan 2025 - Apr 2025',
+            dates: [
+                {
+                    startDate: 'Monday 13th of January 2025',
+                    lastHalfTermDate: 'Friday 14th of February',
+                    halfTermDuration: '17th of February to 21st of February',
+                    startHalfTermDate: 'Monday 24th of February',
+                    endDate: 'Friday 4th of April 2025'
+                }
+            ]
+        },
+        {
+            title: 'Summer Term',
+            duration: 'Apr 2025 - Jul 2025',
+            dates: [
+                {
+                    startDate: 'Monday 28th of April 2025',
+                    lastHalfTermDate: 'Friday 23rd of May',
+                    halfTermDuration: '26th of May to 30th of May',
+                    startHalfTermDate: 'Monday 2nd of June',
+                    endDate: 'Friday 18th of July 2025'
+                }
+            ]
+        }
+    ]
+
     return (
         <Card className='recent-blogs d-block'>
 

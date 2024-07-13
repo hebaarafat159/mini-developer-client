@@ -13,6 +13,10 @@ import { experimentalStyled as styled } from '@mui/material/styles';
 import Paper from '@mui/material/Paper';
 
 export default function CourseDetails() {
+
+  // set page title
+  document.title = ' Course Details | Mini Developer';
+
   const { id } = useParams();
   const [courseObject, setCourseObject] = useState({})
 

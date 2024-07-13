@@ -9,6 +9,10 @@ import { experimentalStyled as styled } from '@mui/material/styles';
 import Paper from '@mui/material/Paper';
 
 export default function RegisterForm() {
+
+    // set page title
+    document.title = ' Registration | Mini Developer';
+
     const minAge = 4
     const maxAge = 14
     const { courseId } = useParams();

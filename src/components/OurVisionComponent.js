@@ -1,9 +1,12 @@
 import React from 'react'
 import { Typography, Stack } from '@mui/material'
 import ExploreButtonComponent from './ExploreButtonComponent'
-// import cssStyle from '../css/styles.module.css'
 
 export default function OurVisionComponent() {
+    
+    // set page title
+    document.title = ' Our Vision | Mini Developer';
+
     return (
         <Stack direction="column" spacing={2} sx={{ justifyContent: 'center', background: 'white', padding: '3vw' }} >
 
