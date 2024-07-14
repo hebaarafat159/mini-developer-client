@@ -90,7 +90,14 @@ export default function HeaderComponent() {
                 className={cssStyle.Header}>
 
                 <Box sx={{ display: 'flex', flexDirection: 'row', alignItems: 'center', paddingLeft: '5vmin' }}>
-                    <img src={image} className={cssStyle.logo} loading="lazy" alt="" component={Link} to={'/'} />
+                    <Link key={'1'}
+                        href={'/'}
+                    // onClick={() => {
+                    //     handleSelected(page)
+                    // }}
+                    >
+                        <img src={image} className={cssStyle.logo} loading="lazy" alt="" />
+                    </Link>
                 </Box>
                 <Box sx={{ display: 'flex', flexDirection: 'row', alignItems: 'center', paddingRight: '5vmin' }}>
                     {
