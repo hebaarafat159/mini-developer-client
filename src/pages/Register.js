@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react'
 import { Card, TextField, Stack, Typography, Button, Grid } from '@mui/material'
-import cssStyle from '../css/styles.module.css'
 import StudentRegisterComponent from '../components/StudentRegisterComponent'
 import ProgrameTypeComponent from '../components/ProgrameTypeComponent'
 import validator from "validator";
@@ -391,7 +390,7 @@ export default function RegisterForm() {
                 <Button
                     variant="contained"
                     onClick={() => submit()}
-                    className={cssStyle.orage_btn}> Submit </Button>
+                    className={'orage_btn'}> Submit </Button>
             </Stack>
         </Card>
     )

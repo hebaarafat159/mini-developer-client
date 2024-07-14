@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { Grid } from '@mui/material'
 import CourseListComponent from '../components/CourseListItemComponent'
-// import cssStyle from '../css/styles.module.css'
 
 export default function Courses() {
 

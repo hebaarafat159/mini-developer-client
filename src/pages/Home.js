@@ -2,7 +2,6 @@ import React from 'react'
 import { Button, Card, Stack, Typography, Grid } from '@mui/material'
 import FreeTrialButton from '../components/FreeTrialButton'
 import ExploreButtonComponent from '../components/ExploreButtonComponent'
-import cssStyle from '../css/styles.module.css'
 import home_first_paragraphe_img from '../assets/home_first_paragraphe_img.jpg'
 import news_img from '../assets/news_img.png'
 import why_img from '../assets/why-learn-coding-at-a-young-age-mini-coding-coding-for-kids-life-fun.gif'
@@ -53,7 +52,7 @@ export default function Home() {
                                     <FreeTrialButton course={null} />
                                     <Button
                                         variant="contained"
-                                        className={cssStyle.gray_btn}
+                                        className={'gray_btn'}
                                         onClick={() => window.scroll({
                                             top: document.body.offsetHeight,
                                             left: 0,

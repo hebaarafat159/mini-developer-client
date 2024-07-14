@@ -6,7 +6,6 @@ import { Card, TextField, Stack, Typography, Button, Grid } from '@mui/material'
 import { experimentalStyled as styled } from '@mui/material/styles';
 import Paper from '@mui/material/Paper';
 import YesOrNoComponent from '../components/YesOrNoComponent';
-import cssStyle from '../css/styles.module.css'
 
 export default function ConsentForm() {
 
@@ -223,7 +222,7 @@ export default function ConsentForm() {
                 <Button
                     variant="contained"
                     onClick={() => submit()}
-                    className={cssStyle.orage_btn}> Submit </Button>
+                    className={'orage_btn'}> Submit </Button>
             </Stack>
         </Card>
     )

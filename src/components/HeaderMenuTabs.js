@@ -19,7 +19,7 @@ export default function HeaderMenuTabs({ pages, handleSelected }) {
             {
                 pages.map((page, index) => (
                     (index < showMaxMenuIndex) ?
-                        <Link key={page.position}
+                        <Link key={index}
                             variant="h6"
                             className={`link_text ${page.isSelected ? 'selected' : ''}`}
                             href={page.link}
@@ -51,7 +51,7 @@ export default function HeaderMenuTabs({ pages, handleSelected }) {
                     {pages.map((page, index) => (
                         (index >= showMaxMenuIndex) ?
                             <MenuItem href={page.link}>
-                                <Link key={page.position}
+                                <Link key={index}
                                     variant="h6"
                                     className={`link_text ${page.isSelected ? 'selected' : ''}`}
                                     href={page.link}

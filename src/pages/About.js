@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { Card, Tab, Tabs } from '@mui/material'
 import OurVisionComponent from '../components/OurVisionComponent';
 import WhyUsComponent from '../components/WhyUsComponent';
-import cssStyle from '../css/styles.module.css'
+// import cssStyle from '../css/styles.module.css'
 
 export default function About() {
 
@@ -36,7 +36,7 @@ export default function About() {
                     ))
                 }
             </Tabs>
-            <Card className={cssStyle.page}>
+            <Card className={'page'}>
                 {value === 0 && <OurVisionComponent />}
                 {value === 1 && <WhyUsComponent />}
             </Card>
