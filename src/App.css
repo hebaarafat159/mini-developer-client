@@ -98,6 +98,47 @@
   text-decoration: none;
 }
 
+
+.course_card {
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+  align-items: center;
+  background-color: white;
+  margin: 2.5vmin;
+}
+
+.course_card_details {
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+  align-items: center;
+  padding: 5vmin;
+  background-color: white;
+}
+
+.course_card:hover {
+  transform: scale(1.05);
+  transition: transform 0.2s ease-in-out
+}
+
+.course_card_image {
+  width: 100%;
+  height: 200px;
+  padding-bottom: 5vmin;
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+}
+
+.course_card_bold_text {
+  color: #333440;
+  font-weight: bold;
+}
+
+
 @media (min-width: 600px) {
   .Footer {
     /* position: fixed; */
