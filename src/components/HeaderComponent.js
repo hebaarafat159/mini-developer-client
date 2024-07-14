@@ -3,7 +3,6 @@ import React, { useState } from 'react'
 import { useMediaQuery, useTheme, Box, Link } from '@mui/material'
 
 import image from '../assets/mini-developer-logo.png'
-import cssStyle from '../css/styles.module.css'
 
 import Home from '../pages/Home'
 // import About from '../pages/About'
@@ -69,30 +68,24 @@ export default function HeaderComponent() {
     ])
 
     function handleSelected(selectedItem) {
-        // alert(`Item selected : ${selectedItem.position}`)
         pages.forEach(page => {
-            // alert(`Page selected : ${page.label}`)
             if (page === selectedItem) {
-                // alert(selectedItem.label)
                 page.isSelected = true
             } else {
                 page.isSelected = false
             }
         });
         setPages(pages)
-        // pages.forEach(page => {
-        //     alert(`Page selected : ${page.label} : ${page.isSelected}`)
-        // });
     }
     return (
         <React.Fragment>
             <Box
-                className={cssStyle.Header}>
+                className={'Header'}>
 
                 <Box sx={{ display: 'flex', flexDirection: 'row', alignItems: 'center', paddingLeft: '5vmin' }}>
                     <Link key={pages[0].position}
                         href={pages[0].link} >
-                        <img src={image} className={cssStyle.logo} loading="lazy" alt="" />
+                        <img src={image} className={'logo'} loading="lazy" alt="" />
                     </Link>
                 </Box>
                 <Box sx={{ display: 'flex', flexDirection: 'row', alignItems: 'center', paddingRight: '5vmin' }}>

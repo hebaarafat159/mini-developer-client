@@ -1,8 +1,6 @@
 import React, { useState } from 'react'
 import { Drawer, IconButton, List, ListItemButton, ListItemIcon, ListItemText, Link } from '@mui/material'
 import MenuIcon from '@mui/icons-material/Menu';
-import cssStyle from '../css/styles.module.css'
-import '../App.css'
 
 export default function HeaderDrawerComponent({ pages, handleSelected }) {
     const [openDrawer, setOpenDrawer] = useState(false)
@@ -10,7 +8,7 @@ export default function HeaderDrawerComponent({ pages, handleSelected }) {
         <React.Fragment>
             <Drawer anchor="right" open={openDrawer} onClose={() => setOpenDrawer(false)}>
                 <List sx={{
-                    width: '30%',  // Example width
+                    width: '30%',
                     padding: '20px',
                     variant: 'h6',
                     fontWeight: 'bold',
@@ -34,7 +32,7 @@ export default function HeaderDrawerComponent({ pages, handleSelected }) {
                     }
                 </List>
             </Drawer>
-            <IconButton className={cssStyle.menuIcon} onClick={() => setOpenDrawer(!openDrawer)}>
+            <IconButton className={'menuIcon'} onClick={() => setOpenDrawer(!openDrawer)}>
                 <MenuIcon />
             </IconButton>
         </React.Fragment>

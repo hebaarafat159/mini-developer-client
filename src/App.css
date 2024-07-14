@@ -17,6 +17,20 @@
   .App-logo {
     animation: App-logo-spin infinite 20s linear;
   }
+
+  .Footer {
+    /* position: fixed; */
+    bottom: 0;
+    width: 100%;
+    height: auto;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    background-color: white;
+    padding: .5vmin;
+    color: #333440;
+  }
+
 }
 
 @keyframes App-logo-spin {
@@ -43,13 +57,26 @@
 }
 
 .Header {
-  height: 8vmin;
+  position: fixed;
+  height: 15%;
   display: flex;
-  align-items: flex-end;
-  justify-content: center;
+  flex-wrap: wrap;
+  justify-content: space-between;
   background-color: white;
-  color: darkgray;
+  color: #333440;
+  width: 100vw;
   padding: .5vmin;
+  z-index: 1000;
+}
+
+.logo {
+  width: 20vw;
+  height: auto;
+}
+
+.menuIcon {
+  color: #333440;
+  margin-left: auto;
 }
 
 .miniDeveloperText {
@@ -98,7 +125,6 @@
   text-decoration: none;
 }
 
-
 .course_card {
   display: flex;
   flex-flow: column;
@@ -138,18 +164,21 @@
   font-weight: bold;
 }
 
-
-@media (min-width: 600px) {
-  .Footer {
-    /* position: fixed; */
-    bottom: 0;
-    width: 100%;
-    height: auto;
-    display: flex;
-    align-items: flex-end;
-    justify-content: center;
-    background-color: white;
-    padding: .5vmin;
-    color: #333440;
-  }
+.brawn_btn {
+  border-radius: 10;
+  background: linear-gradient(to bottom, #e09b79, #9e532d);
+  font-size: 1.5vmin;
+  /* color: #5f6276; */
+  font-weight: bold;
 }
+
+.orage_btn {
+  border-radius: 10;
+  background: linear-gradient(to bottom, #ffb093, #ed7d45);
+  font-size: 1.5vmin;
+  font-weight: bold;
+}
+
+
+
+/* @media (min-width: 600px) {} */

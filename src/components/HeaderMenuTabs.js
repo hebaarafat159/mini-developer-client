@@ -1,6 +1,5 @@
 import React, { useState } from 'react'
 import { Link, Box, Menu, MenuItem, Typography } from '@mui/material'
-import '../App.css'
 
 export default function HeaderMenuTabs({ pages, handleSelected }) {
 
