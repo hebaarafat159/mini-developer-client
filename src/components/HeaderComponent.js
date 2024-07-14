@@ -29,16 +29,9 @@ export default function HeaderComponent() {
         },
         {
             position: 1,
-            label: 'Our Vision',
-            link: '/about/ourvision',
-            component: <OurVisionComponent />,
-            isSelected: false
-        },
-        {
-            position: 2,
-            label: 'Why Us',
-            link: '/about/whyus',
-            component: <WhyUsComponent />,
+            label: 'Our Courses',
+            link: '/courses',
+            component: <Courses />,
             isSelected: false
         },
         // {
@@ -49,19 +42,26 @@ export default function HeaderComponent() {
         // },
         {
             position: 3,
-            label: 'Our Courses',
-            link: '/courses',
-            component: <Courses />,
+            label: 'Our Vision',
+            link: '/about/ourvision',
+            component: <OurVisionComponent />,
             isSelected: false
         },
         {
             position: 4,
+            label: 'Why Us',
+            link: '/about/whyus',
+            component: <WhyUsComponent />,
+            isSelected: false
+        },
+        {
+            position: 5,
             label: 'Contact Us',
             link: '/contactus',
             component: <ContactUs />
         },
         {
-            position: 5,
+            position: 6,
             label: 'Term Dates',
             link: '/termdates',
             component: <TermDates />
@@ -90,12 +90,8 @@ export default function HeaderComponent() {
                 className={cssStyle.Header}>
 
                 <Box sx={{ display: 'flex', flexDirection: 'row', alignItems: 'center', paddingLeft: '5vmin' }}>
-                    <Link key={'1'}
-                        href={'/'}
-                    // onClick={() => {
-                    //     handleSelected(page)
-                    // }}
-                    >
+                    <Link key={pages[0].position}
+                        href={'/'} >
                         <img src={image} className={cssStyle.logo} loading="lazy" alt="" />
                     </Link>
                 </Box>
