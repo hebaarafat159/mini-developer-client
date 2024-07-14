@@ -23,6 +23,14 @@ export default function ContactUs() {
         messageError: ''
     })
 
+    const titleCss = {
+        listStyleType: 'none',
+        display: 'flex',
+        flexFlow: 'row wrap',
+        alignItems: 'center',
+        padding: '1vmin'
+    }
+
     const textCss = {
         textDecoration: 'none',
         color: '#333440',
@@ -140,37 +148,38 @@ export default function ContactUs() {
 
                         <ul style={{ listStyleType: 'none' }}>
                             {/* Email */}
-                            <li spacing={1} style={{ listStyleType: 'none', display: 'flex', flexFlow: 'row wrap', alignItems: 'center', padding: '1vmin' }}>
+                            <li spacing={1} style={titleCss}>
                                 <SocialIcon network="email" url={`mailto:${process.env.REACT_APP_CONTACT_US_GMAIL}`} />
                                 <a style={textCss} href={`mailto:${process.env.REACT_APP_CONTACT_US_GMAIL}`} target="_blank" rel="noopener noreferrer"> {process.env.REACT_APP_CONTACT_US_GMAIL} </a>
                             </li>
 
                             {/* What's app */}
-                            <li spacing={1} style={{ listStyleType: 'none', display: 'flex', flexFlow: 'row wrap', alignItems: 'center', padding: '1vmin' }}>
+                            <li spacing={1} style={titleCss}>
                                 <SocialIcon network="whatsapp" url={process.env.REACT_APP_CONTACT_US_WHATS_APP} />
                                 <a style={textCss} href={process.env.REACT_APP_CONTACT_US_WHATS_APP} target="_blank" rel="noopener noreferrer"> {process.env.REACT_APP_CONTACT_US_WHATS_APP_NAME} </a>
                             </li>
 
                             {/* Facebook */}
-                            <li spacing={1} style={{ listStyleType: 'none', display: 'flex', flexFlow: 'row wrap', alignItems: 'center', padding: '1vmin' }}>
+                            <li spacing={1} style={titleCss}>
                                 <SocialIcon network="facebook" url={process.env.REACT_APP_CONTACT_US_FACEBOOK} />
                                 <a style={textCss} href={process.env.REACT_APP_CONTACT_US_FACEBOOK} target="_blank" rel="noopener noreferrer">{process.env.REACT_APP_CONTACT_US_FACEBOOK_NAME}</a>
                             </li>
 
                             {/* Instagram */}
-                            <li spacing={1} style={{ listStyleType: 'none', display: 'flex', flexFlow: 'row wrap', alignItems: 'center', padding: '1vmin' }}>
+                            <li spacing={1} style={titleCss}>
                                 <SocialIcon network="instagram" url={process.env.REACT_APP_CONTACT_US_INSTAGRAM} />
                                 <a variant='p' style={textCss} href={process.env.REACT_APP_CONTACT_US_INSTAGRAM} target="_blank" rel="noopener noreferrer">{process.env.REACT_APP_CONTACT_US_INSTAGRAM_NAME}</a>
                             </li>
 
                             {/*Location */}
-                            <li spacing={1} style={{ listStyleType: 'none', display: 'flex', flexFlow: 'row wrap', alignItems: 'center', padding: '1vmin' }}>
+                            <li spacing={1} style={titleCss}>
                                 <SocialIcon network="email" />
                                 <Typography component="p" variant='p' style={textCss}>{process.env.REACT_APP_CONTACT_US_LOCATION}</Typography>
                             </li>
                         </ul>
                     </Grid>
-                    {/* Send an email form */}
+
+                    {/* Form Send an email form */}
                     <Grid item xs={6} sx={{ justifyContent: 'center', alignItems: 'center' }}>
                         {/* Name */}
                         <Typography component="p" variant='p' style={formTitleCss}> Name <span style={{ color: 'red' }}> * </span> </Typography>
