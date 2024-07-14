@@ -3,7 +3,7 @@ import { Grid } from "@mui/material";
 import term_dates_img from '../assets/term_dates_img.png'
 
 export default function TermDates() {
-    
+
     // set page title
     document.title = ' Term Dates | Mini Developer';
 
@@ -52,12 +52,12 @@ export default function TermDates() {
     return (
         <Card className='recent-blogs d-block'>
 
-            <Stack direction="row" spacing={2} sx={{ justifyContent: 'space-around', alignItems: 'center', padding: '2vw' }} >
-                <Grid container columns={{ xs: 2, sm: 8, md: 12 }} sx={{ justifyContent: 'center', alignItems: 'center', padding: '1vmin' }}>
-                    <Grid item xs={4} sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+            <Stack direction="row" spacing={1} sx={{ justifyContent: 'space-around', alignItems: 'center', backgroundColor: 'blueviolet', padding: '3vmin' }} >
+                <Grid container columns={{ xs: 2, sm: 8, md: 12 }} sx={{ justifyContent: 'center', alignItems: 'center' }} width={'70%'}>
+                    <Grid item xs={6} sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
                         <img src={term_dates_img} loading="lazy" alt="" width={'100%'} />
                     </Grid>
-                    <Grid item xs={4} sx={{ justifyContent: 'center', alignItems: 'center', padding: '1vmin' }}>
+                    <Grid item xs={6} sx={{ justifyContent: 'center', alignItems: 'center', padding: '7.5vmin', backgroundColor: 'white' }} >
                         <Typography component="h2" variant='h2' style={{ color: '#333440', textAlign: 'center', fontWeight: 'bold' }}>
                             Summer Term 2024
                         </Typography>
