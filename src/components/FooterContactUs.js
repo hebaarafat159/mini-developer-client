@@ -1,7 +1,14 @@
 import React from 'react'
-import { SocialIcon } from 'react-social-icons'
 import { Stack, Typography, Grid } from '@mui/material'
 import library_logo from '../assets/library_logo.png'
+// import { SocialIcon } from 'react-social-icons'
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+    faSquareWhatsapp,
+    faSquareFacebook,
+    faSquareGooglePlus,
+    faSquareInstagram
+} from "@fortawesome/free-brands-svg-icons";
 
 export default function FooterContactUs() {
     return (
@@ -13,10 +20,27 @@ export default function FooterContactUs() {
                 <Grid item xs={6} sx={{ justifyContent: 'center', alignItems: 'center' }}>
                     <Stack direction="row" style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
                         <Typography variant='p' style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', margin: 'auto 1vmin' }}>Contact Us</Typography>
-                        <SocialIcon network="facebook" href={process.env.REACT_APP_CONTACT_US_FACEBOOK} />
+
+                        <a href={process.env.REACT_APP_CONTACT_US_WHATS_APP}
+                            className="whatsapp social">
+                            <FontAwesomeIcon icon={faSquareWhatsapp} size="2x" />
+                        </a>
+                        <a href={process.env.REACT_APP_CONTACT_US_FACEBOOK}
+                            className="facebook social">
+                            <FontAwesomeIcon icon={faSquareFacebook} size="2x" />
+                        </a>
+                        <a href={`mailto:${process.env.REACT_APP_CONTACT_US_GMAIL}`}
+                            className="google social">
+                            <FontAwesomeIcon icon={faSquareGooglePlus} size="2x" />
+                        </a>
+                        <a href={process.env.REACT_APP_CONTACT_US_INSTAGRAM}
+                            className="instagram social">
+                            <FontAwesomeIcon icon={faSquareInstagram} size="2x" />
+                        </a>
+                        {/* <SocialIcon network="facebook" href={process.env.REACT_APP_CONTACT_US_FACEBOOK} />
                         <SocialIcon network="whatsapp" href={process.env.REACT_APP_CONTACT_US_WHATS_APP} />
                         <SocialIcon network="instagram" href={process.env.REACT_APP_CONTACT_US_INSTAGRAM} />
-                        <SocialIcon network="email" href={`mailto:${process.env.REACT_APP_CONTACT_US_GMAIL}`} />
+                        <SocialIcon network="email" href={`mailto:${process.env.REACT_APP_CONTACT_US_GMAIL}`} /> */}
                     </Stack>
                 </Grid>
             </Grid>

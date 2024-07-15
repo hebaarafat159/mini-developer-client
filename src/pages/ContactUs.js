@@ -1,8 +1,17 @@
 import React, { useState } from 'react'
 import { Stack, Typography, TextField, Grid, Button } from '@mui/material'
-import { SocialIcon } from 'react-social-icons'
+// eslint-disable-next-line
+// import { SocialIcon } from 'react-social-icons'
 import validator from "validator";
 import { useNavigate } from 'react-router-dom'
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+    faWhatsapp,
+    faFacebook,
+    faGoogle,
+    faInstagram
+} from "@fortawesome/free-brands-svg-icons";
+import location_logo from '../assets/location_icon.png'
 
 export default function ContactUs() {
 
@@ -149,31 +158,51 @@ export default function ContactUs() {
                         <ul style={{ listStyleType: 'none' }}>
                             {/* Email */}
                             <li spacing={1} style={titleCss}>
-                                <SocialIcon network="email" url={`mailto:${process.env.REACT_APP_CONTACT_US_GMAIL}`} />
+                                <a href={`mailto:${process.env.REACT_APP_CONTACT_US_GMAIL}`}
+                                    className="google social">
+                                    <FontAwesomeIcon icon={faGoogle} size="2x" />
+                                </a>
+                                {/* <SocialIcon network="email" url={`mailto:${process.env.REACT_APP_CONTACT_US_GMAIL}`} /> */}
                                 <a style={textCss} href={`mailto:${process.env.REACT_APP_CONTACT_US_GMAIL}`} target="_blank" rel="noopener noreferrer"> {process.env.REACT_APP_CONTACT_US_GMAIL} </a>
                             </li>
 
                             {/* What's app */}
                             <li spacing={1} style={titleCss}>
-                                <SocialIcon network="whatsapp" url={process.env.REACT_APP_CONTACT_US_WHATS_APP} />
+                                <a href={process.env.REACT_APP_CONTACT_US_WHATS_APP}
+                                    className="whatsapp social">
+                                    <FontAwesomeIcon icon={faWhatsapp} size="2x" />
+                                </a>
+                                {/* <SocialIcon network="whatsapp" url={process.env.REACT_APP_CONTACT_US_WHATS_APP} /> */}
                                 <a style={textCss} href={process.env.REACT_APP_CONTACT_US_WHATS_APP} target="_blank" rel="noopener noreferrer"> {process.env.REACT_APP_CONTACT_US_WHATS_APP_NAME} </a>
                             </li>
 
                             {/* Facebook */}
                             <li spacing={1} style={titleCss}>
-                                <SocialIcon network="facebook" url={process.env.REACT_APP_CONTACT_US_FACEBOOK} />
+                                <a href={process.env.REACT_APP_CONTACT_US_FACEBOOK}
+                                    className="facebook social">
+                                    <FontAwesomeIcon icon={faFacebook} size="2x" />
+                                </a>
+
+                                {/* <SocialIcon network="facebook" url={process.env.REACT_APP_CONTACT_US_FACEBOOK} /> */}
                                 <a style={textCss} href={process.env.REACT_APP_CONTACT_US_FACEBOOK} target="_blank" rel="noopener noreferrer">{process.env.REACT_APP_CONTACT_US_FACEBOOK_NAME}</a>
                             </li>
 
                             {/* Instagram */}
                             <li spacing={1} style={titleCss}>
-                                <SocialIcon network="instagram" url={process.env.REACT_APP_CONTACT_US_INSTAGRAM} />
+                                <a href={process.env.REACT_APP_CONTACT_US_INSTAGRAM}
+                                    className="instagram social">
+                                    <FontAwesomeIcon icon={faInstagram} size="2x" />
+                                </a>
+
+                                {/* <SocialIcon network="instagram" url={process.env.REACT_APP_CONTACT_US_INSTAGRAM} /> */}
                                 <a variant='p' style={textCss} href={process.env.REACT_APP_CONTACT_US_INSTAGRAM} target="_blank" rel="noopener noreferrer">{process.env.REACT_APP_CONTACT_US_INSTAGRAM_NAME}</a>
                             </li>
 
                             {/*Location */}
                             <li spacing={1} style={titleCss}>
-                                <SocialIcon network="email" />
+                                {/* <FontAwesomeIcon icon={faApper} size="2x" /> */}
+                                {/* <SocialIcon network="email" /> */}
+                                <img src={location_logo} loading="lazy" alt="" width={'10%'} />
                                 <Typography component="p" variant='p' style={textCss}>{process.env.REACT_APP_CONTACT_US_LOCATION}</Typography>
                             </li>
                         </ul>
