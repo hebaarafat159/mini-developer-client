@@ -20,6 +20,15 @@
     /* animation: App-logo-spin infinite 20s linear; */
   }
 
+  .link_text {
+    color: #4F8DB9;
+    /* Default color */
+    text-decoration: none;
+    font-weight: bold;
+    font-style: italic;
+    /* font-size: 1.2vw; */
+  }
+
   .Footer {
     /* position: fixed; */
     bottom: 0;
