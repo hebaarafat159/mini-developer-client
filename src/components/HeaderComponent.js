@@ -96,7 +96,7 @@ export default function HeaderComponent() {
                 <Box sx={{ display: 'flex', flexDirection: 'row', alignItems: 'center', paddingLeft: '5vmin' }}>
                     <Link key={pages[0].position}
                         href={pages[0].link} >
-                        <img src={image} className={'logo'} loading="lazy" alt="" />
+                        <img src={image} className={'App-logo'} loading="lazy" alt="" />
                     </Link>
                 </Box>
                 <Box sx={{ display: 'flex', flexDirection: 'row', alignItems: 'center', paddingRight: '5vmin' }}>
