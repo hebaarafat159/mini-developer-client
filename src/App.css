@@ -32,6 +32,10 @@
     /* z-index: 1000; */
   }
 
+  .logo {
+    width: 20vw;
+    height: auto;
+  }
 }
 
 @keyframes App-logo-spin {

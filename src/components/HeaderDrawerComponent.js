@@ -16,18 +16,36 @@ export default function HeaderDrawerComponent({ pages, handleSelected }) {
                 }}>
                     {
                         pages.map((page, index) => (
-                            <ListItemButton
-                                variant="h6"
-                                className={`link_text ${page.isSelected ? 'selected' : ''}`}
-                                style={{ textDecoration: 'none', fontWeight: 'bold', padding: '2vmin', fontStyle: 'italic' }}
-                                onClick={() => {
-                                    setOpenDrawer(false)
-                                    handleSelected(page)
-                                }} key={index} component={Link} to={page.link}>
-                                <ListItemIcon>
-                                    <ListItemText >{page.label}</ListItemText>
-                                </ListItemIcon>
-                            </ListItemButton>
+                            (page.link !== null && page.link !== undefined) ?
+                                <ListItemButton
+                                    variant="h6"
+                                    className={`link_text ${page.isSelected ? 'selected' : ''}`}
+                                    style={{ textDecoration: 'none', fontWeight: 'bold', padding: '2vmin', fontStyle: 'italic' }}
+                                    onClick={() => {
+                                        setOpenDrawer(false)
+                                        handleSelected(page)
+                                    }} key={index} component={Link} to={page.link}>
+                                    <ListItemIcon>
+                                        <ListItemText >{page.label}</ListItemText>
+                                    </ListItemIcon>
+                                </ListItemButton>
+                                :
+                                (page.subLinks !== null && page.subLinks !== undefined && page.subLinks.length > 0) ?
+                                    page.subLinks.map((page, index) =>
+                                    (
+                                        <ListItemButton
+                                            variant="h6"
+                                            className={`link_text ${page.isSelected ? 'selected' : ''}`}
+                                            style={{ textDecoration: 'none', fontWeight: 'bold', padding: '2vmin', fontStyle: 'italic' }}
+                                            onClick={() => {
+                                                setOpenDrawer(false)
+                                                handleSelected(page)
+                                            }} key={index} component={Link} to={page.link}>
+                                            <ListItemIcon>
+                                                <ListItemText >{page.label}</ListItemText>
+                                            </ListItemIcon>
+                                        </ListItemButton>
+                                    )) : null
                         ))
                     }
                 </List>
