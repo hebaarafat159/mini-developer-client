@@ -1,3 +1,4 @@
+// eslint-disable-next-line
 import React, { useEffect, useState } from 'react'
 
 import { useMediaQuery, useTheme, Box, Link } from '@mui/material'
@@ -17,8 +18,10 @@ export default function HeaderComponent() {
     const theme = useTheme();
     const isMatch = useMediaQuery(theme.breakpoints.down('md'));
 
+    // eslint-disable-next-line
     const [selectedTab, setSelectedTab] = useState(1)
 
+    // eslint-disable-next-line
     const [pages, setPages] = useState([
         {
             position: 0,
@@ -71,16 +74,16 @@ export default function HeaderComponent() {
         }
     ])
 
-    useEffect((selectedItem) => {
-        pages.forEach(page => {
-            if (page === selectedItem) {
-                page.isSelected = true
-            } else {
-                page.isSelected = false
-            }
-        });
-        setPages([...pages])
-    }, [selectedTab, pages]);
+    // useEffect((selectedItem) => {
+    //     pages.forEach(page => {
+    //         if (page === selectedItem) {
+    //             page.isSelected = true
+    //         } else {
+    //             page.isSelected = false
+    //         }
+    //     });
+    //     setPages([...pages])
+    // }, [selectedTab, pages]);
 
     function handleSelected(selectedItem) {
         setSelectedTab(selectedItem.position)
