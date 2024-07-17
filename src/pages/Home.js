@@ -72,21 +72,25 @@ export default function Home() {
 
                 {/* New Events */}
                 <Stack direction="row" spacing={2} sx={{ justifyContent: 'space-evenly', alignItems: 'center', background: '#333440', padding: '2vw' }} >
-                    <Grid container columns={{ xs: 2, sm: 8, md: 12 }}>
+                    <Grid container columns={{ xs: 2, sm: 8, md: 12 }} sx={{ justifyContent: 'center', alignItems: 'center' }}>
                         <Grid item xs={4} sx={{ justifyContent: 'center', alignItems: 'center' }}>
-
                             <img src={news_img} loading="lazy" alt="" width={'100%'} />
                         </Grid>
                         <Grid item xs={8} sx={{ justifyContent: 'center', alignItems: 'center' }}>
                             <Stack direction="column" spacing={2} sx={{ justifyContent: 'center', alignItems: 'center' }} width={'100%'} >
-                                <Typography component="h3" variant='h5' style={{ color: '#fed677', textAlign: 'center', fontWeight: 'bold' }}> News & Events </Typography>
-                                <Typography component="h5" variant='h6' style={{ color: '#ed7d45', textAlign: 'center' }}> Coding in Ealing Council Libraries! </Typography>
-                                <Typography component="p" variant='p' style={{ color: 'white', textAlign: 'center' }}> Mini Developer partners with Ealing Council Libraries  starting from September term 2023.</Typography>
-                                <Typography component="p" variant='p' style={{ color: 'white', textAlign: 'center' }}> Proud to work together to spread the knowledge, benefit the community and prepare children for the digital future. </Typography>
+                                <Typography component="h3" variant='h4' style={{ color: '#fed677', textAlign: 'center', fontWeight: 'bold' }}> News & Events </Typography>
+                                <Typography component="h5" variant='h5' style={{ color: '#ed7d45', textAlign: 'center', fontWeight: 'bold' }}> Vacancies Available in our Online Classes </Typography>
+                                <Typography component="p" variant='p' style={{ color: 'white', textAlign: 'center' }}> Coding is Fun</Typography>
+                                <Typography component="p" variant='p' style={{ color: 'white', textAlign: 'center' }}>We're glad to announce that Booking is now Open for the <br /> Autumn term which begins in September 2024 in our <br /> in-person and also our Online classes.</Typography>
 
                                 <Stack direction="row" spacing={1} >
                                     <FreeTrialButton course={null} />
                                 </Stack>
+
+                                <Typography component="h5" variant='h5' style={{ color: '#ed7d45', textAlign: 'center', fontWeight: 'bold' }}> Coding in Ealing Council Libraries! </Typography>
+                                <Typography component="p" variant='p' style={{ color: 'white', textAlign: 'center' }}> Mini Developer partners with Ealing Council Libraries <br /> starting from September term 2023.</Typography>
+                                <Typography component="p" variant='p' style={{ color: 'white', textAlign: 'center' }}> Proud to work together to spread the knowledge, benefit <br />the community and prepare children for the digital future. </Typography>
+
                             </Stack>
                         </Grid>
                     </Grid>

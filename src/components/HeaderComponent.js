@@ -51,7 +51,7 @@ export default function HeaderComponent() {
                 },
                 {
                     position: 2,
-                    label: 'Why Us',
+                    label: 'Why Us?',
                     link: '/about/whyus',
                     component: <WhyUsComponent />,
                     isSelected: false
