@@ -1,10 +1,12 @@
 import React from 'react'
+// eslint-disable-next-line
 import { Button, Card, Stack, Typography, Grid } from '@mui/material'
 import FreeTrialButton from '../components/FreeTrialButton'
 import ExploreButtonComponent from '../components/ExploreButtonComponent'
 import home_first_paragraphe_img from '../assets/home_first_paragraphe_img.jpg'
 import news_img from '../assets/news_img.png'
 import why_img from '../assets/why-learn-coding-at-a-young-age-mini-coding-coding-for-kids-life-fun.gif'
+// eslint-disable-next-line
 import roadmap from '../assets/mini-developer-roadmap-learning-coding-for-children.png'
 import creative_img from '../assets/creative_img.png'
 import logical_thinking_img from '../assets/logical_thinking_img.png'
@@ -42,7 +44,7 @@ export default function Home() {
         <Card className='recent-blogs d-block'>
             <Stack direction="column" spacing={2} sx={{ my: 1, padding: '2vw', flexGrow: 1 }}>
                 <Stack direction="row" spacing={2} sx={{ justifyContent: 'space-evenly', alignItems: 'center' }} >
-                    <Grid container columns={{ xs: 2, sm: 8, md: 12 }}>
+                    <Grid container columns={{ xs: 2, sm: 8, md: 12 }} sx={{ justifyContent: 'center', alignItems: 'center' }}>
                         <Grid item xs={8} sx={{ justifyContent: 'center', alignItems: 'center' }}>
                             <Stack direction="column" spacing={2} sx={{ justifyContent: 'center', alignItems: 'center' }}>
                                 <Typography component="h3" variant='h5' style={{ color: '#4682b4', textAlign: 'center', fontWeight: 'bold' }}> Build your Child's Valuable Coding & Problem-Solving Skills</Typography>
@@ -50,14 +52,15 @@ export default function Home() {
                                 <Typography component="h5" variant='h6' style={{ color: '#333440', textShadow: '0px 2px #c3c3c7', fontStyle: 'italic' }}> Coding Classes </Typography>
                                 <Stack direction="row" spacing={1} >
                                     <FreeTrialButton course={null} />
-                                    <Button
+                                    <ExploreButtonComponent />
+                                    {/* <Button
                                         variant="contained"
                                         className={'gray_btn'}
                                         onClick={() => window.scroll({
                                             top: document.body.offsetHeight,
                                             left: 0,
                                             behavior: 'smooth',
-                                        })}> Learn More</Button>
+                                        })}> Learn More</Button> */}
                                 </Stack>
                             </Stack>
                         </Grid>
@@ -120,7 +123,7 @@ export default function Home() {
                 </Stack>
 
                 {/* Your Coding Journey */}
-                <Stack direction="column" spacing={2} sx={{ justifyContent: 'space-evenly', padding: '2vw', alignItems: 'center', }} >
+                {/* <Stack direction="column" spacing={2} sx={{ justifyContent: 'space-evenly', padding: '2vw', alignItems: 'center', }} >
                     <Grid container columns={{ xs: 2, sm: 8, md: 12 }}>
                         <Grid item xs={12} sx={{ justifyContent: 'center', alignItems: 'center' }}>
                             <Typography component="h3" variant='h5' style={{ color: '#ed7d45', fontWeight: 'bold', textAlign: 'center', padding: '2vmin auto' }}> Your Coding Journey </Typography>
@@ -137,7 +140,7 @@ export default function Home() {
                             <img src={roadmap} loading="lazy" alt="" width={'100%'} />
                         </Grid>
                     </Grid>
-                </Stack>
+                </Stack> */}
             </Stack>
         </Card >
     )
