@@ -110,16 +110,15 @@ export default function Home() {
 
                 {/* Our Teaching */}
                 <Stack direction="column" spacing={2} sx={{ justifyContent: 'space-evenly', padding: '2vw', background: '#333440' }} >
-                    <Typography component="h3" variant='h5' style={{ color: '#fed677', fontWeight: 'bold', textAlign: 'start' }}>  Our Teaching program combines Knowledge with Fun  </Typography>
+                    <Typography component="h3" variant='h4' style={{ color: '#fed677', fontWeight: 'bold', textAlign: 'start' }}>  Our Teaching program combines Knowledge with Fun  </Typography>
                     <Typography component="p" variant='p' style={{ color: 'white' }}> Our coding program assists children to build valuable skills in life and eventually in the workforce </Typography>
                     <Grid container columns={{ xs: 2, sm: 8, md: 16 }}>
-                        {/* <Grid container spacing={{ xs: 2, md: 3 }} columns={{ xs: 4, sm: 8, md: 16 }}> */}
                         {teachingTopics.map((detail, index) => (
-                            <Grid item xs={2} sm={4} md={4} key={index}>
+                            <Grid item xs={2} sm={4} md={4} key={index} sx={{ justifyContent: 'center', alignItems: 'center', margin: '1vmin auto' }}>
                                 <Stack spacing={2} sx={{ justifyContent: 'center', alignItems: 'center' }} >
-                                    <img src={detail.icon} loading="lazy" alt="" width={'50%'} />
-                                    <Typography component="p" variant='p' style={{ color: '#ed5977', textAlign: 'center' }}> {detail.title} </Typography>
-                                    <Typography component="p" variant='p' style={{ color: 'white', textAlign: 'center' }}> {detail.description} </Typography>
+                                    <img src={detail.icon} loading="lazy" alt="" width={'50%'} style={{ backgroundColor: 'transparent' }} />
+                                    <Typography component="h5" variant='h5' style={{ color: '#ed5977', textAlign: 'center' }}> {detail.title} </Typography>
+                                    <Typography component="p" variant='p' style={{ color: 'white', textAlign: 'center', padding: '2vw' }}> {detail.description} </Typography>
                                 </Stack>
                             </Grid>
                         ))}
