@@ -47,7 +47,7 @@ export default function Home() {
                     <Grid container columns={{ xs: 2, sm: 8, md: 12 }} sx={{ justifyContent: 'center', alignItems: 'center' }}>
                         <Grid item xs={8} sx={{ justifyContent: 'center', alignItems: 'center' }}>
                             <Stack direction="column" spacing={2} sx={{ justifyContent: 'center', alignItems: 'center' }}>
-                                <Typography component="h3" variant='h5' style={{ color: '#4682b4', textAlign: 'center', fontWeight: 'bold' }}> Build your Child's Valuable Coding & Problem-Solving Skills</Typography>
+                                <Typography component="h3" variant='h4' style={{ color: '#4682b4', textAlign: 'center', fontWeight: 'bold' }}> Build your Child's Valuable Coding & Problem-Solving Skills</Typography>
                                 <Typography component="h5" variant='h6' style={{ color: '#333440', fontStyle: 'italic', textAlign: 'center' }}> Empower your child with creativity & logical thinking through our Fun & Interactive </Typography>
                                 <Typography component="h5" variant='h6' style={{ color: '#333440', textShadow: '0px 2px #c3c3c7', fontStyle: 'italic' }}> Coding Classes </Typography>
                                 <Stack direction="row" spacing={1} >
