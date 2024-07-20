@@ -64,6 +64,7 @@ export default function Home() {
                 </Grid>
             </Stack>
             <Stack direction="column" spacing={2} sx={{ my: 1, padding: '2vmin', flexGrow: 1 }}>
+                {/* first section  */}
                 <Stack direction="row" spacing={2} sx={{ justifyContent: 'space-evenly', alignItems: 'center' }} >
                     <Grid container columns={{ xs: 2, sm: 8, md: 12 }} sx={{ justifyContent: 'center', alignItems: 'center' }}>
                         <Grid item xs={8} sx={{ justifyContent: 'center', alignItems: 'center' }}>
@@ -91,7 +92,7 @@ export default function Home() {
                     </Grid>
                 </Stack>
 
-                {/* New Events */}
+                {/* News Events */}
                 <Stack direction="row" spacing={2} sx={{ justifyContent: 'space-evenly', alignItems: 'center', background: '#333440', padding: '2vw' }} >
                     <Grid container columns={{ xs: 2, sm: 8, md: 12 }} sx={{ justifyContent: 'center', alignItems: 'center' }}>
                         <Grid item xs={4} sx={{ justifyContent: 'center', alignItems: 'center' }}>
