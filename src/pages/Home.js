@@ -42,6 +42,7 @@ export default function Home() {
     ]
     return (
         <Card className='recent-blogs d-block'>
+            {/* news Bar  */}
             <Stack direction="row" spacing={1} sx={{ height: '15%', justifyContent: 'center', alignItems: 'center', background: 'linear-gradient(to right, #e73da0, #cf559c);', padding: '1vmin' }} >
                 <Grid container xs={12} columns={{ xs: 3, sm: 8, md: 12 }} sx={{ alignItems: 'center', padding: '1vmin' }}>
                     <Grid item xs={8} sx={{ alignItems: 'center' }}>
