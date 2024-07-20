@@ -42,7 +42,27 @@ export default function Home() {
     ]
     return (
         <Card className='recent-blogs d-block'>
-            <Stack direction="column" spacing={2} sx={{ my: 1, padding: '2vw', flexGrow: 1 }}>
+            <Stack direction="row" spacing={1} sx={{ height: '15%', justifyContent: 'center', alignItems: 'center', background: 'linear-gradient(to right, #e73da0, #cf559c);', padding: '1vmin' }} >
+                <Grid container xs={12} columns={{ xs: 3, sm: 8, md: 12 }} sx={{ alignItems: 'center', padding: '1vmin' }}>
+                    <Grid item xs={8} sx={{ alignItems: 'center' }}>
+                        <Stack direction="row" spacing={2} sx={{ justifyContent: 'center', alignItems: 'center' }}>
+                            <Typography component="h3" variant='h5' style={{ color: 'white', textAlign: 'right', fontWeight: 'bold' }}> Exciting News!! </Typography>
+                            <Typography component="p" variant='p' style={{ color: 'white', fontStyle: 'italic', textAlign: 'center' }}> Booking Open for Autumn 2024 Term – Join  Our <span style={{ fontWeight: 'bolder' }}>In-Person and Online </span>Classes! </Typography>
+                        </Stack>
+                    </Grid>
+                    <Grid item xs={2}>
+                        <Button
+                            variant="contained"
+                            className={'blue_btn'}
+                            onClick={() => window.scroll({
+                                top: (document.body.offsetTop + 550),
+                                left: 0,
+                                behavior: 'smooth',
+                            })}> Read More</Button>
+                    </Grid>
+                </Grid>
+            </Stack>
+            <Stack direction="column" spacing={2} sx={{ my: 1, padding: '2vmin', flexGrow: 1 }}>
                 <Stack direction="row" spacing={2} sx={{ justifyContent: 'space-evenly', alignItems: 'center' }} >
                     <Grid container columns={{ xs: 2, sm: 8, md: 12 }} sx={{ justifyContent: 'center', alignItems: 'center' }}>
                         <Grid item xs={8} sx={{ justifyContent: 'center', alignItems: 'center' }}>
