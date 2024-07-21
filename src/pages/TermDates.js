@@ -76,7 +76,7 @@ export default function TermDates() {
                         <Typography component="p" variant='p' style={{ color: '#333440' }}>Return to class for second half-term.</Typography>
 
                         <Typography component="h5" variant='h6' style={{ color: '#ed7d45', fontWeight: 'bold', padding: '1vmin auto' }}>Term Ends</Typography>
-                        <Typography component="p" variant='p' style={{ color: '#333440', fontWeight: 'bold' }}>{termDates[0].dates[0]['endDate']}</Typography>
+                        <Typography component="p" variant='p' style={{ color: '#333440' }}>{termDates[0].dates[0]['endDate']}</Typography>
 
                     </Grid>
                 </Grid>
@@ -127,8 +127,8 @@ export default function TermDates() {
                                 </Grid>
                                 <Grid item xs={8}>
                                     {termDate.dates.map((date, index) => (
-                                        <ListItemContent>
-                                            <Typography component="h5" variant='h6' style={{ color: '#ed7d45', fontWeight: 'bold', padding: '1vmin auto' }}>Term Starts</Typography>
+                                        <ListItemContent style={{ margin: '0 auto 3vmin auto' }}>
+                                            <Typography component="h5" variant='h6' style={{ color: '#ed7d45', fontWeight: 'bold' }}>Term Starts</Typography>
                                             <Typography component="p" variant='p' style={{ color: '#333440' }}> {date.startDate}</Typography>
 
                                             <Typography component="p" variant='p' style={{ color: '#333440', fontWeight: 'bold' }}>{date.lastHalfTermDate}</Typography>
