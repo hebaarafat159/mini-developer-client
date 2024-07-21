@@ -6,10 +6,10 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
     faSquareWhatsapp,
     faSquareFacebook,
-    faSquareGooglePlus,
     faSquareInstagram
 } from "@fortawesome/free-brands-svg-icons";
 
+import email_icon from '../assets/email_footer_icon.png'
 export default function FooterContactUs() {
     return (
         <Stack spacing={1} sx={{ display: 'flex', direction: 'row', justifyContent: 'space-around', alignItems: 'center' }} >
@@ -31,7 +31,8 @@ export default function FooterContactUs() {
                         </a>
                         <a href={`mailto:${process.env.REACT_APP_CONTACT_US_GMAIL}`}
                             className="google social">
-                            <FontAwesomeIcon icon={faSquareGooglePlus} size="2x" />
+                            <img src={email_icon} loading="lazy" alt="" width={'30vmin'} />
+                            {/* <FontAwesomeIcon icon={faSquareGooglePlus} size="2x" /> */}
                         </a>
                         <a href={process.env.REACT_APP_CONTACT_US_INSTAGRAM}
                             className="instagram social">

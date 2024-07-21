@@ -1,18 +1,15 @@
 import React, { useState } from 'react'
 import { Stack, Typography, TextField, Grid, Button } from '@mui/material'
-// eslint-disable-next-line
-// import { SocialIcon } from 'react-social-icons'
 import validator from "validator";
 import { useNavigate } from 'react-router-dom'
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
     faWhatsapp,
     faFacebook,
-    faGoogle,
     faInstagram
 } from "@fortawesome/free-brands-svg-icons";
 import location_logo from '../assets/location_icon.png'
-
+import email_icon from '../assets/email_icon.png'
 export default function ContactUs() {
 
     // set page title
@@ -160,7 +157,7 @@ export default function ContactUs() {
                             <li spacing={1} style={titleCss}>
                                 <a href={`mailto:${process.env.REACT_APP_CONTACT_US_GMAIL}`}
                                     className="google social">
-                                    <FontAwesomeIcon icon={faGoogle} size="2x" />
+                                    <img src={email_icon} loading="lazy" alt="" width={'30vmin'} />
                                 </a>
                                 {/* <SocialIcon network="email" url={`mailto:${process.env.REACT_APP_CONTACT_US_GMAIL}`} /> */}
                                 <a style={textCss} href={`mailto:${process.env.REACT_APP_CONTACT_US_GMAIL}`} target="_blank" rel="noopener noreferrer"> {process.env.REACT_APP_CONTACT_US_GMAIL} </a>
@@ -202,7 +199,7 @@ export default function ContactUs() {
                             <li spacing={1} style={titleCss}>
                                 {/* <FontAwesomeIcon icon={faApper} size="2x" /> */}
                                 {/* <SocialIcon network="email" /> */}
-                                <img src={location_logo} loading="lazy" alt="" width={'10%'} />
+                                <img src={location_logo} loading="lazy" alt="" width={'30vmin'} />
                                 <Typography component="p" variant='p' style={textCss}>{process.env.REACT_APP_CONTACT_US_LOCATION}</Typography>
                             </li>
                         </ul>
