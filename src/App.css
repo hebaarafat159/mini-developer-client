@@ -181,6 +181,7 @@
   font-size: 1.5vmin;
   /* color: #5f6276; */
   font-weight: bold;
+  width: max-content;
 }
 
 .orage_btn {
@@ -188,6 +189,7 @@
   background: linear-gradient(to bottom, #ffb093, #ed7d45);
   font-size: 1.5vmin;
   font-weight: bold;
+  width: max-content;
 }
 
 .gray_btn {
@@ -197,6 +199,7 @@
   margin: '2vw';
   /* color: #5f6276; */
   font-weight: bold;
+  width: max-content;
 }
 
 .blue_btn {
@@ -204,6 +207,7 @@
   background: #1105ef;
   font-size: 1.5vmin;
   font-weight: bold;
+  width: max-content;
 }
 
 .page_content {

@@ -3,12 +3,12 @@ import { Typography, Stack } from '@mui/material'
 import ExploreButtonComponent from './ExploreButtonComponent'
 
 export default function OurVisionComponent() {
-    
+
     // set page title
     document.title = ' Our Vision | Mini Developer';
 
     return (
-        <Stack direction="column" spacing={2} sx={{ justifyContent: 'center', background: 'white', padding: '3vw' }} >
+        <Stack direction="column" spacing={2} sx={{ alignItems: 'center', justifyContent: 'center', background: 'white', padding: '3vw' }} >
 
             <Typography component="h4" variant='h6' style={{ color: '#ed7d45', textAlign: 'center', fontWeight: 'bold' }}>
                 Our Vision
