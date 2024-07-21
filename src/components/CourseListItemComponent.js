@@ -4,17 +4,18 @@ import { Link } from 'react-router-dom'
 
 export default function CourseListComponent({ course }) {
   return (
-    <Card className={'course_card'}>
+    <Card className={'course_card'} component={'a'} href={`/courses/${course._id}`} style={{ textDecoration: 'none' }}>
       <div
         className={'course_card_image'}
         style={{ backgroundImage: `url("${course.cover_image}")` }}>
         <Link to={{ pathname: `/courses/${course._id}` }}>
-          <Button variant="contained" style={{
-            borderRadius: 10,
-            background: 'linear-gradient(to bottom, #ffb093, #ed7d45)',
-            fontSize: "2.5vmin",
-            marginBottom: 0
-          }}>
+          <Button variant="contained" className='blue_btn'
+            style={{
+              borderRadius: 5,
+              // background: 'linear-gradient(to bottom, #ffb093, #ed7d45)',
+              fontSize: "2.5vmin",
+              marginBottom: 0
+            }}>
             View Details
           </Button>
         </Link>
