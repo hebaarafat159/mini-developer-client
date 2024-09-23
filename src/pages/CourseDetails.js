@@ -7,10 +7,13 @@ import course_details_price_icon from '../assets/course_details_price_icon.png'
 import course_details_session_duration_icon from '../assets/course_details_session_duration_icon.png'
 import course_details_age_icon from '../assets/course_details_age_icon.png'
 import course_details_type from '../assets/course_details_type.png'
-import course_details_content_img from '../assets/course_details_content_img.png'
 import { useParams } from 'react-router-dom'
-import { experimentalStyled as styled } from '@mui/material/styles';
-import Paper from '@mui/material/Paper';
+// import { experimentalStyled as styled } from '@mui/material/styles';
+// import Paper from '@mui/material/Paper';
+import CoursePrerequisitesComponent from '../components/CoursePrerequisitesComponent.js'
+import CourseLevelsComponent from '../components/CourseLevelsComponent.js'
+import CourseSkillsComponent from '../components/CourseSkillsComponent.js'
+import CourseSubjectsComponent from '../components/CourseSubjectsComponent.js'
 
 export default function CourseDetails() {
 
@@ -33,100 +36,81 @@ export default function CourseDetails() {
   const courseDetailsArray = [
     {
       icon: course_details_language_icon,
-      text: courseObject.language
+      text: ` ${courseObject.language}`
     },
     {
       icon: course_details_course_duration_icon,
-      text: courseObject.course_duration + " weeks"
+      text: ` ${courseObject.course_duration + " weeks"}`
     },
     {
       icon: course_details_session_duration_icon,
-      text: courseObject.session_duration + " hr/weeks"
+      text: ` ${courseObject.session_duration} hr/weeks`
     },
     {
       icon: course_details_age_icon,
-      text: courseObject.age
+      text: ` ${courseObject.age} `
     },
     {
       icon: course_details_type,
-      text: " In-Person Or Online "
+      text: ` ${courseObject.type}`
     },
     {
       icon: course_details_price_icon,
-      text: `£${courseObject.price} / hours`
+      text: ` £ ${courseObject.price} / hours`
     }
   ]
 
-  const Item = styled(Paper)(({ theme }) => ({
-    padding: theme.spacing(2),
-    display: 'flex',
-    alignItems: 'center'
-  }));
+  // const Item = styled(Paper)(({ theme }) => ({
+  //   padding: theme.spacing(1),
+  //   display: 'flex',
+  //   alignItems: 'center'
+  // }));
 
 
   return (
     <Card className='recent-blogs d-block'>
 
       <Stack direction="column" spacing={2} sx={{ display: { xs: 'flex' }, my: 1 }}>
-        <img src={courseObject.cover_image} loading="lazy" alt="" />
+        <img src={courseObject.cover_image} loading="lazy" alt="" height={'10%'} />
 
-        <Stack spacing={2} sx={{ flexGrow: 1, padding: '2vw' }} >
+        <Stack spacing={2} sx={{ flexGrow: 1 }} >
 
           {/* course title */}
           <Typography component="h1" variant='h4' style={{ color: '#ed7d45' }}> {courseObject.title} </Typography>
 
           {/* course details */}
           <Typography component="h2" variant='h5' style={{ color: '#333440', borderBottom: '#333440 3px solid' }}> Course Details </Typography>
-          <Stack direction="column" spacing={4} sx={{ display: { xs: 'flex', padding: '5vw' }, my: 1 }}>
+          <Stack direction="column" sx={{ display: { xs: 'flex' }, my: 1 }}>
             <Grid container spacing={{ xs: 2, md: 3 }} columns={{ xs: 4, sm: 8, md: 12 }}>
               {courseDetailsArray.map((detail, index) => (
-                <Grid item xs={2} sm={4} md={4} key={index}>
-                  <Item>
+                <Grid item xs={1} sm={4} md={4} key={index}>
+                  <Stack direction="row" sx={{ display: { xs: 'flex', justifyContent: 'flex-start', alignItems: 'center' } }}>
                     <img src={detail.icon} loading="lazy" alt="" width={'50vm'} />
-                    <Typography component="h5" variant='h6' style={{ color: '#333440' }}> {detail.text} </Typography>
-                  </Item>
+                    <Typography component="h6" variant='h6' style={{ color: '#333440', padding: '1vw' }}> {detail.text} </Typography>
+                  </Stack>
                 </Grid>
               ))}
             </Grid>
-
-            {/* Prerequisite Courses */}
-            {
-              (courseObject.prerequisite_courses && courseObject.prerequisite_courses.length > 0) ?
-                <>
-                  <Typography component="h2" variant='h5' style={{ color: '#ed7d45' }}> Prerequisite Courses  </Typography>
-                  <ul>
-                    {courseObject.prerequisite_courses.map((prerequisite_courses) =>
-                      <Typography component="h6" variant='h6' style={{ color: '#333440' }}> * {prerequisite_courses} </Typography>
-
-                      //  <li component="h3" variant='h4' style={{ color: '#333440' }}> {prerequisite_courses} </li>
-                    )}
-                  </ul>
-                </>
-                : null
-            }
 
             {/* Description */}
             <Typography component="h2" variant='h5' style={{ color: '#ed7d45' }}> Description </Typography>
             <Typography component="h6" variant='h6' style={{ color: '#333440' }}> {courseObject.description} </Typography>
 
-            {/* course skilld */}
             {
-              (courseObject.course_skills && courseObject.course_skills.length > 0) ?
+              (courseObject.levels && courseObject.levels.length > 0) ?
+                <CourseLevelsComponent levels={courseObject.levels} />
+                :
                 <>
-                  <Typography component="h2" variant='h5' style={{ color: '#ed7d45' }}>This course boosts paramount skills: </Typography>
-                  <Stack direction="row" sx={{ display: { xs: 'flex', justifyContent: 'space-evenly' }, my: 1 }}>
-                    <ul>
-                      {courseObject.course_skills.map((skill) =>
-                        <Typography component="h6" variant='h6' style={{ color: '#333440' }}> * {skill} </Typography>
+                  {/* Prerequisite Courses */}
+                  <CoursePrerequisitesComponent prerequisite_courses={courseObject.prerequisite_courses} />
 
-                        // <li component="h3" variant='h4' style={{ color: '#333440' }}> {skill} </li>
-                      )}
-                    </ul>
-                    <img src={course_details_content_img} loading="lazy" alt="" width={'150vw'} />
-                  </Stack>
-                </> : null
+                  {/* subjects */}
+                  <CourseSubjectsComponent course_subjects={courseObject.course_subjects} />
+
+                  {/* course skills */}
+                  <CourseSkillsComponent course_skills={courseObject.course_skills} />
+                </>
             }
-
 
           </Stack>
 
