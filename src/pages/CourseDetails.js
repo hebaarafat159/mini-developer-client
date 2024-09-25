@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { Card, Grid, Stack, Typography } from '@mui/material'
+import { Card, Stack, Typography } from '@mui/material'
 import FreeTrialButton from '../components/FreeTrialButton'
 import course_details_language_icon from '../assets/course_details_language_icon.png'
 import course_details_course_duration_icon from '../assets/course_details_course_duration_icon.png'
@@ -14,6 +14,7 @@ import CoursePrerequisitesComponent from '../components/CoursePrerequisitesCompo
 import CourseLevelsComponent from '../components/CourseLevelsComponent.js'
 import CourseSkillsComponent from '../components/CourseSkillsComponent.js'
 import CourseSubjectsComponent from '../components/CourseSubjectsComponent.js'
+import CourseDetailsComponent from '../components/CourseDetailsComponent.js'
 
 export default function CourseDetails() {
 
@@ -60,37 +61,21 @@ export default function CourseDetails() {
     }
   ]
 
-  // const Item = styled(Paper)(({ theme }) => ({
-  //   padding: theme.spacing(1),
-  //   display: 'flex',
-  //   alignItems: 'center'
-  // }));
-
-
   return (
     <Card className='recent-blogs d-block'>
 
-      <Stack direction="column" spacing={2} sx={{ display: { xs: 'flex' }, my: 1 }}>
-        <img src={courseObject.cover_image} loading="lazy" alt="" height={'10%'} />
+      <Stack direction="column" spacing={2} sx={{ display: { xs: 'flex', alignItems: 'center', justifyItems: 'center' }, my: 1 }}>
+        <img src={courseObject.cover_image} loading="lazy" alt="" height={'550vh'} width={'90%'} />
 
         <Stack spacing={2} sx={{ flexGrow: 1 }} >
 
           {/* course title */}
-          <Typography component="h1" variant='h4' style={{ color: '#ed7d45' }}> {courseObject.title} </Typography>
+          <Typography variant='h3' style={{ color: '#ed7d45', textAlign: 'center' }}> {courseObject.title} </Typography>
 
           {/* course details */}
-          <Typography component="h2" variant='h5' style={{ color: '#333440', borderBottom: '#333440 3px solid' }}> Course Details </Typography>
+          <Typography variant='h4' style={{ fontWeight: 'bold', color: '#333440', borderBottom: '#333440 3px solid', textAlign: 'center' }}> Course Details </Typography>
           <Stack direction="column" sx={{ display: { xs: 'flex' }, my: 1 }}>
-            <Grid container spacing={{ xs: 2, md: 3 }} columns={{ xs: 4, sm: 8, md: 12 }}>
-              {courseDetailsArray.map((detail, index) => (
-                <Grid item xs={1} sm={4} md={4} key={index}>
-                  <Stack direction="row" sx={{ display: { xs: 'flex', justifyContent: 'flex-start', alignItems: 'center' } }}>
-                    <img src={detail.icon} loading="lazy" alt="" width={'50vm'} />
-                    <Typography component="h6" variant='h6' style={{ color: '#333440', padding: '1vw' }}> {detail.text} </Typography>
-                  </Stack>
-                </Grid>
-              ))}
-            </Grid>
+            <CourseDetailsComponent details={courseDetailsArray} />
 
             {/* Description */}
             <Typography component="h2" variant='h5' style={{ color: '#ed7d45' }}> Description </Typography>
