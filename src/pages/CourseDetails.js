@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { Card, Stack, Typography } from '@mui/material'
+import { Stack, Typography } from '@mui/material'
 import FreeTrialButton from '../components/FreeTrialButton'
 import course_details_language_icon from '../assets/course_details_language_icon.png'
 import course_details_course_duration_icon from '../assets/course_details_course_duration_icon.png'
@@ -62,18 +62,20 @@ export default function CourseDetails() {
   ]
 
   return (
-    <Card className='recent-blogs d-block'>
+    <Stack className='recent-blogs d-block'>
 
-      <Stack direction="column" spacing={2} sx={{ display: { xs: 'flex', alignItems: 'center', justifyItems: 'center' }, my: 1 }}>
+      <Stack direction="column" spacing={2} sx={{ display: { xs: 'flex' }, my: 1 }}>
+
         <img src={courseObject.cover_image} loading="lazy" alt="" height={'550vh'} width={'90%'} />
 
-        <Stack spacing={2} sx={{ flexGrow: 1 }} >
+        {/* course title */}
+        <Typography variant='h3' style={{ color: '#ed7d45', textAlign: 'center' }}> {courseObject.title} </Typography>
 
-          {/* course title */}
-          <Typography variant='h3' style={{ color: '#ed7d45', textAlign: 'center' }}> {courseObject.title} </Typography>
+        {/* course details */}
+        <Typography variant='h4' style={{ fontWeight: 'bold', color: '#333440', borderBottom: '#333440 3px solid', textAlign: 'center' }}> Course Details </Typography>
 
-          {/* course details */}
-          <Typography variant='h4' style={{ fontWeight: 'bold', color: '#333440', borderBottom: '#333440 3px solid', textAlign: 'center' }}> Course Details </Typography>
+        <Stack spacing={2} sx={{ flexGrow: 1, alignItems: 'center' }} >
+
           <Stack direction="column" sx={{ display: { xs: 'flex' }, my: 1 }}>
             <CourseDetailsComponent details={courseDetailsArray} />
 
@@ -99,9 +101,10 @@ export default function CourseDetails() {
 
           </Stack>
 
-          <FreeTrialButton course={courseObject} />
+          <FreeTrialButton course={courseObject} is_blus={true} />
+
         </Stack>
       </Stack>
-    </Card>
+    </Stack>
   )
 }
