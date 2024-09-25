@@ -3,10 +3,11 @@ import { TextField, Stack, Grid, Typography } from '@mui/material'
 import IconButton from '@mui/material/IconButton';
 import DeleteIcon from '@mui/icons-material/Delete';
 import YesOrNoComponent from './YesOrNoComponent';
+import StudentRegisterLevelsComponent from './StudentRegisterLevelsComponent.js'
 import { experimentalStyled as styled } from '@mui/material/styles';
 import Paper from '@mui/material/Paper';
 
-export default function StudentRegisterComponent({ index, requestData, requestErrorMsgs, updateChildrenArray }) {
+export default function StudentRegisterComponent({ index, requestData, requestErrorMsgs, updateChildrenArray, courseObject }) {
     const minAge = 0
     const maxAge = 14
 
@@ -32,6 +33,11 @@ export default function StudentRegisterComponent({ index, requestData, requestEr
         updateChildProperty(Object.keys(requestData.children[index])[3], selection)
     }
 
+    function handleCodingLevelSelection(selection) {
+        requestData.children[index].course_level = selection;
+        updateChildProperty(Object.keys(requestData.children[index])[5], selection)
+    }
+
     const Item = styled(Paper)(({ theme }) => ({
         display: 'flex',
         alignItems: 'center'
@@ -41,7 +47,6 @@ export default function StudentRegisterComponent({ index, requestData, requestEr
         <Stack direction="column" spacing={2} sx={{ justifyContent: 'space-evenly', border: 'gray .3vmin solid', padding: '1vmin' }}>
 
             <Typography component="p" variant='p' style={{ color: '#4F8DB9', fontWeight: 'bold', alignItems: 'flex-start' }}> Child {index + 1} </Typography>
-
             <Grid container spacing={1} >
                 {/* First Name */}
                 <Grid item xs={8} md={4}>
@@ -100,6 +105,9 @@ export default function StudentRegisterComponent({ index, requestData, requestEr
                 </Grid>
                 <Grid item xs={12}>
                     <YesOrNoComponent displayText={'Does your child have a Computer?'} handleSelection={handleHasComputerSelection} />
+                </Grid>
+                <Grid item xs={12}>
+                    <StudentRegisterLevelsComponent levels={courseObject.levels} handleSelection={handleCodingLevelSelection} child={requestData.children[index]} />
                 </Grid>
             </Grid>
         </Stack>

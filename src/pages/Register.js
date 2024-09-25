@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { Card, TextField, Stack, Typography, Button, Grid } from '@mui/material'
+import { TextField, Stack, Typography, Button, Grid } from '@mui/material'
 import StudentRegisterComponent from '../components/StudentRegisterComponent'
 import ProgrameTypeComponent from '../components/ProgrameTypeComponent'
 import validator from "validator";
@@ -23,7 +23,8 @@ export default function RegisterForm() {
         last_name: '',
         age: '',
         has_computer: true,
-        email: ''
+        email: '',
+        course_level: ''
     }
 
     const childErrorObject = {
@@ -204,7 +205,7 @@ export default function RegisterForm() {
     }
 
     function submit() {
-
+        alert(`Request Data: ${JSON.stringify(requestData)}`)
         if (validateForm()) {
             if ((!validator.isEmpty(courseId)) && courseId !== '0') requestData.course = { ...courseObject }
 
@@ -239,8 +240,15 @@ export default function RegisterForm() {
     }));
 
     return (
-        <Card className='recent-blogs d-block'>
+        <Stack className='recent-blogs d-block'>
             <Stack direction="column" spacing={2} sx={{ justifyContent: 'space-evenly', padding: '1.5vmin' }} >
+
+                {
+                    ((!validator.isEmpty(courseId)) && courseId !== '0') ?
+                        <Typography component="h5" variant='h5' style={{ color: '#ed7d45', fontWeight: 'bolder', justifyContent: 'center', alignItems: 'center', textAlign: 'center', fontFamily: 'monospace' }}>  {courseObject.slogan} </Typography>
+                        : null
+                }
+
                 {/* page title */}
                 <Typography component="h5" variant='h5' style={{ color: 'black', fontWeight: 'bold', justifyContent: 'center', alignItems: 'center', textAlign: 'center' }}> Registration </Typography>
                 {
@@ -333,7 +341,8 @@ export default function RegisterForm() {
                                 index={index}
                                 requestData={requestData}
                                 requestErrorMsgs={requestErrorMsgs}
-                                updateChildrenArray={updateChildrenArray} />)
+                                updateChildrenArray={updateChildrenArray}
+                                courseObject={courseObject} />)
                         : null
                 }
                 <Button
@@ -392,6 +401,6 @@ export default function RegisterForm() {
                     onClick={() => submit()}
                     className={'orage_btn'}> Submit </Button>
             </Stack>
-        </Card>
+        </Stack>
     )
 }
