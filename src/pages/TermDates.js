@@ -1,4 +1,4 @@
-import { Card, Stack, List, Divider, Typography, ListItemDecorator, ListItemContent } from "@mui/joy";
+import { Stack, List, Divider, Typography, ListItemDecorator, ListItemContent } from "@mui/joy";
 import { Grid } from "@mui/material";
 import term_dates_img from '../assets/term_dates_img.png'
 
@@ -50,7 +50,7 @@ export default function TermDates() {
     ]
 
     return (
-        <Card className='recent-blogs d-block'>
+        <Stack className='recent-blogs d-block'>
 
             <Stack direction="row" spacing={1} sx={{ justifyContent: 'space-around', alignItems: 'center', background: 'linear-gradient(to bottom, #9192ca, #FFFFFF);', padding: '3vmin' }} >
                 <Grid container columns={{ xs: 2, sm: 8, md: 12 }} sx={{ justifyContent: 'center', alignItems: 'center' }} width={'70%'}>
@@ -151,6 +151,6 @@ export default function TermDates() {
                 </List>
 
             </Stack>
-        </Card>
+        </Stack>
     );
 }

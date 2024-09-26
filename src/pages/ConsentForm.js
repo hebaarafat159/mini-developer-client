@@ -2,7 +2,7 @@
 import React, { useState, useEffect } from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
 import validator from "validator";
-import { Card, TextField, Stack, Typography, Button, Grid } from '@mui/material'
+import { TextField, Stack, Typography, Button, Grid } from '@mui/material'
 import { experimentalStyled as styled } from '@mui/material/styles';
 import Paper from '@mui/material/Paper';
 import YesOrNoComponent from '../components/YesOrNoComponent';
@@ -103,7 +103,7 @@ export default function ConsentForm() {
     }));
 
     return (
-        <Card className='recent-blogs d-block'>
+        <Stack className='recent-blogs d-block'>
             <Stack direction="column" spacing={2} sx={{ justifyContent: 'space-evenly', padding: '1.5vmin' }} >
                 <Typography component="h5" variant='h5' style={{ color: 'black', fontWeight: 'bold', justifyContent: 'center', alignItems: 'center', textAlign: 'center' }}> Mini Developer Consent Form </Typography>
                 <Typography component="p" variant='p' style={{ color: '#333440', justifyContent: 'center', alignItems: 'center', textAlign: 'center' }}> You are requested to kindly fill this consent form before you begin your coding journey with us. </Typography>
@@ -224,6 +224,6 @@ export default function ConsentForm() {
                     onClick={() => submit()}
                     className={'orage_btn'}> Submit </Button>
             </Stack>
-        </Card>
+        </Stack>
     )
 }

@@ -1,6 +1,6 @@
 import React from 'react'
 // eslint-disable-next-line
-import { Button, Card, Stack, Typography, Grid } from '@mui/material'
+import { Button, Stack, Typography, Grid } from '@mui/material'
 import FreeTrialButton from '../components/FreeTrialButton'
 import ExploreButtonComponent from '../components/ExploreButtonComponent'
 import home_first_paragraphe_img from '../assets/home_first_paragraphe_img.jpg'
@@ -41,7 +41,7 @@ export default function Home() {
         }
     ]
     return (
-        <Card className='recent-blogs d-block'>
+        <Stack className='recent-blogs d-block'>
             {/* news Bar  */}
             <Stack direction="row" spacing={1} sx={{ height: '15%', justifyContent: 'center', alignItems: 'center', background: 'linear-gradient(to right, #e73da0, #cf559c);', padding: '1vmin' }} >
                 <Grid container xs={12} columns={{ xs: 3, sm: 8, md: 12 }} sx={{ alignItems: 'center', padding: '1vmin' }}>
@@ -167,6 +167,6 @@ export default function Home() {
                     </Grid>
                 </Stack> */}
             </Stack>
-        </Card >
+        </Stack >
     )
 }
