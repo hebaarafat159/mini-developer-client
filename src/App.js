@@ -12,27 +12,30 @@ import OurVisionComponent from './components/OurVisionComponent';
 import ConfirmationPage from './pages/ConfirmationPage';
 import TermDates from './pages/TermDates';
 import ConsentForm from './pages/ConsentForm';
+import { HelmetProvider } from "react-helmet-async";
 
 function App() {
   return (
-    <BrowserRouter>
-      <HeaderComponent />
-      <div className="routes-container">
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/about/ourvision" element={<OurVisionComponent />} />
-          <Route path="/about/whyus" element={<WhyUsComponent />} />
-          <Route path="/courses" element={<Courses />} />
-          <Route path="/courses/:id" element={<CourseDetails />} />
-          <Route path="/contactus" element={<ContactUs />} />
-          <Route path="/register/:courseId" element={<Register />} />
-          <Route path="/confirmation" element={<ConfirmationPage />} />
-          <Route path="/termdates" element={<TermDates />} />
-          <Route path="/students/:studentId" element={<ConsentForm />} />
-        </Routes>
-      </div>
-      <Footer />
-    </BrowserRouter>
+    <HelmetProvider>
+      <BrowserRouter>
+        <HeaderComponent />
+        <div className="routes-container">
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/about/ourvision" element={<OurVisionComponent />} />
+            <Route path="/about/whyus" element={<WhyUsComponent />} />
+            <Route path="/courses" element={<Courses />} />
+            <Route path="/courses/:id" element={<CourseDetails />} />
+            <Route path="/contactus" element={<ContactUs />} />
+            <Route path="/register/:courseId" element={<Register />} />
+            <Route path="/confirmation" element={<ConfirmationPage />} />
+            <Route path="/termdates" element={<TermDates />} />
+            <Route path="/students/:studentId" element={<ConsentForm />} />
+          </Routes>
+        </div>
+        <Footer />
+      </BrowserRouter>
+    </HelmetProvider>
   );
 }
 
