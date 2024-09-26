@@ -205,7 +205,7 @@ export default function RegisterForm() {
     }
 
     function submit() {
-        
+
         if (validateForm()) {
             if ((!validator.isEmpty(courseId)) && courseId !== '0') requestData.course = { ...courseObject }
 
@@ -241,7 +241,7 @@ export default function RegisterForm() {
 
     return (
         <Stack className='recent-blogs d-block'>
-            <Stack direction="column" spacing={2} sx={{ justifyContent: 'space-evenly', padding: '1.5vmin' }} >
+            <Stack direction="column" spacing={2} sx={{ justifyContent: 'space-evenly', alignItems: 'center', padding: '1.5vmin' }} >
 
                 {
                     ((!validator.isEmpty(courseId)) && courseId !== '0') ?
@@ -259,141 +259,143 @@ export default function RegisterForm() {
                         </> : null
                 }
 
-                {/* parent name */}
-                <Typography component="p" variant='p' style={{ color: '#333440', fontWeight: 'bold', alignItems: 'flex-start' }}> Parent Name <span style={{ color: 'red' }}> * </span></Typography>
-                <Grid container spacing={1} >
-                    <Grid item xs={8} md={6}>
-                        <Item>
-                            <TextField
-                                required
-                                label="First Name"
-                                defaultValue={requestData.parentData.first_name}
-                                onChange={(event) => {
-                                    requestData.parentData.first_name = event.target.value;
-                                }}
-                                error={Boolean(requestErrorMsgs.parentData.first_name)}
-                                helperText={requestErrorMsgs.parentData.first_name}
-                                fullWidth />
-                        </Item>
+                <Stack direction="column" spacing={2} sx={{ justifyContent: 'space-evenly', padding: '1.5vmin' }} >
+
+                    {/* parent name */}
+                    <Typography component="p" variant='p' style={{ color: '#333440', fontWeight: 'bold', alignItems: 'flex-start' }}> Parent Name <span style={{ color: 'red' }}> * </span></Typography>
+                    <Grid container spacing={1} >
+                        <Grid item xs={8} md={6}>
+                            <Item>
+                                <TextField
+                                    required
+                                    label="First Name"
+                                    defaultValue={requestData.parentData.first_name}
+                                    onChange={(event) => {
+                                        requestData.parentData.first_name = event.target.value;
+                                    }}
+                                    error={Boolean(requestErrorMsgs.parentData.first_name)}
+                                    helperText={requestErrorMsgs.parentData.first_name}
+                                    fullWidth />
+                            </Item>
+                        </Grid>
+
+                        <Grid item xs={8} md={6}>
+                            <Item>
+                                <TextField
+                                    required
+                                    label="Last Name"
+                                    defaultValue={requestData.parentData.last_name}
+                                    onChange={(event) => {
+                                        requestData.parentData.last_name = event.target.value;
+                                    }}
+                                    error={Boolean(requestErrorMsgs.parentData.last_name)}
+                                    helperText={requestErrorMsgs.parentData.last_name}
+                                    fullWidth />
+                            </Item>
+                        </Grid>
                     </Grid>
 
-                    <Grid item xs={8} md={6}>
-                        <Item>
-                            <TextField
-                                required
-                                label="Last Name"
-                                defaultValue={requestData.parentData.last_name}
-                                onChange={(event) => {
-                                    requestData.parentData.last_name = event.target.value;
-                                }}
-                                error={Boolean(requestErrorMsgs.parentData.last_name)}
-                                helperText={requestErrorMsgs.parentData.last_name}
-                                fullWidth />
-                        </Item>
+                    {/* email */}
+                    <Typography component="p" variant='p' style={{ color: '#333440', fontWeight: 'bold', alignItems: 'flex-start' }}> Email <span style={{ color: 'red' }}> * </span></Typography>
+                    <Grid container spacing={1} >
+                        <Grid item xs={8} md={12}>
+                            <Item>
+                                <TextField
+                                    required
+                                    defaultValue={requestData.parentData.email}
+                                    onChange={(event) => {
+                                        requestData.parentData.email = event.target.value;
+                                    }}
+                                    error={Boolean(requestErrorMsgs.parentData.email)}
+                                    helperText={requestErrorMsgs.parentData.email}
+                                    fullWidth />
+                            </Item>
+                        </Grid>
                     </Grid>
-                </Grid>
 
-                {/* email */}
-                <Typography component="p" variant='p' style={{ color: '#333440', fontWeight: 'bold', alignItems: 'flex-start' }}> Email <span style={{ color: 'red' }}> * </span></Typography>
-                <Grid container spacing={1} >
-                    <Grid item xs={8} md={12}>
-                        <Item>
-                            <TextField
-                                required
-                                defaultValue={requestData.parentData.email}
-                                onChange={(event) => {
-                                    requestData.parentData.email = event.target.value;
-                                }}
-                                error={Boolean(requestErrorMsgs.parentData.email)}
-                                helperText={requestErrorMsgs.parentData.email}
-                                fullWidth />
-                        </Item>
+                    {/* Mobile Number */}
+                    <Typography component="p" variant='p' style={{ color: '#333440', fontWeight: 'bold', alignItems: 'flex-start' }}> Mobile <span style={{ color: 'red' }}> * </span> <span style={{ color: '#333440', fontWeight: 'lighter', fontStyle: 'italic' }}>(preferably number with WhatsApp)</span></Typography>
+                    <Grid container spacing={1} >
+                        <Grid item xs={8} md={12}>
+                            <Item>
+                                <TextField
+                                    required
+                                    defaultValue={requestData.parentData.mobile}
+                                    onChange={(event) => {
+                                        requestData.parentData.mobile = event.target.value;
+                                    }}
+                                    error={Boolean(requestErrorMsgs.parentData.mobile)}
+                                    helperText={requestErrorMsgs.parentData.mobile}
+                                    fullWidth />
+                            </Item>
+                        </Grid>
                     </Grid>
-                </Grid>
 
-                {/* Mobile Number */}
-                <Typography component="p" variant='p' style={{ color: '#333440', fontWeight: 'bold', alignItems: 'flex-start' }}> Mobile <span style={{ color: 'red' }}> * </span> <span style={{ color: '#333440', fontWeight: 'lighter', fontStyle: 'italic' }}>(preferably number with WhatsApp)</span></Typography>
-                <Grid container spacing={1} >
-                    <Grid item xs={8} md={12}>
-                        <Item>
-                            <TextField
-                                required
-                                defaultValue={requestData.parentData.mobile}
-                                onChange={(event) => {
-                                    requestData.parentData.mobile = event.target.value;
-                                }}
-                                error={Boolean(requestErrorMsgs.parentData.mobile)}
-                                helperText={requestErrorMsgs.parentData.mobile}
-                                fullWidth />
-                        </Item>
+                    {/* children section */}
+                    <Typography component="p" variant='p' style={{ color: '#333440', fontWeight: 'bold', justifyContent: 'center', alignItems: 'flex-start' }}>
+                        Add Your Children <span style={{ color: 'red' }}> * </span> </Typography>
+
+                    {/* case of add new child after having children */}
+                    {
+                        (requestData.children && requestData.children.length > 0) ?
+                            requestData.children.map((childObject, index) =>
+                                < StudentRegisterComponent
+                                    index={index}
+                                    requestData={requestData}
+                                    requestErrorMsgs={requestErrorMsgs}
+                                    updateChildrenArray={updateChildrenArray}
+                                    courseObject={courseObject} />)
+                            : null
+                    }
+
+                    <Stack direction="column" spacing={2} sx={{ justifyContent: 'space-evenly', alignItems: 'end', padding: '1.5vmin' }} >
+
+                        <Button
+                            variant="contained"
+                            onClick={() => addNewChild()}
+                            className={'blue_btn'}> Add Another Child </Button>
+                    </Stack>
+
+                    {/* program type In=person or Online */}
+                    <ProgrameTypeComponent requestData={requestData} updateRegistrationDataProperty={updateRegistrationDataProperty} errors={requestErrorMsgs} courseId={courseId} />
+
+                    {/* hear about us */}
+                    <Typography component="p" variant='p' style={{ color: '#333440', fontWeight: 'bold', alignItems: 'flex-start' }}> How did you hear about us? </Typography>
+                    <Grid container spacing={1} >
+                        <Grid item xs={8} md={12}>
+                            <Item>
+                                <TextField
+                                    required
+                                    defaultValue={requestData.parentData.hear_about_us}
+                                    onChange={(event) => {
+                                        requestData.parentData.hear_about_us = event.target.value;
+                                    }}
+                                    error={Boolean(requestErrorMsgs.parentData.hear_about_us)}
+                                    helperText={requestErrorMsgs.parentData.hear_about_us}
+                                    fullWidth />
+                            </Item>
+                        </Grid>
                     </Grid>
-                </Grid>
 
-                {/* children section */}
-                <Typography component="p" variant='p' style={{ color: '#333440', fontWeight: 'bold', justifyContent: 'center', alignItems: 'flex-start' }}>
-                    Add Your Children <span style={{ color: 'red' }}> * </span> </Typography>
-
-                {/* case of add new child after having children */}
-                {
-                    (requestData.children && requestData.children.length > 0) ?
-                        requestData.children.map((childObject, index) =>
-                            < StudentRegisterComponent
-                                index={index}
-                                requestData={requestData}
-                                requestErrorMsgs={requestErrorMsgs}
-                                updateChildrenArray={updateChildrenArray}
-                                courseObject={courseObject} />)
-                        : null
-                }
-                <Button
-                    variant="contained"
-                    onClick={addNewChild}
-                    style={{
-                        borderRadius: 5,
-                        background: 'linear-gradient(to bottom,#80AAC7, #4F8DB9 )',
-                        // fontSize: "2.5vmin",
-                        width: 'auto',
-                        padding: '1vmin'
-                    }}> Add Another Child </Button>
-
-                {/* program type In=person or Online */}
-                <ProgrameTypeComponent requestData={requestData} updateRegistrationDataProperty={updateRegistrationDataProperty} errors={requestErrorMsgs} courseId={courseId} />
-
-                {/* hear about us */}
-                <Typography component="p" variant='p' style={{ color: '#333440', fontWeight: 'bold', alignItems: 'flex-start' }}> How did you hear about us? </Typography>
-                <Grid container spacing={1} >
-                    <Grid item xs={8} md={12}>
-                        <Item>
-                            <TextField
-                                required
-                                defaultValue={requestData.parentData.hear_about_us}
-                                onChange={(event) => {
-                                    requestData.parentData.hear_about_us = event.target.value;
-                                }}
-                                error={Boolean(requestErrorMsgs.parentData.hear_about_us)}
-                                helperText={requestErrorMsgs.parentData.hear_about_us}
-                                fullWidth />
-                        </Item>
+                    {/* Any Questions */}
+                    <Typography component="p" variant='p' style={{ color: '#333440', fontWeight: 'bold', alignItems: 'flex-start' }}>  Do you have any questions or comments?</Typography>
+                    <Grid container spacing={1} >
+                        <Grid item xs={8} md={12}>
+                            <Item>
+                                <TextField
+                                    required
+                                    defaultValue={requestData.parentData.questions}
+                                    onChange={(event) => {
+                                        requestData.parentData.questions = event.target.value;
+                                    }}
+                                    error={Boolean(requestErrorMsgs.parentData.questions)}
+                                    helperText={requestErrorMsgs.parentData.questions}
+                                    fullWidth />
+                            </Item>
+                        </Grid>
                     </Grid>
-                </Grid>
 
-                {/* Any Questions */}
-                <Typography component="p" variant='p' style={{ color: '#333440', fontWeight: 'bold', alignItems: 'flex-start' }}>  Do you have any questions or comments?</Typography>
-                <Grid container spacing={1} >
-                    <Grid item xs={8} md={12}>
-                        <Item>
-                            <TextField
-                                required
-                                defaultValue={requestData.parentData.questions}
-                                onChange={(event) => {
-                                    requestData.parentData.questions = event.target.value;
-                                }}
-                                error={Boolean(requestErrorMsgs.parentData.questions)}
-                                helperText={requestErrorMsgs.parentData.questions}
-                                fullWidth />
-                        </Item>
-                    </Grid>
-                </Grid>
+                </Stack>
 
                 {/* Submit Button */}
                 <Button

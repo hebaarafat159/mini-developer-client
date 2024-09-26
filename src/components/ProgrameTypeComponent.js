@@ -55,7 +55,7 @@ export default function ProgrameTypeComponent({ requestData, updateRegistrationD
                     {errors.region !== '' && <Typography variant='danger' style={{ fontSize: '1.5vw', color: 'red' }}>{errors.region}</Typography>}
 
                     <FormControl fullWidth>
-                        <InputLabel id="active-regions-label">Select prefferred area</InputLabel>
+                        <InputLabel id="active-regions-label">Select prefferred area in London</InputLabel>
                         {/* Regions  */}
                         <Select
                             labelId="active-regions-label"
@@ -81,7 +81,7 @@ export default function ProgrameTypeComponent({ requestData, updateRegistrationD
                     {
                         (courseId !== '0') && (classrooms !== null && classrooms.length > 0) &&
                         < FormControl fullWidth>
-                            <InputLabel id="open-courses-label">Open Course Places: </InputLabel>
+                            <InputLabel id="open-courses-label">Select Course Venue: </InputLabel>
                             {/* Regions Places */}
                             <Select
                                 labelId="open-courses-label"
