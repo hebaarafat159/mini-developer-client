@@ -205,7 +205,7 @@ export default function RegisterForm() {
     }
 
     function submit() {
-        alert(`Request Data: ${JSON.stringify(requestData)}`)
+        
         if (validateForm()) {
             if ((!validator.isEmpty(courseId)) && courseId !== '0') requestData.course = { ...courseObject }
 
