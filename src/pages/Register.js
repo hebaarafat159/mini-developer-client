@@ -245,7 +245,7 @@ export default function RegisterForm() {
 
                 {
                     ((!validator.isEmpty(courseId)) && courseId !== '0') ?
-                        <Typography component="h5" variant='h5' style={{ color: '#ed7d45', fontWeight: 'bolder', justifyContent: 'center', alignItems: 'center', textAlign: 'center', fontFamily: 'monospace' }}>  {courseObject.slogan} </Typography>
+                        <Typography component="h5" variant='h5' style={{ color: '#ed7d45', fontWeight: 'bolder', justifyContent: 'center', alignItems: 'center', textAlign: 'center', fontFamily: 'Papyrus' }}>  {courseObject.slogan} </Typography>
                         : null
                 }
 
