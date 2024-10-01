@@ -48,18 +48,15 @@ export default function CourseLevelsComponent({ testimonialsCount }) {
                 <Typography component="h4" variant='h4' style={{ color: '#4682b4', textAlign: 'center', fontWeight: 'bold', padding: '3vmin auto', fontFamily: 'Papyrus' }}> Do you know what our Customers say about us?  </Typography>
                 <Grid container columns={{ xs: 2, sm: 8, md: 16 }} style={{ display: 'flex', alignContent: 'center', justifyContent: 'center' }}>
                     {testimonials.map((testimonial, index) => (
-
-                        // <Grid key={index} xs={2} width={'500'}
-                        //     style={{
-                        //         // background: 'https://img.freepik.com/free-vector/star-emoji-framed-background_53876-89768.jpg?ga=GA1.1.1315253702.1718914056&semt=ais_hybrid',
-                        //         border: '#ed7d45 .1vmin solid',
-                        //         borderRadius: '1vmin',
-                        //         margin: '1vmin',
-                        //         backgroundColor: 'darkblue'
-                        //     }}>
-                        <Grid xs={2} sm={4} md={2} key={index} sx={{ justifyContent: 'center', alignItems: 'center', margin: '1vmin', backgroundColor: 'darkblue' }}>
-                            <Typography component="p" variant='p' style={{ color: 'white', textAlign: 'center', padding: '2vw' }}> {testimonial.text} </Typography>
-                            {/* <Typography width={'200'} component="h6" variant='h6' style={{ padding: '1vmin', color: 'white', textAlign: 'center' }}>{testimonial.text}</Typography> */}
+                        <Grid xs={2} sm={4} md={2} key={index} sx={{ justifyContent: 'center', alignItems: 'center', margin: '1vmin' }}>
+                            <div style={{
+                                backgroundRepeat: 'no-repeat',
+                                backgroundSize: 'cover',
+                                backgroundImage: 'url("https://img.freepik.com/free-vector/star-emoji-framed-background_53876-89768.jpg?ga=GA1.1.1315253702.1718914056&semt=ais_hybrid")'
+                                // backgroundImage: 'url("https://drive.google.com/thumbnail?id=13AVf_kWa1-cAL-fRZulLSQ992IWFp4_6")'
+                            }}>
+                                <Typography component="p" variant='p' style={{ color: 'white', textAlign: 'center', padding: '2vw' }}> {testimonial.text} </Typography>
+                            </div>
                         </Grid>
                     ))}
                     {(testimonialsCount > 0) ?
@@ -75,7 +72,7 @@ export default function CourseLevelsComponent({ testimonialsCount }) {
                                 })}> See More </Button>
                         </Grid> : null}
                 </Grid>
-            </Stack>
+            </Stack >
             : null
     )
 }
