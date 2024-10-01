@@ -12,6 +12,7 @@ import creative_img from '../assets/creative_img.png'
 import logical_thinking_img from '../assets/logical_thinking_img.png'
 import collaboration_img from '../assets/collaboration_img.png'
 import digital_literacy_img from '../assets/digital_literacy_img.png'
+import TestimonialsComponent from '../components/TestimonialsComponent'
 
 import { Helmet } from "react-helmet-async";
 export default function Home() {
@@ -84,14 +85,6 @@ export default function Home() {
                                     <Stack direction="row" spacing={1} >
                                         <FreeTrialButton course={null} />
                                         <ExploreButtonComponent />
-                                        {/* <Button
-                                        variant="contained"
-                                        className={'gray_btn'}
-                                        onClick={() => window.scroll({
-                                            top: document.body.offsetHeight,
-                                            left: 0,
-                                            behavior: 'smooth',
-                                        })}> Learn More</Button> */}
                                     </Stack>
                                 </Stack>
                             </Grid>
@@ -125,6 +118,11 @@ export default function Home() {
                                 </Stack>
                             </Grid>
                         </Grid>
+                    </Stack>
+
+                    {/* Testimonial */}
+                    <Stack direction="column" spacing={2} sx={{ justifyContent: 'space-evenly', padding: '2vw' }} >
+                        <TestimonialsComponent testimonialsCount={5} />
                     </Stack>
 
                     {/* The Benefit  */}

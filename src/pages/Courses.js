@@ -24,7 +24,5 @@ export default function Courses() {
                 </Grid>
             )) : null}
         </Grid>
-
-
     )
 }

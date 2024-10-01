@@ -13,7 +13,7 @@ import HeaderMenuTabs from './HeaderMenuTabs'
 import OurVisionComponent from '../components/OurVisionComponent';
 import WhyUsComponent from '../components/WhyUsComponent';
 import TermDates from '../pages/TermDates'
-
+import Testimonials from '../pages/Testimonials'
 export default function HeaderComponent() {
     const theme = useTheme();
     const isMatch = useMediaQuery(theme.breakpoints.down('md'));
@@ -71,6 +71,12 @@ export default function HeaderComponent() {
             label: 'Term Dates',
             link: '/termdates',
             component: <TermDates />
+        },
+        {
+            position: 5,
+            label: 'Testimonials',
+            link: '/testimonials',
+            component: <Testimonials />
         }
     ])
 
