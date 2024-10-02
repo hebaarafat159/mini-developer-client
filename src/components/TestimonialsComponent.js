@@ -65,11 +65,7 @@ export default function CourseLevelsComponent({ testimonialsCount }) {
                                 variant="contained"
                                 className={'blue_btn'}
                                 LinkComponent={'a'} href={'/testimonials'}
-                                onClick={() => window.scroll({
-                                    top: (document.body.offsetTop + 550),
-                                    left: 0,
-                                    behavior: 'smooth',
-                                })}> See More </Button>
+                            > See More </Button>
                         </Grid> : null}
                 </Grid>
             </Stack >
