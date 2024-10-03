@@ -46,16 +46,18 @@ export default function CourseLevelsComponent({ testimonialsCount }) {
         (testimonials && testimonials.length > 0) ?
             <Stack direction="column" sx={{ display: { xs: 'flex', flexFlow: 'row flex' }, my: 1 }} width={'100%'}>
                 <Typography component="h4" variant='h4' style={{ color: '#4682b4', textAlign: 'center', fontWeight: 'bold', padding: '3vmin auto', fontFamily: 'Papyrus' }}> Do you know what our Customers say about us?  </Typography>
-                <Grid container columns={{ xs: 2, sm: 8, md: 12 }} style={{ display: 'flex', alignContent: 'center', justifyContent: 'center' }}>
+                <Grid container columns={{ xs: 2, sm: 8, md: 12 }}>
                     {testimonials.map((testimonial, index) => (
-                        <Grid xs={2} sm={4} md={2} key={index} sx={{ justifyContent: 'center', alignItems: 'center', margin: '1vmin', fontWeight: 'bold', padding: '3vmin' }}>
+                        <Grid item xs={2} sm={4} md={4} key={index}>
                             <div style={{
                                 backgroundRepeat: 'no-repeat',
-                                backgroundSize: 'cover',
-                                // backgroundImage: 'url("https://img.freepik.com/free-vector/star-emoji-framed-background_53876-89768.jpg?ga=GA1.1.1315253702.1718914056&semt=ais_hybrid")'
+                                backgroundSize: 'contain',
+                                backgroundPosition: 'center',
+                                padding: '9vmin',
+                                margin: '2vmin',
                                 backgroundImage: 'url("https://drive.google.com/thumbnail?id=1SodYYBLeDlkUK6pDRu5AkKxdrJglGGS2")'
                             }}>
-                                <Typography component="p" variant='p' style={{ textAlign: 'center', padding: '2vw', fontFamily: 'Cursive' }}> {testimonial.text} </Typography>
+                                <Typography component="p" variant='p' style={{ fontWeight: 'bold', fontFamily: 'Cursive', fontSize: '100%', textAlign: 'center', padding: '12% 12% 12% 20%' }}> {testimonial.text} </Typography>
                             </div>
                         </Grid>
                     ))}
