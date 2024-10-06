@@ -53,7 +53,7 @@ export default function Home() {
 
             <Stack className='recent-blogs d-block'>
                 {/* news Bar  */}
-                <Stack direction="row" spacing={1} sx={{ height: '15%', justifyContent: 'center', alignItems: 'center', background: 'linear-gradient(to right, #e73da0, #cf559c);', padding: '1vmin' }} >
+                <Stack direction="row" className='box' spacing={1} sx={{ height: '15%', justifyContent: 'center', alignItems: 'center', padding: '1vmin' }} >
                     <Grid container xs={12} columns={{ xs: 3, sm: 8, md: 12 }} sx={{ alignItems: 'center', padding: '1vmin' }}>
                         <Grid item xs={8} sx={{ alignItems: 'center' }}>
                             <Stack direction="row" spacing={2} sx={{ justifyContent: 'center', alignItems: 'center' }}>

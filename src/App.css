@@ -329,4 +329,22 @@ a.instagram {
   color: #f40ba6;
 }
 
+.box {
+  padding: 20px;
+  background-color: #3498db;
+  color: white;
+  font-size: 16px;
+  /* Name, duration, timing function, delay, repeat, direction, fill mode */
+  animation: changeColor 2s ease-in-out 1s infinite alternate both;
+}
+
+/* Animation Definition */
+@keyframes changeColor {
+  0% {
+      background-color: #3498db;
+  }
+  100% {
+      background-color: #e74c3c;
+  }
+}
 /* @media (min-width: 600px) {} */
