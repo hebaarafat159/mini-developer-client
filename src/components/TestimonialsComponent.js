@@ -4,43 +4,25 @@ import { Typography, Grid, Stack, Button } from '@mui/material'
 // testimonialsCount will be 0 if we want to load all that we had
 export default function CourseLevelsComponent({ testimonialsCount }) {
 
-    const [testimonials, setTestimonials] = useState([
-        {
-            text: "My son is enjoying the lessons and I am glad he is progressing well",
-            date: "2024-09-09T00:00:00.000+00:00"
-        },
-        {
-            text: "My son is enjoying the lessons and I am glad he is progressing well",
-            date: "2024-09-09T00:00:00.000+00:00"
-        },
-        {
-            text: "My son is enjoying the lessons and I am glad he is progressing well",
-            date: "2024-09-09T00:00:00.000+00:00"
-        },
-        {
-            text: "My son is enjoying the lessons and I am glad he is progressing well",
-            date: "2024-09-09T00:00:00.000+00:00"
+    const [testimonials, setTestimonials] = useState([])
+
+    useEffect(() => {
+        if (testimonialsCount > 0) {
+            fetch(`${process.env.REACT_APP_URL_APP_PATH}/testmonials/latesttestimonials`)
+                .then(response => response.json())
+                .then(result => {
+                    setTestimonials(result.body);
+                    console.log(`Testimonials Object : ${result.body}`)
+                })
+        } else {
+            fetch(`${process.env.REACT_APP_URL_APP_PATH}/testmonials`)
+                .then(response => response.json())
+                .then(result => {
+                    setTestimonials(result.body);
+                    console.log(`Testimonials Object : ${result.body}`)
+                })
         }
-    ])
-
-
-    // useEffect(() => {
-    //     if (testimonialsCount > 0) {
-    //         fetch(`${process.env.REACT_APP_URL_APP_PATH}/courses/testimonials`)
-    //             .then(response => response.json())
-    //             .then(result => {
-    //                 setTestimonials(result.body);
-    //                 console.log(`Testimonials Object : ${result.body}`)
-    //             })
-    //     } else {
-    //         fetch(`${process.env.REACT_APP_URL_APP_PATH}/courses/latesttestimonials`)
-    //             .then(response => response.json())
-    //             .then(result => {
-    //                 setTestimonials(result.body);
-    //                 console.log(`Testimonials Object : ${result.body}`)
-    //             })
-    //     }
-    // }, [testimonialsCount]);
+    }, [testimonialsCount]);
 
     return (
         (testimonials && testimonials.length > 0) ?
