@@ -13,7 +13,20 @@ export default function SingleTestimonialComponent({ testimonial, index }) {
                 margin: '2vmin',
                 backgroundImage: 'url("https://drive.google.com/thumbnail?id=1SodYYBLeDlkUK6pDRu5AkKxdrJglGGS2")'
             }}>
-                <Typography component="p" variant='p' style={{ fontWeight: 'bold', fontFamily: 'Cursive', fontSize: '100%', textAlign: 'center', padding: '12% 12% 12% 20%' }}> {testimonial.text} </Typography>
+                <Typography
+                    component="p"
+                    variant='p'
+                    style={{
+                        display: '-webkit-box',
+                        overflow: 'hidden',
+                        WebkitBoxOrient: 'vertical',
+                        WebkitLineClamp: 3,
+                        fontWeight: 'bold',
+                        fontFamily: 'Cursive',
+                        fontSize: '100%',
+                        textAlign: 'center',
+                        padding: '12% 12% 12% 20%'
+                    }}> {testimonial.text} </Typography>
             </div>
         </Grid>
     )
