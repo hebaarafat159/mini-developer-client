@@ -13,8 +13,8 @@ import logical_thinking_img from '../assets/logical_thinking_img.png'
 import collaboration_img from '../assets/collaboration_img.png'
 import digital_literacy_img from '../assets/digital_literacy_img.png'
 import TestimonialsComponent from '../components/TestimonialsComponent'
+import SEOComponent from '../components/SEOComponent'
 
-import { Helmet } from "react-helmet-async";
 export default function Home() {
 
     // set page title
@@ -44,12 +44,12 @@ export default function Home() {
     ]
     return (
         <div>
-            <Helmet>
-                <title>Mini Developer, Coding classes for children in London, UK or Online</title>
-                <meta name="description" content="Welcome to Mini Developer Coding School. We offer coding and programming classes for children aged 7 and up in London, UK or Online. Give your child the gift of coding and help them develop valuable skills for the future. Contact us today to learn more!" />
-                <meta name="robots" content="index, follow" />
-                <link rel="canonical" />
-            </Helmet>
+            <SEOComponent
+                seoData={{
+                    title: "Mini Developer, Coding classes for children in London, UK or Online",
+                    description: "Welcome to Mini Developer Coding School. We offer coding and programming classes for children aged 7 and up in London, UK or Online. Give your child the gift of coding and help them develop valuable skills for the future. Contact us today to learn more!",
+                    robots: "index, follow"
+                }} />
 
             <Stack className='recent-blogs d-block'>
                 {/* news Bar  */}

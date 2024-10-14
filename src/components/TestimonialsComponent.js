@@ -32,18 +32,6 @@ export default function TestimonialsComponent({ testimonialsCount }) {
                 <Grid container columns={{ xs: 2, sm: 8, md: 12 }}>
                     {testimonials.map((testimonial, index) => (
                         <SingleTestimonialComponent testimonial={testimonial} index={index} />
-                        // <Grid item xs={2} sm={4} md={4} key={index}>
-                        //     <div style={{
-                        //         backgroundRepeat: 'no-repeat',
-                        //         backgroundSize: 'contain',
-                        //         backgroundPosition: 'center',
-                        //         padding: '9vmin',
-                        //         margin: '2vmin',
-                        //         backgroundImage: 'url("https://drive.google.com/thumbnail?id=1SodYYBLeDlkUK6pDRu5AkKxdrJglGGS2")'
-                        //     }}>
-                        //         <Typography component="p" variant='p' style={{ fontWeight: 'bold', fontFamily: 'Cursive', fontSize: '100%', textAlign: 'center', padding: '12% 12% 12% 20%' }}> {testimonial.text} </Typography>
-                        //     </div>
-                        // </Grid>
                     ))}
                     {(testimonialsCount > 0) ?
                         <Grid xs={2} sm={4} md={2} sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center', margin: '1vmin' }}>
