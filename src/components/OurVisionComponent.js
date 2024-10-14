@@ -1,7 +1,7 @@
 import React from 'react'
 import { Typography, Stack } from '@mui/material'
 import ExploreButtonComponent from './ExploreButtonComponent'
-
+import SEOComponent from './SEOComponent'
 export default function OurVisionComponent() {
 
     // set page title
@@ -10,6 +10,11 @@ export default function OurVisionComponent() {
     return (
         <Stack direction="column" spacing={2} sx={{ alignItems: 'center', justifyContent: 'center', background: 'white', padding: '3vw' }} >
 
+            <SEOComponent
+                seoData={{
+                    title: "Our Vision | Mini Developer",
+                    description: "At Mini Developer, we are a team of passionate software engineer parents who are on a mission to teach young children about the exciting world of coding and technology. We understand the importance of early exposure to coding skills in today's digital age, and we are committed to helping children develop their skills."
+                }} />
             <Typography component="h4" variant='h6' style={{ color: '#ed7d45', textAlign: 'center', fontWeight: 'bold' }}>
                 Our Vision
             </Typography>

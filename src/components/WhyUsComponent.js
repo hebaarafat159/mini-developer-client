@@ -2,14 +2,17 @@ import React from 'react'
 import { Stack, Typography, Grid } from '@mui/material'
 import FreeTrialButton from './FreeTrialButton'
 import term_dates_img from '../assets/term_dates_img.png'
+import SEOComponent from './SEOComponent'
 
 export default function WhyUsComponent() {
 
-    // set page title
-    document.title = ' Why Us | Mini Developer';
-
     return (
         <Stack direction="row" spacing={2} sx={{ justifyContent: 'space-evenly', alignItems: 'center', background: '#333440', padding: '2vw' }} >
+            <SEOComponent
+                seoData={{
+                    title: "Why Us? | Mini Developer",
+                    description: "Here is why you would surely want to choose Mini Developer Coding classes for children."
+                }} />
             <Grid container columns={{ xs: 2, sm: 8, md: 12 }} sx={{ justifyContent: 'center', alignItems: 'center' }}>
                 <Grid item xs={4} sx={{ justifyContent: 'center', alignItems: 'center' }}>
                     <Stack direction="column" spacing={2} sx={{ justifyContent: 'center', alignItems: 'center', background: 'white', padding: '3vw' }} >
