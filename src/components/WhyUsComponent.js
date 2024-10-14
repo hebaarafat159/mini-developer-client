@@ -10,9 +10,9 @@ export default function WhyUsComponent() {
         <Stack direction="row" spacing={2} sx={{ justifyContent: 'space-evenly', alignItems: 'center', background: '#333440', padding: '2vw' }} >
             <SEOComponent
                 seoData={{
-                    slug: "why-us",
-                    title: "Why Us? | Mini Developer",
-                    description: "Here is why you would surely want to choose Mini Developer Coding classes for children."
+                    seo_slug: "why-us",
+                    seo_title: "Why Us? | Mini Developer",
+                    seo_description: "Here is why you would surely want to choose Mini Developer Coding classes for children."
                 }} />
             <Grid container columns={{ xs: 2, sm: 8, md: 12 }} sx={{ justifyContent: 'center', alignItems: 'center' }}>
                 <Grid item xs={4} sx={{ justifyContent: 'center', alignItems: 'center' }}>

@@ -13,20 +13,20 @@ export default function SEOComponent({ seoData }) {
                 <meta property="x:image" content="../assets/logo_icon.png" />
 
                 {/* title tag (title in search result) */}
-                <title>{seoData.title}</title>
+                <title>{seoData.seo_title}</title>
                 {/* og:title (title on social media) */}
-                <title name="og:title">{seoData.title}</title>
+                <title name="og:title">{seoData.seo_title}</title>
                 {/* x:title (title on x) any */}
-                <title name="x:title">{seoData.title}</title>
+                <title name="x:title">{seoData.seo_title}</title>
 
-                <meta name="slug" content={seoData.slug} />
+                <meta name="slug" content={seoData.seo_slug} />
 
                 {/* description -> (description in search results) */}
-                <meta name="description" content={seoData.description} />
+                <meta name="description" content={seoData.seo_description} />
                 {/* og:description -> (description on social media) */}
-                <meta name="description" content={seoData.description} />
+                <meta name="description" content={seoData.seo_description} />
                 {/* X:description -> (description on x) any*/}
-                <meta name="description" content={seoData.description} />
+                <meta name="description" content={seoData.seo_description} />
 
 
                 <link rel="canonical" />

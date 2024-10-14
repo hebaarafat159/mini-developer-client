@@ -103,9 +103,9 @@ export default function ConsentForm() {
         <Stack className='recent-blogs d-block'>
             <SEOComponent
                 seoData={{
-                    slug: "consent-form",
-                    title: "Consent Form | Mini Developer",
-                    description: "If your child is joining Mini Developer in-person coding classes , then kindly Fill this Consent Form"
+                    seo_slug: "consent-form",
+                    seo_title: "Consent Form | Mini Developer",
+                    seo_description: "If your child is joining Mini Developer in-person coding classes , then kindly Fill this Consent Form"
                 }} />
             <Stack direction="column" spacing={2} sx={{ justifyContent: 'space-evenly', padding: '1.5vmin' }} >
                 <Typography component="h5" variant='h5' style={{ color: 'black', fontWeight: 'bold', justifyContent: 'center', alignItems: 'center', textAlign: 'center' }}> Mini Developer Consent Form </Typography>

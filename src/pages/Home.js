@@ -43,9 +43,9 @@ export default function Home() {
         <div>
             <SEOComponent
                 seoData={{
-                    slug: "Home-page",
-                    title: "Mini Developer, Coding classes for children in London, UK or Online",
-                    description: "Welcome to Mini Developer Coding School. We offer coding and programming classes for children aged 7 and up in London, UK or Online. Give your child the gift of coding and help them develop valuable skills for the future. Contact us today to learn more!"
+                    seo_slug: "Home-page",
+                    seo_title: "Mini Developer, Coding classes for children in London, UK or Online",
+                    seo_description: "Welcome to Mini Developer Coding School. We offer coding and programming classes for children aged 7 and up in London, UK or Online. Give your child the gift of coding and help them develop valuable skills for the future. Contact us today to learn more!"
                 }} />
 
             <Stack className='recent-blogs d-block'>

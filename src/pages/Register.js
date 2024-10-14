@@ -240,9 +240,9 @@ export default function RegisterForm() {
         <Stack className='recent-blogs d-block'>
             <SEOComponent
                 seoData={{
-                    slug: "sign-up-form",
-                    title: "Sign Up Form | Mini Developer",
-                    description: "Register for Mini Developer courses and let your child enjoy their journey with Coding. Get a free trail from Mini Developer."
+                    seo_slug: "sign-up-form",
+                    seo_title: "Sign Up Form | Mini Developer",
+                    seo_description: "Register for Mini Developer courses and let your child enjoy their journey with Coding. Get a free trail from Mini Developer."
                 }} />
             <Stack direction="column" spacing={2} sx={{ justifyContent: 'space-evenly', alignItems: 'center', padding: '1.5vmin' }} >
 
