@@ -15,11 +15,9 @@ import CourseLevelsComponent from '../components/CourseLevelsComponent.js'
 import CourseSkillsComponent from '../components/CourseSkillsComponent.js'
 import CourseSubjectsComponent from '../components/CourseSubjectsComponent.js'
 import CourseDetailsComponent from '../components/CourseDetailsComponent.js'
+import SEOComponent from '../components/SEOComponent.js'
 
 export default function CourseDetails() {
-
-  // set page title
-  document.title = ' Course Details | Mini Developer';
 
   const { id } = useParams();
   const [courseObject, setCourseObject] = useState({})
@@ -65,7 +63,8 @@ export default function CourseDetails() {
     <Stack className='recent-blogs d-block'>
 
       <Stack direction="column" spacing={2} sx={{ display: { xs: 'flex' }, my: 1 }}>
-
+        <SEOComponent
+          seoData={courseObject} />
         <img src={courseObject.cover_image} loading="lazy" alt="" height={'550vh'} width={'90%'} />
 
         {/* course title */}

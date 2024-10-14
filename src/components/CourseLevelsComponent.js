@@ -11,19 +11,29 @@ export default function CourseLevelsComponent({ levels }) {
 
             <Grid container columns={{ xs: 2, sm: 8, md: 12 }}>
                 {(levels && levels.length > 0) ? levels.map((level, index) => (
-                    <Grid item xs={2} sm={4} md={4} key={index} style={{ border: '#ed7d45 .2vmin solid', borderRadius: '1vmin' }}>
-                        <Typography component="h6" variant='h6' style={{ padding: '1vmin' }}>{level.title}</Typography>
-                        <Typography component="p" variant='p' style={{ padding: '1vmin' }}>Duration: {level.course_duration}  weeks</Typography>
 
-                        {/* Prerequisite Courses */}
-                        <CoursePrerequisitesComponent prerequisite_courses={level.prerequisite_courses} />
+                    <Grid item xs={2} sm={4} md={4} key={index}>
+                        <div style={{
+                            backgroundRepeat: 'no-repeat',
+                            backgroundSize: 'contain',
+                            backgroundPosition: 'center',
+                            padding: '2vmin',
+                            margin: '2vmin',
+                            border: '#ed7d45 .2vmin solid',
+                            borderRadius: '1vmin'
+                        }}>
+                            <Typography component="h6" variant='h6' style={{ padding: '1vmin' }}>{level.title}</Typography>
+                            <Typography component="p" variant='p' style={{ padding: '1vmin' }}>Duration: {level.course_duration}  weeks</Typography>
 
-                        {/* subjects */}
-                        <CourseSubjectsComponent course_subjects={level.course_subjects} />
+                            {/* Prerequisite Courses */}
+                            <CoursePrerequisitesComponent prerequisite_courses={level.prerequisite_courses} />
 
-                        {/* course skills */}
-                        <CourseSkillsComponent course_skills={level.course_skills} />
+                            {/* subjects */}
+                            <CourseSubjectsComponent course_subjects={level.course_subjects} />
 
+                            {/* course skills */}
+                            <CourseSkillsComponent course_skills={level.course_skills} />
+                        </div>
                     </Grid>
                 )) : null}
             </Grid>
