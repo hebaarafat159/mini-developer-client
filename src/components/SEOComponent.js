@@ -19,6 +19,8 @@ export default function SEOComponent({ seoData }) {
                 {/* x:title (title on x) any */}
                 <title name="x:title">{seoData.title}</title>
 
+                <meta name="slug" content={seoData.slug} />
+
                 {/* description -> (description in search results) */}
                 <meta name="description" content={seoData.description} />
                 {/* og:description -> (description on social media) */}

@@ -5,13 +5,12 @@ import SEOComponent from './SEOComponent'
 export default function OurVisionComponent() {
 
     // set page title
-    document.title = ' Our Vision | Mini Developer';
-
     return (
         <Stack direction="column" spacing={2} sx={{ alignItems: 'center', justifyContent: 'center', background: 'white', padding: '3vw' }} >
 
             <SEOComponent
                 seoData={{
+                    slug: "about-us",
                     title: "Our Vision | Mini Developer",
                     description: "At Mini Developer, we are a team of passionate software engineer parents who are on a mission to teach young children about the exciting world of coding and technology. We understand the importance of early exposure to coding skills in today's digital age, and we are committed to helping children develop their skills."
                 }} />
