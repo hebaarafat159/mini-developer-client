@@ -1,11 +1,9 @@
 import { Stack, List, Divider, Typography, ListItemDecorator, ListItemContent } from "@mui/joy";
 import { Grid } from "@mui/material";
 import term_dates_img from '../assets/term_dates_img.png'
+import SEOComponent from '../components/SEOComponent'
 
 export default function TermDates() {
-
-    // set page title
-    document.title = ' Term Dates | Mini Developer';
 
     const termDates = [
         {
@@ -51,7 +49,12 @@ export default function TermDates() {
 
     return (
         <Stack className='recent-blogs d-block'>
-
+            <SEOComponent
+                seoData={{
+                    slug: "term-dates",
+                    title: "Term Dates | Mini Developer",
+                    description: "Stay updated with Mini Developer's term dates of our coding classes for kids. Discover when each term begins, holiday breaks, and key dates to ensure your child doesn't miss out on our engaging and educational coding programs. Plan your schedule with ease and keep your child on track for a fun and productive learning journey!"
+                }} />
             <Stack direction="row" spacing={1} sx={{ justifyContent: 'space-around', alignItems: 'center', background: 'linear-gradient(to bottom, #9192ca, #FFFFFF);', padding: '3vmin' }} >
                 <Grid container columns={{ xs: 2, sm: 8, md: 12 }} sx={{ justifyContent: 'center', alignItems: 'center' }} width={'70%'}>
                     <Grid item xs={6} sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
