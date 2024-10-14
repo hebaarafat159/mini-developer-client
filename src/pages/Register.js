@@ -6,12 +6,9 @@ import validator from "validator";
 import { useNavigate, useParams } from 'react-router-dom'
 import { experimentalStyled as styled } from '@mui/material/styles';
 import Paper from '@mui/material/Paper';
+import SEOComponent from '../components/SEOComponent.js'
 
 export default function RegisterForm() {
-
-    // set page title
-    document.title = ' Registration | Mini Developer';
-
     const minAge = 4
     const maxAge = 14
     const { courseId } = useParams();
@@ -241,6 +238,12 @@ export default function RegisterForm() {
 
     return (
         <Stack className='recent-blogs d-block'>
+            <SEOComponent
+                seoData={{
+                    slug: "sign-up-form",
+                    title: "Sign Up Form | Mini Developer",
+                    description: "Register for Mini Developer courses and let your child enjoy their journey with Coding. Get a free trail from Mini Developer."
+                }} />
             <Stack direction="column" spacing={2} sx={{ justifyContent: 'space-evenly', alignItems: 'center', padding: '1.5vmin' }} >
 
                 {

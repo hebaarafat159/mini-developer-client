@@ -10,10 +10,9 @@ import {
 } from "@fortawesome/free-brands-svg-icons";
 import location_logo from '../assets/location_icon.png'
 import email_icon from '../assets/email_icon.png'
-export default function ContactUs() {
+import SEOComponent from '../components/SEOComponent.js'
 
-    // set page title
-    document.title = ' Contact Us | Mini Developer';
+export default function ContactUs() {
 
     const [name, setName] = useState("");
     const [email, setEmail] = useState("");
@@ -143,7 +142,12 @@ export default function ContactUs() {
 
     return (
         <Stack direction="column" spacing={2} sx={{ justifyContent: 'center', background: 'white', padding: '3vw' }} >
-
+            <SEOComponent
+                seoData={{
+                    slug: "contact-us",
+                    title: "Contact Us | Mini Developer",
+                    description: "Mini Developer team is happy to reply to your queries and messages within 48 hours. Contact us anytime."
+                }} />
             <Stack direction="row" spacing={2} sx={{ justifyContent: 'space-evenly', alignItems: 'center' }} >
                 <Grid container columns={{ xs: 2, sm: 8, md: 12 }}>
                     {/* contact us details */}

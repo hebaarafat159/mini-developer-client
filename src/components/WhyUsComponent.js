@@ -2,7 +2,7 @@ import React from 'react'
 import { Stack, Typography, Grid } from '@mui/material'
 import FreeTrialButton from './FreeTrialButton'
 import term_dates_img from '../assets/term_dates_img.png'
-import SEOComponent from './SEOComponent'
+import SEOComponent from './SEOComponent.js'
 
 export default function WhyUsComponent() {
 

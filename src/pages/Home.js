@@ -13,7 +13,7 @@ import logical_thinking_img from '../assets/logical_thinking_img.png'
 import collaboration_img from '../assets/collaboration_img.png'
 import digital_literacy_img from '../assets/digital_literacy_img.png'
 import TestimonialsComponent from '../components/TestimonialsComponent'
-import SEOComponent from '../components/SEOComponent'
+import SEOComponent from '../components/SEOComponent.js'
 
 export default function Home() {
 

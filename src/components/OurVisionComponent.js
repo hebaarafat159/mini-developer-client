@@ -1,8 +1,8 @@
 import React from 'react'
 import { Typography, Stack } from '@mui/material'
 import ExploreButtonComponent from './ExploreButtonComponent'
-import SEOComponent from './SEOComponent'
-export default function OurVisionComponent() {
+import SEOComponent from './SEOComponent.js'
+export default function OurVisionComponet() {
 
     // set page title
     return (

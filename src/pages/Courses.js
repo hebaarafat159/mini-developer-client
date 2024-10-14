@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { Grid } from '@mui/material'
 import CourseListComponent from '../components/CourseListItemComponent'
-import SEOComponent from '../components/SEOComponent'
+import SEOComponent from '../components/SEOComponent.js'
 
 export default function Courses() {
 

@@ -6,7 +6,7 @@ import { TextField, Stack, Typography, Button, Grid } from '@mui/material'
 import { experimentalStyled as styled } from '@mui/material/styles';
 import Paper from '@mui/material/Paper';
 import YesOrNoComponent from '../components/YesOrNoComponent';
-import SEOComponent from '../components/SEOComponent'
+import SEOComponent from '../components/SEOComponent.js'
 export default function ConsentForm() {
 
     const { studentId } = useParams();

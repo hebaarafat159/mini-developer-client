@@ -1,7 +1,7 @@
 import { Stack, List, Divider, Typography, ListItemDecorator, ListItemContent } from "@mui/joy";
 import { Grid } from "@mui/material";
 import term_dates_img from '../assets/term_dates_img.png'
-import SEOComponent from '../components/SEOComponent'
+import SEOComponent from '../components/SEOComponent.js'
 
 export default function TermDates() {
 
