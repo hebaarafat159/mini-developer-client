@@ -70,11 +70,20 @@ export default function CourseDetails() {
             seo_description: courseObject.seo_description
           }} />
         <div
-          style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
-          <img src={courseObject.cover_image} loading="lazy" alt="" height={'500vh'} width={'90%'} />
+          style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', position: 'relative' }}>
+          <img src={courseObject.cover_image} loading="lazy" alt="" height={'500vmin'} width={'90%'} style={{ opacity: '0.3' }} />
+          {/* blue color: #174feb , orange color: fe4400*/}
+          <div variant='h1'
+            style={{
+              opacity: '1',
+              fontSize: '10vmin',
+              color: '#174feb',
+              position: 'absolute',
+              bottom: '5vmin'
+            }}> {courseObject.title}</div>
         </div>
         {/* course title */}
-        <Typography variant='h3' style={{ color: '#ed7d45', textAlign: 'center' }}> {courseObject.title} </Typography>
+        {/* <Typography variant='h3' style={{ color: '#ed7d45', textAlign: 'center' }}> {courseObject.title} </Typography> */}
 
         {/* course details */}
         <Typography variant='h4' style={{ fontWeight: 'bold', color: '#333440', borderBottom: '#333440 3px solid', textAlign: 'center' }}> Course Details </Typography>
