@@ -28,6 +28,7 @@ export default function CourseDetails() {
       .then(result => {
         setCourseObject(result.body);
         console.log(`Course Object : ${result.body}`)
+        window.history.replaceState(null, "New Page Title", `${result.body.seo_slug}`)
       })
   }, [id]);
 
