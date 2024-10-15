@@ -88,20 +88,21 @@ export default function CourseDetails() {
             <Typography component="h2" variant='h5' style={{ color: '#ed7d45' }}> Description </Typography>
             <Typography component="h6" variant='h6' style={{ color: '#333440' }}> {courseObject.description} </Typography>
 
+            {/* Prerequisite Courses */}
+            <CoursePrerequisitesComponent prerequisite_courses={courseObject.prerequisite_courses} />
+
             {
               (courseObject.levels && courseObject.levels.length > 0) ?
                 <CourseLevelsComponent levels={courseObject.levels} />
                 :
-                <>
-                  {/* Prerequisite Courses */}
-                  <CoursePrerequisitesComponent prerequisite_courses={courseObject.prerequisite_courses} />
+                <Stack direction="column" sx={{ display: { xs: 'flex' }, my: 1 }} width={'100%'}>
 
                   {/* subjects */}
                   <CourseSubjectsComponent course_subjects={courseObject.course_subjects} />
 
                   {/* course skills */}
                   <CourseSkillsComponent course_skills={courseObject.course_skills} />
-                </>
+                </Stack>
             }
 
           </Stack>

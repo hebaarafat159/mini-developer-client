@@ -26,7 +26,7 @@ export default function CourseLevelsComponent({ levels }) {
                             <Typography component="p" variant='p' style={{ padding: '1vmin' }}>Duration: {level.course_duration}  weeks</Typography>
 
                             {/* Prerequisite Courses */}
-                            <CoursePrerequisitesComponent prerequisite_courses={level.prerequisite_courses} />
+                            {/* <CoursePrerequisitesComponent prerequisite_courses={level.prerequisite_courses} /> */}
 
                             {/* subjects */}
                             <CourseSubjectsComponent course_subjects={level.course_subjects} />
