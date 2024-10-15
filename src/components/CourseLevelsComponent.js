@@ -25,14 +25,8 @@ export default function CourseLevelsComponent({ levels }) {
                             <Typography component="h6" variant='h6' style={{ padding: '1vmin' }}>{level.title}</Typography>
                             <Typography component="p" variant='p' style={{ padding: '1vmin' }}>Duration: {level.course_duration}  weeks</Typography>
 
-                            {/* Prerequisite Courses */}
-                            {/* <CoursePrerequisitesComponent prerequisite_courses={level.prerequisite_courses} /> */}
-
                             {/* subjects */}
                             <CourseSubjectsComponent course_subjects={level.course_subjects} />
-
-                            {/* course skills */}
-                            <CourseSkillsComponent course_skills={level.course_skills} />
                         </div>
                     </Grid>
                 )) : null}

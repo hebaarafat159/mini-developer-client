@@ -6,7 +6,7 @@ export default function CoursePrerequisitesComponent({ prerequisite_courses }) {
 
         (prerequisite_courses && prerequisite_courses.length > 0) ?
             <Stack direction="column" sx={{ display: { xs: 'flex' }, my: 1 }} width={'100%'}>
-                <Typography component="h2" variant='h5' style={{ color: '#ed7d45' }}> Prerequisite Courses  </Typography>
+                <Typography component="h6" variant='h6' style={{ color: '#ed7d45' }}> Prerequisite Courses  </Typography>
                 {prerequisite_courses.map((course, index) => (
                     // <Typography component="p" variant='p' style={{ color: '#333440' }}> * {course} </Typography>
                     <Link
