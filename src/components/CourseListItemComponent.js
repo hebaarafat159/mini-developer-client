@@ -3,12 +3,13 @@ import { Card, Stack, Typography, Button } from '@mui/material'
 import { Link } from 'react-router-dom'
 
 export default function CourseListComponent({ course }) {
+  const path = `/our-courses/${course.seo_slug}`
   return (
-    <Card className={'course_card'} component={'a'} href={`/our-courses/${course._id}`} style={{ textDecoration: 'none' }}>
+    <Card className={'course_card'} component={'a'} href={path} style={{ textDecoration: 'none' }}>
       <div
         className={'course_card_image'}
         style={{ backgroundImage: `url("${course.cover_image}")` }}>
-        <Link to={{ pathname: `/our-courses/${course._id}` }}>
+        <Link to={{ pathname: path }}>
           <Button variant="contained" className='blue_btn'
             style={{
               borderRadius: 5,

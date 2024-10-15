@@ -69,8 +69,10 @@ export default function CourseDetails() {
             seo_title: courseObject.seo_title,
             seo_description: courseObject.seo_description
           }} />
-        <img src={courseObject.cover_image} loading="lazy" alt="" height={'550vh'} width={'90%'} />
-
+        <div
+          style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+          <img src={courseObject.cover_image} loading="lazy" alt="" height={'500vh'} width={'90%'} />
+        </div>
         {/* course title */}
         <Typography variant='h3' style={{ color: '#ed7d45', textAlign: 'center' }}> {courseObject.title} </Typography>
 
