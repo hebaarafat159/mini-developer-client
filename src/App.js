@@ -23,15 +23,15 @@ function App() {
         <div className="routes-container">
           <Routes>
             <Route path="/" element={<Home />} />
-            <Route path="/about/ourvision" element={<OurVisionComponent />} />
-            <Route path="/about/whyus" element={<WhyUsComponent />} />
-            <Route path="/courses" element={<Courses />} />
-            <Route path="/courses/:id" element={<CourseDetails />} />
-            <Route path="/contactus" element={<ContactUs />} />
-            <Route path="/register/:courseId" element={<Register />} />
+            <Route path="/about/about-us" element={<OurVisionComponent />} />
+            <Route path="/about/why-us" element={<WhyUsComponent />} />
+            <Route path="/our-courses" element={<Courses />} />
+            <Route path="/our-courses/:id" element={<CourseDetails />} />
+            <Route path="/contact-us" element={<ContactUs />} />
+            <Route path="/sign-up-form/:courseId" element={<Register />} />
             <Route path="/confirmation" element={<ConfirmationPage />} />
-            <Route path="/termdates" element={<TermDates />} />
-            <Route path="/students/:studentId" element={<ConsentForm />} />
+            <Route path="/term-dates" element={<TermDates />} />
+            <Route path="/consent-form/:studentId" element={<ConsentForm />} />
             <Route path="/testimonials" element={<Testimonials />} />
           </Routes>
         </div>

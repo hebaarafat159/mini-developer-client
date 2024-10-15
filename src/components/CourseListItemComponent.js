@@ -4,11 +4,11 @@ import { Link } from 'react-router-dom'
 
 export default function CourseListComponent({ course }) {
   return (
-    <Card className={'course_card'} component={'a'} href={`/courses/${course._id}`} style={{ textDecoration: 'none' }}>
+    <Card className={'course_card'} component={'a'} href={`/our-courses/${course._id}`} style={{ textDecoration: 'none' }}>
       <div
         className={'course_card_image'}
         style={{ backgroundImage: `url("${course.cover_image}")` }}>
-        <Link to={{ pathname: `/courses/${course._id}` }}>
+        <Link to={{ pathname: `/our-courses/${course._id}` }}>
           <Button variant="contained" className='blue_btn'
             style={{
               borderRadius: 5,

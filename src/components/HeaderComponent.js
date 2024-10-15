@@ -33,7 +33,7 @@ export default function HeaderComponent() {
         {
             position: 1,
             label: 'Our Courses',
-            link: '/courses',
+            link: '/our-courses',
             component: <Courses />,
             isSelected: false
         },
@@ -45,14 +45,14 @@ export default function HeaderComponent() {
                 {
                     position: 1,
                     label: 'Our Vision',
-                    link: '/about/ourvision',
+                    link: '/about/about-us',
                     component: <OurVisionComponent />,
                     isSelected: false
                 },
                 {
                     position: 2,
                     label: 'Why Us?',
-                    link: '/about/whyus',
+                    link: '/about/why-us',
                     component: <WhyUsComponent />,
                     isSelected: false
                 }
@@ -63,13 +63,13 @@ export default function HeaderComponent() {
         {
             position: 3,
             label: 'Contact Us',
-            link: '/contactus',
+            link: '/contact-us',
             component: <ContactUs />
         },
         {
             position: 4,
             label: 'Term Dates',
-            link: '/termdates',
+            link: '/term-dates',
             component: <TermDates />
         },
         {

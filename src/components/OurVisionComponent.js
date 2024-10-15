@@ -10,7 +10,7 @@ export default function OurVisionComponet() {
 
             <SEOComponent
                 seoData={{
-                    seo_slug: "about-us",
+                    seo_slug: "/about/about-us",
                     seo_title: "Our Vision | Mini Developer",
                     seo_description: "At Mini Developer, we are a team of passionate software engineer parents who are on a mission to teach young children about the exciting world of coding and technology. We understand the importance of early exposure to coding skills in today's digital age, and we are committed to helping children develop their skills."
                 }} />

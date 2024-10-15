@@ -78,7 +78,6 @@ export default function RegisterForm() {
                 .then(result => {
                     setCourseObject(result.body);
                     console.log(`Course Object : ${result.body}`)
-                    window.history.replaceState(null, "New Page Title", `${result.body.seo_slug}`)
                 })
         }
     }, [courseId]);
@@ -241,7 +240,7 @@ export default function RegisterForm() {
         <Stack className='recent-blogs d-block'>
             <SEOComponent
                 seoData={{
-                    seo_slug: "sign-up-form",
+                    seo_slug: ((!validator.isEmpty(courseId)) && courseId !== '0') ? `/sign-up-form/${courseObject.seo_slug}` : '/sign-up-form/0',
                     seo_title: "Sign Up Form | Mini Developer",
                     seo_description: "Register for Mini Developer courses and let your child enjoy their journey with Coding. Get a free trail from Mini Developer."
                 }} />

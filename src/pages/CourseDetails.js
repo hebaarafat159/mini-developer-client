@@ -28,7 +28,6 @@ export default function CourseDetails() {
       .then(result => {
         setCourseObject(result.body);
         console.log(`Course Object : ${result.body}`)
-        window.history.replaceState(null, "New Page Title", `${result.body.seo_slug}`)
       })
   }, [id]);
 
@@ -66,7 +65,7 @@ export default function CourseDetails() {
       <Stack direction="column" spacing={2} sx={{ display: { xs: 'flex' }, my: 1 }}>
         <SEOComponent
           seoData={{
-            seo_slug: `/courses/${courseObject.seo_slug}`,
+            seo_slug: `/our-courses/${courseObject.seo_slug}`,
             seo_title: courseObject.seo_title,
             seo_description: courseObject.seo_description
           }} />

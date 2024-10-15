@@ -103,7 +103,7 @@ export default function ConsentForm() {
         <Stack className='recent-blogs d-block'>
             <SEOComponent
                 seoData={{
-                    seo_slug: "consent-form",
+                    seo_slug: `/consent-form/${studentObject.first_name}_${studentObject.last_name}`,
                     seo_title: "Consent Form | Mini Developer",
                     seo_description: "If your child is joining Mini Developer in-person coding classes , then kindly Fill this Consent Form"
                 }} />

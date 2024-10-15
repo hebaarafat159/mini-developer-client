@@ -6,7 +6,7 @@ export default function ExploreButtonComponent() {
         <Button
             variant="contained"
             className={'brawn_btn'}
-            LinkComponent={'a'} href={'/courses'}>
+            LinkComponent={'a'} href={'/our-courses'}>
             Explore Courses ..
         </Button>
     )
