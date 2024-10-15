@@ -7,7 +7,10 @@ export default function SEOComponent({ seoData }) {
     return (
         (seoData &&
             <Helmet>
+                {/* change link with course seo title */}
+                {window.history.replaceState(null, "New Page Title", `${seoData.seo_slug}`)}
 
+                {/* add mini developer logo */}
                 <meta property="image" content="../assets/logo_icon.png" />
                 <meta property="og:image" content="../assets/logo_icon.png" />
                 <meta property="x:image" content="../assets/logo_icon.png" />

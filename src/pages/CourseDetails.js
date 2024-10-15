@@ -64,7 +64,11 @@ export default function CourseDetails() {
 
       <Stack direction="column" spacing={2} sx={{ display: { xs: 'flex' }, my: 1 }}>
         <SEOComponent
-          seoData={courseObject} />
+          seoData={{
+            seo_slug: `/courses/${courseObject.seo_slug}`,
+            seo_title: courseObject.seo_title,
+            seo_description: courseObject.seo_description
+          }} />
         <img src={courseObject.cover_image} loading="lazy" alt="" height={'550vh'} width={'90%'} />
 
         {/* course title */}
