@@ -38,7 +38,7 @@ export default function ConsentForm() {
 
     function submit() {
         if (validateForm()) {
-            alert(JSON.stringify(studentObject))
+            // alert(JSON.stringify(studentObject))
             fetch(`${process.env.REACT_APP_URL_APP_PATH}/students/${studentObject._id}`,
                 {
                     method: "PUT",
