@@ -1,6 +1,8 @@
 import React from 'react'
 import { Typography, Grid, Stack } from '@mui/material'
+// eslint-disable-next-line 
 import CoursePrerequisitesComponent from './CoursePrerequisitesComponent.js'
+// eslint-disable-next-line 
 import CourseSkillsComponent from './CourseSkillsComponent.js'
 import CourseSubjectsComponent from './CourseSubjectsComponent.js'
 
