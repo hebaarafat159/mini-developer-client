@@ -6,7 +6,7 @@ import SEOComponent from '../components/SEOComponent.js'
 export default function Testimonials() {
 
     return (
-        <Stack direction="column" spacing={2} sx={{ justifyContent: 'space-evenly', padding: '2vw' }} >
+        <Stack direction="column" spacing={2} sx={{ justifyContent: 'space-evenly', padding: '2vw' }} className='screen'>
             <SEOComponent
                 seoData={{
                     seo_slug: "testimonials",

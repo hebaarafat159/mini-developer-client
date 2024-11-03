@@ -13,45 +13,6 @@
   pointer-events: none;
 }
 
-@media screen and (max-width: 400px) {
-  .App-logo {
-    width: 70vmin;
-    pointer-events: none;
-    /* animation: App-logo-spin infinite 20s linear; */
-  }
-
-  .link_text {
-    color: #4F8DB9;
-    /* Default color */
-    text-decoration: none;
-    font-weight: bold;
-    font-style: italic;
-    /* font-size: 1.2vw; */
-  }
-
-  .Footer {
-    /* position: fixed; */
-    bottom: 0;
-    height: 20%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: white;
-    color: #333440;
-    width: 100vw;
-    padding: .5vmin;
-    /* z-index: 1000; */
-  }
-}
-
-.page {
-  display: flex;
-  flex-flow: row wrap;
-  justify-content: center;
-  align-items: center;
-  padding: 15vmin 5vmin;
-}
-
 .Footer {
   position: fixed;
   bottom: 0;
@@ -78,7 +39,6 @@
   padding: .5vmin;
   z-index: 1000;
 }
-
 
 .icon {
   width: 5vw;
@@ -341,10 +301,45 @@ a.instagram {
 /* Animation Definition */
 @keyframes changeColor {
   0% {
-      background-color: #3498db;
+    background-color: #3498db;
   }
+
   100% {
-      background-color: #e74c3c;
+    background-color: #e74c3c;
   }
 }
-/* @media (min-width: 600px) {} */
+
+@media screen and (max-width: 400px) {
+  .App-logo {
+    width: 70vmin;
+    pointer-events: none;
+    /* animation: App-logo-spin infinite 20s linear; */
+  }
+
+  .link_text {
+    color: #4F8DB9;
+    /* Default color */
+    text-decoration: none;
+    font-weight: bold;
+    font-style: italic;
+    /* font-size: 1.2vw; */
+  }
+
+  .Footer {
+    /* position: fixed; */
+    height: 15%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+    color: #333440;
+    width: 100vw;
+    padding: 1vmin;
+    /* z-index: 1000; */
+  }
+
+  /* this CSS is used to fix top and buttom margin in mobile views */
+  .screen {
+    margin: 15vmin 0;
+  }
+}

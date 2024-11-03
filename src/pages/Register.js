@@ -237,7 +237,7 @@ export default function RegisterForm() {
     }));
 
     return (
-        <Stack className='recent-blogs d-block'>
+        <Stack className='recent-blogs d-block screen'>
             <SEOComponent
                 seoData={{
                     seo_slug: ((!validator.isEmpty(courseId)) && courseId !== '0') ? `/sign-up-form/${courseObject.seo_slug}` : '/sign-up-form/0',

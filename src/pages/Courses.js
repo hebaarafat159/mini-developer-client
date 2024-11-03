@@ -15,7 +15,7 @@ export default function Courses() {
             })
     }, []);
     return (
-        <Grid container columns={{ xs: 2, sm: 8, md: 12 }}>
+        <Grid container columns={{ xs: 2, sm: 8, md: 12 }} className='screen'>
             <SEOComponent
                 seoData={{
                     seo_slug: "our-courses",

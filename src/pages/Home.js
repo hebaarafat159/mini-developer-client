@@ -48,7 +48,7 @@ export default function Home() {
                     seo_description: "Welcome to Mini Developer Coding School. We offer coding and programming classes for children aged 7 and up in London, UK or Online. Give your child the gift of coding and help them develop valuable skills for the future. Contact us today to learn more!"
                 }} />
 
-            <Stack className='recent-blogs d-block'>
+            <Stack className='recent-blogs d-block screen'>
                 {/* news Bar  */}
                 <Stack direction="row" className='box' spacing={1} sx={{ height: '15%', justifyContent: 'center', alignItems: 'center', padding: '1vmin' }} >
                     <Grid container xs={12} columns={{ xs: 3, sm: 8, md: 12 }} sx={{ alignItems: 'center', padding: '1vmin' }}>

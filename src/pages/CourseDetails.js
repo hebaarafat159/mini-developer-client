@@ -60,7 +60,7 @@ export default function CourseDetails() {
   ]
 
   return (
-    <Stack className='recent-blogs d-block'>
+    <Stack className='recent-blogs d-block screen'>
 
       <Stack direction="column" spacing={2} sx={{ display: { xs: 'flex' }, my: 1 }}>
         <SEOComponent

@@ -100,7 +100,7 @@ export default function ConsentForm() {
     }));
 
     return (
-        <Stack className='recent-blogs d-block'>
+        <Stack className='recent-blogs d-block screen'>
             <SEOComponent
                 seoData={{
                     seo_slug: `/consent-form/${studentObject.first_name}_${studentObject.last_name}`,

@@ -7,7 +7,7 @@ import SEOComponent from './SEOComponent.js'
 export default function WhyUsComponent() {
 
     return (
-        <Stack direction="row" spacing={2} sx={{ justifyContent: 'space-evenly', alignItems: 'center', background: '#333440', padding: '2vw' }} >
+        <Stack direction="row" spacing={2} sx={{ justifyContent: 'space-evenly', alignItems: 'center', background: '#333440', padding: '2vw' }} className='screen'>
             <SEOComponent
                 seoData={{
                     seo_slug: "/about/why-us",

@@ -35,6 +35,7 @@ function App() {
             <Route path="/testimonials" element={<Testimonials />} />
           </Routes>
         </div>
+        <meta content="width=device-width, initial-scale=1" name="viewport" />
         <Footer />
       </BrowserRouter>
     </HelmetProvider>

@@ -141,7 +141,7 @@ export default function ContactUs() {
     }
 
     return (
-        <Stack direction="column" spacing={2} sx={{ justifyContent: 'center', background: 'white', padding: '3vw' }} >
+        <Stack direction="column" spacing={2} sx={{ justifyContent: 'center', background: 'white', padding: '3vw' }} className='screen'>
             <SEOComponent
                 seoData={{
                     seo_slug: "contact-us",

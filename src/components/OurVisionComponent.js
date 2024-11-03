@@ -6,7 +6,7 @@ export default function OurVisionComponet() {
 
     // set page title
     return (
-        <Stack direction="column" spacing={2} sx={{ alignItems: 'center', justifyContent: 'center', background: 'white', padding: '3vw' }} >
+        <Stack direction="column" spacing={2} sx={{ alignItems: 'center', justifyContent: 'center', background: 'white', padding: '3vw' }} className='screen'>
 
             <SEOComponent
                 seoData={{

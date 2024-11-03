@@ -7,7 +7,7 @@ export default function ConfirmationPage() {
     document.title = ' Confirmation | Mini Developer';
 
     return (
-        <Stack className='recent-blogs d-block' sx={{ justifyContent: 'center', alignItems: 'center', background: 'white', padding: '3vw' }}>
+        <Stack className='recent-blogs d-block screen' sx={{ justifyContent: 'center', alignItems: 'center', background: 'white', padding: '3vw' }}>
             <Stack direction="column" spacing={2} sx={{ justifyContent: 'center', alignItems: 'center', background: 'white', padding: '3vw' }} >
                 <Stack direction="row" width={'80%'} sx={{ justifyContent: 'center', alignItems: 'center', background: 'white', padding: '2vw' }} >
                     <img src={'https://drive.google.com/thumbnail?id=1k7zjHa2vZ46pjDxN1nFGea7eVlQ15s5N'} loading="lazy" alt="" style={{ padding: '1vmin' }} />

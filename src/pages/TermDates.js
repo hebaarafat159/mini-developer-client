@@ -48,7 +48,7 @@ export default function TermDates() {
     ]
 
     return (
-        <Stack className='recent-blogs d-block'>
+        <Stack className='recent-blogs d-block screen'>
             <SEOComponent
                 seoData={{
                     seo_slug: "term-dates",
