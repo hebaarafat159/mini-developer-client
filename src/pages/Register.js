@@ -143,7 +143,7 @@ export default function RegisterForm() {
                 errorMesgs.region = '';
                 // validated courses places
                 if ((!validator.isEmpty(courseId)) && courseId !== '0') {
-                    if (requestData.classroom === null || requestData.classroom === undefined) {
+                    if ((requestData.region!==null && requestData.region!== undefined && requestData.region.has_upcomming_courses) && (requestData.classroom === null || requestData.classroom === undefined)) {
                         errorMesgs.classroom = 'Please Select your preffered course place';
                     } else {
                         errorMesgs.classroom = ''
