@@ -3,6 +3,7 @@ import { TextField, Stack, Grid, Typography } from '@mui/material'
 import IconButton from '@mui/material/IconButton';
 import DeleteIcon from '@mui/icons-material/Delete';
 import YesOrNoComponent from './YesOrNoComponent';
+// eslint-disable-next-line 
 import StudentRegisterLevelsComponent from './StudentRegisterLevelsComponent.js'
 import { experimentalStyled as styled } from '@mui/material/styles';
 import Paper from '@mui/material/Paper';
@@ -33,6 +34,12 @@ export default function StudentRegisterComponent({ index, requestData, requestEr
         updateChildProperty(Object.keys(requestData.children[index])[3], selection)
     }
 
+    function handleHasLessonsBeforeSelection(selection) {
+        requestData.children[index].has_lessons_before = selection;
+        updateChildProperty(Object.keys(requestData.children[index])[6], selection)
+    }
+
+    // eslint-disable-next-line 
     function handleCodingLevelSelection(selection) {
         requestData.children[index].course_level = selection;
         updateChildProperty(Object.keys(requestData.children[index])[5], selection)
@@ -94,6 +101,7 @@ export default function StudentRegisterComponent({ index, requestData, requestEr
                 </Grid>
                 <Grid item xs={1} md={1}>
                     <Item>
+                        {/* delete child Button */}
                         {
                             (requestData.children && requestData.children.length > 1) ?
                                 < IconButton aria-label="delete" size="small" onClick={() => removeChildComponent(index)}>
@@ -104,10 +112,13 @@ export default function StudentRegisterComponent({ index, requestData, requestEr
                     </Item>
                 </Grid>
                 <Grid item xs={12}>
-                    <YesOrNoComponent displayText={'Does your child have a Computer?'} handleSelection={handleHasComputerSelection} />
+                    {/* does your child has a computer */}
+                    <YesOrNoComponent displayText={'Does your child have a Computer?'} handleSelection={handleHasComputerSelection} selectedValue={false} />
                 </Grid>
+                {/* Does your child have coding lessons before */}
                 <Grid item xs={12}>
-                    <StudentRegisterLevelsComponent levels={courseObject.levels} handleSelection={handleCodingLevelSelection} child={requestData.children[index]} />
+                    <YesOrNoComponent displayText={'Does your child have Coding Lessons Before?'} handleSelection={handleHasLessonsBeforeSelection} selectedValue={false} />
+                    {/* <StudentRegisterLevelsComponent levels={courseObject.levels} handleSelection={handleCodingLevelSelection} child={requestData.children[index]} /> */}
                 </Grid>
             </Grid>
         </Stack>

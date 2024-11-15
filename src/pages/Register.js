@@ -21,7 +21,8 @@ export default function RegisterForm() {
         age: '',
         has_computer: true,
         email: '',
-        course_level: ''
+        course_level: '',
+        has_lessons_before: false
     }
 
     const childErrorObject = {
@@ -245,7 +246,7 @@ export default function RegisterForm() {
                     seo_description: "Register for Mini Developer courses and let your child enjoy their journey with Coding. Get a free trail from Mini Developer."
                 }} />
             <Stack direction="column" spacing={2} sx={{ justifyContent: 'space-evenly', alignItems: 'center', padding: '1.5vmin' }} >
-
+                {/* course slogn */}
                 {
                     ((!validator.isEmpty(courseId)) && courseId !== '0') ?
                         <Typography component="h5" variant='h5' style={{ color: '#ed7d45', fontWeight: 'bolder', justifyContent: 'center', alignItems: 'center', textAlign: 'center', fontFamily: 'Papyrus' }}>  {courseObject.slogan} </Typography>
@@ -359,7 +360,7 @@ export default function RegisterForm() {
                             className={'blue_btn'}> Add Another Child </Button>
                     </Stack>
 
-                    {/* program type In=person or Online */}
+                    {/* program type In-person or Online */}
                     <ProgrameTypeComponent requestData={requestData} updateRegistrationDataProperty={updateRegistrationDataProperty} errors={requestErrorMsgs} courseId={courseId} />
 
                     {/* hear about us */}

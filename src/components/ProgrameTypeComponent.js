@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { Radio, RadioGroup, FormControlLabel, Typography, Stack, FormControl, MenuItem, InputLabel, Select } from '@mui/material'
+import { Radio, RadioGroup, FormControlLabel, Typography, Stack, FormControl, MenuItem, InputLabel, Select, Grid, TextField } from '@mui/material'
 
 export default function ProgrameTypeComponent({ requestData, updateRegistrationDataProperty, errors, courseId }) {
 
@@ -30,7 +30,7 @@ export default function ProgrameTypeComponent({ requestData, updateRegistrationD
 
     return (
         <Stack direction="column" sx={{ justifyContent: 'space-evenly', padding: '2vw' }} >
-
+            {/* Select program type "In-person or online" */}
             <Typography component="p" variant='p' style={{ color: '#333440', fontWeight: 'bold' }}>  Select Type of Coding Program: <span style={{ color: 'red' }}> * </span> </Typography>
             {errors.program_type !== '' && <Typography component="p" variant='p' style={{ color: 'red' }}>{errors.program_type}</Typography>}
             <RadioGroup
@@ -76,10 +76,27 @@ export default function ProgrameTypeComponent({ requestData, updateRegistrationD
                         </Select>
                     </FormControl>
 
+                    {/* when select region == other */}
+                    {(requestData.region != null && requestData.region !== undefined && requestData.region.name === 'other') ?
+                        <Grid container spacing={2} >
+                            <Grid item xs={8} md={12}>
+                                <TextField
+                                    required
+                                    placeholder="Enter Your Regions in London"
+                                    style={{ padding: '1vmin 0' }}
+                                    defaultValue={requestData.other_region}
+                                    onChange={(event) => {
+                                        requestData.other_region = event.target.value;
+                                    }}
+                                    fullWidth />
+                            </Grid>
+                        </Grid>
+                        : null}
+
                     {/* Select Upcomming courses if exists */}
                     {errors.classroom !== '' && <Typography variant='danger' style={{ fontSize: '1.5vw', color: 'red' }}>{errors.classroom}</Typography>}
                     {
-                        (courseId !== '0') && (classrooms !== null && classrooms.length > 0) &&
+                        (requestData.region != null && requestData.region !== undefined && requestData.region.has_upcomming_courses) && (classrooms !== null && classrooms.length > 0) &&
                         < FormControl fullWidth>
                             <InputLabel id="open-courses-label">Select Course Venue: </InputLabel>
                             {/* Regions Places */}
