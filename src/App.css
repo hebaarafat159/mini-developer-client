@@ -309,7 +309,7 @@ a.instagram {
   }
 }
 
-@media screen and (max-width: 400px) {
+@media screen and (max-width: 1400px) {
   .App-logo {
     width: 70vmin;
     pointer-events: none;
