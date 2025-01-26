@@ -10,6 +10,7 @@ export default function TermDates() {
     const [termDates, setTermDates] = useState([])
     const [currentTerm, setCurrentTerm] = useState({})
 
+    // eslint-disable-next-line 
     function setSelectedTerm() {
         termDates.forEach(term => {
             if (term.is_current_term) {

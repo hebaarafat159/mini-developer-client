@@ -9,9 +9,11 @@ export default function CourseSubjectsComponent({ course_subjects }) {
                 <Stack direction="column" sx={{ display: { xs: 'flex', justifyContent: 'space-evenly' } }}>
                     <ul>
                         {course_subjects.map((subject) =>
-                            <Stack direction="row" sx={{ display: { xs: 'flex', justifyContent: 'flex-start', alignItems: 'center' } }}>
+                            <Stack direction="row" sx={{ display: { xs: 'flex', justifyContent: 'flex-start', alignItems: 'start', padding: '1vmin' } }}>
                                 - <img src={subject.icon} loading="lazy" alt="" width={'30vm'} />
-                                <Typography component="p" variant='p' style={{ color: '#333440' }}> {subject.text} </Typography>
+                                <Stack direction="row" sx={{ display: { xs: 'flex', justifyContent: 'flex-start', alignItems: 'center' } }}>
+                                    <Typography component="p" variant='p' style={{ color: '#333440', paddingLeft: '0.5vmin' }}> {subject.text} </Typography>
+                                </Stack>
                             </Stack>
                         )}
                     </ul>
