@@ -2,7 +2,7 @@ import { Stack, List, Divider, Typography, ListItemDecorator, ListItemContent, C
 import { Grid } from "@mui/material";
 import term_dates_img from '../assets/term_dates_img.png'
 import SEOComponent from '../components/SEOComponent.js'
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState, useCallback } from 'react'
 
 
 export default function TermDates() {
@@ -11,14 +11,25 @@ export default function TermDates() {
     const [currentTerm, setCurrentTerm] = useState({})
 
     // eslint-disable-next-line 
-    function setSelectedTerm() {
+    // function setSelectedTerm() {
+    //     termDates.forEach(term => {
+    //         if (term.is_current_term) {
+    //             setCurrentTerm(term);
+    //             // alert("Current Dates: " + JSON.stringify(term));
+    //         }
+    //     });
+    // }
+
+
+    const setSelectedTerm = useCallback(() => {
+        // Logic for setSelectedTerm
         termDates.forEach(term => {
             if (term.is_current_term) {
                 setCurrentTerm(term);
                 // alert("Current Dates: " + JSON.stringify(term));
             }
         });
-    }
+    }, [termDates]);
 
     useEffect(() => {
         fetch(`${process.env.REACT_APP_URL_APP_PATH}/classrooms/termdates/${process.env.REACT_APP_CURRENT_TERM_YEAR}`)
@@ -28,8 +39,20 @@ export default function TermDates() {
                 // alert("Term Dates: " + JSON.stringify(result.body));
                 setSelectedTerm();
             })
+
     }, [setSelectedTerm]);
-    // }, [termDates, setSelectedTerm]);
+
+
+    // useEffect(() => {
+    //     fetch(`${process.env.REACT_APP_URL_APP_PATH}/classrooms/termdates/${process.env.REACT_APP_CURRENT_TERM_YEAR}`)
+    //         .then(response => response.json())
+    //         .then(result => {
+    //             setTermDates(result.body);
+    //             // alert("Term Dates: " + JSON.stringify(result.body));
+    //             setSelectedTerm();
+    //         })
+    // }, [setSelectedTerm]);
+    // // }, [termDates, setSelectedTerm]);
 
 
     return (
