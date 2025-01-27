@@ -28,7 +28,8 @@ export default function TermDates() {
                 // alert("Term Dates: " + JSON.stringify(result.body));
                 setSelectedTerm();
             })
-    }, [termDates, setSelectedTerm]);
+    }, [setSelectedTerm]);
+    // }, [termDates, setSelectedTerm]);
 
 
     return (
@@ -81,7 +82,7 @@ export default function TermDates() {
                     {(termDates && termDates.length > 0) ?
                         termDates.map((termDate, index) => (
 
-                            <Grid container columns={{ xs: 2, sm: 8, md: 12 }}>
+                            <Grid container key={index} columns={{ xs: 2, sm: 8, md: 12 }}>
                                 {/* title and duration dates  */}
                                 <Grid item xs={2} >
                                     <ListItemContent >
