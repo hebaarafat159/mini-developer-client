@@ -9,7 +9,7 @@
 }
 
 .App-logo {
-  width: 40vmin;
+  width: 35vmin;
   pointer-events: none;
 }
 
@@ -311,7 +311,7 @@ a.instagram {
 
 @media screen and (max-width: 1400px) {
   .App-logo {
-    width: 70vmin;
+    width: 60vmin;
     pointer-events: none;
     /* animation: App-logo-spin infinite 20s linear; */
   }
