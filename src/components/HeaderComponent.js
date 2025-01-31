@@ -16,7 +16,7 @@ import TermDates from '../pages/TermDates'
 import Testimonials from '../pages/Testimonials'
 export default function HeaderComponent() {
     const theme = useTheme();
-    const isMatch = useMediaQuery(theme.breakpoints.down('md'));
+    const isMatch = useMediaQuery(theme.breakpoints.down('lg'));// ('md'));
 
     // eslint-disable-next-line
     const [selectedTab, setSelectedTab] = useState(1)
