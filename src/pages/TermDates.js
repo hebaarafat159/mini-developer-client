@@ -2,11 +2,11 @@ import { Stack, List, Divider, Typography, ListItemDecorator, ListItemContent, C
 import { Grid } from "@mui/material";
 import term_dates_img from '../assets/term_dates_img.png'
 import SEOComponent from '../components/SEOComponent.js'
-import React, { useEffect, useState, useCallback } from 'react'
+import React, { useEffect, useState, useRef } from 'react'
 
 
 export default function TermDates() {
-
+    const isFetched = useRef(false);
     const [termDates, setTermDates] = useState([])
     const [currentTerm, setCurrentTerm] = useState({})
 
@@ -21,39 +21,35 @@ export default function TermDates() {
     // }
 
 
-    const setSelectedTerm = useCallback(() => {
-        // Logic for setSelectedTerm
-        termDates.forEach(term => {
-            if (term.is_current_term) {
-                setCurrentTerm(term);
-                // alert("Current Dates: " + JSON.stringify(term));
-            }
-        });
-    }, [termDates]);
+    // const setSelectedTerm = useCallback(() => {
+    //     // Logic for setSelectedTerm
+    //     termDates.forEach(term => {
+    //         if (term.is_current_term) {
+    //             setCurrentTerm(term);
+    //             // alert("Current Dates: " + JSON.stringify(term));
+    //         }
+    //     });
+    // }, [termDates]);
 
     useEffect(() => {
-        fetch(`${process.env.REACT_APP_URL_APP_PATH}/classrooms/termdates/${process.env.REACT_APP_CURRENT_TERM_YEAR}`)
-            .then(response => response.json())
-            .then(result => {
-                setTermDates(result.body);
-                // alert("Term Dates: " + JSON.stringify(result.body));
-                setSelectedTerm();
-            })
+        if (!isFetched.current) {
+            fetch(`${process.env.REACT_APP_URL_APP_PATH}/classrooms/termdates/${process.env.REACT_APP_CURRENT_TERM_YEAR}`)
+                .then(response => response.json())
+                .then(result => {
+                    if (!result?.body) return;
+                    setTermDates(result.body);
+                    console.log("Fetching data...");
+                    isFetched.current = true;
+                    if (result.body != null) {
+                        const foundTerm = result.body.find(term => term.is_current_term);
+                        if (foundTerm) setCurrentTerm(foundTerm);
+                    }
+                    console.log("Finish Fetching Data .....");
 
-    }, [setSelectedTerm]);
+                })
+        }
 
-
-    // useEffect(() => {
-    //     fetch(`${process.env.REACT_APP_URL_APP_PATH}/classrooms/termdates/${process.env.REACT_APP_CURRENT_TERM_YEAR}`)
-    //         .then(response => response.json())
-    //         .then(result => {
-    //             setTermDates(result.body);
-    //             // alert("Term Dates: " + JSON.stringify(result.body));
-    //             setSelectedTerm();
-    //         })
-    // }, [setSelectedTerm]);
-    // // }, [termDates, setSelectedTerm]);
-
+    }, []);
 
     return (
         <Stack className='recent-blogs d-block screen'>
