@@ -1,76 +1,123 @@
-import React, { useState } from 'react'
-import { Link, Box, Menu, MenuItem, Typography } from '@mui/material'
+import React, { useState } from 'react';
+import { Link, Box, Menu, MenuItem } from '@mui/material';
 
 export default function HeaderMenuTabs({ pages, handleSelected }) {
+    // State to track the currently open submenu.
+    const [menuAnchor, setMenuAnchor] = useState({ anchorEl: null, index: null });
 
-    const [anchorEl, setAnchorEl] = useState(null);
-
-    const handleClick = (event) => {
-        setAnchorEl(event.currentTarget);
+    // Opens the submenu for the given page.
+    const handleSubMenuClick = (event, index) => {
+        setMenuAnchor({ anchorEl: event.currentTarget, index });
     };
 
-    const handleClose = () => {
-        setAnchorEl(null);
+    // Closes any open submenu.
+    const handleMenuClose = () => {
+        setMenuAnchor({ anchorEl: null, index: null });
+    };
+
+    // Handles link selection (for both main links and submenu items).
+    const handleLinkClick = (page) => {
+        handleSelected(page);
+        handleMenuClose();
     };
 
     return (
-        <Box sx={{ display: 'flex', flexDirection: 'row', alignItems: 'center', gap: 1.5, paddingRight: '5vmin' }}>
-            {
-                pages.map((page, index) =>
-                (
-                    (page.link !== null && page.link !== undefined) ?
+        <Box
+            sx={{
+                display: 'flex',
+                flexDirection: 'row',
+                alignItems: 'center',
+                gap: 1.5,
+                paddingRight: '5vmin',
+            }}
+        >
+            {pages.map((page, index) => {
+                // If the page has a direct link, render it as a Link.
+                if (page.link) {
+                    return (
                         <Link
                             key={index}
-                            variant="h6"
-                            className={`link_text ${page.isSelected ? 'selected' : ''}`}
                             href={page.link}
-                            style={{ textDecoration: 'none', fontWeight: 'bold', padding: '2vmin', fontStyle: 'italic' }}
-                            onClick={() => {
-                                handleSelected(page)
-                            }}>
+                            className="navbar-item"
+                            sx={{
+                                textDecoration: 'none',
+                                fontWeight: 'bold',
+                                padding: '2vmin',
+                                fontStyle: 'italic',
+                                cursor: 'pointer',
+                            }}
+                            onClick={() => handleSelected(page)}
+                        >
                             {page.label}
                         </Link>
-                        :
-                        ((page.subLinks !== null && page.subLinks !== undefined && page.subLinks.length > 0) ?
-                            <>
-                                <Typography
-                                    variant="h6"
-                                    className={`link_text ${page.isSelected ? 'selected' : ''}`}
-                                    style={{ color: '#1876d2', textDecoration: 'none', fontWeight: 'bold', padding: '2vmin', fontStyle: 'italic' }}
-                                    onClick={handleClick}>
-                                    {page.label}
-                                </Typography>
-                                <Menu
-                                    id={`menu`}
-                                    anchorEl={anchorEl}
-                                    getContentAnchorEl={null}
-                                    keepMounted
-                                    open={Boolean(anchorEl)}
-                                    onClose={handleClose}>
-                                    <MenuItem href={page.link}>
-                                        {
-                                            page.subLinks.map((page, index) =>
-                                            (
+                    );
+                }
+                // If the page contains subLinks, render a clickable element with a submenu.
+                else if (page.subLinks && page.subLinks.length > 0) {
+                    return (
+                        <React.Fragment key={index}>
+                            <Link
+                                onClick={(event) => handleSubMenuClick(event, index)}
+                                className="navbar-item"
+                                sx={{
+                                    textDecoration: 'none',
+                                    fontWeight: 'bold',
+                                    padding: '2vmin',
+                                    fontStyle: 'italic',
+                                    cursor: 'pointer',
+                                }}
+                            >
+                                {page.label}
+                            </Link>
+                            <Menu
+                                anchorEl={menuAnchor.anchorEl}
+                                open={menuAnchor.index === index && Boolean(menuAnchor.anchorEl)}
+                                onClose={handleMenuClose}
+                                anchorOrigin={{
+                                    vertical: 'bottom',
+                                    horizontal: 'left',
+                                }}
+                                transformOrigin={{
+                                    vertical: 'top',
+                                    horizontal: 'left',
+                                }}
+                            >
+                                {page.subLinks.map((subLink, subIndex) => (
+                                    <MenuItem
+                                        key={subIndex}
+                                        LinkComponent={subLink.link}
+                                        onClick={() => handleLinkClick(subLink)}
+                                        sx={{
+                                            textDecoration: 'none',
+                                            fontWeight: 'bold',
+                                            padding: '2vmin',
+                                            fontStyle: 'italic',
+                                        }}
+                                    >
+                                        <Link
+                                            key={index}
+                                            href={subLink.link}
+                                            className="navbar-item"
+                                            sx={{
+                                                textDecoration: 'none',
+                                                fontWeight: 'bold',
+                                                padding: '2vmin',
+                                                fontStyle: 'italic',
+                                                cursor: 'pointer',
+                                            }}
+                                            onClick={() => handleSelected(subLink)}
+                                        >
+                                            {subLink.label}
+                                        </Link>
 
-                                                <Link key={index}
-                                                    variant="h6"
-                                                    className={`link_text ${page.isSelected ? 'selected' : ''}`}
-                                                    href={page.link}
-                                                    style={{ textDecoration: 'none', fontWeight: 'bold', padding: '2vmin', fontStyle: 'italic' }}
-                                                    onClick={() => {
-                                                        handleSelected(page)
-                                                    }}>
-                                                    {page.label}
-                                                </Link>
-
-                                            ))
-                                        }
                                     </MenuItem>
-                                </Menu>
-                            </>
-                            : null)
-                ))
-            }
+                                ))}
+                            </Menu>
+                        </React.Fragment>
+                    );
+                }
+                return null;
+            })}
         </Box>
-    )
+    );
 }

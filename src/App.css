@@ -9,7 +9,7 @@
 }
 
 .App-logo {
-  width: 35vmin;
+  height: 10vmin;
   pointer-events: none;
 }
 
@@ -28,7 +28,15 @@
 }
 
 .Header {
-  position: fixed;
+  height: 8vmin;
+  width: auto;
+  background-color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+
+  /* position: fixed;
   height: 15%;
   display: flex;
   flex-wrap: wrap;
@@ -36,8 +44,8 @@
   background-color: white;
   color: #333440;
   width: 100vw;
-  padding: .5vmin;
-  z-index: 1000;
+  padding: .5vmin; */
+  /* z-index: 1000; */
 }
 
 .icon {
@@ -57,13 +65,13 @@
 
 .aboutTitle {
   font-weight: 'bold';
-  font-size: '2vmin';
+  /* font-size: '2vmin'; */
   color: '#333440';
 }
 
 .aboutContent {
   font-weight: 'normal';
-  font-size: '5vw';
+  /* font-size: '5vw'; */
   color: '#333440';
   padding: '2vmin auto';
 }
@@ -75,6 +83,7 @@
 .link_text {
   color: #4F8DB9;
   /* Default color */
+  font-size: 1vmin;
   text-decoration: none;
   font-weight: bold;
   font-style: italic;
@@ -83,10 +92,10 @@
 
 .link_text.selected {
   color: #ed7d45;
+  font-size: 1vmin;
   text-decoration: none;
   font-style: italic;
   font-weight: bold;
-  /* Selected color */
 }
 
 .link_text:hover {
@@ -293,7 +302,7 @@ a.instagram {
   padding: 20px;
   background-color: #3498db;
   color: white;
-  font-size: 16px;
+  /* font-size: 16px; */
   /* Name, duration, timing function, delay, repeat, direction, fill mode */
   animation: changeColor .5s ease-in-out 1s infinite alternate both;
 }
@@ -309,37 +318,29 @@ a.instagram {
   }
 }
 
-@media screen and (max-width: 1400px) {
-  .App-logo {
-    width: 60vmin;
-    pointer-events: none;
-    /* animation: App-logo-spin infinite 20s linear; */
-  }
 
-  .link_text {
-    color: #4F8DB9;
-    /* Default color */
-    text-decoration: none;
-    font-weight: bold;
-    font-style: italic;
-    /* font-size: 1.2vw; */
-  }
 
-  .Footer {
-    /* position: fixed; */
-    height: 15%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: white;
-    color: #333440;
-    width: 100vw;
-    padding: 1vmin;
-    /* z-index: 1000; */
-  }
+/******************************************** new CSS  ***************************************************/
+.navbar {
+  display: flex;
+  flex-wrap: wrap;
+  /* Allows items to wrap to a new line if needed */
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.5rem 1rem;
+}
 
-  /* this CSS is used to fix top and buttom margin in mobile views */
-  .screen {
-    margin: 15vmin 0;
-  }
+.navbar-item {
+  margin: 0.5rem;
+  text-decoration: none;
+  color: #007bff;
+}
+
+.header {
+  height: 8vmin;
+  width: auto;
+  background-color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }

@@ -80,26 +80,15 @@ export default function HeaderComponent() {
         }
     ])
 
-    // useEffect((selectedItem) => {
-    //     pages.forEach(page => {
-    //         if (page === selectedItem) {
-    //             page.isSelected = true
-    //         } else {
-    //             page.isSelected = false
-    //         }
-    //     });
-    //     setPages([...pages])
-    // }, [selectedTab, pages]);
-
     function handleSelected(selectedItem) {
         setSelectedTab(selectedItem.position)
     }
     return (
         <React.Fragment>
             <Box
-                className={'Header'}>
+                className={'header'}>
 
-                <Box sx={{ display: 'flex', flexDirection: 'row', alignItems: 'center', paddingLeft: '5vmin' }}>
+                <Box sx={{ display: 'flex', flexDirection: 'row', alignItems: 'center', paddingLeft: '5vmin', flexGrow: 1 }}>
                     <Link key={pages[0].position}
                         href={pages[0].link} >
                         <img src={image} className={'App-logo'} loading="lazy" alt="logo" />
