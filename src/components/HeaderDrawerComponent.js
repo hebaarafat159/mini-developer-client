@@ -35,6 +35,7 @@ export default function HeaderDrawerComponent({ pages, handleSelected }) {
                         onClick={() => toggleNested(key)}
                     >
                         <ListItemText primary={page.label} secondary={page.subtitle} />
+                        {/* drop-down list ison view */}
                         {openNested[key] ? <ExpandLess /> : <ExpandMore />}
                     </ListItemButton>
                     <Collapse in={openNested[key]} timeout="auto" unmountOnExit>
