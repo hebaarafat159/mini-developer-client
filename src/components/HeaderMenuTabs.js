@@ -28,7 +28,6 @@ export default function HeaderMenuTabs({ pages, handleSelected }) {
                 flexDirection: 'row',
                 alignItems: 'center',
                 gap: 1.5,
-                paddingRight: '5vmin',
             }}
         >
             {pages.map((page, index) => {
