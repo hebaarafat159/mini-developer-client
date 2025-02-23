@@ -48,7 +48,7 @@ export default function FooterContactUs() {
                     </Stack>
                 </Grid>
             </Grid>
-            <Typography variant='p' style={{ textAlign: 'center' }}>©2023 by Mini Developer.</Typography>
+            <Typography variant='p' style={{ textAlign: 'center', paddingBottom: '2vmin' }}>©2023 by Mini Developer.</Typography>
         </Stack>
     )
 }
