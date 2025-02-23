@@ -344,3 +344,10 @@ a.instagram {
   justify-content: space-between;
   align-items: center;
 }
+
+.drawer {
+  width: 'auto';
+  color: #007bff;
+  font-weight: bold;
+  padding: 0.5rem 1rem;
+}
