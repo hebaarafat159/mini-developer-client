@@ -330,6 +330,13 @@ a.instagram {
   padding: 0.5rem 1rem;
 }
 
+.drawer {
+  width: 'auto';
+  color: #007bff;
+  font-weight: bold;
+  padding: 0.5rem 1rem;
+}
+
 .navbar-item {
   margin: 0.5rem;
   text-decoration: none;
@@ -345,9 +352,11 @@ a.instagram {
   align-items: center;
 }
 
-.drawer {
-  width: 'auto';
-  color: #007bff;
-  font-weight: bold;
-  padding: 0.5rem 1rem;
+.footer {
+  height: 8vmin;
+  width: auto;
+  background-color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
