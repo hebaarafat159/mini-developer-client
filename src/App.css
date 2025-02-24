@@ -76,10 +76,6 @@
   padding: '2vmin auto';
 }
 
-.routes-container {
-  padding: 23vmin 5vmin;
-}
-
 .link_text {
   color: #4F8DB9;
   /* Default color */
@@ -144,42 +140,6 @@
   font-weight: bold;
 }
 
-.brawn_btn {
-  border-radius: 10;
-  background: linear-gradient(to bottom, #e09b79, #9e532d);
-  font-size: 1.5vmin;
-  /* color: #5f6276; */
-  font-weight: bold;
-  width: max-content;
-}
-
-.orage_btn {
-  border-radius: 10;
-  background: linear-gradient(to bottom, #ffb093, #ed7d45);
-  font-size: 1.5vmin;
-  font-weight: bold;
-  width: max-content;
-}
-
-.gray_btn {
-  border-radius: 10;
-  background: linear-gradient(to bottom, #d6d7de, #b2b2b2);
-  font-size: 1.5vmin;
-  margin: '2vw';
-  /* color: #5f6276; */
-  font-weight: bold;
-  width: max-content;
-}
-
-.blue_btn {
-  border-radius: 10;
-  background: #1105ef;
-  font-size: 1.5vmin;
-  font-weight: bold;
-  width: max-content;
-  padding: 1vmin;
-}
-
 .page_content {
   display: flex;
   flex-flow: row wrap;
@@ -187,15 +147,6 @@
   align-items: center;
   padding: 5vmin 15vmin;
   background-color: white;
-}
-
-.page_content_dark {
-  display: flex;
-  flex-flow: row wrap;
-  justify-content: center;
-  align-items: center;
-  padding: 5vmin 15vmin;
-  background-color: #333440;
 }
 
 .page_content_title {
@@ -298,28 +249,6 @@ a.instagram {
   color: #f40ba6;
 }
 
-.box {
-  padding: 20px;
-  background-color: #3498db;
-  color: white;
-  /* font-size: 16px; */
-  /* Name, duration, timing function, delay, repeat, direction, fill mode */
-  animation: changeColor .5s ease-in-out 1s infinite alternate both;
-}
-
-/* Animation Definition */
-@keyframes changeColor {
-  0% {
-    background-color: #3498db;
-  }
-
-  100% {
-    background-color: #e74c3c;
-  }
-}
-
-
-
 /******************************************** new CSS  ***************************************************/
 .navbar {
   display: flex;
@@ -344,7 +273,7 @@ a.instagram {
 }
 
 .header {
-  height: 8vmin;
+  height: 10vmin;
   width: auto;
   background-color: white;
   display: flex;
@@ -353,11 +282,152 @@ a.instagram {
 }
 
 .footer {
-  height: 8vmin;
+  height: 10vmin;
   width: auto;
   background-color: white;
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding-bottom: 2vmin;
+}
+
+.routes-container {
+  padding: 2vmin;
+}
+
+.home-page-block {
+  height: 60vmin;
+  position: relative;
+  overflow: hidden;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 2vmin auto;
+}
+
+.home-page-block video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  object-fit: cover;
+  height: 100%;
+  width: 100%;
+}
+
+.home-page-block .coding-vedio-section {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  position: relative;
+  opacity: 0.9;
+}
+
+.home-page-block .coding-vedio-section h1 {
+  font-size: 5vmin;
+  color: white;
+  position: relative;
+  opacity: 0.9;
+}
+
+.home-page-block .coding-vedio-section h2 {
+  font-size: 4vmin;
+  font-style: italic;
+  color: white;
+  position: relative;
+}
+
+.ads-box {
+  height: 15%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #3498db;
+  color: white;
+  font-size: 2vmin;
+  width: 100%;
+  /* Name, duration, timing function, delay, repeat, direction, fill mode */
+  animation: changeColor .5s ease-in-out 1s infinite alternate both;
+}
+
+/* Animation Definition */
+@keyframes changeColor {
+  0% {
+    background-color: #3498db;
+  }
+
+  100% {
+    background-color: #e74c3c;
+  }
+}
+
+.brawn_btn {
+  border-radius: 10;
+  background: linear-gradient(to bottom, #e09b79, #9e532d);
+  font-size: 1.5vmin;
+  /* color: #5f6276; */
+  font-weight: bold;
+  width: max-content;
+}
+
+.orage_btn {
+  border-radius: 10;
+  background: linear-gradient(to bottom, #ffb093, #ed7d45);
+  font-size: 1.5vmin;
+  font-weight: bold;
+  width: max-content;
+}
+
+.gray_btn {
+  border-radius: 10;
+  background: linear-gradient(to bottom, #d6d7de, #b2b2b2);
+  font-size: 1.5vmin;
+  margin: '2vw';
+  /* color: #5f6276; */
+  font-weight: bold;
+  width: max-content;
+}
+
+.blue_btn {
+  border-radius: 10;
+  background: #1105ef;
+  font-size: 1.5vmin;
+  font-weight: bold;
+  width: max-content;
+  padding: 1vmin;
+}
+
+.page_content_dark {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  align-items: center;
+  padding: 5vmin 2vmin;
+  background-color: #333440;
+  margin: 2vmin auto;
+}
+
+.page_content {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  align-items: center;
+  padding: 5vmin 2vmin;
+  background-color: white;
+}
+
+.page_content_title {
+  font-weight: bold;
+  font-size: 2vw;
+}
+
+.page_content_text {
+  font-weight: normal;
+  font-size: 1.5vw;
+}
+
+.page_content_text_bold {
+  font-weight: bold;
+  font-size: 1.5vw;
 }

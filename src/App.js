@@ -1,6 +1,7 @@
 import './App.css';
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Home from "./pages/Home";
+import Lanpage from "./pages/LandPage"
 import ContactUs from "./pages/ContactUs";
 import Courses from "./pages/Courses";
 import HeaderComponent from './components/HeaderComponent';
@@ -20,9 +21,10 @@ function App() {
     <HelmetProvider>
       <BrowserRouter>
         <HeaderComponent />
-        <div className="routes-container">
+        <div className={'routes-container'}>
           <Routes>
-            <Route path="/" element={<Home />} />
+            <Route path="/" element={<Lanpage />} />
+            {/* <Route path="/" element={<Home />} /> */}
             <Route path="/about/about-us" element={<OurVisionComponent />} />
             <Route path="/about/why-us" element={<WhyUsComponent />} />
             <Route path="/our-courses" element={<Courses />} />
