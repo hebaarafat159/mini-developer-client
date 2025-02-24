@@ -157,17 +157,47 @@ export default function Home() {
                     </Stack>
                 </Stack>
 
-                {/* Our Teaching */}
-                <Stack direction="row" className={'page_content_dark'}>
-                    <Typography component="h3" variant='h4' style={{ color: '#fed677', fontWeight: 'bold', textAlign: 'start' }}>  Our Teaching program combines Knowledge with Fun  </Typography>
-                    <Typography component="p" variant='p' style={{ color: 'white' }}> Our coding program assists children to build valuable skills in life and eventually in the workforce </Typography>
-                    <Grid container columns={{ xs: 2, sm: 8, md: 16 }}>
-                        {teachingTopics.map((detail, index) => (
-                            <Grid item xs={2} sm={4} md={4} key={index} sx={{ justifyContent: 'center', alignItems: 'center', margin: '1vmin auto' }}>
-                                <Stack spacing={2} sx={{ justifyContent: 'center', alignItems: 'center' }} >
-                                    <img src={detail.icon} loading="lazy" alt="" width={'50%'} style={{ backgroundColor: 'transparent' }} />
-                                    <Typography component="h5" variant='h5' style={{ color: '#ed5977', textAlign: 'center' }}> {detail.title} </Typography>
-                                    <Typography component="p" variant='p' style={{ color: 'white', textAlign: 'center', padding: '2vw' }}> {detail.description} </Typography>
+                {/* Our Teaching Section */}
+                <Stack direction="column" spacing={2} className="page_content_dark" sx={{ p: 2 }}>
+                    <Typography
+                        component="h3"
+                        variant="h4"
+                        sx={{ color: '#fed677', fontWeight: 'bold', textAlign: 'left' }}
+                    >
+                        Our Teaching program combines Knowledge with Fun
+                    </Typography>
+                    <Typography component="p" variant="body1" sx={{ color: 'white' }}>
+                        Our coding program assists children to build valuable skills in life and eventually in
+                        the workforce.
+                    </Typography>
+                    <Grid container columns={{ xs: 2, sm: 8, md: 16 }} spacing={2}>
+                        {teachingTopics.map((topic, index) => (
+                            <Grid
+                                item
+                                xs={2}
+                                sm={4}
+                                md={4}
+                                key={index}
+                                sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center', m: '1vmin auto' }}
+                            >
+                                <Stack spacing={2} sx={{ justifyContent: 'center', alignItems: 'center' }}>
+                                    <img
+                                        src={topic.icon}
+                                        loading="lazy"
+                                        alt={topic.title}
+                                        width="50%"
+                                        style={{ backgroundColor: 'transparent' }}
+                                    />
+                                    <Typography component="h5" variant="h5" sx={{ color: '#ed5977', textAlign: 'center' }}>
+                                        {topic.title}
+                                    </Typography>
+                                    <Typography
+                                        component="p"
+                                        variant="body1"
+                                        sx={{ color: 'white', textAlign: 'center', p: '2vw' }}
+                                    >
+                                        {topic.description}
+                                    </Typography>
                                 </Stack>
                             </Grid>
                         ))}
