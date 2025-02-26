@@ -94,11 +94,11 @@ export default function Home() {
                 {/* News Events */}
                 <Stack direction="row" >
                     <Grid container columns={{ xs: 2, sm: 8, md: 12 }} className={'page_content_dark'}>
-                        <Grid item xs={6} >
+                        <Grid item sm={12} md={6}>
                             <img src={news_img} loading="lazy" alt="" width={'100%'} />
                         </Grid>
-                        <Grid item xs={6} sx={{ justifyContent: 'center', alignItems: 'center' }}>
-                            <Stack direction="column" spacing={2} sx={{ justifyContent: 'center', alignItems: 'center', paddingLeft: '1vmin' }} width={'100%'} >
+                        <Grid item sm={12} md={6} sx={{ justifyContent: 'center', alignItems: 'center' }}>
+                            <Stack direction="column" spacing={2} sx={{ justifyContent: 'center', alignItems: 'center' }} width={'100%'} >
                                 <Typography component="h3" variant='h4' style={{ color: '#fed677', textAlign: 'center', fontWeight: 'bold' }}> News & Events </Typography>
                                 <Typography component="h5" variant='h5' style={{ color: '#ed7d45', textAlign: 'center', fontWeight: 'bold' }}> Vacancies Available in our Online Classes </Typography>
                                 <Typography component="p" variant='p' style={{ color: 'white', textAlign: 'center' }}> Coding is Fun.</Typography>
