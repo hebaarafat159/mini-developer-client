@@ -403,7 +403,7 @@ a.instagram {
   flex-flow: row wrap;
   justify-content: center;
   align-items: center;
-  padding: 5vmin 2vmin;
+  padding: 2vmin;
   background-color: #333440;
   margin: 2vmin auto;
 }
