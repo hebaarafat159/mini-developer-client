@@ -5,7 +5,7 @@ import FreeTrialButton from '../components/FreeTrialButton'
 import ExploreButtonComponent from '../components/ExploreButtonComponent'
 import home_first_paragraphe_img from '../assets/home_first_paragraphe_img.jpg'
 import news_img from '../assets/news_img.png'
-import why_img from '../assets/why-learn-coding-at-a-young-age-mini-coding-coding-for-kids-life-fun.gif'
+import benefit from '../assets/ benefit.gif'
 // eslint-disable-next-line
 import roadmap from '../assets/mini-developer-roadmap-learning-coding-for-children.png'
 import creative_img from '../assets/creative_img.png'
@@ -130,7 +130,7 @@ export default function Home() {
                         <Typography component="p" variant='p' style={{ color: '#333440' }}> Gives children 5 steps of progress skills in life and eventually in the workforce. </Typography>
 
                         <Stack spacing={2} sx={{ justifyContent: 'center', alignItems: 'center' }} >
-                            <img src={why_img} loading="lazy" alt="" width={'50%'} />
+                            <img src={benefit} loading="lazy" alt="" width={'50%'} />
                             <Typography component="p" variant='p' style={{ color: '#333440', fontStyle: 'italic', textAlign: 'center' }}>Join us on this journey & give your children the opportunity to boost their skills. </Typography>
                         </Stack>
                     </Stack>
