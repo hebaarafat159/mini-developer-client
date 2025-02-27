@@ -42,7 +42,7 @@ export default function TermDates() {
                 }} />
             {/* current term date section */}
             <Stack direction="row" spacing={1} sx={{ justifyContent: 'space-around', alignItems: 'center', background: 'linear-gradient(to bottom, #9192ca, #FFFFFF);', padding: '3vmin' }} >
-                <Grid container columns={{ xs: 2, sm: 8, md: 12 }} sx={{ justifyContent: 'center', alignItems: 'center' }} width={'70%'}>
+                <Grid container columns={{ xs: 2, sm: 8, md: 12 }} sx={{ justifyContent: 'center', alignItems: 'center' }}>
                     <Grid item xs={6} sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
                         <img src={term_dates_img} loading="lazy" alt="" width={'100%'} />
                     </Grid>
