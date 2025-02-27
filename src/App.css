@@ -296,14 +296,14 @@ a.instagram {
 }
 
 .home-page-block {
-  height: 60vmin;
+  height: 75vmin;
   position: relative;
   overflow: hidden;
   text-align: center;
   display: flex;
   align-items: center;
   justify-content: center;
-  margin: 2vmin auto;
+  /* margin: 2vmin auto; */
 }
 
 .home-page-block video {
@@ -405,7 +405,7 @@ a.instagram {
   align-items: center;
   padding: 2vmin;
   background-color: #333440;
-  margin: 2vmin auto;
+  /* margin: 2vmin auto; */
 }
 
 .page_content {

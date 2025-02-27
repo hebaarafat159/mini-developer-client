@@ -71,7 +71,25 @@ export default function Home() {
 
                 {/* Coding Vedio */}
                 <Stack direction="row">
-                    <Grid container columns={{ xs: 2, sm: 8, md: 12 }} style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }} >
+                    <Grid container columns={{ xs: 2, sm: 8, md: 12 }} className={'page_content'}>
+                        <Grid item sm={12} md={6} className={'coding-vedio-section'} sx={{ justifyContent: 'center', alignItems: 'center', padding: '1vmin' }}>
+                            <Stack direction="column" spacing={2} sx={{ justifyContent: 'center', alignItems: 'center' }} >
+                                <Typography component="h3" variant='h4' style={{ color: '#4682b4', textAlign: 'center', fontWeight: 'bold' }}> Build your Child's Valuable Coding & Problem-Solving Skills</Typography>
+                                <Stack direction="row" spacing={1} >
+                                    <FreeTrialButton course={null} />
+                                    <ExploreButtonComponent />
+                                </Stack>
+                            </Stack>
+                        </Grid>
+                        <Grid item sm={12} md={6} className={'home-page-block'}>
+                            <video playsInline autoPlay muted loop poster="/coding_intro_thumb.png" >
+                                <source src="/coding_intro_movie.mp4" type="video/mp4" />
+                                Your browser does not support the video tag
+                            </video>
+                            {/* <img src={news_img} loading="lazy" alt="" width={'100%'} /> */}
+                        </Grid>
+                    </Grid>
+                    {/* <Grid container columns={{ xs: 2, sm: 8, md: 12 }} style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }} >
                         <Grid item xs={12}>
                             <div className="home-page-block">
                                 <video playsInline autoPlay muted loop poster="/coding_intro_thumb.png">
@@ -88,7 +106,7 @@ export default function Home() {
                                 </div>
                             </div>
                         </Grid>
-                    </Grid>
+                    </Grid> */}
                 </Stack>
 
                 {/* News Events */}
@@ -121,7 +139,7 @@ export default function Home() {
                 <Stack direction="column" >
                     <Grid container columns={{ xs: 2, sm: 8, md: 12 }} className={'page_content'}>
                         <Grid item xs={8} sx={{ flexGrow: 1 }}>
-                            <Typography component="h4" variant='h4' style={{ color: '#4682b4', textAlign: 'center', fontWeight: 'bold', padding: '3vmin auto' }}> Do you know what our Customers say about us?  </Typography>
+                            <Typography component="h4" variant='h4' style={{ color: '#4682b4', fontWeight: 'bold', padding: '1vmin auto' }}> Do you know what our Customers say about us?  </Typography>
                         </Grid>
                         <Grid item xs={4} sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
                             <Button
@@ -133,23 +151,29 @@ export default function Home() {
                     </Grid>
                     <Stack spacing={2} sx={{ justifyContent: 'center', alignItems: 'center' }} >
                         <Grid container columns={{ xs: 2, sm: 8, md: 12 }} style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }} >
-                            <Grid item xs={12}>
+                            <Grid item sm={12} style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+                                <video playsInline autoPlay muted loop poster="/testimonial_thumb.png" width={'80%'}>
+                                    <source src="/testimonial.mp4" type="video/mp4" />
+                                    Your browser does not support the video tag
+                                </video>
+                            </Grid>
+                            {/* <Grid item xs={12}>
                                 <div className="home-page-block">
                                     <video playsInline autoPlay muted loop poster="/testimonial_thumb.png">
                                         <source src="/testimonial.mp4" type="video/mp4" />
                                         Your browser does not support the video tag
                                     </video>
                                 </div>
-                            </Grid>
+                            </Grid> */}
                         </Grid>
                     </Stack>
                 </Stack>
 
                 {/* The Benefit  */}
-                <Stack direction="column" spacing={2} sx={{ justifyContent: 'space-evenly' }} >
-                    <Typography component="h3" variant='h5' style={{ color: '#ed7d45', fontWeight: 'bold', textAlign: 'start' }}> The Benefit of the Early Learning of Coding </Typography>
-                    <Typography component="p" variant='p' style={{ color: '#333440' }}> Apart from improving writing & mathematics skills, Learning Coding boosts STEM. </Typography>
-                    <Typography component="p" variant='p' style={{ color: '#333440' }}> Gives children 5 steps of progress skills in life and eventually in the workforce. </Typography>
+                <Stack direction="column" spacing={2} sx={{ justifyContent: 'space-evenly', margin: '5vmin 2vmin' }} >
+                    <Typography component="h4" variant='h4' style={{ color: '#ed7d45', fontWeight: 'bold', textAlign: 'start' }}> The Benefit of the Early Learning of Coding </Typography>
+                    <Typography component="h5" variant='h5' style={{ color: '#333440', textAlign: 'left' }}> Apart from improving writing & mathematics skills, Learning Coding boosts STEM. </Typography>
+                    <Typography component="h5" variant='h5' style={{ color: '#333440' }}> Gives children 5 steps of progress skills in life and eventually in the workforce. </Typography>
 
                     <Stack spacing={2} sx={{ justifyContent: 'center', alignItems: 'center' }} >
                         <img src={benefit} loading="lazy" alt="" width={'100%'} />
