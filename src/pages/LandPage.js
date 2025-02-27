@@ -72,7 +72,7 @@ export default function Home() {
                 {/* Coding Vedio */}
                 <Stack direction="row">
                     <Grid container columns={{ xs: 2, sm: 8, md: 12 }} className={'page_content'}>
-                        <Grid item sm={12} md={4} className={'coding-vedio-section'} sx={{ justifyContent: 'center', alignItems: 'center', padding: '1vmin' }}>
+                        <Grid item xs={4} sm={12} md={4} className={'coding-vedio-section'} sx={{ justifyContent: 'center', alignItems: 'center', padding: '1vmin' }}>
                             <Stack direction="column" spacing={2} sx={{ justifyContent: 'center', alignItems: 'center' }} >
                                 <Typography component="h3" variant='h4' style={{ color: '#4682b4', textAlign: 'center', fontWeight: 'bold' }}> Build your Child's Valuable Coding & Problem-Solving Skills</Typography>
                                 <Stack direction="row" spacing={1} >
@@ -81,7 +81,7 @@ export default function Home() {
                                 </Stack>
                             </Stack>
                         </Grid>
-                        <Grid item sm={12} md={6} className={'home-page-block'}>
+                        <Grid item xs={4} sm={12} md={6} className={'home-page-block'}>
                             <video playsInline autoPlay muted loop poster="/coding_intro_thumb.png" >
                                 <source src="/coding_intro_movie.mp4" type="video/mp4" />
                                 Your browser does not support the video tag
