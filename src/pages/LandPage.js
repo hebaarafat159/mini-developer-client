@@ -72,7 +72,7 @@ export default function Home() {
                 {/* Coding Vedio */}
                 <Stack direction="row">
                     <Grid container columns={{ xs: 2, sm: 8, md: 12 }} className={'page_content'}>
-                        <Grid item sm={12} md={6} className={'coding-vedio-section'} sx={{ justifyContent: 'center', alignItems: 'center', padding: '1vmin' }}>
+                        <Grid item sm={12} md={4} className={'coding-vedio-section'} sx={{ justifyContent: 'center', alignItems: 'center', padding: '1vmin' }}>
                             <Stack direction="column" spacing={2} sx={{ justifyContent: 'center', alignItems: 'center' }} >
                                 <Typography component="h3" variant='h4' style={{ color: '#4682b4', textAlign: 'center', fontWeight: 'bold' }}> Build your Child's Valuable Coding & Problem-Solving Skills</Typography>
                                 <Stack direction="row" spacing={1} >
