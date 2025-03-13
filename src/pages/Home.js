@@ -49,10 +49,10 @@ export default function Home() {
                 <Stack direction="row" className='ads-box'>
                     <Grid container columns={{ xs: 2, sm: 8, md: 12 }} style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }} >
                         <Grid item sm={4} md={2}>
-                            <Typography component="h3" variant='h5' style={{ color: 'white', textAlign: 'center', fontWeight: 'bold', padding: '2vmin' }}> Exciting News!! </Typography>
+                            <Typography component="h3" variant='h4' style={{ color: 'white', textAlign: 'center', fontWeight: 'bold', padding: '2vmin' }}> Exciting News!! </Typography>
                         </Grid>
                         <Grid item sm={4} md={8} style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', padding: '1vmin' }} >
-                            <Typography component="p" variant='p' style={{ color: 'white', fontStyle: 'italic', textAlign: 'left' }}> Booking Open for Autumn 2024 Term – Join  Our <span style={{ fontWeight: 'bolder' }}>In-Person and Online </span>Classes! </Typography>
+                            <Typography component="h6" variant='h6' style={{ color: 'white', fontStyle: 'italic', textAlign: 'left' }}> Booking Open for Autumn 2024 Term – Join  Our <span style={{ fontWeight: 'bolder' }}>In-Person and Online </span>Classes! </Typography>
                         </Grid>
                         <Grid item sm={4} md={2} style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', padding: '1vmin' }} >
                             <Button
@@ -136,7 +136,7 @@ export default function Home() {
                                     <source src="/testimonial.mp4" type="video/mp4" />
                                     Your browser does not support the video tag
                                 </video>
-                            </Grid>                    
+                            </Grid>
                         </Grid>
                     </Stack>
                 </Stack>
