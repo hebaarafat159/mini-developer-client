@@ -37,7 +37,7 @@ export default function Testimonial2({ testimonialsCount }) {
                 <Box display="flex" alignItems="center" gap={2}>
                     <Grid container columns={{ xs: 2, sm: 8, md: 12 }}>
                         <Grid item xs={8} sx={{ flexGrow: 1 }}>
-                            <Typography component="h5" variant='h5' style={{ color: 'black', fontWeight: 'bold', padding: '1vmin auto' }}> H. A. </Typography>
+                            <Typography component="h5" variant='h5' style={{ color: 'black', fontWeight: 'bold', padding: '1vmin auto' }}> {testimonial.person} </Typography>
                         </Grid>
                         <Grid item xs={4} sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
                             <Typography component="h1" variant='h1' style={{ color: 'black', fontWeight: 'bold', padding: '1vmin auto' }}>,,</Typography>
