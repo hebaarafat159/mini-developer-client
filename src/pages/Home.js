@@ -46,7 +46,6 @@ export default function Home() {
 
             <Stack >
                 {/* news Bar  */}
-                {/* <Stack direction="row" className='box' spacing={1} sx={{ height: '15%', justifyContent: 'center', alignItems: 'center', padding: '1vmin' }} > */}
                 <Stack direction="row" className='ads-box'>
                     <Grid container columns={{ xs: 2, sm: 8, md: 12 }} style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }} >
                         <Grid item sm={4} md={2}>
@@ -60,7 +59,7 @@ export default function Home() {
                                 variant="contained"
                                 className={'blue_btn'}
                                 onClick={() => window.scroll({
-                                    top: (document.body.offsetTop + 550),
+                                    top: (document.body.offsetTop + 600),
                                     left: 0,
                                     behavior: 'smooth',
                                 })}> Read More</Button>
@@ -86,27 +85,8 @@ export default function Home() {
                                 <source src="/coding_intro_movie.mp4" type="video/mp4" />
                                 Your browser does not support the video tag
                             </video>
-                            {/* <img src={news_img} loading="lazy" alt="" width={'100%'} /> */}
                         </Grid>
                     </Grid>
-                    {/* <Grid container columns={{ xs: 2, sm: 8, md: 12 }} style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }} >
-                        <Grid item xs={12}>
-                            <div className="home-page-block">
-                                <video playsInline autoPlay muted loop poster="/coding_intro_thumb.png">
-                                    <source src="/coding_intro_movie.mp4" type="video/mp4" />
-                                    Your browser does not support the video tag
-                                </video>
-                                <div className="coding-vedio-section" >
-                                    <h1>Build your Child's Valuable Coding & Problem-Solving Skills</h1>
-                                    <h2>Coding Classes</h2>
-                                    <Stack direction="row" spacing={1} >
-                                        <FreeTrialButton course={null} />
-                                        <ExploreButtonComponent />
-                                    </Stack>
-                                </div>
-                            </div>
-                        </Grid>
-                    </Grid> */}
                 </Stack>
 
                 {/* News Events */}
@@ -156,15 +136,7 @@ export default function Home() {
                                     <source src="/testimonial.mp4" type="video/mp4" />
                                     Your browser does not support the video tag
                                 </video>
-                            </Grid>
-                            {/* <Grid item xs={12}>
-                                <div className="home-page-block">
-                                    <video playsInline autoPlay muted loop poster="/testimonial_thumb.png">
-                                        <source src="/testimonial.mp4" type="video/mp4" />
-                                        Your browser does not support the video tag
-                                    </video>
-                                </div>
-                            </Grid> */}
+                            </Grid>                    
                         </Grid>
                     </Stack>
                 </Stack>
