@@ -1,25 +1,18 @@
 import React from 'react'
-import { Stack, Typography, Grid } from '@mui/material'
-// import library_logo from '../assets/library_logo.png'
+import { Stack, Typography, Grid, Link } from '@mui/material'
 import app_logo from '../assets/logo_icon.png'
-// import { SocialIcon } from 'react-social-icons'
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-// import {
-//     faFacebook,
-//     faSquareWhatsapp,
-//     faSquareFacebook,
-//     faSquareInstagram
-// } from "@fortawesome/free-brands-svg-icons";
 
 import { faFacebook, faWhatsapp, faInstagram, faGoogle } from "@fortawesome/free-brands-svg-icons";
 
-// import email_icon from '../assets/email_footer_icon.png'
 export default function FooterContactUs() {
     return (
         <Stack spacing={1} sx={{ display: 'flex', direction: 'row', justifyContent: 'space-around', alignItems: 'center' }} >
             <Grid container columns={{ xs: 2, sm: 8, md: 12 }} sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
                 <Grid item xs={2} sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
-                    <img src={app_logo} loading="lazy" alt="" width={'70%'} />
+                    <Link href="/" >
+                        <img src={app_logo} loading="lazy" alt="" width={'70%'} />
+                    </Link>
                 </Grid>
                 <Grid item xs={8} sx={{ justifyContent: 'center', alignItems: 'center', padding: '2vmin' }}>
                     <Stack direction="row" style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
