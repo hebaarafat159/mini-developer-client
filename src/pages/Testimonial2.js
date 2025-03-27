@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { Typography, Grid, Card, CardContent, Box, Container, Rating } from '@mui/material'
-
+import { Masonry } from "@mui/lab";
+import { Star } from "@mui/icons-material";
 
 export default function Testimonial2({ testimonialsCount }) {
 
@@ -25,6 +26,32 @@ export default function Testimonial2({ testimonialsCount }) {
     }, [testimonialsCount]);
 
 
+    const ReviewCard = ({ testimonial }) => {
+        return (
+            <Card sx={{ backgroundColor: "white", color: "black", p: 2, borderRadius: 3 }}>
+                <Box display="flex" alignItems="center" gap={2}>
+                    <Box>
+                        <Typography variant="h6" fontWeight="bold">
+                            {testimonial.person}
+                        </Typography>
+                        <Typography variant="body2" color="gray">
+                            Website Developement
+                        </Typography>
+                    </Box>
+                </Box>
+                <CardContent>
+                    <Typography variant="body1"> "{testimonial.text}"</Typography>
+                    <Box mt={2} display="flex" gap={0.5}>
+                        {Array(5)
+                            .fill()
+                            .map((_, i) => (
+                                <Star key={i} sx={{ color: "#f06848" }} />
+                            ))}
+                    </Box>
+                </CardContent>
+            </Card>
+        );
+    };
     const TestimonialCard = ({ testimonial }) => (
         <Card sx={{ maxWidth: 345, p: 3, borderRadius: 3, boxShadow: 4, backgroundColor: "white" }}>
             <CardContent>
@@ -49,20 +76,30 @@ export default function Testimonial2({ testimonialsCount }) {
     );
 
     return (
+        // <Container sx={{ mt: 5 }}>
         <Box py={6} sx={{ backgroundColor: "#f9f9f9" }}>
-            <Container maxWidth="xl">
-                <Typography variant="h4" sx={{ color: "#4682b4", fontWeight: "bold", textAlign: "center", mb: 4 }}>
-                    Do you know what our Customers say about us?
-                </Typography>
-
-                <Grid container spacing={2} justifyContent="center">
+            <Container maxWidth="xl" sx={{ mt: 3 }}>
+                <Masonry columns={{ xs: 1, sm: 2, md: 3 }} spacing={2}>
                     {testimonials.map((testimonial, index) => (
-                        <Grid item key={index}>
-                            <TestimonialCard testimonial={testimonial} />
-                        </Grid>
+                        <ReviewCard key={index} testimonial={testimonial} />
                     ))}
-                </Grid>
+                </Masonry>
             </Container>
         </Box>
+        // <Box py={6} sx={{ backgroundColor: "#f9f9f9" }}>
+        //     <Container maxWidth="xl">
+        //         <Typography variant="h4" sx={{ color: "#4682b4", fontWeight: "bold", textAlign: "center", mb: 4 }}>
+        //             Do you know what our Customers say about us?
+        //         </Typography>
+
+        //         <Grid container spacing={2} justifyContent="center">
+        //             {testimonials.map((testimonial, index) => (
+        //                 <Grid item key={index}>
+        //                     <TestimonialCard testimonial={testimonial} />
+        //                 </Grid>
+        //             ))}
+        //         </Grid>
+        //     </Container>
+        // </Box>
     );
 }
