@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
-import { TextField, Stack, Typography, Button, Grid, MenuItem, Select } from '@mui/material'
+import { TextField, Stack, Typography, Button, Grid } from '@mui/material'
+import { Select, Option } from '@mui/joy';
 import { experimentalStyled as styled } from '@mui/material/styles';
 import Paper from '@mui/material/Paper';
 import validator from "validator";
@@ -88,6 +89,7 @@ export default function AddTestimonial() {
     function submit() {
 
         if (validateForm()) {
+            alert(JSON.stringify(requestData));
             // save user testemonial 
             fetch(`${process.env.REACT_APP_URL_APP_PATH}/testmonials/add`,
                 {
@@ -114,7 +116,7 @@ export default function AddTestimonial() {
         <Stack className='recent-blogs d-block screen'>
             <Typography component="h5" variant='h5' style={{ color: '#ed7d45', fontWeight: 'bolder', justifyContent: 'center', alignItems: 'center', textAlign: 'center', fontFamily: 'Papyrus' }}>  Add New Testimonial </Typography>
 
-            <Stack direction="column" spacing={2} sx={{ justifyContent: 'space-evenly', padding: '1.5vmin' }} >
+            <Stack direction="column" spacing={2} sx={{ justifyContent: 'space-evenly', padding: '1.5vmin', alignContent: 'center' }} >
 
                 {/* Parent Name */}
                 <Typography component="p" variant='p' style={{ color: '#333440', fontWeight: 'bold', alignItems: 'flex-start' }}> Person Name <span style={{ color: 'red' }}> * </span></Typography>
@@ -139,36 +141,24 @@ export default function AddTestimonial() {
                 {(requestErrorMsgs.course !== '') && <Typography component="p" variant='p' style={{ color: 'red', alignItems: 'flex-start' }}> {requestErrorMsgs.course} </Typography>}
                 <Grid container spacing={1} >
                     <Grid item xs={8} md={12}>
-                        <Item>
-                            <Select
-                                labelId="dropdown-label"
-                                value={requestData.course}
-                                label="Choose a course"
-                                onSelect={(event) => {
-                                    requestData.course = event.target.value;
-                                }}
-                                onChange={(event) => {
-                                    requestData.course = event.target.value;
-                                }}
-                                fullWidth
-                            >
-                                {courses.map(
-                                    (course, index) => (
-                                        <MenuItem key={index} value={course}>{course.title}</MenuItem>
-                                    )
-                                )}
-                            </Select>
+                        <Select
+                            placeholder="Courses"
+                            size="lg"
+                            variant="outlined"
+                            onChange={
+                                (e, newValue) => {
+                                    requestData.course = newValue;
+                                }
+                            }
+                            fullWidth
+                        >
+                            {courses.length && courses.map((course, index) => (
+                                <Option key={course._id} value={course}>
+                                    {course.title}
+                                </Option>
+                            ))}
+                        </Select>
 
-                            {/* <TextField
-                                required
-                                defaultValue={requestData.course}
-                                onChange={(event) => {
-                                    requestData.course = event.target.value;
-                                }}
-                                error={Boolean(requestErrorMsgs.course)}
-                                helperText={requestErrorMsgs.course}
-                                fullWidth /> */}
-                        </Item>
                     </Grid>
                 </Grid>
 
