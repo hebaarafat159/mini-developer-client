@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { Typography, Grid, Card, CardContent, Box, Container, Rating } from '@mui/material'
 import { Masonry } from "@mui/lab";
-import { Star } from "@mui/icons-material";
+// import { Star } from "@mui/icons-material";
 
 export default function Testimonial2({ testimonialsCount }) {
 
@@ -35,18 +35,19 @@ export default function Testimonial2({ testimonialsCount }) {
                             {testimonial.person}
                         </Typography>
                         <Typography variant="body2" color="gray">
-                            Website Developement
+                            {testimonial.course_id.title}
                         </Typography>
                     </Box>
                 </Box>
                 <CardContent>
                     <Typography variant="body1"> "{testimonial.text}"</Typography>
                     <Box mt={2} display="flex" gap={0.5}>
-                        {Array(5)
+                        <Rating value={testimonial.rate} precision={0.5} readOnly sx={{ mt: 1, color: "#f06848" }} />
+                        {/* {Array({{testimonial.rate}})
                             .fill()
                             .map((_, i) => (
                                 <Star key={i} sx={{ color: "#f06848" }} />
-                            ))}
+                            ))} */}
                     </Box>
                 </CardContent>
             </Card>
