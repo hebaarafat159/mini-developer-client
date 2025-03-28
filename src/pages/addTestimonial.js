@@ -136,10 +136,10 @@ export default function AddTestimonial() {
 
                 {/* Courses  */}
                 <Typography component="p" variant='p' style={{ color: '#333440', fontWeight: 'bold', alignItems: 'flex-start' }}> Select A Course: <span style={{ color: 'red' }}> * </span></Typography>
+                {(requestErrorMsgs.course !== '') && <Typography component="p" variant='p' style={{ color: 'red', alignItems: 'flex-start' }}> {requestErrorMsgs.course} </Typography>}
                 <Grid container spacing={1} >
                     <Grid item xs={8} md={12}>
                         <Item>
-                            {(requestErrorMsgs.cours !== '') && <Typography component="p" variant='p' style={{ color: 'red', fontWeight: 'bold', alignItems: 'flex-start' }}> {requestErrorMsgs.cours} </Typography>}
                             <Select
                                 labelId="dropdown-label"
                                 value={requestData.course}
@@ -154,7 +154,7 @@ export default function AddTestimonial() {
                             >
                                 {courses.map(
                                     (course, index) => (
-                                        <MenuItem key={course._id} value={course}>{course.title}</MenuItem>
+                                        <MenuItem key={index} value={course}>{course.title}</MenuItem>
                                     )
                                 )}
                             </Select>
