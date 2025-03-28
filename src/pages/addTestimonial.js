@@ -3,8 +3,10 @@ import { TextField, Stack, Typography, Button, Grid, MenuItem, Select } from '@m
 import { experimentalStyled as styled } from '@mui/material/styles';
 import Paper from '@mui/material/Paper';
 import validator from "validator";
+import { useNavigate } from 'react-router-dom'
 
 export default function AddTestimonial() {
+    const navigate = useNavigate();
     const [courses, setCourses] = useState([])
 
     useEffect(() => {
@@ -18,10 +20,10 @@ export default function AddTestimonial() {
     // eslint-disable-next-line
     const [requestData, setRequestData] = useState(
         {
-            person: '',
-            course: null,
-            rate: 0,
-            text: '',
+            person: 'J.J.',
+            course: {},
+            rate: 4,
+            text: 'lkdlkendldnlwd',
         }
     )
 
@@ -86,7 +88,26 @@ export default function AddTestimonial() {
     function submit() {
 
         if (validateForm()) {
-            // TODO save user testemonial 
+            alert(JSON.stringify(requestData));
+            // save user testemonial 
+            fetch(`${process.env.REACT_APP_URL_APP_PATH}/testmonials/add`,
+                {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json"
+                    },
+                    body: JSON.stringify(requestData)
+                })
+                .then(response => response.json())
+                .then(result => {
+                    if (result.status === 200) {
+                        console.log(`Thanks for sharing your Feedback With us`);
+                        navigate('/confirmation')
+                    }
+                })
+                .catch(error => {
+                    console.log(error);
+                })
         }
     }
 
