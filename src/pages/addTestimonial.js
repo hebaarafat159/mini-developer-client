@@ -20,10 +20,10 @@ export default function AddTestimonial() {
     // eslint-disable-next-line
     const [requestData, setRequestData] = useState(
         {
-            person: 'J.J.',
-            course: {},
-            rate: 4,
-            text: 'lkdlkendldnlwd',
+            person: '',
+            course: null,
+            rate: 0,
+            text: '',
         }
     )
 
@@ -88,7 +88,6 @@ export default function AddTestimonial() {
     function submit() {
 
         if (validateForm()) {
-            alert(JSON.stringify(requestData));
             // save user testemonial 
             fetch(`${process.env.REACT_APP_URL_APP_PATH}/testmonials/add`,
                 {
@@ -102,7 +101,8 @@ export default function AddTestimonial() {
                 .then(result => {
                     if (result.status === 200) {
                         console.log(`Thanks for sharing your Feedback With us`);
-                        navigate('/confirmation')
+                        
+                        navigate('/confirmation/feedback')
                     }
                 })
                 .catch(error => {

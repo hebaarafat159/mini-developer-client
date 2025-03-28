@@ -31,7 +31,7 @@ function App() {
             <Route path="/our-courses/:id" element={<CourseDetails />} />
             <Route path="/contact-us" element={<ContactUs />} />
             <Route path="/sign-up-form/:courseId" element={<Register />} />
-            <Route path="/confirmation" element={<ConfirmationPage />} />
+            <Route path="/confirmation/:pageTitle" element={<ConfirmationPage />} />
             <Route path="/term-dates" element={<TermDates />} />
             <Route path="/consent-form/:studentId" element={<ConsentForm />} />
             {/* <Route path="/testimonials" element={<Testimonials />} /> */}
