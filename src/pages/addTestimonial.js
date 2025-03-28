@@ -101,7 +101,6 @@ export default function AddTestimonial() {
                 .then(result => {
                     if (result.status === 200) {
                         console.log(`Thanks for sharing your Feedback With us`);
-                        
                         navigate('/confirmation/feedback')
                     }
                 })
@@ -174,7 +173,7 @@ export default function AddTestimonial() {
                 </Grid>
 
                 {/* rating  */}
-                <Typography component="p" variant='p' style={{ color: '#333440', fontWeight: 'bold', alignItems: 'flex-start' }}> Wriet a number between 1 and 5: <span style={{ color: 'red' }}> * </span></Typography>
+                <Typography component="p" variant='p' style={{ color: '#333440', fontWeight: 'bold', alignItems: 'flex-start' }}> Write a number between 1 and 5: <span style={{ color: 'red' }}> * </span></Typography>
                 <Grid container spacing={1} >
                     <Grid item xs={8} md={12}>
                         <Item>
