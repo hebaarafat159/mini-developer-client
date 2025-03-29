@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
-import { TextField, Stack, Typography, Button, Grid } from '@mui/material'
+// eslint-disable-next-line
+import { TextField, Stack, Typography, Button, Grid, Rating } from '@mui/material'
 import { Select, Option } from '@mui/joy';
 import { experimentalStyled as styled } from '@mui/material/styles';
 import Paper from '@mui/material/Paper';
@@ -23,7 +24,7 @@ export default function AddTestimonial() {
         {
             person: '',
             course: null,
-            rate: 0,
+            rate: 5,
             text: '',
         }
     )
@@ -64,15 +65,15 @@ export default function AddTestimonial() {
         }
 
         // Validate rate
-        if (requestData.rate === 0 || requestData.rate === '') {
-            errorMesgs.rate = 'Please enter a number';
-            valid = false;
-        } else if (requestData.rate < 0 || requestData.rate > 5) {
-            errorMesgs.rate = 'Please enter a number between 1 and 5';
-            valid = false;
-        } else {
-            errorMesgs.rate = '';
-        }
+        // if (requestData.rate === 0 || requestData.rate === '') {
+        //     errorMesgs.rate = 'Please enter a number';
+        //     valid = false;
+        // } else if (requestData.rate < 0 || requestData.rate > 5) {
+        //     errorMesgs.rate = 'Please enter a number between 1 and 5';
+        //     valid = false;
+        // } else {
+        //     errorMesgs.rate = '';
+        // }
 
         // Validate comment
         if (validator.isEmpty(requestData.text)) {
@@ -162,24 +163,6 @@ export default function AddTestimonial() {
                     </Grid>
                 </Grid>
 
-                {/* rating  */}
-                <Typography component="p" variant='p' style={{ color: '#333440', fontWeight: 'bold', alignItems: 'flex-start' }}> Write a number between 1 and 5: <span style={{ color: 'red' }}> * </span></Typography>
-                <Grid container spacing={1} >
-                    <Grid item xs={8} md={12}>
-                        <Item>
-                            <TextField
-                                required
-                                defaultValue={requestData.rate}
-                                onChange={(event) => {
-                                    requestData.rate = event.target.value;
-                                }}
-                                error={Boolean(requestErrorMsgs.rate)}
-                                helperText={requestErrorMsgs.rate}
-                                fullWidth />
-                        </Item>
-                    </Grid>
-                </Grid>
-
                 {/* Comment  */}
                 <Typography component="p" variant='p' style={{ color: '#333440', fontWeight: 'bold', alignItems: 'flex-start' }}> Comment: <span style={{ color: 'red' }}> * </span></Typography>
                 <Grid container spacing={1} >
@@ -198,6 +181,26 @@ export default function AddTestimonial() {
                     </Grid>
                 </Grid>
 
+                {/* rating  */}
+                {/* <Typography component="p" variant='p' style={{ color: '#333440', fontWeight: 'bold', alignItems: 'flex-start' }}> Select Your Rating <span style={{ color: 'red' }}> * </span></Typography>
+                <Grid container spacing={1} >
+                    <Grid item xs={8} md={12}>
+                        <Rating
+                            name="simple-controlled"
+                            defaultValue={5}
+                            value={5}
+                            precision={0.5}
+                            size="large"
+                            sx={{ color: "#f06848" }}
+                            onChange={
+                            //    (event) => setRequestData({ ...requestData, rate: event.target.value })
+                                (event, newValue) => {
+                                    requestData.rate = newValue;
+                                }
+                            }
+                        />
+                    </Grid>
+                </Grid> */}
             </Stack>
 
             {/* Submit Button */}
