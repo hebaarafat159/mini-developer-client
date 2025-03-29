@@ -10,8 +10,8 @@ export default function FooterContactUs() {
         <Stack spacing={1} sx={{ display: 'flex', direction: 'row', justifyContent: 'space-around', alignItems: 'center' }} >
             <Grid container columns={{ xs: 2, sm: 8, md: 12 }} sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
                 <Grid item xs={2} sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
-                    <Link href="/" >
-                        <img src={app_logo} loading="lazy" alt="" width={'70%'} />
+                    <Link href="/" sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+                        <img src={app_logo} loading="lazy" alt="" width={'50%'} />
                     </Link>
                 </Grid>
                 <Grid item xs={8} sx={{ justifyContent: 'center', alignItems: 'center', padding: '2vmin' }}>
