@@ -204,10 +204,15 @@ export default function AddTestimonial() {
             </Stack>
 
             {/* Submit Button */}
-            <Button
-                variant="contained"
-                onClick={() => submit()}
-                className={'orage_btn'}> Submit </Button>
+            <div style={{ display: 'flex', justifyContent: 'center', marginTop: '10px' }}>
+                <Button
+                    variant="contained"
+                    onClick={() => submit()}
+                    className="orange_btn"
+                >
+                    Submit
+                </Button>
+            </div>
         </Stack>
     )
 }
