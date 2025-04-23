@@ -12,9 +12,8 @@ import OurVisionComponent from './components/OurVisionComponent';
 import ConfirmationPage from './pages/ConfirmationPage';
 import TermDates from './pages/TermDates';
 import ConsentForm from './pages/ConsentForm';
-// import Testimonials from './pages/Testimonials';
+import Testimonials from './pages/Testimonials';
 import { HelmetProvider } from "react-helmet-async";
-import Testimonial2 from './pages/Testimonial2';
 import AddTestimonial from './pages/addTestimonial';
 
 function App() {
@@ -34,8 +33,7 @@ function App() {
             <Route path="/confirmation/:pageTitle" element={<ConfirmationPage />} />
             <Route path="/term-dates" element={<TermDates />} />
             <Route path="/consent-form/:studentId" element={<ConsentForm />} />
-            {/* <Route path="/testimonials" element={<Testimonials />} /> */}
-            <Route path="/testimonials" element={<Testimonial2 />} />
+            <Route path="/testimonials" element={<Testimonials />} />
             <Route path="/add-testimonial" element={<AddTestimonial />} />
           </Routes>
         </div>
