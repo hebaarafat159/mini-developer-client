@@ -96,6 +96,23 @@ export default function RegisterForm() {
         setRequestData(regData)
     };
 
+    /**
+     * calculate each child age
+     * @param {*} childObject 
+     */
+    function calculateChildAge(childObject) {
+        const birth = parse(childObject.dob, dateFormate, new Date());
+        const today = new Date();
+        let age = today.getFullYear() - birth.getFullYear();
+        const monthDiff = today.getMonth() - birth.getMonth();
+
+        if (monthDiff < 0 || (monthDiff === 0 && today.getDate() < birth.getDate())) {
+            age--;
+        }
+
+        childObject.age = age
+    }
+
     // validated request object before sending to the server 
     const validateForm = () => {
         let valid = true;
@@ -181,13 +198,13 @@ export default function RegisterForm() {
                 }
 
                 // check child age
-                if (validator.isEmpty(childObject.age)) {
-                    errorMesgs.children[index].age = 'This field is required'
-                    valid = false;
-                } 
-                else {
-                    errorMesgs.children[index].age = ''
-                }
+                // if (validator.isEmpty(childObject.age)) {
+                //     errorMesgs.children[index].age = 'This field is required'
+                //     valid = false;
+                // } 
+                // else {
+                //     errorMesgs.children[index].age = ''
+                // }
 
                 // check child Date of birth
                 if (validator.isEmpty(childObject.dob)) {
@@ -195,7 +212,6 @@ export default function RegisterForm() {
                     valid = false;
                 }
                 else {
-
 
                     const parsedDate = parse(childObject.dob, dateFormate, new Date());
 
@@ -232,9 +248,15 @@ export default function RegisterForm() {
     function submit() {
 
         if (validateForm()) {
-            // alert(JSON.stringify(requestData));
+
             if ((!validator.isEmpty(courseId)) && courseId !== '0') requestData.course = { ...courseObject }
 
+            // eslint-disable-next-line
+            requestData.children.map((childObject, index) => {
+                // calculate child age when the dob is valid
+                calculateChildAge(childObject)
+            })
+            // alert(JSON.stringify(requestData));
             fetch(`${process.env.REACT_APP_URL_APP_PATH}/classrooms/register`,
                 {
                     method: "POST",
