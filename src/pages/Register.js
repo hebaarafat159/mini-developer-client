@@ -7,32 +7,37 @@ import { useNavigate, useParams } from 'react-router-dom'
 import { experimentalStyled as styled } from '@mui/material/styles';
 import Paper from '@mui/material/Paper';
 import SEOComponent from '../components/SEOComponent.js'
+import { parse, isValid } from "date-fns";
 
 export default function RegisterForm() {
-    const minAge = 4
-    const maxAge = 14
     const { courseId } = useParams();
     const [courseObject, setCourseObject] = useState({})
     const navigate = useNavigate();
+    const dateFormate = "dd/MM/yyyy"
 
+    // single child object
     const childObject = {
         first_name: '',
         last_name: '',
-        age: '',
+        age: 0,
         has_computer: true,
         email: '',
         course_level: '',
-        has_lessons_before: false
+        has_lessons_before: false,
+        dob: ''
     }
 
+    // single child object error
     const childErrorObject = {
         first_name: '',
         last_name: '',
         age: '',
         has_computer: true,
-        email: ''
+        email: '',
+        dob: ''
     }
 
+    // data object to be sent to the server
     const [requestData, setRequestData] = useState(
         {
             parentData:
@@ -52,6 +57,7 @@ export default function RegisterForm() {
         }
     )
 
+    // error data object to be sent to the server
     const [requestErrorMsgs, setRequestErrorMsgs] = useState(
         {
             parentData:
@@ -72,6 +78,7 @@ export default function RegisterForm() {
         }
     )
 
+    // load course object if this page is opened from selected course 
     useEffect(() => {
         if ((!validator.isEmpty(courseId)) && courseId !== '0') {
             fetch(`${process.env.REACT_APP_URL_APP_PATH}/courses/${courseId}`)
@@ -83,11 +90,13 @@ export default function RegisterForm() {
         }
     }, [courseId]);
 
+    // update request object item value 
     function updateRegistrationDataProperty(propertyName, newValue) {
         const regData = { ...requestData, [propertyName]: newValue }
         setRequestData(regData)
     };
 
+    // validated request object before sending to the server 
     const validateForm = () => {
         let valid = true;
         const errorMesgs = { ...requestErrorMsgs };
@@ -143,7 +152,7 @@ export default function RegisterForm() {
                 errorMesgs.region = '';
                 // validated courses places
                 if ((!validator.isEmpty(courseId)) && courseId !== '0') {
-                    if ((requestData.region!==null && requestData.region!== undefined && requestData.region.has_upcomming_courses) && (requestData.classroom === null || requestData.classroom === undefined)) {
+                    if ((requestData.region !== null && requestData.region !== undefined && requestData.region.has_upcomming_courses) && (requestData.classroom === null || requestData.classroom === undefined)) {
                         errorMesgs.classroom = 'Please Select your preffered course place';
                     } else {
                         errorMesgs.classroom = ''
@@ -171,16 +180,31 @@ export default function RegisterForm() {
                     errorMesgs.children[index].last_name = ''
                 }
 
-                // check child first name
+                // check child age
                 if (validator.isEmpty(childObject.age)) {
                     errorMesgs.children[index].age = 'This field is required'
                     valid = false;
-                } else if (childObject.age < minAge || childObject.age > maxAge) {
-                    errorMesgs.children[index].age = `Age should be between ${minAge}-${maxAge}`
+                } 
+                else {
+                    errorMesgs.children[index].age = ''
+                }
+
+                // check child Date of birth
+                if (validator.isEmpty(childObject.dob)) {
+                    errorMesgs.children[index].dob = 'This field is required'
                     valid = false;
                 }
                 else {
-                    errorMesgs.children[index].age = ''
+
+
+                    const parsedDate = parse(childObject.dob, dateFormate, new Date());
+
+                    valid = isValid(parsedDate);
+                    if (!valid) {
+                        errorMesgs.children[index].dob = `Invalid date. Please enter it in the correct format ${dateFormate}`
+                    } else {
+                        errorMesgs.children[index].dob = ''
+                    }
                 }
             })
         }
@@ -190,18 +214,21 @@ export default function RegisterForm() {
         return valid
     }
 
+    // add new child to children array
     function addNewChild() {
         requestData.children.push(childObject)
         requestErrorMsgs.children.push(childErrorObject)
         updateChildrenArray(requestData.children)
     };
 
+    // update child object in the children array 
     function updateChildrenArray(childArray) {
         requestData.children = [...childArray]
         // 1 is the index of children array in the requestData object                     
         updateRegistrationDataProperty(Object.keys(requestData)[1], requestData.children);
     }
 
+    // send request data to server 
     function submit() {
 
         if (validateForm()) {
@@ -349,7 +376,8 @@ export default function RegisterForm() {
                                     requestData={requestData}
                                     requestErrorMsgs={requestErrorMsgs}
                                     updateChildrenArray={updateChildrenArray}
-                                    courseObject={courseObject} />)
+                                    courseObject={courseObject}
+                                    dateFormate={dateFormate} />)
                             : null
                     }
 

@@ -5,13 +5,8 @@ import DeleteIcon from '@mui/icons-material/Delete';
 import YesOrNoComponent from './YesOrNoComponent';
 // eslint-disable-next-line 
 import StudentRegisterLevelsComponent from './StudentRegisterLevelsComponent.js'
-import { experimentalStyled as styled } from '@mui/material/styles';
-import Paper from '@mui/material/Paper';
 
-export default function StudentRegisterComponent({ index, requestData, requestErrorMsgs, updateChildrenArray, courseObject }) {
-    const minAge = 0
-    const maxAge = 14
-
+export default function StudentRegisterComponent({ index, requestData, requestErrorMsgs, updateChildrenArray, courseObject, dateFormate }) {
     function updateChildProperty(index, propertyName, newValue) {
         if (index !== -1) {
             const updatedChildren = [...requestData.children];
@@ -45,15 +40,25 @@ export default function StudentRegisterComponent({ index, requestData, requestEr
         updateChildProperty(Object.keys(requestData.children[index])[5], selection)
     }
 
-    const Item = styled(Paper)(({ theme }) => ({
-        display: 'flex',
-        alignItems: 'center'
-    }));
-
     return (
-        <Stack direction="column" spacing={2} sx={{ justifyContent: 'space-evenly', border: 'gray .3vmin solid', padding: '1vmin' }}>
+        <Stack direction="column" spacing={1} sx={{ justifyContent: 'space-evenly', border: 'gray .3vmin solid', padding: '1vmin' }}>
 
-            <Typography component="p" variant='p' style={{ color: '#4F8DB9', fontWeight: 'bold', alignItems: 'flex-start' }}> Child {index + 1} </Typography>
+            <Grid container spacing={1} style={{ display: 'flex', justifyContent: 'space-between' }}>
+                {/* First Name */}
+                <Grid item xs={8} md={8}>
+                    <Typography component="p" variant='p' style={{ color: '#4F8DB9', fontWeight: 'bold', alignItems: 'flex-start' }}> Child {index + 1} </Typography>
+                </Grid>
+                {/* delete child button icon */}
+                <Grid item xs={4} md={4} style={{ color: '#4F8DB9', fontWeight: 'bold', display: 'flex', justifyContent: 'flex-end', padding: '1vmin', alignItems: 'flex-end' }}>
+                    {
+                        (requestData.children && requestData.children.length > 1) ?
+                            < IconButton aria-label="delete" size="small" onClick={() => removeChildComponent(index)}>
+                                <DeleteIcon fontSize="inherit" />
+                            </IconButton> :
+                            null
+                    }
+                </Grid>
+            </Grid>
             <Grid container spacing={1} >
                 {/* First Name */}
                 <Grid item xs={8} md={4}>
@@ -83,7 +88,7 @@ export default function StudentRegisterComponent({ index, requestData, requestEr
                 </Grid>
 
                 {/* Age */}
-                <Grid item xs={2} md={2}>
+                {/* <Grid item xs={2} md={2}>
                     <TextField
                         required
                         label="Age"
@@ -98,18 +103,20 @@ export default function StudentRegisterComponent({ index, requestData, requestEr
                         error={Boolean(requestErrorMsgs.children[index].age)}
                         helperText={requestErrorMsgs.children[index].age}
                         fullWidth />
-                </Grid>
-                <Grid item xs={1} md={1}>
-                    <Item>
-                        {/* delete child Button */}
-                        {
-                            (requestData.children && requestData.children.length > 1) ?
-                                < IconButton aria-label="delete" size="small" onClick={() => removeChildComponent(index)}>
-                                    <DeleteIcon fontSize="inherit" />
-                                </IconButton> :
-                                null
-                        }
-                    </Item>
+                </Grid> */}
+
+                {/* Date of Birth */}
+                <Grid item xs={8} md={4}>
+                    <TextField
+                        required
+                        label="Date Of Birth"
+                        placeholder={dateFormate}
+                        defaultValue={requestData.children[index].dob}
+                        value={requestData.children[index].dob}
+                        onChange={(event) => updateChildProperty(index, Object.keys(requestData.children[index])[7], event.target.value)}
+                        error={Boolean(requestErrorMsgs.children[index].dob)}
+                        helperText={requestErrorMsgs.children[index].dob}
+                        />
                 </Grid>
                 <Grid item xs={12}>
                     {/* does your child has a computer */}
