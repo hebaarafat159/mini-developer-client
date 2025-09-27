@@ -269,7 +269,7 @@ export default function RegisterForm() {
                 .then(result => {
                     if (result.status === 200) {
                         console.log(`Your Registration has been send to MINI developer, one of our team memeber will answer you shortly`);
-                        navigate('/confirmation')
+                        navigate('/confirmation/registeration')
                     }
                 })
                 .catch(error => {
