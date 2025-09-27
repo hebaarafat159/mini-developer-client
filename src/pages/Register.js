@@ -19,7 +19,7 @@ export default function RegisterForm() {
     const childObject = {
         first_name: '',
         last_name: '',
-        age: 0,
+        age: '',
         has_computer: true,
         email: '',
         course_level: '',
