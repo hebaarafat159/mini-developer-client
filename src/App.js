@@ -15,7 +15,7 @@ import TermDates from './pages/TermDates';
 import ConsentForm from './pages/ConsentForm';
 import Testimonials from './pages/Testimonials';
 import { HelmetProvider } from "react-helmet-async";
-import AddTestimonial from './pages/addTestimonial';
+import AddTestimonial from './admin/addTestimonial';
 
 function App() {
   return (
