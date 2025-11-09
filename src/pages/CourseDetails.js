@@ -39,7 +39,7 @@ export default function CourseDetails() {
     },
     {
       icon: course_details_age_icon,
-      text: ` ${courseObject.age} `
+      text: ` ${courseObject.age}+ `
     },
     {
       icon: course_details_type,
