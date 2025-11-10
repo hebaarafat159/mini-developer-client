@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
-import { Stack, Typography } from '@mui/material'
-import FreeTrialButton from '../components/FreeTrialButton'
+import { Box, Typography, Grid, Divider, Stack, Link } from "@mui/material";
+import FreeTrialButton from '../components/FreeTrialButton.js'
 import course_details_language_icon from '../assets/course_details_language_icon.png'
 import course_details_course_duration_icon from '../assets/course_details_course_duration_icon.png'
 import course_details_price_icon from '../assets/course_details_price_icon.png'
@@ -8,14 +8,6 @@ import course_details_session_duration_icon from '../assets/course_details_sessi
 import course_details_age_icon from '../assets/course_details_age_icon.png'
 import course_details_type from '../assets/course_details_type.png'
 import { useParams } from 'react-router-dom'
-// import { experimentalStyled as styled } from '@mui/material/styles';
-// import Paper from '@mui/material/Paper';
-import CoursePrerequisitesComponent from '../components/CoursePrerequisitesComponent.js'
-import CourseLevelsComponent from '../components/CourseLevelsComponent.js'
-import CourseSkillsComponent from '../components/CourseSkillsComponent.js'
-import CourseSubjectsComponent from '../components/CourseSubjectsComponent.js'
-import CourseDetailsComponent from '../components/CourseDetailsComponent.js'
-import SEOComponent from '../components/SEOComponent.js'
 
 export default function CourseDetails() {
 
@@ -47,7 +39,7 @@ export default function CourseDetails() {
     },
     {
       icon: course_details_age_icon,
-      text: ` ${courseObject.age} `
+      text: ` ${courseObject.age}+ `
     },
     {
       icon: course_details_type,
@@ -60,67 +52,144 @@ export default function CourseDetails() {
   ]
 
   return (
-    <Stack className='recent-blogs d-block screen'>
+    <>
+      <Box
+        sx={{
+          width: "100%",
+          height: { xs: 250, md: 400 },
+          backgroundImage: `url("${courseObject.cover_image}")`,
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+        }}
+      />
 
-      <Stack direction="column" spacing={2} sx={{ display: { xs: 'flex' }, my: 1 }}>
-        <SEOComponent
-          seoData={{
-            seo_slug: `/our-courses/${courseObject.seo_slug}`,
-            seo_title: courseObject.seo_title,
-            seo_description: courseObject.seo_description
-          }} />
-        <div
-          style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', position: 'relative' }}>
-          <img src={courseObject.cover_image} loading="lazy" alt="" height={'500vmin'} width={'90%'} style={{ opacity: '0.3' }} />
-          {/* blue color: #174feb , orange color: fe4400*/}
-          <div variant='h1'
-            style={{
-              opacity: '1',
-              fontSize: '10vmin',
-              color: '#174feb',
-              position: 'absolute',
-              bottom: '5vmin'
-            }}> {courseObject.title}</div>
-        </div>
-        {/* course title */}
-        {/* <Typography variant='h3' style={{ color: '#ed7d45', textAlign: 'center' }}> {courseObject.title} </Typography> */}
-
-        {/* course details */}
-        <Typography variant='h4' style={{ fontWeight: 'bold', color: '#333440', borderBottom: '#333440 3px solid', textAlign: 'center' }}> Course Details </Typography>
-
-        <Stack spacing={2} sx={{ flexGrow: 1, alignItems: 'center' }} >
-
-          <Stack direction="column" sx={{ display: { xs: 'flex' }, my: 1 }}>
-            <CourseDetailsComponent details={courseDetailsArray} />
-
-            {/* Description */}
-            <Typography component="h6" variant='h6' style={{ color: '#ed7d45' }}> Description </Typography>
-            <Typography component="h6" variant='h6' style={{ color: '#333440' }}> {courseObject.description} </Typography>
-
-            {/* Prerequisite Courses */}
-            <CoursePrerequisitesComponent prerequisite_courses={courseObject.prerequisite_courses} />
-
-            {/* course skills */}
-            <CourseSkillsComponent course_skills={courseObject.course_skills} />
-
-            {
-              (courseObject.levels && courseObject.levels.length > 0) ?
-                <CourseLevelsComponent levels={courseObject.levels} />
-                :
-                <Stack direction="column" sx={{ display: { xs: 'flex' }, my: 1 }} width={'100%'}>
-
-                  {/* subjects */}
-                  <CourseSubjectsComponent course_subjects={courseObject.course_subjects} />
-
+      <Box textAlign="center" py={5}>
+        <Typography variant="h4" sx={{ color: "#f26522", fontWeight: 600 }}>
+          {courseObject.title}
+        </Typography>
+        <Typography variant="subtitle1" mt={2} sx={{ fontWeight: 400 }}>
+          Course Description
+        </Typography>
+        <Divider sx={{ borderBottomWidth: 2, mx: "auto", mt: 2 }} />
+        <Stack className='recent-blogs d-block screen' >
+          {/* course details section Grid */}
+          <Grid container columns={{ xs: 2, sm: 8, md: 12 }}>
+            {courseDetailsArray ? courseDetailsArray.map((detail, index) => (
+              <Grid item xs={2} sm={4} md={4} key={index}>
+                <Stack direction="row" sx={{ display: { xs: 'flex', alignItems: 'center', margin: '.2vmin' } }}>
+                  <img src={detail.icon} loading="lazy" alt="" width={'30vm'} />
+                  <Typography variant="subtitle1" mt={2} sx={{ fontWeight: 400 }} style={{ color: '#333440', padding: '1vw' }}> {detail.text} </Typography>
                 </Stack>
-            }
+              </Grid>
+            )) : null}
+          </Grid>
 
-          </Stack>
+          {/* description section */}
+          <Typography variant="subtitle" mt={2} style={{ color: '#174feb', textAlign: 'left' }}> Description </Typography>
+          <Typography variant="subtitle" mt={2} style={{ color: '#333440', textAlign: 'left' }}> {courseObject.description} </Typography>
 
-          <FreeTrialButton course={courseObject} is_blus={true} />
+          {/* Prerequisite Courses */}
+          {(courseObject.prerequisite_courses && courseObject.prerequisite_courses.length > 0) ?
+            <Stack direction="column" sx={{ display: { xs: 'flex' }, my: 1 }} width={'100%'}>
+              <Typography variant="subtitle" mt={2} style={{ color: '#174feb', textAlign: 'left' }}> Prerequisite Courses  </Typography>
+              {courseObject.prerequisite_courses.map((course, index) => (
+                // <Typography component="p" variant='p' style={{ color: '#333440' }}> * {course} </Typography>
+                <Link
+                  key={index}
+                  variant="subtitle" mt={2}
+                  href={`/our-courses/${course.seo_slug}`}
+                  style={{ padding: '1vmin', fontStyle: 'italic', color: '#4F8DB9', textAlign: 'left' }}
+                >
+                  {course.title}
+                </Link>
+              ))}
+            </Stack>
+            : null}
+
+          {/* course skills */}
+          {(courseObject.course_skills && courseObject.course_skills.length > 0) ?
+            <>
+              <Typography variant="subtitle" mt={2} style={{ color: '#174feb', textAlign: 'left' }}>This course boosts paramount skills: </Typography>
+              <Stack sx={{ display: { xs: 'flex', flexDirection: 'column', justifyContent: 'flex-start', alignItems: 'flex-start' } }}>
+                {courseObject.course_skills.map((skill) =>
+                  <Typography variant="subtitle" mt={2} style={{ padding: '.5vmin 4vmin', color: '#4F8DB9' }}> {skill}  </Typography>
+                )}
+              </Stack>
+            </> : null}
+
+          {
+            (courseObject.levels && courseObject.levels.length > 0) ?
+              // <CourseLevelsComponent levels={courseObject.levels} />
+              <Stack direction="column" sx={{ display: { xs: 'flex' }, my: 1 }} width={'100%'}>
+                <Typography variant="subtitle" mt={2} style={{ color: '#174feb', textAlign: 'left' }}>Course Levels: </Typography>
+
+                <Grid container columns={{ xs: 2, sm: 8, md: 12 }}>
+                  {(courseObject.levels && courseObject.levels.length > 0) ? courseObject.levels.map((level, index) => (
+
+                    <Grid item xs={2} sm={4} md={4} key={index}>
+                      <div style={{
+                        backgroundRepeat: 'no-repeat',
+                        backgroundSize: 'contain',
+                        backgroundPosition: 'center',
+                        padding: '2vmin',
+                        margin: '2vmin',
+                        border: '#ed7d45 .2vmin solid',
+                        borderRadius: '1vmin'
+                      }}>
+                        <Typography variant="subtitle" style={{ padding: '1vmin', textAlign: 'left' }}>{level.title}</Typography>
+                        <Typography component="p" variant='p' style={{ padding: '1vmin', textAlign: 'left' }}>Duration: {level.course_duration}  weeks</Typography>
+
+                        {/* subjects */}
+                        {/* <CourseSubjectsComponent course_subjects={level.course_subjects} /> */}
+                        {(level.course_subjects && level.course_subjects.length > 0) ?
+                          <>
+                            <Typography component="p" variant='p' style={{ color: '#174feb', padding: '1vmin', textAlign: 'left' }}>In this course you will learn: </Typography>
+                            <Stack direction="column" sx={{ display: { xs: 'flex', justifyContent: 'space-evenly' } }}>
+                              <ul>
+                                {level.course_subjects.map((subject) =>
+                                  <Stack direction="row" sx={{ display: { xs: 'flex', justifyContent: 'flex-start', alignItems: 'start', padding: '1vmin' } }}>
+                                    - <img src={subject.icon} loading="lazy" alt="" width={'30vm'} />
+                                    <Stack direction="row" sx={{ display: { xs: 'flex', justifyContent: 'flex-start', alignItems: 'center' } }}>
+                                      <Typography component="p" variant='p' style={{ color: '#333440', paddingLeft: '0.5vmin', textAlign: 'left' }}> {subject.text} </Typography>
+                                    </Stack>
+                                  </Stack>
+                                )}
+                              </ul>
+                            </Stack>
+                          </> : null}
+                      </div>
+                    </Grid>
+                  )) : null}
+                </Grid>
+              </Stack>
+              :
+              <Stack direction="column" sx={{ display: { xs: 'flex' }, my: 1 }} width={'100%'}>
+
+                {/* subjects */}
+                {/* <CourseSubjectsComponent course_subjects={courseObject.course_subjects} /> */}
+                {(courseObject.course_subjects && courseObject.course_subjects.length > 0) ?
+                  <>
+                    <Typography component="p" variant='p' style={{ color: '#174feb', padding: '1vmin', textAlign: 'left' }}>In this course you will learn: </Typography>
+                    <Stack direction="column" sx={{ display: { xs: 'flex', justifyContent: 'space-evenly' } }}>
+                      <ul>
+                        {courseObject.course_subjects.map((subject) =>
+                          <Stack direction="row" sx={{ display: { xs: 'flex', justifyContent: 'flex-start', alignItems: 'start', padding: '1vmin' } }}>
+                            - <img src={subject.icon} loading="lazy" alt="" width={'30vm'} />
+                            <Stack direction="row" sx={{ display: { xs: 'flex', justifyContent: 'flex-start', alignItems: 'center' } }}>
+                              <Typography component="p" variant='p' style={{ color: '#333440', paddingLeft: '0.5vmin' }}> {subject.text} </Typography>
+                            </Stack>
+                          </Stack>
+                        )}
+                      </ul>
+                    </Stack>
+                  </> : null}
+
+              </Stack>
+          }
 
         </Stack>
-      </Stack>
-    </Stack>
+        <FreeTrialButton course={courseObject} is_blus={true} />
+      </Box>
+    </>
   )
 }

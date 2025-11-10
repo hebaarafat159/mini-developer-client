@@ -24,7 +24,7 @@ export default function CourseListComponent({ course }) {
 
       <Stack className={'course_card_details'}>
         <Typography component="p" variant='p' style={{ color: '#333440', fontWeight: 'bolder' }}>{course.title}</Typography>
-        <Typography component="p" variant='p' style={{ color: '#333440' }}> <span className={'course_card_bold_text'}>Age:</span> {course.age} </Typography>
+        <Typography component="p" variant='p' style={{ color: '#333440' }}> <span className={'course_card_bold_text'}>Age:</span> {course.age}+ </Typography>
         <Typography component="p" variant='p' style={{ color: '#333440' }}> <span className={'course_card_bold_text'}>Language:</span> {course.language}</Typography>
       </Stack>
     </Card >
