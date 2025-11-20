@@ -39,16 +39,17 @@ export default function CourseDetails() {
     },
     {
       icon: course_details_age_icon,
-      text: ` ${courseObject.age}+ `
+      text: ` Age: ${courseObject.age}+ `
+    },
+    {
+      icon: course_details_price_icon,
+      text: ` £${courseObject.price} / hour`
     },
     {
       icon: course_details_type,
       text: ` ${courseObject.type}`
-    },
-    {
-      icon: course_details_price_icon,
-      text: ` £ ${courseObject.price} / hours`
     }
+
   ]
 
   return (
@@ -59,6 +60,7 @@ export default function CourseDetails() {
           height: { xs: 250, md: 400 },
           backgroundImage: `url("${courseObject.cover_image}")`,
           backgroundSize: "cover",
+          backgroundRepeat: "no-repeat",
           backgroundPosition: "center",
         }}
       />
@@ -112,7 +114,7 @@ export default function CourseDetails() {
               <Typography variant="subtitle" mt={2} style={{ color: '#174feb', textAlign: 'left' }}>This course boosts paramount skills: </Typography>
               <Stack sx={{ display: { xs: 'flex', flexDirection: 'column', justifyContent: 'flex-start', alignItems: 'flex-start' } }}>
                 {courseObject.course_skills.map((skill) =>
-                  <Typography variant="subtitle" mt={2} style={{ padding: '.5vmin 4vmin', color: '#4F8DB9' }}> {skill}  </Typography>
+                  <Typography variant="subtitle" mt={2} style={{ padding: '.5vmin 4vmin' }}> {skill}  </Typography>
                 )}
               </Stack>
             </> : null}
@@ -136,7 +138,7 @@ export default function CourseDetails() {
                         border: '#ed7d45 .2vmin solid',
                         borderRadius: '1vmin'
                       }}>
-                        <Typography variant="subtitle" style={{ padding: '1vmin', textAlign: 'left' }}>{level.title}</Typography>
+                        <Typography variant="subtitle" style={{ padding: '1vmin', textAlign: 'center' }}>{level.title}</Typography>
                         <Typography component="p" variant='p' style={{ padding: '1vmin', textAlign: 'left' }}>Duration: {level.course_duration}  weeks</Typography>
 
                         {/* subjects */}

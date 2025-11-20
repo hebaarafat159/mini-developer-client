@@ -12,7 +12,7 @@ export default function YesOrNoComponent({ displayText, handleSelection, selecte
                 row
                 aria-labelledby="demo-form-control-label-placement"
                 name="position"
-                defaultValue={selectedValue ? selectedValue = true : selectedValue = false}
+                /*defaultValue={selectedValue ? selectedValue = true : selectedValue = false}*/
                 onChange={(event) => handleSelection(event.target.value)}>
 
                 <FormControlLabel value={true} control={<Radio />} label={'Yes'} />

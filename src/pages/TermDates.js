@@ -38,13 +38,13 @@ export default function TermDates() {
                 seoData={{
                     seo_slug: "term-dates",
                     seo_title: "Term Dates | Mini Developer",
-                    seo_description: "Stay updated with Mini Developer's term dates of our coding classes for kids. Discover when each term begins, holiday breaks, and key dates to ensure your child doesn't miss out on our engaging and educational coding programs. Plan your schedule with ease and keep your child on track for a fun and productive learning journey!"
+                    seo_description: "Stay updated with Mini Developer's term dates of our coding classes for kids. Discover when each term begins, holiday breaks, and key dates to ensure your child doesn't miss out on our engaging and educational coding classes. Plan your schedule with ease and keep your child on track for a fun and productive learning journey!"
                 }} />
             {/* current term date section */}
-            <Stack direction="row" spacing={1} sx={{ justifyContent: 'space-around', alignItems: 'center', background: 'linear-gradient(to bottom, #9192ca, #FFFFFF);', padding: '3vmin' }} >
+            <Stack direction="row" spacing={1} sx={{ justifyContent: 'space-evenly', alignItems: 'center', background: 'linear-gradient(to bottom, #9192ca, #FFFFFF);', padding: '3vmin' }} >
                 <Grid container columns={{ xs: 2, sm: 8, md: 12 }} sx={{ justifyContent: 'center', alignItems: 'center' }}>
-                    <Grid item xs={6} sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
-                        <img src={term_dates_img} loading="lazy" alt="" width={'100%'} />
+                    <Grid item xs={6} sx={{ display: 'flex', justifyContent: 'right', alignItems: 'right' }}>
+                        <img src={term_dates_img} loading="lazy" alt="" width={'80%'} />
                     </Grid>
                     <Grid item xs={6} sx={{ justifyContent: 'center', alignItems: 'center', padding: '7.5vmin', backgroundColor: 'white' }} >
                         <Typography component="h2" variant='h2' style={{ color: '#333440', textAlign: 'center', fontWeight: 'bold' }}>

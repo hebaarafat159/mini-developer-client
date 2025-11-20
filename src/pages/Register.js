@@ -23,7 +23,7 @@ export default function RegisterForm() {
         has_computer: true,
         email: '',
         course_level: '',
-        has_lessons_before: false,
+        previous_coding_lessons: false,
         dob: ''
     }
 
@@ -157,20 +157,20 @@ export default function RegisterForm() {
 
         // Validate program type 
         if (validator.isEmpty(requestData.program_type)) {
-            errorMesgs.program_type = 'Please Select your preffered Program';
+            errorMesgs.program_type = 'Please Select your preferred Program';
             valid = false;
         } else {
             errorMesgs.program_type = '';
             // Validate preffered location type 
             if (requestData.program_type === 'In Person' && (requestData.region === null || requestData.region === undefined)) {
-                errorMesgs.region = 'Please Select your preffered location';
+                errorMesgs.region = 'Please Select your preferred area';
                 valid = false;
             } else {
                 errorMesgs.region = '';
                 // validated courses places
                 if ((!validator.isEmpty(courseId)) && courseId !== '0') {
                     if ((requestData.region !== null && requestData.region !== undefined && requestData.region.has_upcomming_courses) && (requestData.classroom === null || requestData.classroom === undefined)) {
-                        errorMesgs.classroom = 'Please Select your preffered course place';
+                        errorMesgs.classroom = 'Please Select your preferred  area';
                     } else {
                         errorMesgs.classroom = ''
                     }
@@ -217,7 +217,7 @@ export default function RegisterForm() {
 
                     valid = isValid(parsedDate);
                     if (!valid) {
-                        errorMesgs.children[index].dob = `Invalid date. Please enter it in the correct format ${dateFormate}`
+                        errorMesgs.children[index].dob = `Invalid date. Please enter the correct format ${dateFormate}`
                     } else {
                         errorMesgs.children[index].dob = ''
                     }
@@ -268,7 +268,7 @@ export default function RegisterForm() {
                 .then(response => response.json())
                 .then(result => {
                     if (result.status === 200) {
-                        console.log(`Your Registration has been send to MINI developer, one of our team memeber will answer you shortly`);
+                        console.log(`Thank for your Registration with Mini Developer coding classes. One of our team memebers will contact you soon`);
                         navigate('/confirmation/registeration')
                     }
                 })
@@ -293,25 +293,24 @@ export default function RegisterForm() {
                 seoData={{
                     seo_slug: ((!validator.isEmpty(courseId)) && courseId !== '0') ? `/sign-up-form/${courseObject.seo_slug}` : '/sign-up-form/0',
                     seo_title: "Sign Up Form | Mini Developer",
-                    seo_description: "Register for Mini Developer courses and let your child enjoy their journey with Coding. Get a free trail from Mini Developer."
+                    seo_description: "Register for Mini Developer classes and let your child enjoy an exciting journey with Coding. Get a free trail from Mini Developer."
                 }} />
             <Stack direction="column" spacing={2} sx={{ justifyContent: 'space-evenly', alignItems: 'center', padding: '1.5vmin' }} >
                 {/* course slogn */}
                 {
                     ((!validator.isEmpty(courseId)) && courseId !== '0') ?
                         <Typography component="h5" variant='h5' style={{ color: '#ed7d45', fontWeight: 'bolder', justifyContent: 'center', alignItems: 'center', textAlign: 'center', fontFamily: 'Papyrus' }}>  {courseObject.slogan} </Typography>
-                        : null
+                        :  <Typography component="h4" variant='h4' style={{ color: '#ed7d45', textAlign: 'center', fontWeight: 'bolder', fontFamily: 'Papyrus', padding: '1vmin' }}>  Coding is the Language of the Future! </Typography>
                 }
 
                 {/* page title */}
-                <Typography component="h5" variant='h5' style={{ color: 'black', fontWeight: 'bold', justifyContent: 'center', alignItems: 'center', textAlign: 'center' }}> Registration </Typography>
                 {
                     ((!validator.isEmpty(courseId)) && courseId !== '0') ?
                         <>
-                            <Typography component="h5" variant='h5' style={{ color: 'black', fontWeight: 'bold', justifyContent: 'center', alignItems: 'center', textAlign: 'center' }}> in <span style={{ color: 'red' }}>  {courseObject.title}  </span></Typography>
-                            <Typography component="h5" variant='h5' style={{ color: 'black', fontWeight: 'bold', justifyContent: 'center', alignItems: 'center', textAlign: 'center' }}> Course </Typography>
+                            <Typography component="h5" variant='h5' style={{ color: 'black', fontWeight: 'bold', justifyContent: 'center', alignItems: 'center', textAlign: 'center' }}> <span >  {courseObject.title}  </span> Course</Typography>
                         </> : null
                 }
+                <Typography component="h5" variant='h5' style={{ color: 'black', fontWeight: 'bold', justifyContent: 'center', alignItems: 'center', textAlign: 'center' }}> Registration </Typography>
 
                 <Stack direction="column" spacing={2} sx={{ justifyContent: 'space-evenly', padding: '1.5vmin' }} >
 
@@ -368,7 +367,7 @@ export default function RegisterForm() {
                     </Grid>
 
                     {/* Mobile Number */}
-                    <Typography component="p" variant='p' style={{ color: '#333440', fontWeight: 'bold', alignItems: 'flex-start' }}> Mobile <span style={{ color: 'red' }}> * </span> <span style={{ color: '#333440', fontWeight: 'lighter', fontStyle: 'italic' }}>(preferably number with WhatsApp)</span></Typography>
+                    <Typography component="p" variant='p' style={{ color: '#333440', fontWeight: 'bold', alignItems: 'flex-start' }}> Phone Number <span style={{ color: 'red' }}> * </span> <span style={{ color: '#333440', fontWeight: 'lighter', fontStyle: 'italic', fontSize: 12 }}>(preferably number with WhatsApp)</span></Typography>
                     <Grid container spacing={1} >
                         <Grid item xs={8} md={12}>
                             <Item>
@@ -387,7 +386,7 @@ export default function RegisterForm() {
 
                     {/* children section */}
                     <Typography component="p" variant='p' style={{ color: '#333440', fontWeight: 'bold', justifyContent: 'center', alignItems: 'flex-start' }}>
-                        Add Your Children <span style={{ color: 'red' }}> * </span> </Typography>
+                        Add Child Details <span style={{ color: 'red' }}> * </span> </Typography>
 
                     {/* case of add new child after having children */}
                     {
@@ -456,7 +455,7 @@ export default function RegisterForm() {
                 <Button
                     variant="contained"
                     onClick={() => submit()}
-                    className={'orage_btn'}> Submit </Button>
+                    className={'black_btn'}> Submit </Button>
             </Stack>
         </Stack>
     )

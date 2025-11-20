@@ -20,7 +20,7 @@ export default function Courses() {
                 seoData={{
                     seo_slug: "our-courses",
                     seo_title: "Our Courses | Mini Developer",
-                    seo_description: "Welcome to our coding courses at Mini Developer! Our courses are designed to provide children aged 7 and up, as well as teens, with a fun and engaging way to learn coding and programming. Our experienced tutors are passionate about coding and technology, and they are dedicated to helping children develop their skills."
+                    seo_description: "Welcome to our coding courses at Mini Developer! Our courses are designed to provide children and teens aged 7 and above with a fun and engaging way to learn coding and programming. Our experienced tutors are passionate about coding and technology, and they are dedicated to helping children develop their skills."
                 }} />
             {courses ? courses.map((course, index) => (
                 <Grid item xs={2} sm={4} md={4} key={index}>

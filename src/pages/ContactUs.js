@@ -127,7 +127,7 @@ export default function ContactUs() {
                 .then(response => response.json())
                 .then(result => {
                     if (result.status === 200) {
-                        console.log(`Your Registration has been send to MINI developer, one of our team memeber will answer you shortly`);
+                        console.log(`Thank you for contacting Mini Developer, one of our team memebers will get back to you soon`);
                         navigate('/')
                     }
                 })
@@ -152,7 +152,7 @@ export default function ContactUs() {
                 <Grid container columns={{ xs: 2, sm: 8, md: 12 }}>
                     {/* contact us details */}
                     <Grid item xs={6} sx={{ justifyContent: 'center', alignItems: 'center' }}>
-                        <Typography component="h4" variant='h6' style={{ color: '#333440', textAlign: 'center', fontWeight: 'bold' }}>
+                        <Typography component="h2" variant='h4' style={{ color: '#333440', textAlign: 'center', fontWeight: 'bold' }}>
                             GET IN TOUCH
                         </Typography>
 

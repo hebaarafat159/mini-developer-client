@@ -29,8 +29,8 @@ export default function StudentRegisterComponent({ index, requestData, requestEr
         updateChildProperty(Object.keys(requestData.children[index])[3], selection)
     }
 
-    function handleHasLessonsBeforeSelection(selection) {
-        requestData.children[index].has_lessons_before = selection;
+    function handlePreviousCodingLessonsSelection(selection) {
+        requestData.children[index].previous_coding_lessons = selection;
         updateChildProperty(Object.keys(requestData.children[index])[6], selection)
     }
 
@@ -119,12 +119,12 @@ export default function StudentRegisterComponent({ index, requestData, requestEr
                         />
                 </Grid>
                 <Grid item xs={12}>
-                    {/* does your child has a computer */}
+                    {/* does your child have a computer */}
                     <YesOrNoComponent displayText={'Does your child have a Computer?'} handleSelection={handleHasComputerSelection} selectedValue={false} />
                 </Grid>
-                {/* Does your child have coding lessons before */}
+                {/* Has your child attended coding lessons before */}
                 <Grid item xs={12}>
-                    <YesOrNoComponent displayText={'Does your child have Coding Lessons Before?'} handleSelection={handleHasLessonsBeforeSelection} selectedValue={false} />
+                    <YesOrNoComponent displayText={'Has your child had coding lessons before?'} handleSelection={handlePreviousCodingLessonsSelection} selectedValue={false} />
                     {/* <StudentRegisterLevelsComponent levels={courseObject.levels} handleSelection={handleCodingLevelSelection} child={requestData.children[index]} /> */}
                 </Grid>
             </Grid>

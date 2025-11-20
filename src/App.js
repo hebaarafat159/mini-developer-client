@@ -24,8 +24,8 @@ function App() {
         <div className={'routes-container'}>
           <Routes>
             <Route path="/" element={<Home />} />
-            <Route path="/about/about-us" element={<OurVisionComponent />} />
-            <Route path="/about/why-us" element={<WhyUsComponent />} />
+            <Route path="/about-us/our-vision" element={<OurVisionComponent />} />
+            <Route path="/about-us/why-us" element={<WhyUsComponent />} />
             <Route path="/our-courses" element={<Courses />} />
             <Route path="/our-courses/:id" element={<CourseDetails />} />
             <Route path="/contact-us" element={<ContactUs />} />

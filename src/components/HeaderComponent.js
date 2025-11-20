@@ -39,26 +39,24 @@ export default function HeaderComponent() {
         },
         {
             position: 2,
-            label: 'About',
+            label: 'About Us',
             isSelected: false,
             subLinks: [
                 {
                     position: 1,
                     label: 'Our Vision',
-                    link: '/about/about-us',
+                    link: '/about-us/our-vision',
                     component: <OurVisionComponent />,
                     isSelected: false
                 },
                 {
                     position: 2,
                     label: 'Why Us?',
-                    link: '/about/why-us',
+                    link: '/about-us/why-us',
                     component: <WhyUsComponent />,
                     isSelected: false
                 }
             ]
-            // link: '/about',
-            // component: <About />
         },
         {
             position: 3,
@@ -91,7 +89,7 @@ export default function HeaderComponent() {
                 <Box sx={{ display: 'flex', flexDirection: 'row', alignItems: 'center', paddingLeft: '5vmin', flexGrow: 1 }}>
                     <Link key={pages[0].position}
                         href={pages[0].link} >
-                        <img src={image} className={'App-logo'} loading="lazy" alt="logo" />
+                        <img src={image} className={'App-logo'} loading="lazy" alt="logo"/>
                     </Link>
                 </Box>
                 <Box sx={{ display: 'flex', flexDirection: 'row', alignItems: 'center', paddingRight: '5vmin' }}>

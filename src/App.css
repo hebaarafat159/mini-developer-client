@@ -9,7 +9,8 @@
 }
 
 .App-logo {
-  height: 10vmin;
+  height: 12vmin;
+  padding-left: 5vmin;
   pointer-events: none;
 }
 
@@ -28,7 +29,9 @@
 }
 
 .Header {
-  height: 8vmin;
+  margin-top: 20vmin;
+  padding-top: 20vmin;
+  height: 16vmin;
   width: auto;
   background-color: white;
   display: flex;
@@ -273,7 +276,8 @@ a.instagram {
 }
 
 .header {
-  height: 10vmin;
+  padding-top: 1vmin;
+  height: 11vmin;
   width: auto;
   background-color: white;
   display: flex;
@@ -362,7 +366,7 @@ a.instagram {
   }
 }
 
-.brawn_btn {
+.brown_btn {
   border-radius: 10;
   background: linear-gradient(to bottom, #e09b79, #9e532d);
   font-size: 1.5vmin;
@@ -398,12 +402,21 @@ a.instagram {
   padding: 1vmin;
 }
 
+.black_btn {
+  border-radius: 10;
+  background: linear-gradient(to bottom, #333440, #333440);;
+  font-size: 1.5vmin;
+  font-weight: bold;
+  width: 35%;
+  padding: 1vmin;
+}
+
 .page_content_dark {
   display: flex;
   flex-flow: row wrap;
   justify-content: center;
   align-items: center;
-  padding: 2vmin;
+  padding: 5vmin;
   background-color: #333440;
   /* margin: 2vmin auto; */
 }
@@ -413,7 +426,7 @@ a.instagram {
   flex-flow: row wrap;
   justify-content: center;
   align-items: center;
-  padding: 5vmin 2vmin;
+  padding: 5vmin ;
   background-color: white;
 }
 
