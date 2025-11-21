@@ -201,10 +201,8 @@ export default function ContactUs() {
 
                             {/*Location */}
                             <li spacing={1} style={titleCss}>
-                                {/* <FontAwesomeIcon icon={faApper} size="2x" /> */}
-                                {/* <SocialIcon network="email" /> */}
                                 <img src={location_logo} loading="lazy" alt="" width={'30vmin'} />
-                                <Typography component="p" variant='p' style={textCss}>{process.env.REACT_APP_CONTACT_US_LOCATION}</Typography>
+                                <Typography component="p" variant='p' style={textCss} dangerouslySetInnerHTML={{ __html: process.env.REACT_APP_CONTACT_US_LOCATION }}></Typography>
                             </li>
                         </ul>
                     </Grid>
