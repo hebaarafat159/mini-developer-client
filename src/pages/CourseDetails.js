@@ -47,7 +47,7 @@ export default function CourseDetails() {
     },
     {
       icon: course_details_type,
-      text: ` ${courseObject.type.join("<br>")}`
+      text: ` ${courseObject.type?.join("<br>")}`
     }
 
   ]
@@ -95,7 +95,6 @@ export default function CourseDetails() {
             <Stack direction="column" sx={{ display: { xs: 'flex' }, my: 1 }} width={'100%'}>
               <Typography variant="subtitle" mt={2} style={{ color: '#174feb', textAlign: 'left' }}> Prerequisite Courses  </Typography>
               {courseObject.prerequisite_courses.map((course, index) => (
-                // <Typography component="p" variant='p' style={{ color: '#333440' }}> * {course} </Typography>
                 <Link
                   key={index}
                   variant="subtitle" mt={2}
@@ -121,7 +120,6 @@ export default function CourseDetails() {
 
           {
             (courseObject.levels && courseObject.levels.length > 0) ?
-              // <CourseLevelsComponent levels={courseObject.levels} />
               <Stack direction="column" sx={{ display: { xs: 'flex' }, my: 1 }} width={'100%'}>
                 <Typography variant="subtitle" mt={2} style={{ color: '#174feb', textAlign: 'left' }}>Course Levels: </Typography>
 
@@ -142,7 +140,6 @@ export default function CourseDetails() {
                         <Typography component="p" variant='p' style={{ padding: '1vmin', textAlign: 'left' }}>Duration: {level.course_duration}  weeks</Typography>
 
                         {/* subjects */}
-                        {/* <CourseSubjectsComponent course_subjects={level.course_subjects} /> */}
                         {(level.course_subjects && level.course_subjects.length > 0) ?
                           <>
                             <Typography component="p" variant='p' style={{ color: '#174feb', padding: '1vmin', textAlign: 'left' }}>In this course you will learn: </Typography>
@@ -168,7 +165,6 @@ export default function CourseDetails() {
               <Stack direction="column" sx={{ display: { xs: 'flex' }, my: 1 }} width={'100%'}>
 
                 {/* subjects */}
-                {/* <CourseSubjectsComponent course_subjects={courseObject.course_subjects} /> */}
                 {(courseObject.course_subjects && courseObject.course_subjects.length > 0) ?
                   <>
                     <Typography component="p" variant='p' style={{ color: '#174feb', padding: '1vmin', textAlign: 'left' }}>In this course you will learn: </Typography>
