@@ -55,14 +55,14 @@ export default function ProgrameTypeComponent({ requestData, updateRegistrationD
                     {errors.region !== '' && <Typography variant='danger' style={{ fontSize: '1.5vw', color: 'red' }}>{errors.region}</Typography>}
 
                     <FormControl fullWidth>
-                        <InputLabel id="active-regions-label">Select prefferred area in London</InputLabel>
+                        <InputLabel id="active-regions-label">Select preferred area in London</InputLabel>
                         {/* Regions  */}
                         <Select
                             labelId="active-regions-label"
                             id="region-select"
                             defaultValue={requestData.region}
                             value={requestData.region}
-                            label="Select Your Prefferred Region: "
+                            label="Select Your Preferred Region: "
                             onChange={(event) => {
                                 // 3 is the index of region object in the requestData object
                                 updateRegistrationDataProperty(Object.keys(requestData)[3], event.target.value)
