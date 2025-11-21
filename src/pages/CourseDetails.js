@@ -47,7 +47,7 @@ export default function CourseDetails() {
     },
     {
       icon: course_details_type,
-      text: ` ${courseObject.type}`
+      text: ` ${courseObject.type.join("<br>")}`
     }
 
   ]
@@ -78,9 +78,9 @@ export default function CourseDetails() {
           <Grid container columns={{ xs: 2, sm: 8, md: 12 }}>
             {courseDetailsArray ? courseDetailsArray.map((detail, index) => (
               <Grid item xs={2} sm={4} md={4} key={index}>
-                <Stack direction="row" sx={{ display: { xs: 'flex', alignItems: 'center', margin: '.2vmin' } }}>
+                <Stack direction="row" sx={{ display: { xs: 'flex', alignItems: 'center', margin: '1.2vmin' } }}>
                   <img src={detail.icon} loading="lazy" alt="" width={'30vm'} />
-                  <Typography variant="subtitle1" mt={2} sx={{ fontWeight: 400 }} style={{ color: '#333440', padding: '1vw' }}> {detail.text} </Typography>
+                  <Typography variant="subtitle1" sx={{ fontWeight: 400 }} style={{ color: '#333440', textAlign: "left", paddingLeft: "1vmin" }} dangerouslySetInnerHTML={{ __html: detail.text }}></Typography>
                 </Stack>
               </Grid>
             )) : null}
