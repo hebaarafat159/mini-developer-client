@@ -38,7 +38,7 @@ export default function SEOComponent({ seoData }) {
                 {/* Twitter / X */}
                 {/* <meta name="twitter:description" content={seoData.seo_description} /> */}
 
-                <meta name="description" content="Welcome to Mini Developer Coding School." />
+                <meta name="og:description" content="Welcome to Mini Developer Coding School." />
                 <link rel="canonical" />
 
             </Helmet>
