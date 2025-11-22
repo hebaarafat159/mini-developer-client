@@ -41,7 +41,8 @@ export default function Home() {
                 seoData={{
                     seo_slug: "/",
                     seo_title: "Mini Developer, Coding classes for children in London, UK or Online",
-                    seo_description: "Welcome to Mini Developer Coding School. We offer coding and programming classes for children aged 7 and above in London, UK or Online. Give your child the gift of coding and help them develop valuable skills for the future. Contact us today to learn more!"
+                    // seo_description: "Welcome to Mini Developer Coding School. We offer coding and programming classes for children aged 7 and above in London, UK or Online. Give your child the gift of coding and help them develop valuable skills for the future. Contact us today to learn more!"
+                    seo_description: "Welcome to Mini Developer Coding School."
                 }} />
 
             <Stack >
