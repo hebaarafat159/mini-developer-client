@@ -25,11 +25,11 @@ export default function SEOComponent({ seoData }) {
                 <meta name="slug" content={seoData.seo_slug} />
 
                 {/* description -> (description in search results) */}
-                {/* <meta name="description" content={seoData.seo_description} /> */}
+                <meta name="description" content={seoData.seo_description} />
                 {/* og:description -> (description on social media) */}
-                {/* <meta name="description" content={seoData.seo_description} /> */}
+                <meta name="description" content={seoData.seo_description} />
                 {/* X:description -> (description on x) any*/}
-                {/* <meta name="description" content={seoData.seo_description} /> */}
+                <meta name="description" content={seoData.seo_description} />
 
                 {/* Search engines */}
                 {/* <meta name="description" content={seoData.seo_description} /> */}
@@ -38,7 +38,6 @@ export default function SEOComponent({ seoData }) {
                 {/* Twitter / X */}
                 {/* <meta name="twitter:description" content={seoData.seo_description} /> */}
 
-                <meta name="og:description" content="Welcome to Mini Developer Coding School." />
                 <link rel="canonical" />
 
             </Helmet>
