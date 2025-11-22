@@ -1,7 +1,6 @@
 import React, { useState } from 'react'
 import { Stack, Typography, TextField, Grid, Button } from '@mui/material'
 import validator from "validator";
-import { useNavigate } from 'react-router-dom'
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
     faWhatsapp,
@@ -13,13 +12,16 @@ import email_icon from '../assets/email_icon.png'
 import SEOComponent from '../components/SEOComponent.js'
 
 export default function ContactUs() {
+    const [msg, setMsg] = useState({
+        name: "",
+        email: "",
+        phone: "",
+        subject: "",
+        message: ""
+    })
 
-    const [name, setName] = useState("");
-    const [email, setEmail] = useState("");
-    const [phone, setPhone] = useState("");
-    const [subject, setSubject] = useState("");
-    const [message, setMessage] = useState("");
-    const navigate = useNavigate();
+    const [messageSent, setMessageSent] = useState(false)
+
     const [errorMessage, setErrorMessage] = useState({
         nameError: '',
         emailError: '',
@@ -52,11 +54,16 @@ export default function ContactUs() {
         padding: '1vmin'
     }
 
+    function handleChange(e) {
+        const { name, value } = e.target;
+        setMsg((prevCourse) => ({ ...prevCourse, [name]: value }));
+    }
+
     const validateForm = () => {
         let valid = true;
         const errorMesgs = { ...errorMessage };
         // Validate name
-        if (validator.isEmpty(name)) {
+        if (validator.isEmpty(msg.name)) {
             errorMesgs.nameError = 'Name is required';
             valid = false;
         } else {
@@ -64,10 +71,10 @@ export default function ContactUs() {
         }
 
         // Validate email
-        if (validator.isEmpty(email)) {
+        if (validator.isEmpty(msg.email)) {
             errorMesgs.emailError = 'Email is required';
             valid = false;
-        } else if (!validator.isEmail(email)) {
+        } else if (!validator.isEmail(msg.email)) {
             errorMesgs.emailError = 'Invalid email format';
             valid = false;
         } else {
@@ -75,10 +82,10 @@ export default function ContactUs() {
         }
 
         // Validate phone
-        if (validator.isEmpty(phone)) {
+        if (validator.isEmpty(msg.phone)) {
             errorMesgs.phoneError = 'Phone is required';
             valid = false;
-        } else if (!validator.isMobilePhone(phone)) {
+        } else if (!validator.isMobilePhone(msg.phone)) {
             errorMesgs.phoneError = 'Invalid mobile number';
             valid = false;
         } else {
@@ -86,7 +93,7 @@ export default function ContactUs() {
         }
 
         // Validate subject
-        if (validator.isEmpty(subject)) {
+        if (validator.isEmpty(msg.subject)) {
             errorMesgs.subjectError = 'Subject is required';
             valid = false;
         } else {
@@ -94,7 +101,7 @@ export default function ContactUs() {
         }
 
         // Validate subject
-        if (validator.isEmpty(message)) {
+        if (validator.isEmpty(msg.message)) {
             errorMesgs.messageError = 'Message is required';
             valid = false;
         } else {
@@ -105,30 +112,32 @@ export default function ContactUs() {
         return valid
     }
 
+    function notifyMessageSent() {
+        setMsg({
+            name: "",
+            email: "",
+            phone: "",
+            subject: "",
+            message: ""
+        })
+        setMessageSent(true)
+    }
 
     function submit() {
         if (validateForm()) {
-            const messageData = {
-                name: name,
-                phone: phone,
-                email: email,
-                subject: subject,
-                message: message
-            }
-            // alert(JSON.stringify(messageData))
+            // alert(JSON.stringify(msg))
             fetch(`${process.env.REACT_APP_URL_APP_PATH}/users/sendMessage`,
                 {
                     method: "POST",
                     headers: {
                         "Content-Type": "application/json"
                     },
-                    body: JSON.stringify(messageData)
+                    body: JSON.stringify(msg)
                 })
                 .then(response => response.json())
                 .then(result => {
                     if (result.status === 200) {
-                        console.log(`Thank you for contacting Mini Developer, one of our team memebers will get back to you soon`);
-                        navigate('/')
+                        notifyMessageSent()
                     }
                 })
                 .catch(error => {
@@ -163,7 +172,7 @@ export default function ContactUs() {
                                     className="google social">
                                     <img src={email_icon} loading="lazy" alt="" width={'30vmin'} />
                                 </a>
-                                {/* <SocialIcon network="email" url={`mailto:${process.env.REACT_APP_CONTACT_US_GMAIL}`} /> */}
+
                                 <a style={textCss} href={`mailto:${process.env.REACT_APP_CONTACT_US_GMAIL}`} target="_blank" rel="noopener noreferrer"> {process.env.REACT_APP_CONTACT_US_GMAIL} </a>
                             </li>
 
@@ -173,7 +182,7 @@ export default function ContactUs() {
                                     className="whatsapp social">
                                     <FontAwesomeIcon icon={faWhatsapp} size="2x" />
                                 </a>
-                                {/* <SocialIcon network="whatsapp" url={process.env.REACT_APP_CONTACT_US_WHATS_APP} /> */}
+
                                 <a style={textCss} href={process.env.REACT_APP_CONTACT_US_WHATS_APP} target="_blank" rel="noopener noreferrer"> {process.env.REACT_APP_CONTACT_US_WHATS_APP_NAME} </a>
                             </li>
 
@@ -184,7 +193,6 @@ export default function ContactUs() {
                                     <FontAwesomeIcon icon={faFacebook} size="2x" />
                                 </a>
 
-                                {/* <SocialIcon network="facebook" url={process.env.REACT_APP_CONTACT_US_FACEBOOK} /> */}
                                 <a style={textCss} href={process.env.REACT_APP_CONTACT_US_FACEBOOK} target="_blank" rel="noopener noreferrer">{process.env.REACT_APP_CONTACT_US_FACEBOOK_NAME}</a>
                             </li>
 
@@ -195,11 +203,10 @@ export default function ContactUs() {
                                     <FontAwesomeIcon icon={faInstagram} size="2x" />
                                 </a>
 
-                                {/* <SocialIcon network="instagram" url={process.env.REACT_APP_CONTACT_US_INSTAGRAM} /> */}
                                 <a variant='p' style={textCss} href={process.env.REACT_APP_CONTACT_US_INSTAGRAM} target="_blank" rel="noopener noreferrer">{process.env.REACT_APP_CONTACT_US_INSTAGRAM_NAME}</a>
                             </li>
 
-                            {/*Location */}
+                            {/* Location */}
                             <li spacing={1} style={titleCss}>
                                 <img src={location_logo} loading="lazy" alt="" width={'30vmin'} />
                                 <Typography component="p" variant='p' style={textCss} dangerouslySetInnerHTML={{ __html: process.env.REACT_APP_CONTACT_US_LOCATION }}></Typography>
@@ -214,14 +221,16 @@ export default function ContactUs() {
                         <Grid container spacing={1} >
                             <Grid item xs={8} md={12}>
                                 <TextField
-                                    required
-                                    defaultValue={name}
-                                    onChange={(event) => {
-                                        setName(event.target.value)
-                                    }}
+                                    //  InputLabelProps={{ shrink: true }}
+                                    name="name"
+                                    // label="Name"
+                                    value={(msg && msg.name) ? msg.name : ""}
+                                    onChange={handleChange}
                                     error={Boolean(errorMessage.nameError)}
                                     helperText={errorMessage.nameError}
-                                    fullWidth />
+                                    required
+                                    fullWidth
+                                />
                             </Grid>
                         </Grid>
 
@@ -230,14 +239,15 @@ export default function ContactUs() {
                         <Grid container spacing={1} >
                             <Grid item xs={8} md={12}>
                                 <TextField
-                                    required
-                                    defaultValue={email}
-                                    onChange={(event) => {
-                                        setEmail(event.target.value)
-                                    }}
+                                    name="email"
+                                    // label="Email"
+                                    value={(msg && msg.email) ? msg.email : ""}
+                                    onChange={handleChange}
                                     error={Boolean(errorMessage.emailError)}
                                     helperText={errorMessage.emailError}
-                                    fullWidth />
+                                    required
+                                    fullWidth
+                                />
                             </Grid>
                         </Grid>
 
@@ -246,14 +256,15 @@ export default function ContactUs() {
                         <Grid container spacing={1} >
                             <Grid item xs={8} md={12}>
                                 <TextField
-                                    required
-                                    defaultValue={phone}
-                                    onChange={(event) => {
-                                        setPhone(event.target.value)
-                                    }}
+                                    name="phone"
+                                    // label="Phone"
+                                    value={(msg && msg.phone) ? msg.phone : ""}
+                                    onChange={handleChange}
                                     error={Boolean(errorMessage.phoneError)}
                                     helperText={errorMessage.phoneError}
-                                    fullWidth />
+                                    required
+                                    fullWidth
+                                />
                             </Grid>
                         </Grid>
 
@@ -262,14 +273,15 @@ export default function ContactUs() {
                         <Grid container spacing={1} >
                             <Grid item xs={8} md={12}>
                                 <TextField
-                                    required
-                                    defaultValue={subject}
-                                    onChange={(event) => {
-                                        setSubject(event.target.value)
-                                    }}
+                                    name="subject"
+                                    // label="Subject"
+                                    value={(msg && msg.subject) ? msg.subject : ""}
+                                    onChange={handleChange}
                                     error={Boolean(errorMessage.subjectError)}
                                     helperText={errorMessage.subjectError}
-                                    fullWidth />
+                                    required
+                                    fullWidth
+                                />
                             </Grid>
                         </Grid>
 
@@ -278,14 +290,17 @@ export default function ContactUs() {
                         <Grid container spacing={1} >
                             <Grid item xs={8} md={12}>
                                 <TextField
-                                    required
-                                    defaultValue={message}
-                                    onChange={(event) => {
-                                        setMessage(event.target.value)
-                                    }}
+                                    name="message"
+                                    // label="Message"
+                                    value={(msg && msg.message) ? msg.message : ""}
+                                    onChange={handleChange}
                                     error={Boolean(errorMessage.messageError)}
                                     helperText={errorMessage.messageError}
-                                    fullWidth />
+                                    multiline
+                                    rows={3}
+                                    required
+                                    fullWidth
+                                />
                             </Grid>
                         </Grid>
 
@@ -295,6 +310,8 @@ export default function ContactUs() {
                             style={{ margin: '1vmin' }}
                             onClick={() => submit()}
                         > Submit </Button>
+                        {/* Thank you for contacting Mini Developer, one of our team memebers will get back to you soon  */}
+                        {(messageSent) && <Typography component="p" variant='p' style={formTitleCss}> Thanks for submitting! </Typography>}
                     </Grid>
                 </Grid>
             </Stack>
