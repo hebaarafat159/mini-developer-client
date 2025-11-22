@@ -32,12 +32,13 @@ export default function SEOComponent({ seoData }) {
                 {/* <meta name="description" content={seoData.seo_description} /> */}
 
                 {/* Search engines */}
-                <meta name="description" content={seoData.seo_description} />
+                {/* <meta name="description" content={seoData.seo_description} /> */}
                 {/* Social media - Open Graph */}
-                <meta property="og:description" content={seoData.seo_description} />
+                {/* <meta property="og:description" content={seoData.seo_description} /> */}
                 {/* Twitter / X */}
-                <meta name="twitter:description" content={seoData.seo_description} />
+                {/* <meta name="twitter:description" content={seoData.seo_description} /> */}
 
+                <meta name="description" content="Welcome to Mini Developer Coding School." />
                 <link rel="canonical" />
 
             </Helmet>
