@@ -35,7 +35,7 @@ export default function CourseDetails() {
     },
     {
       icon: course_details_session_duration_icon,
-      text: ` ${courseObject.session_duration} hr/weeks`
+      text: ` ${courseObject.session_duration} hr/week`
     },
     {
       icon: course_details_age_icon,

@@ -49,9 +49,8 @@ export default function TermDates() {
                     <Grid item xs={6} sx={{ justifyContent: 'center', alignItems: 'center', padding: '7.5vmin', backgroundColor: 'white' }} >
                         <Typography component="h2" variant='h2' style={{ color: '#333440', textAlign: 'center', fontWeight: 'bold' }}>
                             {currentTerm.title}
-                            {/* Summer Term 2024 */}
                         </Typography>
-                        <Typography component="p" variant='p' style={{ color: '333440', textAlign: 'center' }}>Coding Classes Term Dates</Typography>
+                        <Typography component="p" variant='p' style={{ color: '#333440', textAlign: 'center' }}>Coding Classes Term Dates</Typography>
 
                         {(currentTerm.sections && currentTerm.sections.length > 0) ?
                             currentTerm.sections.map((section, index) => (
