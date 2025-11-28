@@ -154,10 +154,10 @@ export default function Home() {
                         variant="h4"
                         sx={{ color: '#fed677', fontWeight: 'bold' }}
                     >
-                        Our Teaching program combines Knowledge with Fun
+                        Our Classes combine Knowledge with Fun
                     </Typography>
                     <Typography component="p" variant="body1" sx={{ color: 'white' }}>
-                        Our coding program assists children to build valuable skills in life and prepares them for the digital future.
+                        Our coding classes help children build valuable skills in life and prepare them for the digital future.
                     </Typography>
                     <Grid container columns={{ xs: 2, sm: 8, md: 16 }} spacing={2}>
                         {teachingTopics.map((topic, index) => (
