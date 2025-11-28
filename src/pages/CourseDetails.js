@@ -7,6 +7,13 @@ import course_details_price_icon from '../assets/course_details_price_icon.png'
 import course_details_session_duration_icon from '../assets/course_details_session_duration_icon.png'
 import course_details_age_icon from '../assets/course_details_age_icon.png'
 import course_details_type from '../assets/course_details_type.png'
+
+import scratch_cover from '../assets/scratch_card.png'
+import web_cover from '../assets/web_cover.avif'
+import apps_cover from '../assets/apps_cover.jpg'
+import python_cover from '../assets/python_cover.jpeg'
+import java_cover from '../assets/java_cover.jpg'
+
 import { useParams } from 'react-router-dom'
 
 export default function CourseDetails() {
@@ -23,6 +30,13 @@ export default function CourseDetails() {
       })
   }, [id]);
 
+  const card_images_array = [   
+      scratch_cover,
+      web_cover,
+      apps_cover,
+      python_cover,
+      java_cover
+  ]
 
   const courseDetailsArray = [
     {
@@ -58,7 +72,7 @@ export default function CourseDetails() {
         sx={{
           width: "100%",
           height: { xs: 250, md: 400 },
-          backgroundImage: `url("${courseObject.cover_image}")`,
+          backgroundImage: `url(${card_images_array[courseObject.course_index]})`,
           backgroundSize: "cover",
           backgroundRepeat: "no-repeat",
           backgroundPosition: "center",
