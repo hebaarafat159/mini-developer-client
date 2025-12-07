@@ -27,9 +27,10 @@ export default function SEOComponent({ seoData }) {
                 {/* description -> (description in search results) */}
                 <meta name="description" content={seoData.seo_description} />
                 {/* og:description -> (description on social media) */}
-                <meta name="description" content={seoData.seo_description} />
+                <meta name="og:description" content={seoData.seo_description} />
                 {/* X:description -> (description on x) any*/}
-                <meta name="description" content={seoData.seo_description} />
+                <meta name="x:description" content={seoData.seo_description} />
+                <meta name="keywords" content={seoData.meta_keywords} />
 
                 {/* Search engines */}
                 {/* <meta name="description" content={seoData.seo_description} /> */}

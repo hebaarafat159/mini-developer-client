@@ -7,7 +7,7 @@ import apps_card from '../assets/apps_card.jpg'
 import python_card from '../assets/python_card.jpg'
 import java_card from '../assets/java_card.jpg'
 
-export default function CourseListComponent({ course }) {
+export default function CourseListComponent({ course , index}) {
   const path = `/our-courses/${course.seo_slug}`
   const card_images_array = [   
       scratch_card,
@@ -20,7 +20,7 @@ export default function CourseListComponent({ course }) {
     <Card className={'course_card'} component={'a'} href={path} style={{ textDecoration: 'none' }}>
       <div
         className={'course_card_image'}
-        style={{ backgroundImage: `url("${card_images_array[course.course_index]}")` }}>
+        style={{ backgroundImage: `url("${card_images_array[index]}")` }}>
         <Link to={{ pathname: path }}>
           <Button variant="contained" className='blue_btn'
             style={{

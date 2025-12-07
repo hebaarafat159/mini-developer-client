@@ -41,8 +41,9 @@ export default function Home() {
                 seoData={{
                     seo_slug: "/",
                     seo_title: "Mini Developer, Coding classes for children in London, UK or Online",
-                    // seo_description: "Welcome to Mini Developer Coding School. We offer coding and programming classes for children aged 7 and above in London, UK or Online. Give your child the gift of coding and help them develop valuable skills for the future. Contact us today to learn more!"
-                    seo_description: "Welcome to Mini Developer Coding School."
+                    seo_description: "Welcome to Mini Developer Coding Classes. We offer coding and programming classes for children aged 6 and above in London, UK or Online. Contact us today to learn more!",
+                    meta_description: "Welcome to Mini Developer Coding Classes. We offer coding and programming classes for children aged 6 and above in London, UK or Online. Contact us today to learn more!",
+                    meta_keywords: "Mini Developer, coding for kids, coding classes, coding clubs, coding workshops, coding camps, programming for kids, learn to code, coding education, kids coding programs, coding classes for kids, coding classes for children, coding classes for teens, coding classes Ealing, programming classes for kids, programming classes for children, programming classes for teens, programming classes Ealing, coding school London, coding school UK, coding school Ealing, online coding classes, coding courses for kids, coding courses for children, coding courses for teens, coding courses in Ealing, mini developer coding classes, mini developer programming classes, mini developer coding school"
                 }} />
 
             <Stack >

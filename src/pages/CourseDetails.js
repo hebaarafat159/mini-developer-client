@@ -71,7 +71,7 @@ export default function CourseDetails() {
       <Box
         sx={{
           width: "100%",
-          height: { xs: 250, md: 400 },
+          height: { xs: 150, md: 400 },
           backgroundImage: `url(${card_images_array[courseObject.course_index]})`,
           backgroundSize: "cover",
           backgroundRepeat: "no-repeat",

@@ -105,7 +105,9 @@ export default function ConsentForm() {
                 seoData={{
                     seo_slug: `/consent-form/${studentObject.first_name}_${studentObject.last_name}`,
                     seo_title: "Consent Form | Mini Developer",
-                    seo_description: "If your child is joining Mini Developer in-person coding classes , then kindly Fill this Consent Form"
+                    seo_description: "If your child is joining Mini Developer in-person coding classes , then kindly Fill this Consent Form",
+                    meta_description: "If your child is joining Mini Developer in-person coding classes , then kindly Fill this Consent Form",
+                    meta_keywords: "consent form for coding classes, consent form for programming classes, consent form for kids coding, consent form for children coding, consent form for teens coding, consent form for coding school, consent form for coding courses"
                 }} />
             <Stack direction="column" spacing={2} sx={{ justifyContent: 'space-evenly', padding: '1.5vmin' }} >
                 <Typography component="h5" variant='h5' style={{ color: 'black', fontWeight: 'bold', justifyContent: 'center', alignItems: 'center', textAlign: 'center' }}> Mini Developer Consent Form </Typography>

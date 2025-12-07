@@ -155,7 +155,9 @@ export default function ContactUs() {
                 seoData={{
                     seo_slug: "contact-us",
                     seo_title: "Contact Us | Mini Developer",
-                    seo_description: "Mini Developer team is happy to reply to your queries and messages within 48 hours. Contact us anytime."
+                    seo_description: "Mini Developer team is happy to reply to your queries and messages within 48 hours. Contact us anytime.",
+                    meta_description: "Mini Developer team is happy to reply to your queries and messages within 48 hours. Contact us anytime.",
+                    meta_keywords: "contact Mini Developer, Mini Developer contact us, coding classes contact, programming classes contact, coding school contact"
                 }} />
             <Stack direction="row" spacing={2} sx={{ justifyContent: 'space-evenly', alignItems: 'center' }} >
                 <Grid container columns={{ xs: 2, sm: 8, md: 12 }}>

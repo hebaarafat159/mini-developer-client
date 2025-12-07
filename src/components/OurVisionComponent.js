@@ -12,7 +12,9 @@ export default function OurVisionComponent() {
                 seoData={{
                     seo_slug: "/about-us/our-vision",
                     seo_title: "Our Vision | Mini Developer",
-                    seo_description: "At Mini Developer, we are a team of passionate software developer parents who are on a mission to teach young children about the exciting world of coding and technology. We understand the importance of early exposure to coding skills in today's digital age, and we are committed to helping children develop their skills."
+                    seo_description: "At Mini Developer, we are a team of passionate software developer parents who are on a mission to teach young children about the exciting world of coding and technology.",
+                    meta_description: "At Mini Developer, we are a team of passionate software developer parents who are on a mission to teach young children about the exciting world of coding and technology.",
+                    meta_keywords: "coding for kids, coding classes, coding clubs, coding camps, programming for kids, coding education"
                 }} />
             <Grid container columns={{ xs: 2, sm: 8, md: 12 }} sx={{ justifyContent: 'center', alignItems: 'center' }}>
                 <Grid item xs={6} sx={{ justifyContent: 'center', alignItems: 'center' }}>
@@ -36,7 +38,7 @@ export default function OurVisionComponent() {
                         </Typography>
 
                         <Typography component="p" variant='p' style={{ color: '#333440', textAlign: 'left' }}>
-                            We offer both in-person and online coding classes for ages 7 and above. Whether your child is a complete beginner or already has some coding experience, we have a course that will suit their needs.
+                            We offer both in-person and online coding classes for ages 6 and above. Whether your child is a complete beginner or already has some coding experience, we have a course that will suit their needs.
                             We are proud to be a part of the London, UK community, and we are committed to providing high-quality coding education to children across the region.
                         </Typography>
 
