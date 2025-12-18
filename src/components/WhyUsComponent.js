@@ -52,7 +52,7 @@ export default function WhyUsComponent() {
         <Stack direction="column" spacing={2} sx={{ justifyContent: 'center', alignItems: 'center', background: 'white', padding: '2vw' }} className='screen'>
             <SEOComponent
                 seoData={{
-                    seo_slug: "/about-us/why-us",
+                    seo_slug: "/why-us",
                     seo_title: "Why Us? | Mini Developer",
                     seo_description: "Here is why you would surely want to choose Mini Developer Coding classes for children.",
                     meta_description: "Here is why you would surely want to choose Mini Developer Coding classes for children.",

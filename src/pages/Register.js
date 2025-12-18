@@ -291,7 +291,7 @@ export default function RegisterForm() {
         <Stack className='recent-blogs d-block screen'>
             <SEOComponent
                 seoData={{
-                    seo_slug: ((!validator.isEmpty(courseId)) && courseId !== '0') ? `/sign-up-form/${courseObject.seo_slug}` : '/sign-up-form/0',
+                    seo_slug: ((!validator.isEmpty(courseId)) && courseId !== '0') ? `/sign-up-form/${courseObject.seo_slug}` : '/sign-up-form',
                     seo_title: "Sign Up Form | Mini Developer",
                     seo_description: "Register for Mini Developer classes and let your child enjoy an exciting journey with Coding. Get a free trail from Mini Developer.",
                     meta_description: "Register for Mini Developer classes and let your child enjoy an exciting journey with Coding. Get a free trail from Mini Developer.",

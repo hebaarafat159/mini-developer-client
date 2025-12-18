@@ -24,11 +24,12 @@ function App() {
         <div className={'routes-container'}>
           <Routes>
             <Route path="/" element={<Home />} />
-            <Route path="/about-us/our-vision" element={<OurVisionComponent />} />
-            <Route path="/about-us/why-us" element={<WhyUsComponent />} />
+            <Route path="/about-us" element={<OurVisionComponent />} />
+            <Route path="/why-us" element={<WhyUsComponent />} />
             <Route path="/our-courses" element={<Courses />} />
             <Route path="/our-courses/:id" element={<CourseDetails />} />
             <Route path="/contact-us" element={<ContactUs />} />
+            <Route path="/sign-up-form" element={<Register />} />
             <Route path="/sign-up-form/:courseId" element={<Register />} />
             <Route path="/confirmation/:pageTitle" element={<ConfirmationPage />} />
             <Route path="/term-dates" element={<TermDates />} />

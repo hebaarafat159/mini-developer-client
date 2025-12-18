@@ -45,14 +45,14 @@ export default function HeaderComponent() {
                 {
                     position: 1,
                     label: 'Our Vision',
-                    link: '/about-us/our-vision',
+                    link: '/about-us',
                     component: <OurVisionComponent />,
                     isSelected: false
                 },
                 {
                     position: 2,
                     label: 'Why Us?',
-                    link: '/about-us/why-us',
+                    link: '/why-us',
                     component: <WhyUsComponent />,
                     isSelected: false
                 }
