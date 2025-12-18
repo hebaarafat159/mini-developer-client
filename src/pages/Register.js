@@ -80,7 +80,8 @@ export default function RegisterForm() {
 
     // load course object if this page is opened from selected course 
     useEffect(() => {
-        if ((!validator.isEmpty(courseId)) && courseId !== '0') {
+
+        if (courseId !== undefined && courseId !== null && (!validator.isEmpty(courseId)) && courseId !== '0') {
             fetch(`${process.env.REACT_APP_URL_APP_PATH}/courses/${courseId}`)
                 .then(response => response.json())
                 .then(result => {
@@ -168,7 +169,7 @@ export default function RegisterForm() {
             } else {
                 errorMesgs.region = '';
                 // validated courses places
-                if ((!validator.isEmpty(courseId)) && courseId !== '0') {
+                if (courseId !== undefined && courseId !== null && (!validator.isEmpty(courseId)) && courseId !== '0') {
                     if ((requestData.region !== null && requestData.region !== undefined && requestData.region.has_upcomming_courses) && (requestData.classroom === null || requestData.classroom === undefined)) {
                         errorMesgs.classroom = 'Please Select your preferred  area';
                     } else {
@@ -249,7 +250,7 @@ export default function RegisterForm() {
 
         if (validateForm()) {
 
-            if ((!validator.isEmpty(courseId)) && courseId !== '0') requestData.course = { ...courseObject }
+            if (courseId !== null && (!validator.isEmpty(courseId)) && courseId !== '0') requestData.course = { ...courseObject }
 
             // eslint-disable-next-line
             requestData.children.map((childObject, index) => {
@@ -291,7 +292,7 @@ export default function RegisterForm() {
         <Stack className='recent-blogs d-block screen'>
             <SEOComponent
                 seoData={{
-                    seo_slug: ((!validator.isEmpty(courseId)) && courseId !== '0') ? `/sign-up-form/${courseObject.seo_slug}` : '/sign-up-form',
+                    seo_slug: (courseId !== undefined && courseId !== null && (!validator.isEmpty(courseId)) && courseId !== '0') ? `/sign-up-form/${courseObject.seo_slug}` : '/sign-up-form',
                     seo_title: "Sign Up Form | Mini Developer",
                     seo_description: "Register for Mini Developer classes and let your child enjoy an exciting journey with Coding. Get a free trail from Mini Developer.",
                     meta_description: "Register for Mini Developer classes and let your child enjoy an exciting journey with Coding. Get a free trail from Mini Developer.",
@@ -300,14 +301,14 @@ export default function RegisterForm() {
             <Stack direction="column" spacing={2} sx={{ justifyContent: 'space-evenly', alignItems: 'center', padding: '1.5vmin' }} >
                 {/* course slogn */}
                 {
-                    ((!validator.isEmpty(courseId)) && courseId !== '0') ?
+                    (courseId !== undefined && courseId !== null && (!validator.isEmpty(courseId)) && courseId !== '0') ?
                         <Typography component="h5" variant='h5' style={{ color: '#ed7d45', fontWeight: 'bolder', justifyContent: 'center', alignItems: 'center', textAlign: 'center', fontFamily: 'Papyrus' }}>  {courseObject.slogan} </Typography>
                         :  <Typography component="h4" variant='h4' style={{ color: '#ed7d45', textAlign: 'center', fontWeight: 'bolder', fontFamily: 'Papyrus', padding: '1vmin' }}>  Coding is the Language of the Future! </Typography>
                 }
 
                 {/* page title */}
                 {
-                    ((!validator.isEmpty(courseId)) && courseId !== '0') ?
+                    (courseId !== undefined && courseId !== null && (!validator.isEmpty(courseId)) && courseId !== '0') ?
                         <>
                             <Typography component="h5" variant='h5' style={{ color: 'black', fontWeight: 'bold', justifyContent: 'center', alignItems: 'center', textAlign: 'center' }}> <span >  {courseObject.title}  </span> Course</Typography>
                         </> : null
