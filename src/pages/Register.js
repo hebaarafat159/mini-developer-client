@@ -250,7 +250,7 @@ export default function RegisterForm() {
 
         if (validateForm()) {
 
-            if (courseId !== null && (!validator.isEmpty(courseId)) && courseId !== '0') requestData.course = { ...courseObject }
+            if (courseId !== undefined && courseId !== null && (!validator.isEmpty(courseId)) && courseId !== '0') requestData.course = { ...courseObject }
 
             // eslint-disable-next-line
             requestData.children.map((childObject, index) => {
