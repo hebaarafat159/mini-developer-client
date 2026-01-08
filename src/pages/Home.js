@@ -54,7 +54,7 @@ export default function Home() {
                             <Typography component="h5" variant='h5' style={{ color: 'white', textAlign: 'center', fontWeight: 'bold', padding: '2vmin' }}> Exciting News!! </Typography>
                         </Grid>
                         <Grid item sm={4} md={8} style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', padding: '1vmin' }} >
-                            <Typography component="h6" variant='h6' style={{ color: 'white', fontStyle: 'italic', textAlign: 'center' }}> Booking Open for Spring 2026 Term – Join  Our <span style={{ fontWeight: 'bolder' }}>In-Person and Online </span>Classes! </Typography>
+                            <Typography component="h6" variant='h6' style={{ color: 'white', fontStyle: 'italic', textAlign: 'center' }}> Booking Open for the New Term – Join  Our <span style={{ fontWeight: 'bolder' }}>In-Person and Online </span>Classes! </Typography>
                         </Grid>
                         <Grid item sm={4} md={2} style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', padding: '1vmin' }} >
                             <Button
@@ -105,14 +105,14 @@ export default function Home() {
                                 <Typography component="h3" variant='h4' style={{ color: '#fed677', textAlign: 'center', fontWeight: 'bold' }}> News & Events </Typography>
                                 <Typography component="h5" variant='h5' style={{ color: '#ed7d45', textAlign: 'center', fontWeight: 'bold' }}> Vacancies Available in our Online and In-person Classes </Typography>
                                 <Typography component="p" variant='p' style={{ color: 'white', textAlign: 'center' }}> Coding is Fun.</Typography>
-                                <Typography component="p" variant='p' style={{ color: 'white', textAlign: 'center', padding: 'auto 2vmin' }}>We're glad to announce that Booking is now Open for the Spring term which begins in January 2026 in our in-person and also our Online classes.</Typography>
+                                <Typography component="p" variant='p' style={{ color: 'white', textAlign: 'center', padding: 'auto 2vmin' }}>We're glad to announce that Booking is now Open for the new term in our in-person and also our Online classes.</Typography>
 
                                 <Stack direction="row" spacing={1} >
                                     <FreeTrialButton course={null} />
                                 </Stack>
 
-                                <Typography component="h5" variant='h5' style={{ color: '#ed7d45', textAlign: 'center', fontWeight: 'bold' }}> Coding Partnership with Palm Global Academy! </Typography>
-                                <Typography component="p" variant='p' style={{ color: 'white', textAlign: 'center' }}> Mini Developer provides the Coding club for Secondary school students at Palm Global Academy starting from April 2025.</Typography>
+                                <Typography component="h5" variant='h5' style={{ color: '#ed7d45', textAlign: 'center', fontWeight: 'bold' }}> Coding Partnership with Harris Academy St John's Wood! </Typography>
+                                <Typography component="p" variant='p' style={{ color: 'white', textAlign: 'center' }}> Mini Developer provides the Coding club for Secondary school students at Harris Academy St John's Wood starting from January 2026.</Typography>
                                 <Typography component="p" variant='p' style={{ color: 'white', textAlign: 'center' }}> Proud to collaborate in educating, inspiring and preparing children for the digital future. </Typography>
 
                             </Stack>

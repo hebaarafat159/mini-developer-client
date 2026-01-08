@@ -61,10 +61,10 @@ export default function TermDates() {
                             {(currentTerm.sections && currentTerm.sections.length > 0) ?
                                 currentTerm.sections.map((section, index) => (
                                     <>
-                                        <Typography component="h5" variant='h6' style={{ color: '#ed7d45', fontWeight: 'bold', textAlign: 'left', padding: '1.5vmin 0' }}>{section.title}</Typography>
-                                        <Typography component="p" variant='p' style={{ color: '#333440' }}> {section.start_date}</Typography>
+                                        <Typography component="h5" variant='h6' style={{ color: '#ed7d45', fontWeight: 'bold', textAlign: 'left', paddingTop: '2.5vmin' }}>{section.title}</Typography>
+                                        <Typography component="p" variant='p' style={{ color: '#333440' , paddingBottom: '2.5vmin' }}> {section.start_date}</Typography>
 
-                                        <Typography component="p" variant='p' style={{ color: '#333440', fontWeight: 'bold', textAlign: 'left' }}>{section.end_date}</Typography>
+                                        <Typography component="p" variant='p' style={{ color: '#333440', fontWeight: 'bold', textAlign: 'left', paddingTop: '1.5vmin' }}>{section.end_date}</Typography>
                                         <Typography component="p" variant='p' style={{ color: '#333440' }}>{section.description}</Typography>
 
                                     </>
@@ -108,10 +108,10 @@ export default function TermDates() {
                                             {(termDate.sections && termDate.sections.length > 0) ?
                                                 termDate.sections.map((section, index) => (
                                                     <Stack>
-                                                        <Typography component="h5" variant='h6' style={{ color: '#ed7d45', fontWeight: 'bold', textAlign: 'left', padding: '1.5vmin 0' }}>{section.title}</Typography>
-                                                        <Typography component="p" variant='p' style={{ color: '#333440' }}> {section.start_date}</Typography>
+                                                        <Typography component="h5" variant='h6' style={{ color: '#ed7d45', fontWeight: 'bold', textAlign: 'left', paddingTop: '2.5vmin' }}>{section.title}</Typography>
+                                                        <Typography component="p" variant='p' style={{ color: '#333440' , paddingBottom: '2.5vmin'}}> {section.start_date}</Typography>
 
-                                                        <Typography component="p" variant='p' style={{ color: '#333440', fontWeight: 'bold', textAlign: 'left' }}>{section.end_date}</Typography>
+                                                        <Typography component="p" variant='p' style={{ color: '#333440', fontWeight: 'bold', textAlign: 'left', paddingTop: '1.5vmin' }}>{section.end_date}</Typography>
                                                         <Typography component="p" variant='p' style={{ color: '#333440' }}>{section.description}</Typography>
 
                                                     </Stack>
