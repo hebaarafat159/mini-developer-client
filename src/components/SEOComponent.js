@@ -1,5 +1,5 @@
 import { Helmet } from "react-helmet-async";
-// import logo_icon from '../assets/logo_icon.png'
+import logo_icon from '../assets/logo_icon.png'
 
 
 export default function SEOComponent({ seoData }) {
@@ -11,9 +11,9 @@ export default function SEOComponent({ seoData }) {
                 {window.history.replaceState(null, "New Page Title", `${seoData.seo_slug}`)}
 
                 {/* add mini developer logo */}
-                <meta property="image" content="../assets/logo_icon.png" />
-                <meta property="og:image" content="../assets/logo_icon.png" />
-                <meta property="x:image" content="../assets/logo_icon.png" />
+                <meta property="image" content={logo_icon} />
+                <meta property="og:image" content={logo_icon} />
+                <meta property="x:image" content={logo_icon} />
 
                 {/* title tag (title in search result) */}
                 <title>{seoData.seo_title}</title>
@@ -40,7 +40,7 @@ export default function SEOComponent({ seoData }) {
                 {/* <meta name="twitter:description" content={seoData.seo_description} /> */}
 
                 <link rel="canonical" />
-
+                <meta name="google-site-verification" content="pdHC7v6AAemteEVytTeXE61hGpHMNRPLA0lhDVNsSME" />
             </Helmet>
         )
     )

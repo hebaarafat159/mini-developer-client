@@ -254,7 +254,7 @@ export default function ContactUs() {
                         </Grid>
 
                         {/* Phone */}
-                        <Typography component="p" variant='p' style={formTitleCss}> Phone <span style={{ color: 'red' }}> * </span> </Typography>
+                        <Typography component="p" variant='p' style={formTitleCss}> Phone Number <span style={{ color: 'red' }}> * </span> </Typography>
                         <Grid container spacing={1} >
                             <Grid item xs={8} md={12}>
                                 <TextField

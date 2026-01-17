@@ -111,8 +111,8 @@ export default function Home() {
                                     <FreeTrialButton course={null} />
                                 </Stack>
 
-                                <Typography component="h5" variant='h5' style={{ color: '#ed7d45', textAlign: 'center', fontWeight: 'bold' }}> Coding Partnership with Harris Academy St John's Wood! </Typography>
-                                <Typography component="p" variant='p' style={{ color: 'white', textAlign: 'center' }}> Mini Developer provides the Coding club for Secondary school students at Harris Academy St John's Wood starting from January 2026.</Typography>
+                                <Typography component="h5" variant='h5' style={{ color: '#ed7d45', textAlign: 'center', fontWeight: 'bold' }}> Coding Partnerships </Typography>
+                                <Typography component="p" variant='p' style={{ color: 'white', textAlign: 'center' }}> Mini Developer provides the Coding club for Secondary school students at <br /> Harris Academy St John's Wood (starting from January 2026) <br /> and Palm Global Academy (starting from April 2025).</Typography>
                                 <Typography component="p" variant='p' style={{ color: 'white', textAlign: 'center' }}> Proud to collaborate in educating, inspiring and preparing children for the digital future. </Typography>
 
                             </Stack>

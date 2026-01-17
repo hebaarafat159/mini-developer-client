@@ -294,8 +294,8 @@ export default function RegisterForm() {
                 seoData={{
                     seo_slug: (courseId !== undefined && courseId !== null && (!validator.isEmpty(courseId)) && courseId !== '0') ? `/sign-up-form/${courseObject.seo_slug}` : '/sign-up-form',
                     seo_title: "Sign Up Form | Mini Developer",
-                    seo_description: "Register for Mini Developer classes and let your child enjoy an exciting journey with Coding. Get a free trail from Mini Developer.",
-                    meta_description: "Register for Mini Developer classes and let your child enjoy an exciting journey with Coding. Get a free trail from Mini Developer.",
+                    seo_description: "Register for Mini Developer coding classes and let your child enjoy an exciting journey with Coding. Get a free trail from Mini Developer.",
+                    meta_description: "Register for Mini Developer coding classes and let your child enjoy an exciting journey with Coding. Get a free trail from Mini Developer.",
                     meta_keywords: "Mini Developer Registration, coding classes registration, coding courses registration, coding lessons registration, coding clubs registration, coding camps registration"
                 }} />
             <Stack direction="column" spacing={2} sx={{ justifyContent: 'space-evenly', alignItems: 'center', padding: '1.5vmin' }} >

@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from 'react'
-import { Typography, Card, CardContent, Box, Container, Rating } from '@mui/material'
+import { Typography, Stack, Card, CardContent, Box, Container, Rating } from '@mui/material'
 import { Masonry } from "@mui/lab";
 import feedback_icon from '../assets/feedback_icon.png'
+import SEOComponent from '../components/SEOComponent.js'
+import FreeTrialButton from '../components/FreeTrialButton.js'
 
 export default function Testimonial({ testimonialsCount }) {
 
@@ -49,7 +51,16 @@ export default function Testimonial({ testimonialsCount }) {
 
     return (
         <Box py={6} sx={{ backgroundColor: "#f9f9f9" }}>
-            <Typography component="h4" variant='h4' style={{ color: '#4682b4', textAlign: 'center', fontWeight: 'bold', padding: '3vmin auto', fontFamily: 'Papyrus' }}> Do you know what our Customers say about us?  </Typography>
+            
+            <SEOComponent
+                    seoData={{
+                    seo_slug: "testimonials",
+                    seo_title: "Testimonials | Mini Developer",
+                    seo_description: "Check out what our customers have to say about Mini Developer coding classes. Read genuine testimonials and reviews from our satisfied clients.",
+                    meta_description: "Check out what our customers have to say about Mini Developer coding classes. Read genuine testimonials and reviews from our satisfied clients.",
+                    meta_keywords: "Mini Developer testimonials, customer reviews, coding class feedback, student testimonials, programming course reviews"
+            }} />            
+            <Typography component="h3" variant='h4' style={{ color: '#4682b4', textAlign: 'center', fontWeight: 'bold', padding: '3vmin auto', fontFamily: 'Papyrus' }}>  Mini Developer<br />Customers' Reviews and Testimonials  </Typography>
             <Container maxWidth="xl" sx={{ mt: 3 }}>
                 <Masonry columns={{ xs: 1, sm: 2, md: 3 }} spacing={2}>
                     {testimonials.map((testimonial, index) => (
@@ -57,6 +68,9 @@ export default function Testimonial({ testimonialsCount }) {
                     ))}
                 </Masonry>
             </Container>
+            <Stack display="flex" alignItems="center" alignContent="center" spacing={1} >
+                <FreeTrialButton course={null} />
+            </Stack>
         </Box>
     );
 }

@@ -105,13 +105,13 @@ export default function ConsentForm() {
                 seoData={{
                     seo_slug: `/consent-form/${studentObject.first_name}_${studentObject.last_name}`,
                     seo_title: "Consent Form | Mini Developer",
-                    seo_description: "If your child is joining Mini Developer in-person coding classes , then kindly Fill this Consent Form",
-                    meta_description: "If your child is joining Mini Developer in-person coding classes , then kindly Fill this Consent Form",
+                    seo_description: "Consent Form for students joining Mini Developer in-person coding classes.",
+                    meta_description: "Consent Form for students joining Mini Developer in-person coding classes.",
                     meta_keywords: "consent form for coding classes, consent form for programming classes, consent form for kids coding, consent form for children coding, consent form for teens coding, consent form for coding school, consent form for coding courses"
                 }} />
             <Stack direction="column" spacing={2} sx={{ justifyContent: 'space-evenly', padding: '1.5vmin' }} >
                 <Typography component="h5" variant='h5' style={{ color: 'black', fontWeight: 'bold', justifyContent: 'center', alignItems: 'center', textAlign: 'center' }}> Mini Developer Consent Form </Typography>
-                <Typography component="p" variant='p' style={{ color: '#333440', justifyContent: 'center', alignItems: 'center', textAlign: 'center' }}> You are requested to kindly fill this consent form before you begin your coding journey with us. </Typography>
+                <Typography component="p" variant='p' style={{ color: '#333440', justifyContent: 'center', alignItems: 'center', textAlign: 'center' }}> If your child is joining Mini Developer in-person coding classes then you are requested to kindly fill this consent form before you begin your coding journey with us. </Typography>
 
                 {/* Child Name */}
                 <Typography component="p" variant='p' style={{ color: '#333440', fontWeight: 'bold', alignItems: 'flex-start' }}> Child Name </Typography>
@@ -152,14 +152,14 @@ export default function ConsentForm() {
                     </Grid>
                 </Grid>
 
-                {/* Allow Social Media Images */}
-                <Grid item xs={12}>
-                    <YesOrNoComponent displayText={'I give permission for my child’s photograph to be used on the Mini Developer website, social media, digital marketing and publicity materials'} handleSelection={handleIsSocialAllowed} selectedValue={studentObject.is_social_allowed} />
-                </Grid>
-
                 {/* is local photos allowed */}
                 <Grid item xs={12}>
                     <YesOrNoComponent displayText={'I give my permission for my child’s image to be used to record their Learning Journey (both paper copies and online).'} handleSelection={handleIsLocalAllowed} selectedValue={studentObject.is_local_allowed} />
+                </Grid>
+
+                {/* Allow Social Media Images */}
+                <Grid item xs={12}>
+                    <YesOrNoComponent displayText={'I give permission for my child’s photograph to be used on the Mini Developer website, social media, digital marketing and publicity materials'} handleSelection={handleIsSocialAllowed} selectedValue={studentObject.is_social_allowed} />
                 </Grid>
 
                 {/* Medical Condition */}
