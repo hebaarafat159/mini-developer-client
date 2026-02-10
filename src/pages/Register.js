@@ -23,7 +23,7 @@ export default function RegisterForm() {
         has_computer: true,
         email: '',
         course_level: '',
-        previous_coding_lessons: false,
+        has_lessons_before: false,
         dob: ''
     }
 

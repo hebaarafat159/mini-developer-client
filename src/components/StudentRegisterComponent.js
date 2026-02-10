@@ -30,7 +30,7 @@ export default function StudentRegisterComponent({ index, requestData, requestEr
     }
 
     function handlePreviousCodingLessonsSelection(selection) {
-        requestData.children[index].previous_coding_lessons = selection;
+        requestData.children[index].has_lessons_before = selection;
         updateChildProperty(Object.keys(requestData.children[index])[6], selection)
     }
 
