@@ -2,9 +2,10 @@ import React, { useEffect, useState } from 'react'
 import { Stack, Typography, Grid } from '@mui/material'
 import CourseListComponent from '../components/CourseListItemComponent'
 import SEOComponent from '../components/SEOComponent.js'
+import { useNavigate } from 'react-router-dom'
 
 export default function Courses() {
-
+    const navigate = useNavigate();
     const [courses, setCourses] = useState([])
 
     useEffect(() => {
@@ -12,8 +13,11 @@ export default function Courses() {
             .then(response => response.json())
             .then(result => {
                 setCourses(result.body);
+            }).catch(error => {
+                console.log(error);
+                navigate("/error")
             })
-    }, []);
+    }, [navigate]);
     return (
         <Stack direction="column" spacing={2} sx={{ justifyContent: 'center', background: 'white', padding: '3vw' }} className='screen'>
             <SEOComponent
@@ -32,7 +36,7 @@ export default function Courses() {
 
                 {courses ? courses.map((course, index) => (
                     <Grid item xs={2} sm={4} md={4} key={index}>
-                        <CourseListComponent course={course} key={course._id} index={index}/>
+                        <CourseListComponent course={course} key={course._id} index={index} />
                     </Grid>
                 )) : null}
             </Grid>

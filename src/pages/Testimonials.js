@@ -4,10 +4,12 @@ import { Masonry } from "@mui/lab";
 import feedback_icon from '../assets/feedback_icon.png'
 import SEOComponent from '../components/SEOComponent.js'
 import FreeTrialButton from '../components/FreeTrialButton.js'
+import { useNavigate } from 'react-router-dom'
 
 export default function Testimonial({ testimonialsCount }) {
 
     const [testimonials, setTestimonials] = useState([])
+    const navigate = useNavigate();
 
     useEffect(() => {
         if (testimonialsCount > 0) {
@@ -16,6 +18,9 @@ export default function Testimonial({ testimonialsCount }) {
                 .then(result => {
                     setTestimonials(result.body);
                     console.log(`Testimonials Object : ${result.body}`)
+                }).catch(error => {
+                    console.log(error);
+                    navigate("/error")
                 })
         } else {
             fetch(`${process.env.REACT_APP_URL_APP_PATH}/testmonials`)
@@ -23,9 +28,12 @@ export default function Testimonial({ testimonialsCount }) {
                 .then(result => {
                     setTestimonials(result.body);
                     console.log(`Testimonials Object : ${result.body}`)
+                }).catch(error => {
+                    console.log(error);
+                    navigate("/error")
                 })
         }
-    }, [testimonialsCount]);
+    }, [testimonialsCount, navigate]);
 
 
     const ReviewCard = ({ testimonial }) => {
@@ -51,15 +59,15 @@ export default function Testimonial({ testimonialsCount }) {
 
     return (
         <Box py={6} sx={{ backgroundColor: "#f9f9f9" }}>
-            
+
             <SEOComponent
-                    seoData={{
+                seoData={{
                     seo_slug: "testimonials",
                     seo_title: "Testimonials | Mini Developer",
                     seo_description: "Check out what our customers have to say about Mini Developer coding classes. Read genuine testimonials and reviews from our satisfied clients.",
                     meta_description: "Check out what our customers have to say about Mini Developer coding classes. Read genuine testimonials and reviews from our satisfied clients.",
                     meta_keywords: "Mini Developer testimonials, customer reviews, coding class feedback, student testimonials, programming course reviews"
-            }} />            
+                }} />
             <Typography component="h3" variant='h4' style={{ color: '#4682b4', textAlign: 'center', fontWeight: 'bold', padding: '3vmin auto', fontFamily: 'Papyrus' }}>  Mini Developer<br />Customers' Reviews and Testimonials  </Typography>
             <Container maxWidth="xl" sx={{ mt: 3 }}>
                 <Masonry columns={{ xs: 1, sm: 2, md: 3 }} spacing={2}>

@@ -7,6 +7,7 @@ import { experimentalStyled as styled } from '@mui/material/styles';
 import Paper from '@mui/material/Paper';
 import YesOrNoComponent from '../components/YesOrNoComponent';
 import SEOComponent from '../components/SEOComponent.js'
+
 export default function ConsentForm() {
 
     const { studentId } = useParams();
@@ -16,7 +17,6 @@ export default function ConsentForm() {
     // eslint-disable-next-line
     const [requestErrorMsgs, setRequestErrorMsgs] = useState(
         {
-            is_social_allowed: '',
             is_local_allowed: '',
             medical_condition: '',
             emergency_contact_name: '',
@@ -32,9 +32,12 @@ export default function ConsentForm() {
                 .then(result => {
                     setStudentObject(result.body);
                     console.log(`Student Object : ${JSON.stringify(result.body)}`)
+                }).catch(error => {
+                    console.log(error);
+                    navigate("/error")
                 })
         }
-    }, [studentId]);
+    }, [studentId, navigate]);
 
     function submit() {
         if (validateForm()) {
@@ -56,6 +59,7 @@ export default function ConsentForm() {
                 })
                 .catch(error => {
                     console.log(error);
+                    navigate("/error")
                 })
         } else {
             // Form is not valid, display error messages or take other actions

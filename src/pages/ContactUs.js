@@ -10,8 +10,10 @@ import {
 import location_logo from '../assets/location_icon.png'
 import email_icon from '../assets/email_icon.png'
 import SEOComponent from '../components/SEOComponent.js'
+import { useNavigate } from 'react-router-dom'
 
 export default function ContactUs() {
+    const navigate = useNavigate();
     const [msg, setMsg] = useState({
         name: "",
         email: "",
@@ -142,6 +144,7 @@ export default function ContactUs() {
                 })
                 .catch(error => {
                     console.log(error);
+                    navigate("/error")
                 })
         } else {
             // Form is not valid, display error messages or take other actions

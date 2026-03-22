@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 import { Radio, RadioGroup, FormControlLabel, Typography, Stack, FormControl, MenuItem, InputLabel, Select, Grid, TextField } from '@mui/material'
 
 export default function ProgrameTypeComponent({ requestData, updateRegistrationDataProperty, errors, courseId }) {
@@ -8,6 +9,7 @@ export default function ProgrameTypeComponent({ requestData, updateRegistrationD
     // const [selectedRegion, setSelectedRegion] = useState({})
     const [regions, setRegions] = useState([])
     const [classrooms, setClassrooms] = useState([])
+    const navigate = useNavigate();
     useEffect(() => {
         fetch(`${process.env.REACT_APP_URL_APP_PATH}/locations/regions/active`)
             .then(response => response.json())
@@ -16,8 +18,11 @@ export default function ProgrameTypeComponent({ requestData, updateRegistrationD
 
                 setRegions(result.body);
 
+            }).catch(error => {
+                console.log(error);
+                navigate("/error")
             })
-    }, []);
+    }, [navigate]);
 
     function getCoursePalces(region, courseId) {
         fetch(`${process.env.REACT_APP_URL_APP_PATH}/classrooms/places/${region}/${courseId}`)

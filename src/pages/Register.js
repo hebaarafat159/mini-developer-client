@@ -87,9 +87,12 @@ export default function RegisterForm() {
                 .then(result => {
                     setCourseObject(result.body);
                     console.log(`Course Object : ${result.body}`)
+                }).catch(error => {
+                    console.log(error);
+                    navigate("/error")
                 })
         }
-    }, [courseId]);
+    }, [courseId, navigate]);
 
     // update request object item value 
     function updateRegistrationDataProperty(propertyName, newValue) {
@@ -275,6 +278,7 @@ export default function RegisterForm() {
                 })
                 .catch(error => {
                     console.log(error);
+                    navigate("/error")
                 })
         } else {
             // Form is not valid, display error messages or take other actions
@@ -303,7 +307,7 @@ export default function RegisterForm() {
                 {
                     (courseId !== undefined && courseId !== null && (!validator.isEmpty(courseId)) && courseId !== '0') ?
                         <Typography component="h5" variant='h5' style={{ color: '#ed7d45', fontWeight: 'bolder', justifyContent: 'center', alignItems: 'center', textAlign: 'center', fontFamily: 'Papyrus' }}>  {courseObject.slogan} </Typography>
-                        :  <Typography component="h4" variant='h4' style={{ color: '#ed7d45', textAlign: 'center', fontWeight: 'bolder', fontFamily: 'Papyrus', padding: '1vmin' }}>  Coding is the Language of the Future! </Typography>
+                        : <Typography component="h4" variant='h4' style={{ color: '#ed7d45', textAlign: 'center', fontWeight: 'bolder', fontFamily: 'Papyrus', padding: '1vmin' }}>  Coding is the Language of the Future! </Typography>
                 }
 
                 {/* page title */}

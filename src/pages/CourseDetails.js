@@ -13,29 +13,32 @@ import web_cover from '../assets/web_cover.avif'
 import apps_cover from '../assets/apps_cover.jpg'
 import python_cover from '../assets/python_cover.jpeg'
 import java_cover from '../assets/java_cover.jpg'
-
+import { useNavigate } from 'react-router-dom'
 import { useParams } from 'react-router-dom'
 
 export default function CourseDetails() {
 
   const { id } = useParams();
   const [courseObject, setCourseObject] = useState({})
-
+  const navigate = useNavigate();
   useEffect(() => {
     fetch(`${process.env.REACT_APP_URL_APP_PATH}/courses/${id}`)
       .then(response => response.json())
       .then(result => {
         setCourseObject(result.body);
         console.log(`Course Object : ${result.body}`)
+      }).catch(error => {
+        console.log(error);
+        navigate("/error")
       })
   }, [id]);
 
-  const card_images_array = [   
-      scratch_cover,
-      web_cover,
-      apps_cover,
-      python_cover,
-      java_cover
+  const card_images_array = [
+    scratch_cover,
+    web_cover,
+    apps_cover,
+    python_cover,
+    java_cover
   ]
 
   const courseDetailsArray = [

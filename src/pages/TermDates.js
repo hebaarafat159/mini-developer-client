@@ -5,12 +5,13 @@ import SEOComponent from '../components/SEOComponent.js'
 import React, { useEffect, useState, useRef } from 'react'
 import { timelineItemClasses } from '@mui/lab/TimelineItem';
 import { Timeline, TimelineItem, TimelineSeparator, TimelineConnector, TimelineContent, TimelineDot } from "@mui/lab";
-
+import { useNavigate } from 'react-router-dom'
 
 export default function TermDates() {
     const isFetched = useRef(false);
     const [termDates, setTermDates] = useState([])
     const [currentTerm, setCurrentTerm] = useState({})
+    const navigate = useNavigate();
 
     useEffect(() => {
         if (!isFetched.current) {
@@ -27,10 +28,13 @@ export default function TermDates() {
                     }
                     console.log("Finish Fetching Data .....");
 
+                }).catch(error => {
+                    console.log(error);
+                    navigate("/error")
                 })
         }
 
-    }, []);
+    }, [navigate]);
 
     return (
         <Stack direction="column" spacing={2} sx={{ justifyContent: 'center', background: 'white', padding: '3vw' }} className='screen'>
@@ -62,7 +66,7 @@ export default function TermDates() {
                                 currentTerm.sections.map((section, index) => (
                                     <>
                                         <Typography component="h5" variant='h6' style={{ color: '#ed7d45', fontWeight: 'bold', textAlign: 'left', paddingTop: '2.5vmin' }}>{section.title}</Typography>
-                                        <Typography component="p" variant='p' style={{ color: '#333440' , paddingBottom: '2.5vmin' }}> {section.start_date}</Typography>
+                                        <Typography component="p" variant='p' style={{ color: '#333440', paddingBottom: '2.5vmin' }}> {section.start_date}</Typography>
 
                                         <Typography component="p" variant='p' style={{ color: '#333440', fontWeight: 'bold', textAlign: 'left', paddingTop: '1.5vmin' }}>{section.end_date}</Typography>
                                         <Typography component="p" variant='p' style={{ color: '#333440' }}>{section.description}</Typography>
@@ -109,7 +113,7 @@ export default function TermDates() {
                                                 termDate.sections.map((section, index) => (
                                                     <Stack>
                                                         <Typography component="h5" variant='h6' style={{ color: '#ed7d45', fontWeight: 'bold', textAlign: 'left', paddingTop: '2.5vmin' }}>{section.title}</Typography>
-                                                        <Typography component="p" variant='p' style={{ color: '#333440' , paddingBottom: '2.5vmin'}}> {section.start_date}</Typography>
+                                                        <Typography component="p" variant='p' style={{ color: '#333440', paddingBottom: '2.5vmin' }}> {section.start_date}</Typography>
 
                                                         <Typography component="p" variant='p' style={{ color: '#333440', fontWeight: 'bold', textAlign: 'left', paddingTop: '1.5vmin' }}>{section.end_date}</Typography>
                                                         <Typography component="p" variant='p' style={{ color: '#333440' }}>{section.description}</Typography>
