@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from 'react'
 import { Typography, Grid, Stack, Button } from '@mui/material'
 import SingleTestimonialComponent from './SingleTestimonialComponent';
-
+import { useNavigate } from 'react-router-dom'
 // testimonialsCount will be 0 if we want to load all that we had
 export default function TestimonialsComponent({ testimonialsCount }) {
 
     const [testimonials, setTestimonials] = useState([])
-
+    const navigate = useNavigate();
     useEffect(() => {
         if (testimonialsCount > 0) {
             fetch(`${process.env.REACT_APP_URL_APP_PATH}/testmonials/latesttestimonials`)
@@ -14,6 +14,9 @@ export default function TestimonialsComponent({ testimonialsCount }) {
                 .then(result => {
                     setTestimonials(result.body);
                     console.log(`Testimonials Object : ${result.body}`)
+                }).catch(error => {
+                    console.log(error);
+                    navigate("/error")
                 })
         } else {
             fetch(`${process.env.REACT_APP_URL_APP_PATH}/testmonials`)
@@ -21,6 +24,9 @@ export default function TestimonialsComponent({ testimonialsCount }) {
                 .then(result => {
                     setTestimonials(result.body);
                     console.log(`Testimonials Object : ${result.body}`)
+                }).catch(error => {
+                    console.log(error);
+                    navigate("/error")
                 })
         }
     }, [testimonialsCount]);
